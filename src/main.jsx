@@ -6,6 +6,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import Scc from './pages/Scc.jsx'
+import Tracker from './pages/Tracker.jsx'
+import Register from './pages/Register.jsx'
+import Stats from './pages/Stats.jsx'
+
 const router = createBrowserRouter([
   {
     path:'/',
@@ -25,7 +29,26 @@ const router = createBrowserRouter([
 
   {
     path:'/scc',
-    element:<Scc/>
+    element:<Scc/>,
+    children:[
+    {
+      path:'/scc/',
+      element:<Tracker/>,
+
+    },
+
+    {
+      path:'/scc/register',
+      element:<Register/>,
+      
+    },
+
+    {
+      path:'/scc/stats',
+      element:<Stats/>,
+      
+    }
+  ]
   }
 ])
 createRoot(document.getElementById('root')).render(
