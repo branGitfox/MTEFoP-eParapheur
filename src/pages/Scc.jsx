@@ -146,7 +146,7 @@ const handleChange = (e) => {
                       <th className="px-4 py-3">Objet</th>
                       <th className='px-4 py-3'>Status</th>
                       <th className='px-4 py-3'>Livre</th>
-                      <th className='px-4 py-3'>Livre</th>
+                      <th className='px-4 py-3'>Infos</th>
                       
                     </tr>
                   </thead>
