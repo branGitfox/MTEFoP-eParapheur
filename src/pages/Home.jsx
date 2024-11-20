@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
@@ -14,9 +15,9 @@ function Home() {
           <p class="leading-normal text-2xl mb-8">
             Application Web de gestion de Courriers dediee au Service Central de courriers au sein du Ministere afin de simplifier le tracage de courriers.
           </p>
-          <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <Link to={'/login'} class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Se Connecter
-          </button>
+          </Link>
         </div>
     
         <div class="w-full md:w-3/5 py-6 text-center">
