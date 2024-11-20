@@ -2,8 +2,8 @@ import { FaKey, FaMailBulk } from 'react-icons/fa'
 
 function Login() {
   return (
-    <div className='w-[100%]  relative top-[4.5rem]  flex items-center'>
-        <div className=" w-[100%] lg:w-[1200px] lg:max-h-[80%] h-auto bg-white m-auto relative top-1 rounded-md flex flex-wrap">
+    <div className='w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen'>
+        <div className=" w-[100%] lg:w-[1200px]  h-auto bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
                 <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center">
                     <img src="/lottieee.png" className='w-4/5' alt="" />
                 </div>
