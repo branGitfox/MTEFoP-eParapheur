@@ -12,7 +12,7 @@ function Home() {
           <h1 class="my-4 text-5xl font-bold leading-tight self-center">
             e-Parapheur
           </h1>
-          <p class="leading-normal text-2xl mb-8 text-center">
+          <p class="leading-normal text-2xl lg:text-xl lg:w-[400px] lg:m-auto  mb-8 text-center">
             Application Web de gestion de Courriers dediee au Service Central de courriers au sein du Ministere afin de simplifier le tracage de courriers.
           </p>
           <Link to={'/login'} class="mx-auto lg:mx-0 self-center hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
