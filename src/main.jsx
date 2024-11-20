@@ -5,6 +5,7 @@ import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
+import Scc from './pages/Scc.jsx'
 const router = createBrowserRouter([
   {
     path:'/',
@@ -20,6 +21,11 @@ const router = createBrowserRouter([
         element:<Login/>
       }
     ]
+  },
+
+  {
+    path:'/scc',
+    element:<Scc/>
   }
 ])
 createRoot(document.getElementById('root')).render(
