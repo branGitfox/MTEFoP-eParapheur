@@ -2,13 +2,13 @@ import { FaKey, FaMailBulk } from 'react-icons/fa'
 
 function Login() {
   return (
-    <div className='w-[100%] h-[91.5vh]'>
-        <div className=" w-[100%] lg:w-[1200px] lg:h-[700px] h-auto bg-white m-auto relative top-20 rounded-md flex flex-wrap">
-                <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center">
-                    <img src="/lottieee.png" alt="" />
+    <div className='w-[100%]  relative top-[4.5rem]  flex items-center'>
+        <div className=" w-[100%] lg:w-[1200px] lg:max-h-[80%] h-auto bg-white m-auto relative top-1 rounded-md flex flex-wrap">
+                <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center">
+                    <img src="/lottieee.png" className='w-4/5' alt="" />
                 </div>
-                <div className="w-[100%] lg:w-[50%] md:pt-10">
-                    <h1 className='text-4xl text-center  mt-[7rem] mb-10 text-black'>Connexion</h1>
+                <div className="w-[100%] lg:w-[50%] ">
+                    <h1 className='text-4xl text-center  mt-[4rem] mb-10 text-black'>Connexion</h1>
                     <form action="" className='flex flex-col w-[100%] px-10  items-center'>
                         <div className="mb-5 w-[100%] relative">
                             <label htmlFor="email" className='block text-semibold text-black'>Email</label>
