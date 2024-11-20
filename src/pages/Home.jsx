@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function Home() {
   return (
     <>
-        <div class="pt-24">
-      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+      <div class="pt-24 lg:pt-10">
+      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
      
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
           <p class="uppercase tracking-loose w-full text-semibold text-3xl">Ministere du Travail, de l'Emploi <br /> et de la Fonction Publique</p>
@@ -20,8 +20,8 @@ function Home() {
           </Link>
         </div>
     
-        <div class="w-full md:w-3/5 py-6 text-center">
-          <img class="w-full md:w-4/5 z-50" src="/hero.png" />
+        <div class="w-full md:w-3/5 py-6 text-right relative ">
+          <img class="w-full md:w-4/5 z-50 relative lg:left-[7rem]" src="/hero.png" />
         </div>
       </div>
     </div>
