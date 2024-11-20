@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaArrowRight, FaCheckCircle, FaSearch, FaUser } from 'react-icons/fa'
+import { FaArrowRight, FaCheckCircle, FaInfo, FaInfoCircle, FaSearch, FaUser } from 'react-icons/fa'
 import data from '../data'
 
 function Scc() {
@@ -185,6 +185,9 @@ const handleChange = (e) => {
                         </td>
                         <td class="px-4 py-3 text-xs">
                               <FaCheckCircle className='text-green-600 text-xl'/>
+                        </td> 
+                        <td class="px-4 py-3 text-xs">
+                              <FaInfoCircle className='text-blue-900 text-xl'/>
                         </td> 
                       </tr>
                     ))}
