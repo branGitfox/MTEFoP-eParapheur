@@ -1,7 +1,8 @@
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 function Aside() {
+    const location = useLocation()
   return (
     <>
             <aside
@@ -19,10 +20,13 @@ function Aside() {
           </ul>
           <ul>
             <li class="relative px-6 py-3 ">
-            <span
+                {
+                    location.pathname ==='/scc/'?(   <span
                 class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
-              ></span>
+              ></span>):''
+                }
+         
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc/'              >
@@ -44,6 +48,12 @@ function Aside() {
               </Link>
             </li>
             <li class="relative px-6 py-3">
+            {
+                    location.pathname ==='/scc/register'?(   <span
+                class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>):''
+                }
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc/register'
@@ -66,6 +76,12 @@ function Aside() {
               </Link>
             </li>
             <li class="relative px-6 py-3">
+            {
+                    location.pathname ==='/scc/stats'?(   <span
+                class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>):''
+                }
               <Link
                 class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc/stats'

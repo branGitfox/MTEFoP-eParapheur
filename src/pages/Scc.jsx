@@ -12,8 +12,9 @@ function Scc() {
         <div class="w-full overflow-hidden shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-gray-100 mb-5">
             <h2 className="font-semibold text-black">
-              SCC-Service Central de Courriers
+              SCC
             </h2>
+            <h1 className="font-bold text-blue-950 text-center text-xl">E-Parapheur</h1>
             <h3 className="font-semibold text-black">
               Utilisateur <FaUser className="inline ml-2" />
             </h3>
