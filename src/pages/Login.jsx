@@ -8,7 +8,7 @@ function Login() {
                     <img src="/lottieee.png" className='w-4/5' alt="" />
                 </div>
                 <div className="w-[100%] lg:w-[50%] ">
-                    <h1 className='text-4xl text-center  mt-[4rem] mb-10 text-black'>Connexion</h1>
+                    <h1 className='text-4xl text-center  mt-[4rem] mb-10  text-[#A10304]'>Connexion</h1>
                     <form action="" className='flex flex-col w-[100%] px-10  items-center'>
                         <div className="mb-5 w-[100%] relative">
                             <label htmlFor="email" className='block text-semibold text-black'>Email</label>
@@ -26,7 +26,7 @@ function Login() {
                             <input type="checkbox" id='ss' className='mx-3'/>
                         </div>
                         <div className="mb-5 w-[100%]">
-                            <input type="submit" id='email' placeholder='email' value={'Se connecter'} className='py-4 px-5 bg-red-700 font-semibold text-white w-[100%] rounded'/>
+                            <input type="submit" id='email' placeholder='email' value={'Se connecter'} className='py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded'/>
                         </div>
                     </form>
                 </div>

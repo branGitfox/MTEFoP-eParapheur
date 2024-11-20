@@ -1,13 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaArrowRight, FaCheckCircle, FaSearch, FaUser } from 'react-icons/fa'
+import data from '../data'
 
 function Scc() {
+  const [docs] = useState(data)
+  const [search, setSearch] = useState('')
+const handleChange = (e) => {
+  setSearch(e.target.value)
+}
+  const filtered = docs.filter((doc) => {
+    if(doc.prop.toLowerCase().includes(search)){
+      return true
+    }
+
+    if(doc.ref.toLowerCase().includes(search)){
+      return true
+    }
+
+    if(doc.mat.toLowerCase().includes(search)){
+      return true
+    }
+  })
+  
+  
   return (
     <div className='w-[100%] min-h-[100vh] bg-white'>
       <div
       class="flex h-screen bg-gray-50 ">
               <aside
-        class="z-20 hidden w-64 overflow-y-auto bg-purple-800  md:block flex-shrink-0"
+        class="z-20 hidden w-64 overflow-y-auto bg-[#191970]  md:block flex-shrink-0"
       >
         <div class="py-4 text-white ">
           <a
@@ -20,14 +41,14 @@ function Scc() {
        
           </ul>
           <ul>
-            <li class="relative px-6 py-3">
+            <li class="relative px-6 py-3 ">
             <span
-                class="absolute inset-y-0 left-0 w-1 bg-orange-600 rounded-tr-lg rounded-br-lg"
+                class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="forms.html"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
+                href=""
               >
                 <svg
                   class="w-5 h-5"
@@ -48,7 +69,7 @@ function Scc() {
             </li>
             <li class="relative px-6 py-3">
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 href="cards.html"
               >
                 <svg
@@ -70,7 +91,7 @@ function Scc() {
             </li>
             <li class="relative px-6 py-3">
               <a
-                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 "
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 href="charts.html"
               >
                 <svg
@@ -94,7 +115,7 @@ function Scc() {
              </ul>
           <div class="px-6 my-6">
             <button
-              class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-orange-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
               Se Deconnecter
               <FaArrowRight/>
@@ -109,10 +130,10 @@ function Scc() {
                 <h3 className='font-semibold text-black'>Utilisateur <FaUser className='inline ml-2'/></h3>
             </div>
             <div className=" w-[100%] justify-center flex p-3 mb-5 relative text-black">
-                <input type="text" className='border w-2/3 p-2 rounded-md focus:outline-orange-500 shadow' placeholder='rechercher'/>
+                <input onChange={handleChange} value={search} type="text" className='border w-2/3 p-2 rounded-md focus:outline-orange-500 shadow' placeholder='rechercher'/>
                 <FaSearch size={20} className='absolute right-[20%] md:right-[18%] top-6 text-black '/>
             </div>
-              <div class="w-full overflow-x-auto">
+              <div class="w-full overflow-x-auto overflow-y-scroll max-h-[700px]">
                 <table class="w-full whitespace-no-wrap">
                   <thead>
                     <tr
@@ -125,44 +146,49 @@ function Scc() {
                       <th className="px-4 py-3">Objet</th>
                       <th className='px-4 py-3'>Status</th>
                       <th className='px-4 py-3'>Livre</th>
+                      <th className='px-4 py-3'>Livre</th>
+                      
                     </tr>
                   </thead>
                   <tbody
                     class="bg-white divide-y "
                   >
-                    <tr class="text-gray-700">
-                      <td class="px-4 py-3">
-                        <div class="flex items-center text-sm">
-                        
-                   
-                          <div>
-                            <p class="font-semibold">Brandon Fidelin</p>
+                    {filtered.map((data, index) => (
+                        <tr class="text-gray-700">
+                        <td class="px-4 py-3">
+                          <div class="flex items-center text-sm">
+                          
+                     
+                            <div>
+                              <p class="font-semibold">{data.ref}</p>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                         863.45
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Blalalala
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Blablabla
-                      </td>
-                      <td class="px-4 py-3 text-sm">
-                        Blablabla
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                        <span
-                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full "
-                        >
-                          Decharge
-                        </span>
-                      </td>
-                      <td class="px-4 py-3 text-xs">
-                            <FaCheckCircle className='text-green-600 text-xl'/>
-                      </td> 
-                    </tr>
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                           {data.mat}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {data.dir}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {data.prop}
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                          {data.objet}
+                        </td>
+                        <td class="px-4 py-3 text-xs">
+                          <span
+                            class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full "
+                          >
+                            Decharge
+                          </span>
+                        </td>
+                        <td class="px-4 py-3 text-xs">
+                              <FaCheckCircle className='text-green-600 text-xl'/>
+                        </td> 
+                      </tr>
+                    ))}
+                    
                     
 
                    
