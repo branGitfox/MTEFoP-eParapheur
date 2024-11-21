@@ -6,11 +6,11 @@ function Scc() {
  
 
   return (
-    <div className="w-[100%] min-h-[100vh] bg-white">
-      <div class="flex h-screen bg-gray-50 ">
+    <div className="w-[100%] min-h-[100vh] bg-gray-50">
+      <div class="flex h-screen bg-gray-100 ">
         <Aside />
         <div class="w-full md:overflow-hidden shadow-xs">
-          <div className=" w-[100%] justify-between flex p-3 bg-gray-100 mb-5">
+          <div className=" w-[100%] justify-between flex p-3 bg-gray-50 mb-5">
             <h2 className="font-semibold text-black">
               SCC
             </h2>
