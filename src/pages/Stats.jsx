@@ -1,6 +1,9 @@
 import React from 'react'
+import { FaPaperclip, FaPenNib, FaThumbsUp } from 'react-icons/fa';
+import { SiDeliveroo, SiDocsdotrs, SiPaperswithcode, SiPinboard } from 'react-icons/si';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar } from 'recharts'
 const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', uv: 100, pv: 2400, amt: 2400}, {name: 'Page A', uv: 200, pv: 2200, amt: 2200}];
+
 function Stats() {
   return (
     <>    
@@ -20,7 +23,7 @@ function Stats() {
                     <div class="bg-white border rounded shadow p-2">
                         <div class="flex flex-row items-center">
                             <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-blue-800"><i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i></div>
+                                <div class="rounded p-3 bg-blue-800"><SiPaperswithcode/></div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="font-bold uppercase text-gray-500">Total Dossiers</h5>
@@ -35,7 +38,7 @@ function Stats() {
                     <div class="bg-white border rounded shadow p-2">
                         <div class="flex flex-row items-center">
                             <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-orange-600"><i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i></div>
+                                <div class="rounded p-3 bg-orange-600"><SiPinboard/></div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="font-bold uppercase text-gray-500">Total En Attente</h5>
@@ -50,7 +53,7 @@ function Stats() {
                     <div class="bg-white border rounded shadow p-2">
                         <div class="flex flex-row items-center">
                             <div class="flex-shrink pr-4">
-                                <div class="rounded p-3 bg-yellow-600"><i class="fa fa-wallet fa-2x fa-fw fa-inverse"></i></div>
+                                <div class="rounded p-3 bg-yellow-600"><FaThumbsUp/></div>
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="font-bold uppercase text-gray-500">Total Livre</h5>
