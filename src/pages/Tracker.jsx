@@ -29,7 +29,7 @@ function Tracker() {
               onChange={handleChange}
               value={search}
               type="text"
-              className="border w-2/3 p-2 rounded-md focus:outline-orange-500 shadow"
+              className="border w-2/3 p-2 rounded-md focus:outline-blue-900 shadow"
               placeholder="rechercher"
             />
             <FaSearch
