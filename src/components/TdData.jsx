@@ -1,7 +1,12 @@
-import React from 'react'
-import { FaCheckCircle, FaInfoCircle, FaSearch, } from "react-icons/fa";
+import React, { useState } from 'react'
+import { FaArrowDown, FaArrowUp, FaCheckCircle, FaInfoCircle, FaSearch, } from "react-icons/fa";
 
 function TdData({data}) {
+    const [showInfo, setShowInfo] = useState(false)
+
+    const toggleShow = () => {
+        setShowInfo(!showInfo)
+    }
   return (
     <>
         <tr  class="text-gray-700">
@@ -26,14 +31,16 @@ function TdData({data}) {
                       <FaCheckCircle className="text-green-600 text-xl" />
                     </td>
                     <td class="px-4 py-3 text-xs">
-                      <FaInfoCircle className="text-blue-00 text-xl" />
+                        {showInfo === true? <FaArrowUp onClick={toggleShow} className="text-blue-00 text-xl" />: <FaArrowDown onClick={toggleShow} className="text-blue-00 text-xl" />}
+                     
                     </td>
                   </tr>
-                  <tr>
+                  {showInfo &&  <tr>
                       <td colSpan={8} className='text-center text-gray-800'>
                         <h1>Hello world</h1>
                       </td>
-                  </tr>
+                  </tr>}
+                
     </>
   )
 }
