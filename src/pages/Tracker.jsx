@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaCheckCircle, FaInfoCircle, FaSearch, FaUser } from "react-icons/fa";
+import { FaCheckCircle, FaInfoCircle, FaSearch, } from "react-icons/fa";
 import data from "../data";
 
 
