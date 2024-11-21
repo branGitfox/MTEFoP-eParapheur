@@ -73,7 +73,7 @@ const data = [
         ref:'1233',
         mat:'1213',
         dir:'DRFP',
-        prop:'Mioty Liana',
+        prop:'Nikita vanillie',
         objet:'Retraite',
         status:'Dechargee'
 
@@ -93,7 +93,7 @@ const data = [
         ref:'1233',
         mat:'1213',
         dir:'DRFP',
-        prop:'Mioty Liana',
+        prop:'Nikita Vanillie',
         objet:'Retraite',
         status:'Dechargee'
 

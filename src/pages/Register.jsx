@@ -4,7 +4,7 @@ function Register() {
   return (
     <>
         
-<form className='w-[100%]  md:w-4/6 m-auto  p-2 bg-white rounded-md shadow md:mt-20' >
+<form className='w-[100%]  md:w-5/6 m-auto  p-2 bg-white rounded-md shadow md:mt-20' >
     <div class="grid gap-6 mb-1 md:grid-cols-2">
         <div>
             <label for="ref" class="block mb-2 text-sm font-medium text-gray-900 ">Reference</label>
@@ -31,7 +31,10 @@ function Register() {
                 <option value="">DMI</option>
             </select>
         </div>
-        
+        <div>
+            <label for="date" class="block mb-2 text-sm font-medium text-gray-900 ">Date D'ajout</label>
+                <input type="date" name="" id="date" className='text-black w-full border p-1 rounded' />
+            </div>
     </div>
     
     
