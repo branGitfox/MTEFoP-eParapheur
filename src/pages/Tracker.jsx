@@ -24,7 +24,7 @@ function Tracker() {
     });
   return (
     <>
-                  <div className=" w-[100%] justify-center flex p-3 mb-5 relative text-black">
+                  <div className=" w-[100%]  justify-center flex p-3 mb-5 relative text-black">
             <input
               onChange={handleChange}
               value={search}
@@ -37,7 +37,7 @@ function Tracker() {
               className="absolute right-[20%] md:right-[18%] top-6 text-black "
             />
           </div>
-          <div class="w-full overflow-x-auto overflow-y-scroll max-h-[700px]">
+          <div class="w-full overflow-x-auto overflow-y-scroll max-h-[98%]">
             <table class="w-full whitespace-no-wrap">
               <thead>
                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
@@ -53,7 +53,7 @@ function Tracker() {
               </thead>
               <tbody class="bg-white divide-y ">
                 {filtered.map((data, index) => (
-                  <tr class="text-gray-700">
+                  <tr key={index} class="text-gray-700">
                     <td class="px-4 py-3">
                       <div class="flex items-center text-sm">
                         <div>

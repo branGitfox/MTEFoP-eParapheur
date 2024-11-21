@@ -4,7 +4,16 @@ const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', u
 function Stats() {
   return (
     <>    
-        <h3 className='text-gray-900 text-xl text-center font-semibold'>Statistiques</h3> 
+        <div className="flex gap-4">
+               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
+                <select name="" id="" className='text-gray-200 border p-1 rounded-xl bg-yellow-600 focus:outline-none'>
+                      <option value="">2021</option>
+                      <option value="">2022</option>
+                      <option value="">2023</option>
+                      <option value="">2024</option>
+                </select>
+        </div>
+   
         <div class="flex flex-wrap">
                 <div class="w-full md:w-1/2 xl:w-1/3 p-3">
                    

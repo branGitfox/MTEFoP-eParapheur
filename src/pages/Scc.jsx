@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { FaCheckCircle, FaInfoCircle, FaSearch, FaUser } from "react-icons/fa";
+import {  FaUser } from "react-icons/fa";
 import Aside from "../components/Aside";
 import { Outlet } from "react-router-dom";
 function Scc() {
  
 
   return (
-    <div className="w-[100%] min-h-[100vh] bg-gray-50">
-      <div class="flex min-h-screen bg-gray-100 ">
+    <div className="w-[100%]  min-h-[100vh]">
+      <div class="flex min-h-screen md:overflow-y-hidden  bg-gray-100 md:h-screen">
         <Aside />
         <div class="w-full md:overflow-hidden shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-gray-50 mb-5">

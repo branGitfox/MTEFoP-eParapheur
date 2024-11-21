@@ -3,8 +3,8 @@ import React from 'react'
 function Register() {
   return (
     <>
-        
-<form className='w-[100%]  md:w-5/6 m-auto  p-2 bg-white rounded-md shadow md:mt-20' >
+        <h3 className='text-gray-900 text-2xl ml-2.5 font-semibold '>Enregistrement d'un Dossier</h3>
+<form className='w-[100%]  m-auto  p-2 bg-white rounded-md shadow mt-5 md:mt-10' >
     <div class="grid gap-6 mb-1 md:grid-cols-2">
         <div>
             <label for="ref" class="block mb-2 text-sm font-medium text-gray-900 ">Reference</label>
