@@ -11,10 +11,10 @@ function Scc() {
         <Aside />
         <div class="w-full md:overflow-hidden shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-gray-50 mb-5">
-            <h2 className="font-semibold text-black">
+            <h2 className="font-semibold text-gray-700">
               SCC
             </h2>
-            <h3 className="font-semibold text-black">
+            <h3 className="font-semibold text-gray-700">
               Utilisateur <FaUser className="inline ml-2" />
             </h3>
           </div>
