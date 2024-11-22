@@ -19,7 +19,7 @@ function Scc() {
             <h2 className="font-semibold hidden md:block text-gray-700">
               SCC
             </h2>
-            {/* {showMenu?<BiX className="text-gray-200 md:hidden z-50" onClick={toggleMenu} size={20} cursor={'pointer'}/>:*/}<BiMenu className="text-gray-900 md:hidden" onClick={toggleMenu} size={20} cursor={'pointer'}/>} 
+            <BiMenu className="text-gray-900 md:hidden" onClick={toggleMenu} size={20} cursor={'pointer'}/>
             <h2 className="font-semibold ml-16 md:hidden text-gray-700">
               SCC
             </h2>
