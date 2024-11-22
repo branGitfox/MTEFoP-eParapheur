@@ -1,6 +1,6 @@
 import React from 'react'
-import { FaPaperclip, FaPenNib, FaThumbsUp } from 'react-icons/fa';
-import { SiDeliveroo, SiDocsdotrs, SiPaperswithcode, SiPinboard } from 'react-icons/si';
+import {FaThumbsUp } from 'react-icons/fa';
+import { SiPaperswithcode, SiPinboard } from 'react-icons/si';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar } from 'recharts'
 const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', uv: 100, pv: 2400, amt: 2400}, {name: 'Page A', uv: 200, pv: 2200, amt: 2200}];
 

@@ -39,7 +39,7 @@ function Tracker() {
               className="absolute right-[20%] md:right-[18%] top-6 text-black "
             />
           </div>
-          <div class="w-full overflow-x-auto overflow-y-scroll max-h-[98%]">
+          <div class="w-full overflow-x-auto overflow-y-scroll max-h-[83%]">
             <table class="w-full whitespace-no-wrap">
               <thead>
                 <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
