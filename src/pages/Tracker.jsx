@@ -12,15 +12,15 @@ function Tracker() {
       setSearch(e.target.value);
     };
     const filtered = docs.filter((doc) => {
-      if (doc.prop.toLowerCase().includes(search)) {
+      if (doc.prop.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
   
-      if (doc.ref.toLowerCase().includes(search)) {
+      if (doc.ref.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
   
-      if (doc.mat.toLowerCase().includes(search)) {
+      if (doc.mat.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
     });
