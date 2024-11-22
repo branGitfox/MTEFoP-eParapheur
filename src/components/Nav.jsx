@@ -35,7 +35,7 @@ function Nav() {
       <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
         <ul class="list-reset lg:flex justify-end flex-1 items-center">
           <li class="mr-3">
-            <a class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="#">Accueil</a>
+            <Link class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" to="/">Accueil</Link>
           </li>
           <li class="mr-3">
             <a class="inline-block text-gray-100 no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#infos">Infos</a>
@@ -57,7 +57,7 @@ function Nav() {
   </nav>
   {showMenu &&       <div className="absolute top-[4.2rem] z-20 bg-blue-900 w-full flex flex-col items-center justify-center p-3 gap-1">
       <li class="list-none">
-            <a class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="#">Accueil</a>
+            <Link class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="/">Accueil</Link>
           </li>
 
           <li class="list-none">
