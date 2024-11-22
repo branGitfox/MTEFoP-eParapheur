@@ -28,11 +28,11 @@ const router = createBrowserRouter([
   },
 
   {
-    path:'/scc',
+    path:'/',
     element:<Scc/>,
     children:[
     {
-      path:'/scc/',
+      path:'/scc',
       element:<Tracker/>,
 
     },
