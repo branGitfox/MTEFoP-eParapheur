@@ -55,7 +55,7 @@ function Nav() {
     </div>
     <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
   </nav>
-  {showMenu &&       <div className="absolute top-[4.2rem] bg-blue-900 w-full flex flex-col items-center justify-center p-3 gap-1">
+  {showMenu &&       <div className="absolute top-[4.2rem] z-20 bg-blue-900 w-full flex flex-col items-center justify-center p-3 gap-1">
       <li class="list-none">
             <a class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="#">Accueil</a>
           </li>
