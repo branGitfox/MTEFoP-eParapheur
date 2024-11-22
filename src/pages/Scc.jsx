@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {  FaUser,  } from "react-icons/fa";
 import Aside from "../components/Aside";
 import { Outlet } from "react-router-dom";
-import { BiMenu, BiX } from "react-icons/bi";
+import { BiMenu} from "react-icons/bi";
 function Scc() {
     const [showMenu, setShowMenu] = useState(false)
 
