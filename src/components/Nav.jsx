@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function Nav() {
-  
+  const [showMenu, setShowMenu] = useState(false)
+
+  const toggleMenu= () => {
+    setShowMenu(!showMenu)
+  }
   return (
     <>
     
@@ -18,7 +22,7 @@ function Nav() {
         </a>
       </div>
       <div class="block lg:hidden pr-4">
-        <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+        <button id="nav-toggle" onClick={toggleMenu} class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
           <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <title>Menu</title>
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -28,13 +32,13 @@ function Nav() {
       <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
         <ul class="list-reset lg:flex justify-end flex-1 items-center">
           <li class="mr-3">
-            <a class="inline-block py-2 px-4 text-black font-bold no-underline" href="#">Accueil</a>
+            <a class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="#">Accueil</a>
           </li>
           <li class="mr-3">
-            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#">Infos</a>
+            <a class="inline-block text-gray-100 no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#infos">Infos</a>
           </li>
           <li class="mr-3">
-            <a class="inline-block text-black no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#">Contact</a>
+            <a class="inline-block text-gray-100 no-underline hover:text-gray-800 hover:text-underline py-2 px-4" href="#contact">Contact</a>
           </li>
         </ul>
         <Link
@@ -48,7 +52,7 @@ function Nav() {
     </div>
     <hr class="border-b border-gray-100 opacity-25 my-0 py-0" />
   </nav>
-      <div className="absolute top-[4.2rem] bg-blue-900 w-full flex flex-col items-center justify-center p-3 gap-1">
+  {showMenu &&       <div className="absolute top-[4.2rem] bg-blue-900 w-full flex flex-col items-center justify-center p-3 gap-1">
       <li class="list-none">
             <a class="inline-block py-2 px-4 text-gray-100 font-bold no-underline" href="#">Accueil</a>
           </li>
@@ -66,7 +70,8 @@ function Nav() {
         >
           Mon Dossier
         </Link>
-      </div>
+      </div>}
+
   </>
   )
 }
