@@ -15,11 +15,11 @@ function Scc() {
             <h2 className="font-semibold hidden md:block text-gray-700">
               SCC
             </h2>
-            <BiMenu className="text-gray-900 md:hidden" size={20}/>
+            <BiMenu className="text-gray-900 md:hidden" size={20} cursor={'pointer'}/>
             <h2 className="font-semibold ml-16 md:hidden text-gray-700">
               SCC
             </h2>
-            <h3 className="font-semibold text-gray-700">
+            <h3 className="font-semibold text-gray-700 cursor-pointer" >
               Utilisateur <FaUser className="inline ml-2" />
             </h3>
           </div>
