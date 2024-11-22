@@ -1,7 +1,8 @@
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
-function Aside({menu}) {
+import { BiX } from 'react-icons/bi'
+function Aside({toggleMenu,menu}) {
     const location = useLocation()
   return (
     <>
@@ -116,9 +117,11 @@ function Aside({menu}) {
         </div>
       </aside>
       {menu &&       <aside
-        class="z-20  w-64 overflow-y-auto bg-[#191970]  md:block flex-shrink-0"
+        class="z-20  w-64 overflow-y-auto absolute h-screen bg-[#191970]  md:block flex-shrink-0"
       >
-        <div class="py-4 text-white ">
+
+        <div class="py-4 text-white relative">
+        <BiX className="text-gray-200 md:hidden z-50 absolute right-2" onClick={toggleMenu} size={20} cursor={'pointer'}/>
           <a
             class="ml-6 text-lg font-bold text-white "
             href="#"
