@@ -24,7 +24,7 @@ function Scc() {
               SCC
             </h2>
             <h3 className="font-semibold text-gray-700 cursor-pointer" >
-              Utilisateurs <FaUser className="inline ml-2" />
+              Utilisateur <FaUser className="inline ml-2" />
             </h3>
           </div>
           <Outlet/>
