@@ -29,6 +29,7 @@ const submit = async (e) => {
     .then(() => setIsLoading(false))
     .catch(err => toast.error
     (err.response.data.message))
+    .finally(() => setIsLoading(false))
 }
 
 
@@ -61,11 +62,19 @@ const submit = async (e) => {
                                 <input onChange={handleChange} className="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded"  name="im" type="text" required="" placeholder="L'Imatricule Du Nouveau Utilisateur" aria-label="Email"/>
                             </div>
                             <div className="mt-2">
+                                <label className="text-md block text-gray-600" htmlFor="cus_email">Direction</label>
+                                <select onChange={handleChange} name="id_dir"  className='w-full p-3 text-gray-900 bg-gray-200 rounded-md'>
+                                    <option value="1">DRFP</option>
+                                    <option value="2">DRHE</option>
+                                    <option value="3">DMI</option>
+                                </select>
+                            </div>
+                            <div className="mt-2">
                                 <label className="text-md block text-gray-600" htmlFor="cus_email">Role</label>
                                 <select onChange={handleChange} name="role"  className='w-full p-3 text-gray-900 bg-gray-200 rounded-md'>
-                                    <option value="1">DRFP</option>
-                                    <option value="2"></option>
-                                    <option value="3"></option>
+                                    <option value="admin">Admin</option>
+                                    <option value="sp">Secretaire Particulier</option>
+                                    <option value="scc">SCC</option>
                                 </select>
                             </div>
                             <div className="inline-block mt-2 w-1/2 pr-1">
