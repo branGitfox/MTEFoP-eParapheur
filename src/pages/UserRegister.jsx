@@ -84,7 +84,7 @@ const submit = async (e) => {
                    </div>
                        <input type="hidden" name='from' value={'vixfgit@gmail.com'}/>
                        <input type="hidden" name='to' value={formData?.email}/>
-                       <input type="hidden" name='message' value={'test farany angamba'} />
+                       <input type="hidden" name='message' value={`Votre Mot De Passe dans e-parapheur est : ${formData?.password}`} />
                    <div className="mt-6">
                        <button className="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" type="submit">{isLoading?(<BeatLoader color='yellow'/>):'Enregistrer'}</button>
                    </div>
