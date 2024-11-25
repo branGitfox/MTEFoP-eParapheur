@@ -28,11 +28,11 @@ const submit = async (e) => {
     .then(() =>
         emailjs.sendForm('service_m0052xg', 'template_bypqpvc', form.current, 'Zt1TUCueO51qvJEol')
             .then((result) => {
-                console.log(result.text);
-                console.log("message sent!")
+                if(result.text ==='OK') {
+                    toast.success('Email bien envoyee')
+                }
             }, (error) => {
-                console.log(error.text);
-                console.log("error sending message, try again!")
+                toast.error('Impossible d\'envoyer l\'email')
             }))
     .then(() => setIsLoading(false))
     .catch(err => toast.error
