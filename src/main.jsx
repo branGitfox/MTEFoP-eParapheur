@@ -9,6 +9,8 @@ import Scc from './pages/Scc.jsx'
 import Tracker from './pages/Tracker.jsx'
 import Register from './pages/Register.jsx'
 import Stats from './pages/Stats.jsx'
+import Admin from './pages/Admin.jsx'
+import UserRegister from './pages/UserRegister.jsx'
 
 const router = createBrowserRouter([
   {
@@ -47,8 +49,22 @@ const router = createBrowserRouter([
       path:'/scc/stats',
       element:<Stats/>,
       
-    }
-  ]
+    },
+
+
+  ],
+
+  },
+
+  {
+    path:'/admin',
+    element:<Admin/>,
+    children:[
+      {
+        index:true,
+        element:<UserRegister/>
+      }
+    ]
   }
 ])
 createRoot(document.getElementById('root')).render(
