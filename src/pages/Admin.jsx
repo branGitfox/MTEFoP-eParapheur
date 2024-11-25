@@ -6,11 +6,25 @@ import axiosRequest from '../axiosClient/axiosClient'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { BeatLoader } from 'react-spinners'
+import emailjs from '@emailjs/browser'
+import { useRef } from 'react'
 function Admin() {
 
     const [formData, setFormData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
-
+    const form = useRef()
+    const sendEmail = (e) => {
+        e.preventDefault();
+        
+            emailjs.sendForm('service_m0052xg', 'template_bypqpvc', form.current, 'Zt1TUCueO51qvJEol')
+                .then((result) => {
+                    console.log(result.text);
+                    console.log("message sent!")
+                }, (error) => {
+                    console.log(error.text);
+                    console.log("error sending message, try again!")
+                });
+            };
     const handleChange = (e) => {
         const {name, value} = e.target
 
@@ -26,6 +40,15 @@ const submit = async (e) => {
     await axiosRequest
     .post('/register', formData)
     .then(({data}) => toast.success(data.message))
+    .then(
+        emailjs.sendForm('service_m0052xg', 'template_bypqpvc', form.current, 'Zt1TUCueO51qvJEol')
+            .then((result) => {
+                console.log(result.text);
+                console.log("message sent!")
+            }, (error) => {
+                console.log(error.text);
+                console.log("error sending message, try again!")
+            }))
     .then(() => setIsLoading(false))
     .catch(err => toast.error
     (err.response.data.message))
@@ -47,7 +70,7 @@ const submit = async (e) => {
 <main className="w-full flex-grow p-6">
            
                     <div className="leading-loose">
-                        <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit}>
+                        <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit} ref={form}>
                             <p className="text-lg text-gray-800 font-medium pb-4">Customer information</p>
                             <div className="">
                                 <label  className="block text-md  text-gray-600" htmlFor="name">Nom</label>
@@ -85,10 +108,14 @@ const submit = async (e) => {
                                 <label className=" block text-md text-gray-600" htmlFor="conf">Confirmation Mot de passe</label>
                                 <input onChange={handleChange} className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded" id='conf'   name="password_confirmation" type="password" required="" placeholder="Confirmation Du Mot De Passe" />
                             </div>
+                                <input type="hidden" name='from' value={'vixfgit@gmail.com'}/>
+                                <input type="hidden" name='to' value={formData?.email}/>
+                                <input type="hidden" name='message' value={'test farany angamba'} />
                             <div className="mt-6">
                                 <button className="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded" type="submit">{isLoading?(<BeatLoader color='yellow'/>):'Enregistrer'}</button>
                             </div>
                         </form>
+
                     </div>
         </main>
 
@@ -96,6 +123,7 @@ const submit = async (e) => {
 </div>
 </div>
 <ToastContainer/>
+
 </>
    
   )
