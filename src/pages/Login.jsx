@@ -5,7 +5,7 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
   const {setUser,  user} = useContext(userContext)
@@ -15,31 +15,43 @@ const navigation = useNavigate()
   const [formData, setFormData] = useState({});
 
 
+
+
  useEffect(() => {
   if(userData !== null){
     setUser(userData.user)
     localStorage.setItem('ACCESS_TOKEN', userData.token)
-  }
-
- 
-  
-  
-  if(localStorage.getItem('ACCESS_TOKEN') !== null){
-    if(user.role=='scc' || user.role == 'admin'){
+    // localStorage.setItem('Role', userData.token)
+    if(userData.user.role=='scc' || userData.user.role == 'sp'){
       navigation('/scc')
+
     }else{
       navigation('/admin')
     }
+  }  
+ }, [userData])
+
+ useEffect(() => {
+  if(localStorage.getItem('ACCESS_TOKEN') !== null){
+    if(user.role =='scc' || user.role =='sp'){
+      navigation('/scc')
+    }
+
+    if(user.role =='admin'){
+      navigation('/admin')
+    }
   }
-  
- })
+ }, [user])
+
+ 
+ 
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((formData) => ({ ...formData, [name]: value }));
   };
 
-  // console.log(user);
 
   const handleSubmit = async (e) => {
     setIsLoading(true)

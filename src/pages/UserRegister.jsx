@@ -19,7 +19,6 @@ function UserRegister() {
   const submit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
-    console.log(formData);
     await axiosRequest
       .post("/register", formData)
       .then(({ data }) => toast.success(data.message))
@@ -147,9 +146,6 @@ function UserRegister() {
                 placeholder="Confirmation Du Mot De Passe"
               />
             </div>
-            {/* <input type="hidden" name='from_email' value={'vixfgit@gmail.com'}/>
-                       <input type="hidden" name='user_email' value={formData?.email}/>
-                       <input type="hidden" name='message' value={`Votre Mot De Passe dans e-parapheur est : ${formData?.password}`} /> */}
             <div className="mt-6">
               <button
                 className="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded"
