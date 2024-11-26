@@ -1,6 +1,17 @@
 import { FaKey, FaMailBulk } from 'react-icons/fa'
-
+import { userContext } from '../components/ContextWrapper'
+import { useContext, useEffect } from 'react'
 function Login() {
+    // const {user, setUser} = useContext(userContext)
+
+
+
+
+console.log(user);
+
+ 
+ 
+    
   return (
     <div className='w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen'>
         <div className=" w-[100%] lg:w-[1200px]  h-auto bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
