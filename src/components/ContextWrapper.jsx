@@ -2,13 +2,16 @@ import React from 'react'
 import  { createContext, useState} from 'react'
 export const userContext = createContext({
     user:{},
-    setUser:() => null
+    setUser:() => null,
+    token:'',
+    setToken:() => null
   })
 function ContextWrapper({children}) {
     const [user, setUser] = useState({})
+    const [token, setToken] = useState({})
   return (
     <>
-    <userContext.Provider value={{user, setUser}}>
+    <userContext.Provider value={{user, setUser, token, setToken}}>
         {children}
     </userContext.Provider>
     </>

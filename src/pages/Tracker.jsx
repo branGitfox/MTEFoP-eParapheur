@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { FaSearch, } from "react-icons/fa";
 import data from "../data";
 import TdData from '../components/TdData';
@@ -7,8 +7,15 @@ import { userContext } from '../components/ContextWrapper';
 
 
 function Tracker() {
- 
-  
+const {user, token} = useContext(userContext)
+
+useEffect(() => {
+  if(localStorage.getItem('ACCESS_TOKEN') == null){
+    localStorage.setItem('ACCESS_TOKEN', token)
+  }
+})  
+console.log(user);
+
     const [docs] = useState(data);
     const [search, setSearch] = useState("");
     const handleChange = (e) => {

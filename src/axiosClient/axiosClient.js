@@ -5,7 +5,7 @@ const axiosRequest = axios.create({
     baseURL:'http://127.0.0.1:8000/api',
     headers:{
         Accept:"application/json",
-        Authorization:'Bearer 1|Fpn3QV312b6z7c73FT31ybi9twlzFjmorUt4CbWfd0289038',
+        Authorization:`Bearer ${localStorage.getItem('ACCESS_TOKEN')}`,
         "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"
     }
 })
