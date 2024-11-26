@@ -1,13 +1,25 @@
 import { FaKey, FaMailBulk } from 'react-icons/fa'
 import { userContext } from '../components/ContextWrapper'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 function Login() {
-    // const {user, setUser} = useContext(userContext)
+// const {user, setUser} = useContext(userContext)
 
 
+const [formData, setFormData] = useState({})
 
+const handleChange = (e) => {
+const {name, value} = e.target
+setFormData((formData) => ({...formData, [name]:value}))
+}
 
-console.log(user);
+// console.log(user);
+
+const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log(formData);
+    
+
+}
 
  
  
@@ -20,15 +32,15 @@ console.log(user);
                 </div>
                 <div className="w-[100%] lg:w-[50%] ">
                     <h1 className='text-4xl text-center  mt-[4rem] mb-10  text-[#A10304]'>Connexion</h1>
-                    <form action="" className='flex flex-col w-[100%] px-10  items-center'>
+                    <form onSubmit={handleSubmit} className='flex flex-col w-[100%] px-10  items-center'>
                         <div className="mb-5 w-[100%] relative">
                             <label htmlFor="email" className='block text-semibold text-black'>Email</label>
-                            <input type="text" id='email' placeholder='email' className='py-3 px-3 border w-[100%]'/>
+                            <input onChange={handleChange} type="text" id='email' name='email' placeholder='email' className='py-3 px-3 border w-[100%]'/>
                             <FaMailBulk className='text-gray-600 absolute right-3 top-[2.5rem]' size={20}/>
                         </div>
                         <div className="mb-5 w-[100%] relative">
                             <label htmlFor="email" className='block text-semibold text-black'>Mot de passe</label>
-                            <input type="text" id='email' placeholder='mot de passe' className='py-3 px-3 border w-[100%]'/>
+                            <input onChange={handleChange} type="text" id='email' name='password' placeholder='mot de passe' className='py-3 px-3 border w-[100%]'/>
                             <FaKey className='text-gray-600 absolute right-3 top-[2.5rem]' size={20}/>
 
                         </div>
