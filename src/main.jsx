@@ -11,8 +11,6 @@ import Register from './pages/Register.jsx'
 import Stats from './pages/Stats.jsx'
 import Admin from './pages/Admin.jsx'
 import UserRegister from './pages/UserRegister.jsx'
-import SendMails from './pages/SendMails.jsx'
-
 const router = createBrowserRouter([
   {
     path:'/',
@@ -68,10 +66,7 @@ const router = createBrowserRouter([
     ]
   },
 
-  {
-    path:'/mail',
-    element:<SendMails/>
-  }
+
 ])
 createRoot(document.getElementById('root')).render(
   <StrictMode>
