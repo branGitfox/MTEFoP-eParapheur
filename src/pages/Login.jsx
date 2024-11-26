@@ -110,13 +110,10 @@ const navigation = useNavigate()
               <input type="checkbox" id="ss" className="mx-3" />
             </div>
             <div className="mb-5 w-[100%]">
-              <input
-                type="submit"
-                id="email"
-                placeholder="email"
-                value={isLoading ? <BeatLoader color="yellow" /> : "Se Connecter"}
+              <button
+             
                 className="py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded"
-              />
+              >{isLoading ? <BeatLoader color="yellow" /> : "Se Connecter"}</button>
             </div>
           </form>
         </div>
