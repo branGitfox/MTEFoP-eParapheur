@@ -4,17 +4,24 @@ import data from "../data";
 import TdData from '../components/TdData';
 import { userContext } from '../components/ContextWrapper';
 
-
+import { useNavigate } from 'react-router-dom';
 
 function Tracker() {
-const {user, token} = useContext(userContext)
+const {user} = useContext(userContext)
+const navigation = useNavigate()
+const [token, setToken] = useState(localStorage.getItem('ACCESS_TOKEN'))
+
+//securisation
+const protect = () => {
+  if(localStorage.getItem('ACCESS_TOKEN') == null){  
+    navigation('/login')
+  }
+}
 
 useEffect(() => {
-  if(localStorage.getItem('ACCESS_TOKEN') == null){
-    localStorage.setItem('ACCESS_TOKEN', token)
-  }
-})  
-console.log(user);
+  protect()
+}, [token])
+
 
     const [docs] = useState(data);
     const [search, setSearch] = useState("");

@@ -5,10 +5,10 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function Login() {
-  const {setUser, setToken} = useContext(userContext)
+  const {setUser,  user} = useContext(userContext)
   const [isLoading, setIsLoading] = useState(false);
   const [userData, setUserData] = useState(null)
 const navigation = useNavigate()
@@ -18,15 +18,18 @@ const navigation = useNavigate()
  useEffect(() => {
   if(userData !== null){
     setUser(userData.user)
-    setToken(userData.token)
-    navigation('/scc')
+    localStorage.setItem('ACCESS_TOKEN', userData.token)
   }
 
  
   
-
+  
   if(localStorage.getItem('ACCESS_TOKEN') !== null){
-    navigation('/scc')
+    if(user.role=='scc' || user.role == 'admin'){
+      navigation('/scc')
+    }else{
+      navigation('/admin')
+    }
   }
   
  })

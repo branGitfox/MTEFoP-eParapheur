@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {  FaUser,  } from "react-icons/fa";
 import Aside from "../components/Aside";
 import { Outlet } from "react-router-dom";
 import { BiMenu} from "react-icons/bi";
+import { userContext } from "../components/ContextWrapper";
 function Scc() {
     const [showMenu, setShowMenu] = useState(false)
-
+  const {user} = useContext(userContext)
     const toggleMenu = () => {
       setShowMenu(!showMenu)
     }
@@ -24,7 +25,7 @@ function Scc() {
               SCC
             </h2>
             <h3 className="font-semibold text-gray-700 cursor-pointer" >
-              Utilisateur <FaUser className="inline ml-2" />
+              {user.name} <FaUser className="inline ml-2" />
             </h3>
           </div>
           <Outlet/>
