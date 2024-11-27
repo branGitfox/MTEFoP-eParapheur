@@ -4,17 +4,34 @@ import Aside from "../components/Aside";
 import { Outlet } from "react-router-dom";
 import { BiMenu} from "react-icons/bi";
 import { userContext } from "../components/ContextWrapper";
+import axiosRequest from '../axiosClient/axiosClient'
+import { toast, ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+
+
 function Scc() {
     const [showMenu, setShowMenu] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
   const {user} = useContext(userContext)
     const toggleMenu = () => {
       setShowMenu(!showMenu)
     }
 
+    const logout =async () => {
+      setIsLoading(true)
+      await axios.post('http://127.0.0.1:8000/api/logout',{}, {headers:{Authorization:`Bearer ${localStorage.getItem('ACCESS_TOKEN')}`,  "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"}})
+      .then(({data}) => console.log(data.message))
+      .then(()=>localStorage.removeItem('ACCESS_TOKEN'))
+      .then(()=>setIsLoading(false))
+      .then(() =>location.reload())
+      .catch((err) => toast.error(err.message))
+   
+  }
   return (
     <div className="w-[100%]  min-h-[100vh]">
       <div class="flex min-h-screen md:overflow-y-hidden  bg-gray-100 md:h-screen">
-        <Aside toggleMenu={toggleMenu} menu={showMenu}/>
+        <Aside logout={logout} loading={isLoading} toggleMenu={toggleMenu} menu={showMenu}/>
         <div class="w-full md:overflow-hidden shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-gray-50 mb-5">
             <h2 className="font-semibold hidden md:block text-gray-700">
@@ -31,6 +48,7 @@ function Scc() {
           <Outlet/>
         </div>
               </div>
+              <ToastContainer/>
     </div>
   );
 }

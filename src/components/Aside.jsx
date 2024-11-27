@@ -2,8 +2,14 @@ import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
 import { BiX } from 'react-icons/bi'
-function Aside({toggleMenu,menu}) {
+import { BeatLoader } from 'react-spinners'
+
+
+function Aside({toggleMenu,menu, logout, loading}) {
     const location = useLocation()
+
+
+
   return (
     <>
             <aside
@@ -107,13 +113,13 @@ function Aside({toggleMenu,menu}) {
             </li>
              </ul>
           <div class="px-6 my-6">
-            <Link
-            to={'/login'}
+            <button
+            onClick={logout}
               class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-              Se Deconnecter
+             {loading?(<BeatLoader size={20} color='yellow'/>):'Se Deconnecter'}
               <FaArrowRight/>
-            </Link>
+            </button>
           </div>
         </div>
       </aside>

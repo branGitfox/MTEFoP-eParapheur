@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 function Tracker() {
 const {user} = useContext(userContext)
 const navigation = useNavigate()
-const [token, setToken] = useState(localStorage.getItem('ACCESS_TOKEN'))
+const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
 
 //securisation
 const protect = () => {

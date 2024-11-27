@@ -13,6 +13,27 @@ function Login() {
   const [userData, setUserData] = useState(null)
 const navigation = useNavigate()
   const [formData, setFormData] = useState({});
+  const getUser =  async () => {
+    await axiosRequest.get('/user')
+    .then(({data}) => {
+      if(!data.message){
+          setUser(data)    
+          if(data.role =='scc' || data.role=='sp'){
+            navigation('/scc')
+          }
+
+          if(data.role =='admin'){
+            navigation('/admin')
+          }
+      }
+
+
+    }).catch((err) => toast.error('Veuillez vous reconnecter'))
+  }
+
+  useEffect(() => {
+    getUser()
+  },[localStorage.getItem('ACCESS_TOKEN')])
 
 
 
@@ -21,7 +42,6 @@ const navigation = useNavigate()
   if(userData !== null){
     setUser(userData.user)
     localStorage.setItem('ACCESS_TOKEN', userData.token)
-    // localStorage.setItem('Role', userData.token)
     if(userData.user.role=='scc' || userData.user.role == 'sp'){
       navigation('/scc')
 
