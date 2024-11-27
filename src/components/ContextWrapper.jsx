@@ -1,5 +1,6 @@
 import React from 'react'
 import  { createContext, useState} from 'react'
+//context initial
 export const userContext = createContext({
     user:{},
     setUser:() => null,
