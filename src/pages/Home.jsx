@@ -105,7 +105,7 @@ function Home() {
     </section>
 
     <footer class="bg-white">
-        <p className='text-black text-center'>Copyright © MTFoP 2024</p>
+        <p className='text-black text-center'>Copyright © MTEFoP 2024</p>
     </footer>
     
     </>
