@@ -31,11 +31,9 @@ function UserRegister() {
       .finally(() => setServLoading(false))
   };
 
+//recupere dynamiquement la liste de services par rapport a la direction
   useEffect(() => {
-    getServices()
-    console.log('hello');
-    
-    
+    getServices()    
   }, [dir?.current?.value]);
 
   const handleChange = (e) => {
@@ -152,6 +150,7 @@ function UserRegister() {
                 id="serv"
                 className="w-full p-3 text-gray-900 bg-gray-200 rounded-md"
               >
+                <option value=''>Selectionner un service</option>
                 {
                     services.map((serv, index) =><option key={index} value={serv.id}>{serv.nom_serv}</option>)
                 }
