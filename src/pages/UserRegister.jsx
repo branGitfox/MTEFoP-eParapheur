@@ -2,6 +2,7 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { BeatLoader } from "react-spinners";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { Oval } from "react-loader-spinner";
 
 function UserRegister() {
   const [formData, setFormData] = useState({});
@@ -134,10 +135,16 @@ function UserRegister() {
             </div>
             <div className="mt-2">
               <label className="text-md block text-gray-600" htmlFor="serv">
-                Services
+                Services 
               </label>
             {
-              servLoading?('loading..'):(       <select
+              servLoading?(<Oval  visible={true}
+                height="20"
+                width="20"
+                color="blue"
+                ariaLabel="oval-loading"
+                wrapperStyle={{}}
+                wrapperClass=""/>):(       <select
                
                 onChange={handleChange}
                 value={formData?.id_serv}
