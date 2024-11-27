@@ -8,6 +8,7 @@ import axiosRequest from '../axiosClient/axiosClient'
 import { toast, ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import Security from "../security/Security";
 
 
 function Scc() {
@@ -45,7 +46,10 @@ function Scc() {
               {user.name} <FaUser className="inline ml-2" />
             </h3>
           </div>
+<Security>
+
           <Outlet/>
+</Security>
         </div>
               </div>
               <ToastContainer/>
