@@ -20,7 +20,6 @@ function Login() {
     await axiosRequest
       .get("/user", {
         headers: {
-        
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
         },
