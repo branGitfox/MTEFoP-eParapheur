@@ -8,93 +8,89 @@ import { BeatLoader } from "react-spinners";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
-  const {setUser,  user} = useContext(userContext)
+  const { setUser, user } = useContext(userContext);
   const [isLoading, setIsLoading] = useState(false);
-  const [userData, setUserData] = useState(null)
-const navigation = useNavigate()
+  const [userData, setUserData] = useState(null);
+  const navigation = useNavigate();
   const [formData, setFormData] = useState({});
-  const getUser =  async () => {
-    await axiosRequest.get('/user')
-    .then(({data}) => {
-      if(!data.message){
-          setUser(data)    
-          if(data.role =='scc' || data.role=='sp'){
-            navigation('/scc')
+
+
+  const getUser = async () => {
+    await axiosRequest
+      .get("/user")
+      .then(({ data }) => {
+        if (!data.message) {
+          setUser(data);
+          if (data.role == "scc" || data.role == "sp") {
+            navigation("/scc");
           }
 
-          if(data.role =='admin'){
-            navigation('/admin')
+          if (data.role == "admin") {
+            navigation("/admin");
           }
+        }
+      })
+      .catch((err) => toast.error("Veuillez vous reconnecter"));
+  };
+
+  //recuperation de l'utilisateur connecte
+  useEffect(() => {
+    getUser();
+  }, [localStorage.getItem("ACCESS_TOKEN")]);
+
+  //definition le'ACCESS_TOKEN dans le navigateur
+  useEffect(() => {
+    if (userData !== null) {
+      setUser(userData.user);
+      localStorage.setItem("ACCESS_TOKEN", userData.token);
+      if (userData.user.role == "scc" || userData.user.role == "sp") {
+        navigation("/scc");
+      } else {
+        navigation("/admin");
+      }
+    }
+  }, [userData]);
+
+  //redirection au page par rapport au role
+  useEffect(() => {
+    if (localStorage.getItem("ACCESS_TOKEN") !== null) {
+      if (user.role == "scc" || user.role == "sp") {
+        navigation("/scc");
       }
 
-
-    }).catch((err) => toast.error('Veuillez vous reconnecter'))
-  }
-
-  useEffect(() => {
-    getUser()
-  },[localStorage.getItem('ACCESS_TOKEN')])
-
-
-
-
- useEffect(() => {
-  if(userData !== null){
-    setUser(userData.user)
-    localStorage.setItem('ACCESS_TOKEN', userData.token)
-    if(userData.user.role=='scc' || userData.user.role == 'sp'){
-      navigation('/scc')
-
-    }else{
-      navigation('/admin')
+      if (user.role == "admin") {
+        navigation("/admin");
+      }
     }
-  }  
- }, [userData])
-
- useEffect(() => {
-  if(localStorage.getItem('ACCESS_TOKEN') !== null){
-    if(user.role =='scc' || user.role =='sp'){
-      navigation('/scc')
-    }
-
-    if(user.role =='admin'){
-      navigation('/admin')
-    }
-  }
- }, [user])
-
- 
- 
- 
+  }, [user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((formData) => ({ ...formData, [name]: value }));
   };
 
-
+  //Envoie des donnees au serveur
   const handleSubmit = async (e) => {
-    setIsLoading(true)
+    setIsLoading(true);
     e.preventDefault();
-    console.log(formData);
     await axiosRequest
       .post("/login", formData)
       .then(({ data }) => setUserData(data))
       .then(() => setIsLoading(false))
-    
+
       .catch((err) => toast.error(err.response?.data?.message))
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoading(false));
   };
 
-  console.log(userData);
-  
-
   return (
-
     <div className="w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen">
       <div className=" w-[100%] lg:w-[1200px]  h-auto bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
         <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center">
-          <img src="/lottieee.png" className="w-3/5 md:w-3/5 lg:w-4/5 h-auto" alt="" />
+          <img
+            src="/lottieee.png"
+            className="w-3/5 md:w-3/5 lg:w-4/5 h-auto"
+            alt=""
+          />
         </div>
         <div className="w-[100%] lg:w-[50%] ">
           <h1 className="text-4xl text-center  mt-[4rem] mb-10  text-[#A10304]">
@@ -111,7 +107,7 @@ const navigation = useNavigate()
               <input
                 onChange={handleChange}
                 type="text"
-                id="email"
+             
                 name="email"
                 placeholder="email"
                 className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900"
@@ -128,7 +124,7 @@ const navigation = useNavigate()
               <input
                 onChange={handleChange}
                 type="text"
-                id="email"
+            
                 name="password"
                 placeholder="mot de passe"
                 className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900"
@@ -145,15 +141,14 @@ const navigation = useNavigate()
               <input type="checkbox" id="ss" className="mx-3" />
             </div>
             <div className="mb-5 w-[100%]">
-              <button
-             
-                className="py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded"
-              >{isLoading ? <BeatLoader color="yellow" /> : "Se Connecter"}</button>
+              <button className="py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded">
+                {isLoading ? <BeatLoader color="yellow" /> : "Se Connecter"}
+              </button>
             </div>
           </form>
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </div>
   );
 }
