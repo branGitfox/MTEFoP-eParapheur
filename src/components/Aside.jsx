@@ -1,13 +1,19 @@
-import React from 'react'
-import { FaArrowRight } from 'react-icons/fa'
+import React, { useContext } from 'react'
+import { FaArrowRight, FaKeybase } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
 import { BiX } from 'react-icons/bi'
 import { BeatLoader } from 'react-spinners'
+import { userContext } from './ContextWrapper'
+import { FaKeyboard, FaUnlockKeyhole } from 'react-icons/fa6'
 
 
 function Aside({toggleMenu,menu, logout, loading}) {
-    const location = useLocation()
+    const location = useLocation() //hooks pour recuperer le path de la page actuel
 
+    //recuperer l'utilisateur pour savoir son role
+    const {user} = useContext(userContext)
+    
+    
 
 
   return (
@@ -111,6 +117,21 @@ function Aside({toggleMenu,menu, logout, loading}) {
                 <span class="ml-4">Statistiques</span>
               </Link>
             </li>
+            {user.role==='scc'? (            <li class="relative px-6 py-3">
+            {/* {
+                    location.pathname ==='/scc/stats'?(   <span
+                class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                aria-hidden="true"
+              ></span>):''
+                } */}
+              <Link
+                class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
+                to='/admin'
+              >
+                <FaUnlockKeyhole/>
+                <span class="ml-4">Administrateur</span>
+              </Link>
+            </li>):''}
              </ul>
           <div class="px-6 my-6">
             <button
@@ -123,6 +144,8 @@ function Aside({toggleMenu,menu, logout, loading}) {
           </div>
         </div>
       </aside>
+
+      {/* Side bar  pour mobile */}
       {menu &&       <aside
         class="z-20  w-64 overflow-y-auto absolute h-screen bg-[#191970]  md:block flex-shrink-0"
       >
