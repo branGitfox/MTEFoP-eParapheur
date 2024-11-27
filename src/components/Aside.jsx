@@ -20,7 +20,7 @@ function Aside({toggleMenu,menu, logout, loading}) {
             class="ml-6 text-lg font-bold text-white "
             href="#"
           >
-            MTFoP
+            MTEFoP
           </a>
           <ul class="mt-6">
        
@@ -133,7 +133,7 @@ function Aside({toggleMenu,menu, logout, loading}) {
             class="ml-6 text-lg font-bold text-white "
             href="#"
           >
-            MTFoP
+            MTEFoP
           </a>
           <ul class="mt-6">
        
@@ -229,7 +229,7 @@ function Aside({toggleMenu,menu, logout, loading}) {
             <button
               class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-              Se Deconnecter
+              Se Déconnecter
               <FaArrowRight/>
             </button>
           </div>
