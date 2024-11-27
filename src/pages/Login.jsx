@@ -94,7 +94,7 @@ const navigation = useNavigate()
     <div className="w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen">
       <div className=" w-[100%] lg:w-[1200px]  h-auto bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
         <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center">
-          <img src="/lottieee.png" className="w-4/5" alt="" />
+          <img src="/lottieee.png" className="w-3/5 md:w-3/5 lg:w-4/5 h-auto" alt="" />
         </div>
         <div className="w-[100%] lg:w-[50%] ">
           <h1 className="text-4xl text-center  mt-[4rem] mb-10  text-[#A10304]">
@@ -114,10 +114,10 @@ const navigation = useNavigate()
                 id="email"
                 name="email"
                 placeholder="email"
-                className="py-3 px-3 border w-[100%] text-gray-900"
+                className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900"
               />
               <FaMailBulk
-                className="text-gray-600 absolute right-3 top-[2.5rem]"
+                className="text-gray-600 absolute right-3 top-[2.5rem] "
                 size={20}
               />
             </div>
@@ -131,7 +131,7 @@ const navigation = useNavigate()
                 id="email"
                 name="password"
                 placeholder="mot de passe"
-                className="py-3 px-3 border w-[100%] text-gray-900"
+                className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900"
               />
               <FaKey
                 className="text-gray-600 absolute right-3 top-[2.5rem]"
