@@ -16,6 +16,7 @@ function Login() {
   const [token]=useState(localStorage.getItem('ACCESS_TOKEN'))
 
 
+  //recuperation de l'utilisateur connecte
   const getUser = async () => {
     await axiosRequest
       .get("/user", {
@@ -36,10 +37,10 @@ function Login() {
           }
         }
       })
-      .catch((err) => toast.error("Veuillez vous reconnecter"));
+      .catch((err) => console.log(''))
+    
   };
 
-  //recuperation de l'utilisateur connecte
   useEffect(() => {
     getUser();
   }, [localStorage.getItem("ACCESS_TOKEN")]);

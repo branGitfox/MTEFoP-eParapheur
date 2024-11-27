@@ -252,10 +252,12 @@ function Aside({toggleMenu,menu, logout, loading}) {
              </ul>
           <div class="px-6 my-6">
             <button
+            onClick={logout}
               class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-              Se Déconnecter
-              <FaArrowRight/>
+             {loading?(<BeatLoader size={20} color='yellow'/>):'Se Deconnecter'}
+             <FaArrowRight/>
+             
             </button>
           </div>
         </div>

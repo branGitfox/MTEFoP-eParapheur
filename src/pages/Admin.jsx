@@ -13,6 +13,8 @@ function Admin() {
         <Aside />
         <div className="w-full flex flex-col h-screen overflow-y-scroll">
           <Header />
+
+          {/* protection de la page administrateur */}
           <AdminProtection>
               <Outlet />
           </AdminProtection>
