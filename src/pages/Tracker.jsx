@@ -7,7 +7,7 @@ import { userContext } from '../components/ContextWrapper';
 import { useNavigate } from 'react-router-dom';
 
 function Tracker() {
-const {user} = useContext(userContext)
+
 
 
 

@@ -1,14 +1,13 @@
 import axiosRequest from "../axiosClient/axiosClient";
 import { BeatLoader } from "react-spinners";
 
-
 import { useState } from "react";
 import { toast } from "react-toastify";
-
 
 function UserRegister() {
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,9 +19,15 @@ function UserRegister() {
     setIsLoading(true);
     e.preventDefault();
     await axiosRequest
-      .post("/register", formData)
+      .post("/register", formData, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
+        },
+      })
       .then(({ data }) => toast.success(data.message))
-      .then(() => toast.info('l\'email a ete bien envoyee'))
+      .then(() => toast.info("l'email a ete bien envoyee"))
       .then(() => setIsLoading(false))
       .catch((err) => toast.error(err.response.data.message))
       .finally(() => setIsLoading(false));

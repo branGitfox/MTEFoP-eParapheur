@@ -20,7 +20,7 @@ function Aside() {
             <Link href="blank.html" className="flex items-center text-white hover:bg-blue-800 py-4 pl-6 nav-item">
                <FaHouseLaptop size={20} className='mr-3'/>Ajout Dir/Serv
             </Link>
-            <Link href="blank.html" className="flex items-center text-white hover:bg-blue-800 py-4 pl-6 nav-item">
+            <Link to="/scc" className="flex items-center text-white hover:bg-blue-800 py-4 pl-6 nav-item">
                <FaMailBulk size={20} className='mr-3'/>Visiter Service-CC
             </Link>
         </nav>
