@@ -4,17 +4,22 @@ import Aside from "../components/admin/Aside";
 import Header from "../components/admin/Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AdminProtection from "../components/admin/AdminProtection";
 
 function Admin() {
   return (
-    <>
+    <> 
       <div className="bg-gray-100 font-family-karla flex min-h-screen">
         <Aside />
         <div className="w-full flex flex-col h-screen overflow-y-scroll">
           <Header />
-          <Outlet />
+          <AdminProtection>
+              <Outlet />
+          </AdminProtection>
+         
         </div>
-      </div>
+      </div> 
+   
       <ToastContainer />
     </>
   );

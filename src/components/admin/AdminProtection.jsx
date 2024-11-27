@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
+import { userContext } from '../ContextWrapper'
+import { useNavigate} from 'react-router-dom'
 /**
  *Protection de la page admin
  *
  * @return {*} 
  */
-function AdminProtection() {
+function AdminProtection({children}) {
+    const {user} = useContext(userContext) //recuperer l'utilisateur connectee
+    const navigation = useNavigate()
+    useEffect(() => {
+        if(user.role !== 'admin') { navigation('/login')} //si le role de l'utilisateur courrrant n'est pas admin il redirigee vers la page dediee
+    }, [user])
   return (
-    <div>AdminProtection</div>
+    <>
+        {children}
+    </>
   )
 }
 
