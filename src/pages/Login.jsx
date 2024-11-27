@@ -13,11 +13,18 @@ function Login() {
   const [userData, setUserData] = useState(null);
   const navigation = useNavigate();
   const [formData, setFormData] = useState({});
+  const [token]=useState(localStorage.getItem('ACCESS_TOKEN'))
 
 
   const getUser = async () => {
     await axiosRequest
-      .get("/user")
+      .get("/user", {
+        headers: {
+        
+          Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
+        },
+      })
       .then(({ data }) => {
         if (!data.message) {
           setUser(data);
