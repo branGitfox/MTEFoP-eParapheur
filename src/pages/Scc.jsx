@@ -31,9 +31,9 @@ function Scc() {
   }
   return (
     <div className="w-[100%]  min-h-[100vh]">
-      <div class="flex min-h-screen md:overflow-y-hidden  bg-gray-100 md:h-screen">
+      <div className="flex min-h-screen md:overflow-y-hidden  bg-gray-100 md:h-screen">
         <Aside logout={logout} loading={isLoading} toggleMenu={toggleMenu} menu={showMenu}/>
-        <div class="w-full md:overflow-hidden shadow-xs">
+        <div className="w-full md:overflow-hidden shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-gray-50 mb-5">
             <h2 className="font-semibold hidden md:block text-gray-700">
               SCC

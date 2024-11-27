@@ -5,7 +5,7 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 function Login() {
   const { setUser, user } = useContext(userContext);

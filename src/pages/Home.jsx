@@ -4,28 +4,28 @@ import { Link } from 'react-router-dom'
 function Home() {
   return (
     <>
-      <div class="pt-24 lg:pt-15">
-      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
+      <div className="pt-24 lg:pt-15">
+      <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center ">
      
-        <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
-          <p class="uppercase tracking-loose w-full text-semibold text-3xl text-center">Ministere du Travail, de l'Emploi <br /> et de la Fonction Publique</p>
-          <h1 class="my-4 text-5xl font-bold leading-tight self-center">
+        <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+          <p className="uppercase tracking-loose w-full text-semibold text-3xl text-center">Ministere du Travail, de l'Emploi <br /> et de la Fonction Publique</p>
+          <h1 className="my-4 text-5xl font-bold leading-tight self-center">
             e-Parapheur
           </h1>
-          <p class="leading-normal text-2xl lg:text-xl lg:w-[400px] lg:m-auto  mb-8 text-center">
+          <p className="leading-normal text-2xl lg:text-xl lg:w-[400px] lg:m-auto  mb-8 text-center">
             Application Web de gestion de Courriers dediee au Service Central de courriers au sein du Ministere afin de simplifier le tracage de courriers.
           </p>
-          <Link to={'/login'} class="mx-auto lg:mx-0 self-center hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <Link to={'/login'} className="mx-auto lg:mx-0 self-center hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Se Connecter
           </Link>
         </div>
     
-        <div class="w-full md:w-3/5 py-6 text-right relative ">
-          <img class="w-full md:w-4/5 z-50 relative lg:left-[7rem]" src="/hero.png" />
+        <div className="w-full md:w-3/5 py-6 text-right relative ">
+          <img className="w-full md:w-4/5 z-50 relative lg:left-[7rem]" src="/hero.png" />
         </div>
       </div>
     </div>
-    <div class="relative -mt-12 lg:-mt-24">
+    <div className="relative -mt-12 lg:-mt-24">
       <svg viewBox="0 0 1428 174" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g transform="translate(-2.000000, 44.000000)" fill="#FFFFFF" fill-rule="nonzero">
@@ -44,20 +44,20 @@ function Home() {
         </g>
       </svg>
     </div>
-    <section class="bg-white border-b py-8">
-      <div class="container max-w-5xl mx-auto m-8">
-        <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+    <section className="bg-white border-b py-8">
+      <div className="container max-w-5xl mx-auto m-8">
+        <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
           Dirige par
         </h2>
-        <div class="w-full mb-4">
-          <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
+        <div className="w-full mb-4">
+          <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
         </div>
-        <div class="flex flex-wrap">
-          <div class="w-5/6 sm:w-1/2 p-6">
-            <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">
+        <div className="flex flex-wrap">
+          <div className="w-5/6 sm:w-1/2 p-6">
+            <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
              DRFP
             </h3>
-            <p class="text-gray-600 mb-2">
+            <p className="text-gray-600 mb-2">
             Direction de la Reforme de la Fonction Publique, dont l'activite principale est la Digitalisation  des fonctions publiques.
             </p>
           </div>
@@ -68,10 +68,10 @@ function Home() {
     </section>
     
 
-    <svg class="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg className="wave-top" viewBox="0 0 1439 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g transform="translate(-1.000000, -14.000000)" fill-rule="nonzero">
-          <g class="wave" fill="#f8fafc">
+          <g className="wave" fill="#f8fafc">
             <path
               d="M1440,84 C1383.555,64.3 1342.555,51.3 1317,45 C1259.5,30.824 1206.707,25.526 1169,22 C1129.711,18.326 1044.426,18.475 980,22 C954.25,23.409 922.25,26.742 884,32 C845.122,37.787 818.455,42.121 804,45 C776.833,50.41 728.136,61.77 713,65 C660.023,76.309 621.544,87.729 584,94 C517.525,105.104 484.525,106.438 429,108 C379.49,106.484 342.823,104.484 319,102 C278.571,97.783 231.737,88.736 205,84 C154.629,75.076 86.296,57.743 0,32 L0,0 L1440,0 L1440,84 Z"
             ></path>
@@ -89,22 +89,22 @@ function Home() {
         </g>
       </g>
     </svg>
-    <section class="container mx-auto text-center py-6 mb-12">
-      <h2 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
+    <section className="container mx-auto text-center py-6 mb-12">
+      <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-white">
         Contact
       </h2>
-      <div class="w-full mb-4">
-        <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
+      <div className="w-full mb-4">
+        <div className="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
       </div>
-      <h3 class="my-4 text-3xl leading-tight">
+      <h3 className="my-4 text-3xl leading-tight">
         Pour un rapport ou soif d'information, veuillez nous envoyer un email ici
       </h3>
-      <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+      <button className="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
         Cliquez Moi.
       </button>
     </section>
 
-    <footer class="bg-white">
+    <footer className="bg-white">
         <p className='text-black text-center'>Copyright © MTEFoP 2024</p>
     </footer>
     
