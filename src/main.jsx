@@ -12,6 +12,7 @@ import Stats from "./pages/Stats.jsx";
 import Admin from "./pages/Admin.jsx";
 import UserRegister from "./pages/UserRegister.jsx";
 import ContextWrapper from "./components/ContextWrapper.jsx";
+import SccDirServDg from "./components/admin/SccDirServDg.jsx";
 
 const router = createBrowserRouter(
   [
@@ -60,6 +61,10 @@ const router = createBrowserRouter(
           index: true,
           element: <UserRegister />,
         },
+        {
+          path:'/admin/sccservdirdg',
+          element:<SccDirServDg/>
+        }
       ],
     },
   ],

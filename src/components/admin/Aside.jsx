@@ -17,14 +17,14 @@ function Aside() {
             <Link href="blank.html" className="flex items-center text-white hover:bg-blue-800 py-4 pl-6 nav-item">
                <FaUserPlus size={20} className='mr-3'/>Ajout Utilisateur
             </Link>
-            <Link href="blank.html" className="flex items-center text-white hover:bg-blue-800 py-4 pl-6 nav-item">
+            <Link to='/admin/sccservdirdg' className="flex items-center text-white hover:bg-blue-800 py-4 pl-6 nav-item">
                <FaHouseLaptop size={20} className='mr-3'/>Ajout Dir/Serv
             </Link>
             <Link to="/scc" className="flex items-center text-white hover:bg-blue-800 py-4 pl-6 nav-item">
                <FaMailBulk size={20} className='mr-3'/>Visiter Service-CC
             </Link>
         </nav>
-        <h2 href="#" className="absolute w-full font-bold    bottom-0  text-white flex items-center justify-center py-4">
+        <h2  className="absolute w-full font-bold    bottom-0  text-white flex items-center justify-center py-4">
             <FaFlag className='mr-3'/>
             E-parapheur
         </h2>
