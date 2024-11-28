@@ -62,6 +62,10 @@ const router = createBrowserRouter(
           element: <UserRegister />,
         },
         {
+          path: '/admin/userregister',
+          element: <UserRegister />,
+        },
+        {
           path:'/admin/sccservdirdg',
           element:<SccDirServDg/>
         }
