@@ -11,17 +11,17 @@ function Aside() {
             <Link href="/admin" className="text-white text-3xl font-semibold uppercase hover:text-gray-300"><FaUnlockKeyhole className='inline mr-3 mb-2'/>Admin</Link>
         </div>
         <nav className="text-white text-base font-semibold pt-3">
-            <Link href="index.html" className={`flex items-center ${location.pathname ==='/admin'?'bg-[#C1AB48]':''} hover:bg-[#C1AB48]  text-white py-4 pl-6 nav-item`}>
+            <Link href="index.html" className={`flex items-center rounded-md ${location.pathname ==='/admin'?'bg-[#C1AB48]':''} hover:bg-[#C1AB48]  text-white py-4 pl-6 nav-item`}>
                 <FaChartLine size={20} className='mr-3'/>
                 Tableau de Bord
             </Link>
-            <Link to='/admin/userregister' className={`flex items-center ${location.pathname ==='/admin/userregister'?'bg-[#C1AB48]':''} text-white hover:bg-[#C1AB48] py-4 pl-6 nav-item`}>
+            <Link to='/admin/userregister' className={`flex items-center rounded-md ${location.pathname ==='/admin/userregister'?'bg-[#C1AB48]':''} text-white hover:bg-[#C1AB48] py-4 pl-6 nav-item`}>
                <FaUserPlus size={20} className='mr-3'/>Ajout Utilisateur
             </Link>
-            <Link to='/admin/sccservdirdg' className={`flex items-center ${location.pathname ==='/admin/sccservdirdg'?'bg-[#C1AB48]':''} text-white hover:bg-[#C1AB48] py-4 pl-6 nav-item`}>
+            <Link to='/admin/sccservdirdg' className={`flex items-center rounded-md ${location.pathname ==='/admin/sccservdirdg'?'bg-[#C1AB48]':''} text-white hover:bg-[#C1AB48] py-4 pl-6 nav-item`}>
                <FaHouseLaptop size={20} className='mr-3'/>Ajout Dir/Serv
             </Link>
-            <Link to="/scc" className="flex items-center text-white hover:bg-[#C1AB48] py-4 pl-6 nav-item">
+            <Link to="/scc" className="flex items-center text-white rounded-md hover:bg-[#C1AB48] py-4 pl-6 nav-item">
                <FaMailBulk size={20} className='mr-3'/>Visiter Service-CC
             </Link>
         </nav>

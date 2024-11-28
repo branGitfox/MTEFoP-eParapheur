@@ -7,9 +7,7 @@ import { useNavigate} from 'react-router-dom'
  * @return {*} 
  */
 function AdminProtection({children}) {
-    const {user} = useContext(userContext) //recuperer l'utilisateur connectee
-    console.log(user);
-    
+    const {user} = useContext(userContext) //recuperer l'utilisateur connectee    
     const navigation = useNavigate()
     useEffect(() => {
         if(user.role !== 'admin') { navigation('/login')} //si le role de l'utilisateur courrrant n'est pas admin il redirigee vers la page dediee
