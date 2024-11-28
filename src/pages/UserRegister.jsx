@@ -69,7 +69,7 @@ function UserRegister() {
               Creer Un Utilisateur
             </p>
             <div className="">
-              <label className="block text-md  text-gray-600" htmlFor="name">
+              <label className="block text-md  text-gray-900" htmlFor="name">
                 Nom
               </label>
               <input
@@ -85,7 +85,7 @@ function UserRegister() {
               />
             </div>
             <div className="mt-2">
-              <label className="block text-md text-gray-50" htmlFor="email">
+              <label className="block text-md text-gray-900" htmlFor="email">
                 Email
               </label>
               <input
@@ -100,7 +100,7 @@ function UserRegister() {
               />
             </div>
             <div className="mt-2">
-              <label className=" block text-md text-gray-50" htmlFor="im">
+              <label className=" block text-md text-gray-900" htmlFor="im">
                 I-Matricule
               </label>
               <input
@@ -115,7 +115,7 @@ function UserRegister() {
               />
             </div>
             <div className="mt-2">
-              <label className="text-md block text-gray-50" htmlFor="dir">
+              <label className="text-md block text-gray-900" htmlFor="dir">
                 Direction
               </label>
               <select
@@ -132,7 +132,7 @@ function UserRegister() {
               </select>
             </div>
             <div className="mt-2">
-              <label className="text-md block text-gray-600" htmlFor="serv">
+              <label className="text-md block text-gray-900" htmlFor="serv">
                 Services 
               </label>
             {
@@ -160,7 +160,7 @@ function UserRegister() {
             </div>
             <div className="mt-2">
               <label
-                className="text-md block text-gray-50"
+                className="text-md block text-gray-900"
                 htmlFor="cus_email"
               >
                 Role
@@ -177,7 +177,7 @@ function UserRegister() {
               </select>
             </div>
             <div className="inline-block mt-2 w-1/2 pr-1">
-              <label className="block text-md text-gray-600" htmlFor="pass">
+              <label className="block text-md text-gray-900" htmlFor="pass">
                 Mot de Passe
               </label>
               <input
@@ -192,7 +192,7 @@ function UserRegister() {
               />
             </div>
             <div className="inline-block mt-2 -mx-1 pl-1 w-1/2">
-              <label className=" block text-md text-gray-600" htmlFor="conf">
+              <label className=" block text-md text-gray-900" htmlFor="conf">
                 Confirmation Mot de passe
               </label>
               <input
