@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { BiDotsHorizontal } from 'react-icons/bi';
 import { FaArrowCircleDown, FaArrowCircleUp, FaArrowDown, FaArrowUp, FaCheckCircle, FaInfoCircle, FaSearch, } from "react-icons/fa";
 
 function TdData({data}) {
@@ -31,7 +32,7 @@ function TdData({data}) {
                       <FaCheckCircle className="text-green-600 text-xl" />
                     </td>
                     <td class="px-4 py-3 text-xs">
-                        {showInfo === true? <FaArrowCircleUp onClick={toggleShow} className="text-gray-400 text-xl" />: <FaArrowCircleDown onClick={toggleShow} className="text-gray-400 text-xl" />}
+                        {showInfo === true? <FaArrowUp onClick={toggleShow} className="text-gray-400 text-xl" />: <BiDotsHorizontal onClick={toggleShow} className="text-gray-400 text-xl" />}
                      
                     </td>
                   </tr>

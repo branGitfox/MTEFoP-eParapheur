@@ -3,15 +3,15 @@ import { FaArrowRight, FaKeybase } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
 import { BiX } from 'react-icons/bi'
 import { BeatLoader } from 'react-spinners'
-import { userContext } from './ContextWrapper'
+
 import { FaKeyboard, FaUnlockKeyhole } from 'react-icons/fa6'
 
 
-function Aside({toggleMenu,menu, logout, loading}) {
+function Aside({toggleMenu,menu, logout, loading, user}) {
     const location = useLocation() //hooks pour recuperer le path de la page actuel
 
     //recuperer l'utilisateur pour savoir son role
-    const {user} = useContext(userContext)
+    // const {user} = useContext(userContext)
     console.log(user);
     
     

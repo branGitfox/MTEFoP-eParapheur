@@ -8,13 +8,42 @@ import { toast, ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Security from "../security/Security";
-
+import axiosRequest from "../axiosClient/axiosClient";
 
 
 function Scc() {
     const [showMenu, setShowMenu] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-  const {user} = useContext(userContext)
+    const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+  const {user, setUser} = useContext(userContext)
+
+  //garantie pour l'information de l'utilisateur
+  const getUser = async () => {
+    try{
+        await axiosRequest
+      .get("/user", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
+        },
+      })
+      .then(({ data }) => setUser(data)
+      
+      )
+      .catch((err) => console.log(''))
+    }catch(err) {
+    
+      console.log(err);
+      
+    }
+  
+    
+  };
+
+  useEffect(() => {
+    getUser()
+  }, [])
+
 
   //devoile et cache le sidebar
     const toggleMenu = () => {
@@ -34,12 +63,15 @@ function Scc() {
   }
 
   useEffect(() => {
-    toast.success(`Vous connecte en tant que ${user.role}`)
-  }, [])
+    if(user.role !== undefined){
+
+      toast.success(`Vous connecte en tant que ${user?.role}`)
+    }
+  }, [user.role])
   return (
     <div className="w-[100%]  min-h-[100vh]">
       <div className="flex min-h-screen md:overflow-y-hidden  bg-gray-100 md:h-screen">
-        <Aside logout={logout} loading={isLoading} toggleMenu={toggleMenu} menu={showMenu}/>
+        <Aside user={user} logout={logout} loading={isLoading} toggleMenu={toggleMenu} menu={showMenu}/>
         <div className="w-full md:overflow-hidden shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-gray-50 mb-5">
             <h2 className="font-semibold hidden md:block text-gray-700">
