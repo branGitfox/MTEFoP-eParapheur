@@ -16,6 +16,7 @@ function UserRegister() {
  
   
 
+  //recupere dynamiquement la liste de services par rapport a la direction
   const getServices = async () => {
     setServLoading(true)
     await axiosRequest
@@ -31,7 +32,6 @@ function UserRegister() {
       .finally(() => setServLoading(false))
   };
 
-//recupere dynamiquement la liste de services par rapport a la direction
   useEffect(() => {
     getServices()    
   }, [dir?.current?.value]);
@@ -75,7 +75,7 @@ function UserRegister() {
               <input
                 onChange={handleChange}
                 value={formData?.name}
-                className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"
+                className="w-full px-5 py-1 text-gray-700 border-gray-300 rounded-md border-2 focus:outline-blue-900 bg-gray-50 "
                 id="name"
                 name="name"
                 type="text"
@@ -85,13 +85,13 @@ function UserRegister() {
               />
             </div>
             <div className="mt-2">
-              <label className="block text-md text-gray-600" htmlFor="email">
+              <label className="block text-md text-gray-50" htmlFor="email">
                 Email
               </label>
               <input
                 onChange={handleChange}
                 value={formData?.email}
-                className="w-full px-5  py-1 text-gray-700 bg-gray-200 rounded"
+                className="w-full px-5  py-1 text-gray-700 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
                 name="email"
                 type="text"
                 required=""
@@ -100,13 +100,13 @@ function UserRegister() {
               />
             </div>
             <div className="mt-2">
-              <label className=" block text-md text-gray-600" htmlFor="im">
+              <label className=" block text-md text-gray-50" htmlFor="im">
                 I-Matricule
               </label>
               <input
                 onChange={handleChange}
                 value={formData?.im}
-                className="w-full px-2 py-1 text-gray-700 bg-gray-200 rounded"
+                className="w-full px-2 py-1 text-gray-700 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
                 id="im"
                 name="im"
                 type="text"
@@ -115,7 +115,7 @@ function UserRegister() {
               />
             </div>
             <div className="mt-2">
-              <label className="text-md block text-gray-600" htmlFor="dir">
+              <label className="text-md block text-gray-50" htmlFor="dir">
                 Direction
               </label>
               <select
@@ -124,7 +124,7 @@ function UserRegister() {
                 name="id_dir"
                 id="dir"
                 ref={dir}
-                className="w-full p-3 text-gray-900 bg-gray-200 rounded-md"
+                className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
               >
                 <option value="1">DRFP</option>
                 <option value="2">DRHE</option>
@@ -148,7 +148,7 @@ function UserRegister() {
                 value={formData?.id_serv}
                 name="id_serv"
                 id="serv"
-                className="w-full p-3 text-gray-900 bg-gray-200 rounded-md"
+                className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
               >
                 <option value=''>Selectionner un service</option>
                 {
@@ -160,7 +160,7 @@ function UserRegister() {
             </div>
             <div className="mt-2">
               <label
-                className="text-md block text-gray-600"
+                className="text-md block text-gray-50"
                 htmlFor="cus_email"
               >
                 Role
@@ -169,7 +169,7 @@ function UserRegister() {
                 onChange={handleChange}
                 value={formData?.role}
                 name="role"
-                className="w-full p-3 text-gray-900 bg-gray-200 rounded-md"
+                className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
               >
                 <option value="admin">Admin</option>
                 <option value="sp">Secretaire Particulier</option>
@@ -183,7 +183,7 @@ function UserRegister() {
               <input
                 onChange={handleChange}
                 value={formData?.password}
-                className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+                className="w-full px-2 py-2 text-gray-700 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
                 id="pass"
                 name="password"
                 type="password"
@@ -198,7 +198,7 @@ function UserRegister() {
               <input
                 onChange={handleChange}
                 value={formData?.password_confirmation}
-                className="w-full px-2 py-2 text-gray-700 bg-gray-200 rounded"
+                className="w-full px-2 py-2 text-gray-700 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
                 id="conf"
                 name="password_confirmation"
                 type="password"
@@ -208,7 +208,7 @@ function UserRegister() {
             </div>
             <div className="mt-6">
               <button
-                className="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded"
+                className="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded-md"
                 type="submit"
               >
                 {isLoading ? <BeatLoader color="yellow" /> : "Enregistrer"}
