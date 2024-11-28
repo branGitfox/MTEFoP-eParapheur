@@ -145,7 +145,7 @@ function UserRegister() {
                 wrapperClass=""/>):(       <select
                
                 onChange={handleChange}
-                value={formData?.id_serv}
+                // value={formData?.id_serv}
                 name="id_serv"
                 id="serv"
                 className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
