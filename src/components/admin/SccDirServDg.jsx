@@ -1,15 +1,59 @@
-import React, { useState } from 'react'
-
+import React, { useEffect, useState } from "react";
+import axiosRequest from "../../axiosClient/axiosClient";
+import { useLocation } from "react-router-dom";
+import { BeatLoader } from "react-spinners";
+import { Oval } from "react-loader-spinner";
 function SccDirServDg() {
-    const [formData, setFormData] =useState({})
-    const [isLoading, setIsLoading] = useState(false)
-    const submit = () => null
-    const handleChange = () => null
+  const [formData, setFormData] = useState({});
+  const location = useLocation()
+  const [isLoading, setIsLoading] = useState(false);
+  const [waiting, setWaiting]= useState(false)
+  const [dg, setDg] = useState([])
+  const [dir, setDir] = useState([])
+  const submit = () => null;
+  const handleChange = () => null;
+
+  //recuperation de la liste de Direction General
+  const getDg = async () => {
+    setWaiting(true)
+    await axiosRequest
+      .get("/dg", {
+        headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
+      })
+      .then(({ data }) => setDg(data))
+      .then(() => setIsLoading(false))
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false))
+    
+  };
+
+  //recuperation de la liste de Direction
+  const getDir = async () => {
+   setWaiting(true)
+
+    await axiosRequest
+      .get("/dir", {
+        headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
+      })
+      .then(({ data }) => setDir(data))
+      .then(() => setWaiting(false))
+
+      .catch((err) => console.log(err)
+      .finally(() => setWaiting(false))
+
+      )
+  };
+
+  useEffect(() => {
+    getDg()
+    getDir()
+  }, [location.pathname])
+
   return (
-   <>
-             <main className="w-full flex-grow p-6">
+    <>
+      <main className="w-full flex-grow p-6">
         <div className="leading-loose">
-        <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit}>
+          <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit}>
             <p className="text-lg text-gray-800 font-medium pb-4">
               Creer une Direction General
             </p>
@@ -35,15 +79,15 @@ function SccDirServDg() {
                 type="submit"
               >
                 {isLoading ? <BeatLoader color="yellow" /> : "Enregistrer"}
-                </button>
+              </button>
             </div>
           </form>
         </div>
 
         {/* form pour la creation d'une direction */}
-        <hr />
+        <hr className="mt-3"/>
         <div className="leading-loose">
-        <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit}>
+          <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit}>
             <p className="text-lg text-gray-800 font-medium pb-4">
               Creer une Direction
             </p>
@@ -67,18 +111,30 @@ function SccDirServDg() {
               <label className="block text-md text-gray-900" htmlFor="email">
                 La direction general
               </label>
-              <select
-                onChange={handleChange}
-                value={formData?.id_dir}
-                name="id_dir"
-                id="dir"
-                // ref={dir}
-                className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
-              >
-                <option value="1">DRFP</option>
-                <option value="2">DRHE</option>
-                <option value="3">DMI</option>
-              </select>
+              {
+                waiting?(<Oval  visible={true}
+                    height="20"
+                    width="20"
+                    color="blue"
+                    ariaLabel="oval-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""/>):(     <select
+                        onChange={handleChange}
+                        value={formData?.id_dir}
+                        name="id_dir"
+                        id="dir"
+                        // ref={dir}
+                        className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
+                      >
+                       
+                               <option value="">- Selectionner une direction -</option>
+                               {
+                                dg.map((d, index) => <option value={d.id}>{d.nom_dg}</option>)
+                               }
+                       
+                      </select>)
+              }
+         
             </div>
 
             <div className="mt-6">
@@ -87,15 +143,15 @@ function SccDirServDg() {
                 type="submit"
               >
                 {isLoading ? <BeatLoader color="yellow" /> : "Enregistrer"}
-                </button>
+              </button>
             </div>
           </form>
         </div>
-        <hr />
+        <hr className="mt-3"/>
 
         {/* form pour creer un service */}
         <div className="leading-loose">
-        <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit}>
+          <form className="p-3 bg-white rounded shadow-xl" onSubmit={submit}>
             <p className="text-lg text-gray-800 font-medium pb-4">
               Creer un service
             </p>
@@ -116,36 +172,46 @@ function SccDirServDg() {
               />
             </div>
             <div className="mt-2">
-            <label className="text-md block text-gray-900" htmlFor="dir">
+              <label className="text-md block text-gray-900" htmlFor="dir">
                 Direction
               </label>
-              <select
-                onChange={handleChange}
-                value={formData?.id_dir}
-                name="id_dir"
-                id="dir"
-                ref={dir}
-                className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
-              >
-                <option value="1">DRFP</option>
-                <option value="2">DRHE</option>
-                <option value="3">DMI</option>
-              </select>
+              {
+                waiting?(<Oval  visible={true}
+                    height="20"
+                    width="20"
+                    color="blue"
+                    ariaLabel="oval-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""/>):( <select
+                        onChange={handleChange}
+                        value={formData?.id_dir}
+                        name="id_dir"
+                        id="dir"
+                        // ref={dir}
+                        className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
+                      >
+                        <option value="">- Selectionner une direction -</option>
+                       {
+                        dir.map((d, index) => <option value={d.id}>{d.nom_dir}</option>)
+                       }
+                      </select>)
+              }
+             
             </div>
- 
+
             <div className="mt-6">
               <button
                 className="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded-md"
                 type="submit"
               >
                 {isLoading ? <BeatLoader color="yellow" /> : "Enregistrer"}
-                </button>
+              </button>
             </div>
           </form>
         </div>
       </main>
-   </>
-  )
+    </>
+  );
 }
 
-export default SccDirServDg
+export default SccDirServDg;
