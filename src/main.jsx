@@ -13,6 +13,7 @@ import Admin from "./pages/Admin.jsx";
 import UserRegister from "./pages/UserRegister.jsx";
 import ContextWrapper from "./components/ContextWrapper.jsx";
 import SccDirServDg from "./components/admin/SccDirServDg.jsx";
+import Dashboard from "./pages/Dashboard.jsx";
 
 const router = createBrowserRouter(
   [
@@ -59,7 +60,7 @@ const router = createBrowserRouter(
       children: [
         {
           index: true,
-          element: <UserRegister />,
+          element: <Dashboard />,
         },
         {
           path: '/admin/userregister',
