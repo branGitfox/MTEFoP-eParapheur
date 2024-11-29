@@ -79,9 +79,9 @@ function SccDirServDg() {
         headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
       })
       .then(({ data }) => setDg(data))
-      .then(() => setIsLoading(false))
+      .then(() => setIsLoadingDg(false))
       .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoadingDg(false))
     
   };
 

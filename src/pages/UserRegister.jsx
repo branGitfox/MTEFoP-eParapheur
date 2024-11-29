@@ -10,6 +10,8 @@ function UserRegister() {
   const [isLoading, setIsLoading] = useState(false);
   const [servLoading, setServLoading] = useState(false)
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
+  console.log(formData);
+  
  
   const dir = useRef();
 
@@ -43,7 +45,8 @@ function UserRegister() {
   };
 
   const submit = async (e) => {
-    setIsLoading(true);
+    try{
+      setIsLoading(true);
     e.preventDefault();
     await axiosRequest
       .post("/register", formData, {
@@ -58,6 +61,10 @@ function UserRegister() {
       .then(() => setIsLoading(false))
       .catch((err) => toast.error(err.response.data.message))
       .finally(() => setIsLoading(false));
+    }catch(err){
+      toast.error('Erreur de connexion au serveur')
+    }
+    
   };
 
   return (

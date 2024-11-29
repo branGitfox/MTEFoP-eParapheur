@@ -73,7 +73,7 @@ function Scc() {
       <div className="flex min-h-screen md:overflow-y-hidden  bg-gray-100 md:h-screen">
         <Aside user={user} logout={logout} loading={isLoading} toggleMenu={toggleMenu} menu={showMenu}/>
         <div className="w-full md:overflow-hidden shadow-xs">
-          <div className=" w-[100%] justify-between flex p-3 bg-gray-50 mb-5">
+          <div className=" w-[100%] justify-between flex p-3 bg-white mb-5">
             <h2 className="font-semibold hidden md:block text-gray-700">
               SCC
             </h2>

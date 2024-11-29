@@ -1,10 +1,9 @@
-import React, { useContext } from 'react'
-import { FaArrowRight, FaKeybase } from 'react-icons/fa'
+import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { BiX } from 'react-icons/bi'
 import { BeatLoader } from 'react-spinners'
-
-import { FaKeyboard, FaUnlockKeyhole } from 'react-icons/fa6'
+import { FaArrowRight } from 'react-icons/fa'
+import {FaUnlockKeyhole } from 'react-icons/fa6'
 
 
 function Aside({toggleMenu,menu, logout, loading, user}) {
