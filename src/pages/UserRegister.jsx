@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 
 function UserRegister() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({status:'active'});
   const [services, setServices] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   const [servLoading, setServLoading] = useState(false)
@@ -158,6 +158,7 @@ function UserRegister() {
             }
        
             </div>
+
             <div className="mt-2">
               <label
                 className="text-md block text-gray-900"
