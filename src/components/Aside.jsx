@@ -9,15 +9,6 @@ import { FaKeyboard, FaUnlockKeyhole } from 'react-icons/fa6'
 
 function Aside({toggleMenu,menu, logout, loading, user}) {
     const location = useLocation() //hooks pour recuperer le path de la page actuel
-
-    //recuperer l'utilisateur pour savoir son role
-    // const {user} = useContext(userContext)
-    console.log(user);
-    
-    
-    
-
-
   return (
     <>
             <aside
