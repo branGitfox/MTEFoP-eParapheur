@@ -6,104 +6,104 @@ function Dashboard() {
   return (
     <>
       <div className="flex  flex-wrap w-full justify-center  p-3">
-        <div class="w-[300px]">
-          <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div class="flex flex-col items-center justify-center">
-              <div class="flex-shrink">
-                <div class="rounded-full p-3 bg-gray-300 ">
+        <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
                   <FaWallet className="text-amber-500 text-center" />
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="font-bold text-3xl text-gray-900 text-center">
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
                   3249
                 </h3>
-                <h5 class="font-bold text-gray-500">Total Document</h5>
+                <h5 className="font-bold text-gray-500">Total Document</h5>
               </div>
             </div>
           </div>
         </div>{" "}
-        <div class="w-[300px]">
-          <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div class="flex flex-col items-center justify-center">
-              <div class="flex-shrink">
-                <div class="rounded-full p-3 bg-gray-300 ">
+        <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
                   <FaWallet className="text-amber-500 text-center" />
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="font-bold text-3xl text-gray-900 text-center">
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
                   3249
                 </h3>
-                <h5 class="font-bold text-gray-500">Total Document</h5>
+                <h5 className="font-bold text-gray-500">Total Document</h5>
               </div>
             </div>
           </div>
         </div>{" "}
-        <div class="w-[300px]">
-          <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div class="flex flex-col items-center justify-center">
-              <div class="flex-shrink">
-                <div class="rounded-full p-3 bg-gray-300 ">
+        <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
                   <FaWallet className="text-amber-500 text-center" />
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="font-bold text-3xl text-gray-900 text-center">
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
                   3249
                 </h3>
-                <h5 class="font-bold text-gray-500">Total Document</h5>
+                <h5 className="font-bold text-gray-500">Total Document</h5>
               </div>
             </div>
           </div>
         </div>{" "}
-        <div class="w-[300px]">
-          <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div class="flex flex-col items-center justify-center">
-              <div class="flex-shrink">
-                <div class="rounded-full p-3 bg-gray-300 ">
+        <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
                   <FaWallet className="text-amber-500 text-center" />
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="font-bold text-3xl text-gray-900 text-center">
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
                   3249
                 </h3>
-                <h5 class="font-bold text-gray-500">Total Document</h5>
+                <h5 className="font-bold text-gray-500">Total Document</h5>
               </div>
             </div>
           </div>
         </div>{" "}
-        <div class="w-[300px]">
-          <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div class="flex flex-col items-center justify-center">
-              <div class="flex-shrink">
-                <div class="rounded-full p-3 bg-gray-300 ">
+        <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
                   <FaWallet className="text-amber-500 text-center" />
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="font-bold text-3xl text-gray-900 text-center">
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
                   3249
                 </h3>
-                <h5 class="font-bold text-gray-500">Total Document</h5>
+                <h5 className="font-bold text-gray-500">Total Document</h5>
               </div>
             </div>
           </div>
         </div>{" "}
-        <div class="w-[300px]">
-          <div class="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div class="flex flex-col items-center justify-center">
-              <div class="flex-shrink">
-                <div class="rounded-full p-3 bg-gray-300 ">
+        <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
                   <FaWallet className="text-amber-500 text-center" />
                 </div>
               </div>
-              <div class="flex-1">
-                <h3 class="font-bold text-3xl text-gray-900 text-center">
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
                   3249
                 </h3>
-                <h5 class="font-bold text-gray-500">Total Document</h5>
+                <h5 className="font-bold text-gray-500">Total Document</h5>
               </div>
             </div>
           </div>
