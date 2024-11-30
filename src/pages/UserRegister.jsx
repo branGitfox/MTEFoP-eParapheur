@@ -10,7 +10,7 @@ function UserRegister() {
   const [isLoading, setIsLoading] = useState(false);
   const [servLoading, setServLoading] = useState(false)
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
-  console.log(formData);
+
   
  
   const dir = useRef();
