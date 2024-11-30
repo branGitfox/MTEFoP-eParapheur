@@ -44,10 +44,10 @@ function Tracker() {
               className="absolute right-[20%] md:right-[18%] top-6 text-black "
             />
           </div>
-          <div class="w-full overflow-x-auto overflow-y-scroll max-h-[83%]">
-            <table class="w-full whitespace-no-wrap">
+          <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%]">
+            <table className="w-full whitespace-no-wrap">
               <thead>
-                <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
+                <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
                   <th className="px-4 py-3 text-gray-800">Reference</th>
                   <th className="px-4 py-3 text-gray-800" >Matricules</th>
                   <th className="px-4 py-3 text-gray-800">Direction</th>
@@ -58,7 +58,7 @@ function Tracker() {
                   <th className="px-4 py-3 text-gray-800">Infos</th>
                 </tr>
               </thead>
-              <tbody class="bg-white divide-y ">
+              <tbody className="bg-white divide-y ">
                 {filtered.map((data, index) => (
                   <>
                     <TdData data={data} key={index}/>
