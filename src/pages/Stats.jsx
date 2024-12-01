@@ -17,7 +17,7 @@ function Stats() {
                 </select>
         </div>
    
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap mt-5">
                 <div className="w-full md:w-1/2 xl:w-1/3 p-3">
                    
                     <div className="bg-white border rounded shadow p-2">
@@ -65,8 +65,11 @@ function Stats() {
                 </div>
                 
             </div>
-            <hr />
+            <hr  className='mt-5 mb-5'/>
+            <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Graphiques</h3> 
+
         <div className="flex flex-wrap justify-evenly w-[100%] items-center gap-y-4 p-3 mt-10">
+
               <LineChart width={500} height={300} data={data}>
               <Line type="monotone" dataKey="uv" stroke="#8884d8" />
               <Line type="monotone" dataKey="pv" stroke="green" />
