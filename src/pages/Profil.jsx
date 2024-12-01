@@ -29,7 +29,7 @@ function Profil() {
   //pour nom et imatricule
   const submit = async (e) => {
     e.preventDefault();
-    await axiosRequest.post("/updateUser", formData, {
+    await axiosRequest.post("/updateUser/info", formData, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
@@ -41,7 +41,7 @@ function Profil() {
   //pour password et confirmation password
   const submitPass = async (e) => {
     e.preventDefault();
-    await axiosRequest.post("/updateUser", formData, {
+    await axiosRequest.post("/updateUser/password", formData, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
