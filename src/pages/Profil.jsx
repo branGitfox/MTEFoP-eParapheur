@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { userContext } from "../components/ContextWrapper";
 
+import axiosRequest from "../axiosClient/axiosClient";
 function Profil() {
     const {user} = useContext(userContext) //recuperation de l'utilisateur connecte
     const [formData, setFormData] = useState({
@@ -15,7 +16,11 @@ function Profil() {
 
     }
 
-    const submit = async () => {
+    //envoie les donnees vers l'API
+    const submit = async (e) => {
+        e.preventDefault()
+       await axiosRequest
+
 
     }
 
