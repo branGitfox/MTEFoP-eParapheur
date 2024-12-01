@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { userContext } from "../components/ContextWrapper";
-
+import { toast } from "react-toastify";
 import axiosRequest from "../axiosClient/axiosClient";
 function Profil() {
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
@@ -35,7 +35,9 @@ function Profil() {
         Authorization: `Bearer ${token}`,
         "Access-Control-Allow-Origin": "http://127.0.0.1/api",
       },
-    }).then(({ data }) => console.log(data));
+    })
+    .then(({ data }) => toast.success(data?.message))
+    .catch(() => )
   };
 
   //pour password et confirmation password
