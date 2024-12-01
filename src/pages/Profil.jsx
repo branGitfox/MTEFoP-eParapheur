@@ -25,6 +25,8 @@ function Profil() {
       };
 
   //Envoie les donnees vers l'API
+
+  //pour nom et imatricule
   const submit = async (e) => {
     e.preventDefault();
     await axiosRequest.post("/updateUser", formData, {
@@ -36,6 +38,7 @@ function Profil() {
     }).then(({ data }) => console.log(data));
   };
 
+  //pour password et confirmation password
   const submitPass = async (e) => {
     e.preventDefault();
     await axiosRequest.post("/updateUser", formData, {
@@ -91,6 +94,7 @@ function Profil() {
             Modifier
           </button>
         </form>
+        <h3 className="self-start text-red-500 font-semibold mt-5">Mot De Passe</h3>
 
         <form onSubmit={submitPass} className="w-full p-5 bg-white mt-3 rounded-md">
 
@@ -101,7 +105,7 @@ function Profil() {
             <input
               onChange={handleChangePass}
               type="password"
-              className="w-full focus:outline-blue-900 py-3 px-2  px-2rounded-md border-gray-400 border-2 mt-2 text-gray-900"
+              className="w-full focus:outline-blue-900 py-3 px-2  rounded-md border-gray-400 border-2 mt-2 text-gray-900"
               name="password"
               placeholder="Votre mot de passe"
             />
