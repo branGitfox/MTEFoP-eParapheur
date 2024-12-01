@@ -22,7 +22,7 @@ function Profil() {
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">Mot de Passe</label>
-                <input type="text"className="w-full focus:outline-blue-900 py-3  px-2rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="Votre mot de passe"/>
+                <input type="password"className="w-full focus:outline-blue-900 py-3 px-2  px-2rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="Votre mot de passe"/>
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">Nouveau Mot de Passe</label>
