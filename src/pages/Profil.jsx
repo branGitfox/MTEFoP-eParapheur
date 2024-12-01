@@ -10,13 +10,13 @@ function Profil() {
     im: user.im,
   });
 
-  //gere le changement de la formulaire
+  //Gere le changement de la formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((formData) => ({ ...formData, [name]: value }));
   };
 
-  //envoie les donnees vers l'API
+  //Envoie les donnees vers l'API
   const submit = async (e) => {
     e.preventDefault();
     await axiosRequest.post("/updateUser", formData, {
@@ -69,6 +69,13 @@ function Profil() {
               value={user.im}
             />
           </div>
+          <button type="submit" className="px-5 py-2 bg-blue-900 rounded-md">
+            Modifier
+          </button>
+        </form>
+
+        <form onSubmit={submit} className="w-full p-5 bg-white mt-3 rounded-md">
+
           <div className="mt-2 mb-5">
             <label htmlFor="name" className="text-gray-900 ">
               Mot de Passe
