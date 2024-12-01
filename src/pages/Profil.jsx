@@ -37,7 +37,7 @@ function Profil() {
       },
     })
     .then(({ data }) => toast.success(data?.message))
-    .catch(() => )
+    .catch((err) => toast.error(err.response?.data?.message))
   };
 
   //pour password et confirmation password
