@@ -6,12 +6,16 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
 function Profil() {
-  const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
+  const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //token d'access
   const { user } = useContext(userContext); //recuperation de l'utilisateur connecte
   const [formData, setFormData] = useState({
     name: user.name,
     im: user.im,
   });
+
+  //loader status
+  const [infoLoader, setInfoLoader] = useState(false)
+  const [passLoader, setPassLoader] = useState(false)
 
   const [passwordData, setPasswordData] = useState({})
 
@@ -31,6 +35,7 @@ function Profil() {
 
   //pour nom et imatricule
   const submit = async (e) => {
+    setInfoLoader(true)
     e.preventDefault();
     await axiosRequest.post("/updateUser/info", formData, {
       headers: {
@@ -40,11 +45,14 @@ function Profil() {
       },
     })
     .then(({ data }) => toast.success(data?.message))
+    .then(() => setInfoLoader(false))
     .catch((err) => toast.error(err?.response?.data?.message))
+    .finally(() => setInfoLoader(false))
   };
 
   //pour password et confirmation password
   const submitPass = async (e) => {   
+    setPassLoader(true)
     e.preventDefault();
     await axiosRequest.post("/updateUser/password", passwordData, {
       headers: {
@@ -54,7 +62,10 @@ function Profil() {
       },
     })
     .then(({ data }) => toast.success(data.message))
+    .then(() => setPassLoader(false))
     .catch((err) => toast.error(err?.response?.data?.message))
+    .finally(() => setPassLoader(false))
+
   };
   return (
     <>
