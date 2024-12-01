@@ -8,7 +8,7 @@ function Aside() {
       <aside className="relative bg-sidebar h-screen w-[19.7rem] hidden sm:block shadow-xl bg-[#191970]">
         <div className="p-6 ">
           <Link
-            href="/admin"
+            to="/admin"
             className="text-white text-xl font-semibold uppercase hover:text-gray-300"
           >
             <FaUnlockKeyhole className="inline mr-3 mb-2" />
@@ -17,7 +17,7 @@ function Aside() {
         </div>
         <nav className="text-white text-normal font-semibold pt-3">
           <Link
-            href="index.html"
+            to="index.html"
             className={`flex items-center relative rounded-sm  hover:bg-blue-900  text-white py-4 pl-6 nav-item`}
           >
                {
