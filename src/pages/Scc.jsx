@@ -78,7 +78,7 @@ function Scc() {
           toggleMenu={toggleMenu}
           menu={showMenu}
         />
-        <div className="w-full md:overflow-scroll  shadow-xs">
+        <div className="w-full md:overflow-y-scroll  shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-white mb-5">
             <h2 className="font-semibold hidden md:block text-gray-700">SCC</h2>
             <BiMenu

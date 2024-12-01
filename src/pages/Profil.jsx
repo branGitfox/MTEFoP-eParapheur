@@ -17,21 +17,22 @@ function Profil() {
                 <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
             </div>
             <div className="mt-2 mb-5">
-                <label htmlFor="name" className="text-gray-900 ">Nom</label>
+                <label htmlFor="name" className="text-gray-900 ">I-Matricule</label>
                 <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
             </div>
             <div className="mt-2 mb-5">
-                <label htmlFor="name" className="text-gray-900 ">Nom</label>
+                <label htmlFor="name" className="text-gray-900 ">Mot de Passe</label>
                 <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
             </div>
             <div className="mt-2 mb-5">
-                <label htmlFor="name" className="text-gray-900 ">Nom</label>
+                <label htmlFor="name" className="text-gray-900 ">Nouveau Mot de Passe</label>
                 <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
             </div>
             <div className="mt-2 mb-5">
-                <label htmlFor="name" className="text-gray-900 ">Nom</label>
+                <label htmlFor="name" className="text-gray-900 ">Confirmation Nouveau Mot de Passe</label>
                 <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
             </div>
+            <button type="submit"  className="px-5 py-2 bg-blue-900 rounded-md">Modifier</button>
         </form>
       </div>
     </>
