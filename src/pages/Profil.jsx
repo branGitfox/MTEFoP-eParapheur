@@ -2,6 +2,9 @@ import React, { useContext, useState } from "react";
 import { userContext } from "../components/ContextWrapper";
 import { toast } from "react-toastify";
 import axiosRequest from "../axiosClient/axiosClient";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 function Profil() {
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
   const { user } = useContext(userContext); //recuperation de l'utilisateur connecte
@@ -21,7 +24,7 @@ function Profil() {
     //Gere le changement de la formulaire pour les mots de passes
     const handleChangePass = (e) => {
         const { name, value } = e.target;
-        setPasswordData((passwordData) => ({ ...passwordData, [name]: value }));
+        setPasswordData((passwordData) => ({ ...passwordData, [name]: value }))
       };
 
   //Envoie les donnees vers l'API
@@ -37,13 +40,11 @@ function Profil() {
       },
     })
     .then(({ data }) => toast.success(data?.message))
-    .catch((err) => toast.error(err.response?.data?.message))
+    .catch((err) => toast.error(err?.response?.data?.message))
   };
 
   //pour password et confirmation password
-  const submitPass = async (e) => {
-    console.log(passwordData);
-    
+  const submitPass = async (e) => {   
     e.preventDefault();
     await axiosRequest.post("/updateUser/password", passwordData, {
       headers: {
@@ -51,7 +52,9 @@ function Profil() {
         Authorization: `Bearer ${token}`,
         "Access-Control-Allow-Origin": "http://127.0.0.1/api",
       },
-    }).then(({ data }) => console.log(data));
+    })
+    .then(({ data }) => toast.success(data.message))
+    .catch((err) => toast.error(err?.response?.data?.message))
   };
   return (
     <>
@@ -142,6 +145,7 @@ function Profil() {
             Modifier
           </button>
         </form>
+        <ToastContainer/>
       </div>
     </>
   );
