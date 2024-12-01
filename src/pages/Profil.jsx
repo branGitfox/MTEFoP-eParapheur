@@ -21,7 +21,7 @@ function Profil() {
     //Gere le changement de la formulaire pour les mots de passes
     const handleChangePass = (e) => {
         const { name, value } = e.target;
-        setFormData((formData) => ({ ...formData, [name]: value }));
+        setPasswordData((passwordData) => ({ ...passwordData, [name]: value }));
       };
 
   //Envoie les donnees vers l'API
@@ -42,8 +42,10 @@ function Profil() {
 
   //pour password et confirmation password
   const submitPass = async (e) => {
+    console.log(passwordData);
+    
     e.preventDefault();
-    await axiosRequest.post("/updateUser/password", formData, {
+    await axiosRequest.post("/updateUser/password", passwordData, {
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
@@ -76,7 +78,7 @@ function Profil() {
               className="w-full focus:outline-blue-900 py-3  px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900"
               name="name"
               placeholder="Changer le nom"
-              value={formData?.name}
+              value={formData.name}
             />
           </div>
           <div className="mt-2 mb-5">
@@ -89,7 +91,7 @@ function Profil() {
               className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900"
               name="im"
               placeholder="changer l'imatricule"
-              value={user.im}
+              value={formData.im}
             />
           </div>
           <button type="submit" className="px-5 py-2 bg-blue-900 rounded-md">
