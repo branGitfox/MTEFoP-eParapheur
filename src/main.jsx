@@ -51,6 +51,11 @@ const router = createBrowserRouter(
           path: "/scc/stats",
           element: <Stats />,
         },
+
+        {
+          path:"/scc/profil",
+          element:<Profil/>
+        }
       ],
     },
 
