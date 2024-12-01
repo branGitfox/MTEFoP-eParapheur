@@ -11,7 +11,7 @@ function Profil() {
   const { user } = useContext(userContext); //recuperation de l'utilisateur connecte
   const [formData, setFormData] = useState({
     name: user.name,
-    im: user.im,
+    // im: user.im,
   });
 
   //loader status
@@ -106,7 +106,9 @@ function Profil() {
               value={formData.name}
             />
           </div>
-          <div className="mt-2 mb-5">
+
+          {/* Au cas  ou on veut modifier aussi l'imatricule*/}
+          {/* <div className="mt-2 mb-5">
             <label htmlFor="name" className="text-gray-900 ">
               I-Matricule
             </label>
@@ -118,7 +120,7 @@ function Profil() {
               placeholder="changer l'imatricule"
               value={formData.im}
             />
-          </div>
+          </div> */}
           <button type="submit" className="px-5 py-2 bg-blue-900 rounded-md">
             {infoLoader?<BeatLoader size={15} color="yellow"/>:'Modifier'}
           </button>
