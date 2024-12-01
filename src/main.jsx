@@ -14,6 +14,7 @@ import UserRegister from "./pages/UserRegister.jsx";
 import ContextWrapper from "./components/ContextWrapper.jsx";
 import SccDirServDg from "./components/admin/SccDirServDg.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
+import Profil from "./pages/Profil.jsx";
 
 const router = createBrowserRouter(
   [
