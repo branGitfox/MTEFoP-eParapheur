@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { userContext } from "../components/ContextWrapper";
 
 function Profil() {
+    const {user} = useContext(userContext) //recuperation de l'utilisateur connectee
   return (
     <>
       <div className="-w-full p-5 flex justify-center flex-col items-center">
