@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import {  FaUser,  } from "react-icons/fa";
 import Aside from "../components/Aside";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { BiMenu} from "react-icons/bi";
 import { userContext } from "../components/ContextWrapper";
 import { toast, ToastContainer } from 'react-toastify'
@@ -81,9 +81,9 @@ function Scc() {
             <h2 className="font-semibold absolute left-[46%]  md:hidden text-gray-700">
               SCC
             </h2>
-            <h3 className="font-semibold text-gray-700 cursor-pointer" >
+            <Link to='/scc/profil' className="font-semibold text-gray-700 cursor-pointer" >
               {user.name} <FaUser className="inline ml-2" />
-            </h3>
+            </Link>
           </div>
 <Security>
 
