@@ -10,11 +10,19 @@ function Profil() {
     im: user.im,
   });
 
-  //Gere le changement de la formulaire
+  const [passwordData, setPasswordData] = useState({})
+
+  //Gere le changement de la formulaire le nom et imatricule
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((formData) => ({ ...formData, [name]: value }));
   };
+
+    //Gere le changement de la formulaire pour les mots de passes
+    const handleChangePass = (e) => {
+        const { name, value } = e.target;
+        setFormData((formData) => ({ ...formData, [name]: value }));
+      };
 
   //Envoie les donnees vers l'API
   const submit = async (e) => {
@@ -28,6 +36,16 @@ function Profil() {
     }).then(({ data }) => console.log(data));
   };
 
+  const submitPass = async (e) => {
+    e.preventDefault();
+    await axiosRequest.post("/updateUser", formData, {
+      headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "http://127.0.0.1/api",
+      },
+    }).then(({ data }) => console.log(data));
+  };
   return (
     <>
       <div className="-w-full p-5 flex justify-center flex-col items-center">
@@ -74,14 +92,14 @@ function Profil() {
           </button>
         </form>
 
-        <form onSubmit={submit} className="w-full p-5 bg-white mt-3 rounded-md">
+        <form onSubmit={submitPass} className="w-full p-5 bg-white mt-3 rounded-md">
 
           <div className="mt-2 mb-5">
             <label htmlFor="name" className="text-gray-900 ">
               Mot de Passe
             </label>
             <input
-              onChange={handleChange}
+              onChange={handleChangePass}
               type="password"
               className="w-full focus:outline-blue-900 py-3 px-2  px-2rounded-md border-gray-400 border-2 mt-2 text-gray-900"
               name="password"
@@ -93,7 +111,7 @@ function Profil() {
               Nouveau Mot de Passe
             </label>
             <input
-              onChange={handleChange}
+              onChange={handleChangePass}
               type="text"
               className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900"
               name="new_password"
@@ -105,7 +123,7 @@ function Profil() {
               Confirmation Nouveau Mot de Passe
             </label>
             <input
-              onChange={handleChange}
+              onChange={handleChangePass}
               type="text"
               className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900"
               name="new_password_confirmation"
