@@ -20,7 +20,7 @@ function Profil() {
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">I-Matricule</label>
-                <input type="text"className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="changer l'imatricule"/>
+                <input type="text"className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="changer l'imatricule" value={user.im}/>
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">Mot de Passe</label>
