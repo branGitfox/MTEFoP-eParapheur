@@ -110,7 +110,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               </Link>
             </li>
             {user.role=='admin'? (            <li className="relative px-6 py-3">
-              
+
               <Link
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/admin'
@@ -125,7 +125,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             onClick={logout}
               className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-             {loading?(<BeatLoader size={20} color='yellow'/>):'Se Deconnecter'}
+             {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
               <FaArrowRight/>
             </button>
           </div>
@@ -240,7 +240,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             onClick={logout}
               className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
-             {loading?(<BeatLoader size={20} color='yellow'/>):'Se Deconnecter'}
+             {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
              <FaArrowRight/>
              
             </button>
