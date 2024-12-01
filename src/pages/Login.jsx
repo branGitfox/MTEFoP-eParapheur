@@ -117,7 +117,7 @@ function Login() {
              
                 name="email"
                 placeholder="email"
-                className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900"
+                className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900 rounded-md"
               />
               <FaMailBulk
                 className="text-gray-600 absolute right-3 top-[2.5rem] "
@@ -134,7 +134,7 @@ function Login() {
             
                 name="password"
                 placeholder="mot de passe"
-                className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900"
+                className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900 rounded-md"
               />
               <FaKey
                 className="text-gray-600 absolute right-3 top-[2.5rem]"
