@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import axiosRequest from "../axiosClient/axiosClient";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import { BeatLoader } from "react-spinners";
 
 function Profil() {
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //token d'access
@@ -35,36 +36,46 @@ function Profil() {
 
   //pour nom et imatricule
   const submit = async (e) => {
-    setInfoLoader(true)
-    e.preventDefault();
-    await axiosRequest.post("/updateUser/info", formData, {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-        "Access-Control-Allow-Origin": "http://127.0.0.1/api",
-      },
-    })
-    .then(({ data }) => toast.success(data?.message))
-    .then(() => setInfoLoader(false))
-    .catch((err) => toast.error(err?.response?.data?.message))
-    .finally(() => setInfoLoader(false))
+    try{
+
+        setInfoLoader(true)
+        e.preventDefault();
+        await axiosRequest.post("/updateUser/info", formData, {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+            "Access-Control-Allow-Origin": "http://127.0.0.1/api",
+          },
+        })
+        .then(({ data }) => toast.success(data?.message))
+        .then(() => setInfoLoader(false))
+        .catch((err) => toast.error(err?.response?.data?.message))
+        .finally(() => setInfoLoader(false))
+    }catch(err){
+        toast.error('Verifiez votre connexion');
+    }
   };
 
   //pour password et confirmation password
   const submitPass = async (e) => {   
-    setPassLoader(true)
-    e.preventDefault();
-    await axiosRequest.post("/updateUser/password", passwordData, {
-      headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-        "Access-Control-Allow-Origin": "http://127.0.0.1/api",
-      },
-    })
-    .then(({ data }) => toast.success(data.message))
-    .then(() => setPassLoader(false))
-    .catch((err) => toast.error(err?.response?.data?.message))
-    .finally(() => setPassLoader(false))
+    try{
+        
+        setPassLoader(true)
+        e.preventDefault();
+        await axiosRequest.post("/updateUser/password", passwordData, {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`,
+            "Access-Control-Allow-Origin": "http://127.0.0.1/api",
+          },
+        })
+        .then(({ data }) => toast.success(data.message))
+        .then(() => setPassLoader(false))
+        .catch((err) => toast.error(err?.response?.data?.message))
+        .finally(() => setPassLoader(false))
+    }catch(err){
+        toast.error('Verifiez votre connexion')
+    }
 
   };
   return (
@@ -109,7 +120,7 @@ function Profil() {
             />
           </div>
           <button type="submit" className="px-5 py-2 bg-blue-900 rounded-md">
-            Modifier
+            {infoLoader?<BeatLoader size={15} color="yellow"/>:'Modifier'}
           </button>
         </form>
         <h3 className="self-start text-red-500 font-semibold mt-5">Mot De Passe</h3>
@@ -153,7 +164,7 @@ function Profil() {
             />
           </div>
           <button type="submit" className="px-5 py-2 bg-blue-900 rounded-md">
-            Modifier
+          {passLoader?<BeatLoader size={15} color="yellow"/>:'Modifier'}
           </button>
         </form>
         <ToastContainer/>
