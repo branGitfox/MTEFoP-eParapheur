@@ -14,23 +14,23 @@ function Profil() {
         <form className="w-full p-5 bg-white mt-3 rounded-md">
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">Nom</label>
-                <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
+                <input type="text"className="w-full focus:outline-blue-900 py-3  px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="Changer le nom"/>
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">I-Matricule</label>
-                <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
+                <input type="text"className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="changer l'imatricule"/>
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">Mot de Passe</label>
-                <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
+                <input type="text"className="w-full focus:outline-blue-900 py-3  px-2rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="Votre mot de passe"/>
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">Nouveau Mot de Passe</label>
-                <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
+                <input type="text"className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="Nouveau mot de passe"/>
             </div>
             <div className="mt-2 mb-5">
                 <label htmlFor="name" className="text-gray-900 ">Confirmation Nouveau Mot de Passe</label>
-                <input type="text"className="w-full focus:outline-blue-900 py-3 rounded-md border-gray-400 border-2 mt-2" />
+                <input type="text"className="w-full focus:outline-blue-900 py-3 px-2 rounded-md border-gray-400 border-2 mt-2 text-gray-900" placeholder="confirmer le nouveau mot de passe"/>
             </div>
             <button type="submit"  className="px-5 py-2 bg-blue-900 rounded-md">Modifier</button>
         </form>
