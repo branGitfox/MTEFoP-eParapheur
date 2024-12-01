@@ -19,7 +19,13 @@ function Profil() {
     //envoie les donnees vers l'API
     const submit = async (e) => {
         e.preventDefault()
-       await axiosRequest
+       await axiosRequest('/updateUser', formData, {
+        headers:{
+            Accept:'application/json',
+            Authorization:`Bearer `,
+            "Access-Control-Allow-Origin":'http://127.0.0.1/api'
+        }
+       })                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 
 
     }
