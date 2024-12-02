@@ -99,8 +99,8 @@ function Login() {
             alt=""
           />
         </div>
-        <div className="w-[100%] lg:w-[50%] ">
-          <h1 className="text-4xl text-center  mt-[4rem] mb-10  text-[#A10304]">
+        <div className="w-[100%] lg:w-[50%] py-5">
+          <h1 className="text-4xl text-center  mt-[1.5rem] mb-10  text-[#A10304]">
             Connexion
           </h1>
           <form
