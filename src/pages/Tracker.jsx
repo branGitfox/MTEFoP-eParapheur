@@ -2,15 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaSearch, } from "react-icons/fa";
 import data from "../data";
 import TdData from '../components/TdData';
-import { userContext } from '../components/ContextWrapper';
-
-import { useNavigate } from 'react-router-dom';
+import axiosRequest from '../axiosClient/axiosClient';
 
 function Tracker() {
 
 
 
-
+    const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //recuperation de la cle d'access au serveur
     const [docs] = useState(data);
     const [search, setSearch] = useState("");
     const handleChange = (e) => {
@@ -29,6 +27,14 @@ function Tracker() {
         return true;
       }
     });
+
+    const getDocs = async () => {
+        try{
+          await axiosRequest.get('/docs')
+        }catch(err) {
+
+        }
+    }
   return (
     <>
                   <div className=" w-[100%]  justify-center flex p-3 mb-5 relative text-black">
