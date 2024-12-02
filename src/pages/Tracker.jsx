@@ -47,7 +47,7 @@ function Tracker() {
     //appel de la fonction de recuperation
     useEffect(() => {
       getDocs()
-    }, [token])
+    }, [])
   return (
     <>
                   <div className=" w-[100%]  justify-center flex p-3 mb-5 relative text-black">
@@ -83,12 +83,12 @@ function Tracker() {
               </thead>
               {
                   loader?(<Oval  visible={true}
-                    height="20"
-                    width="20"
+                    height="30"
+                    width="30"
                     color="blue"
                     ariaLabel="oval-loading"
                     wrapperStyle={{}}
-                    wrapperClass=""/>):(        <tbody className="bg-white divide-y ">
+                    wrapperClass="absolute left-1/2 z-50" />):(        <tbody className="bg-white divide-y ">
           
                 {filtered.map((data, index) => (
                   <>
