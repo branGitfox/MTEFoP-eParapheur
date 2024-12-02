@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useEffect, useState } from 'react'
 import { FaSearch, } from "react-icons/fa";
 import TdData from '../components/TdData';
 import axiosRequest from '../axiosClient/axiosClient';
-
+import { Oval } from 'react-loader-spinner';
 function Tracker() {
 
 
@@ -81,14 +81,24 @@ function Tracker() {
                   <th className="px-4 py-3 text-gray-800">Infos</th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y ">
+              {
+                  loader?(<Oval  visible={true}
+                    height="20"
+                    width="20"
+                    color="blue"
+                    ariaLabel="oval-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""/>):(        <tbody className="bg-white divide-y ">
+          
                 {filtered.map((data, index) => (
                   <>
                     <TdData data={data} key={index}/>
                   </>
                   
                 ))}
-              </tbody>
+              </tbody>)
+                }
+      
             </table>
           </div>
     
