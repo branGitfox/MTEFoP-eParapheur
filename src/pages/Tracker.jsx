@@ -13,6 +13,8 @@ function Tracker() {
     const handleChange = (e) => {
       setSearch(e.target.value);
     };
+
+    //filtrage des recherches
     const filtered = docs.filter((doc) => {
       if (doc.propr.toLowerCase().includes(search.toLowerCase())) {
         return true;
@@ -27,6 +29,7 @@ function Tracker() {
       }
     });
 
+    //recuperation des courriers
     const getDocs = async () => {
         try{
           setLoader(true)
