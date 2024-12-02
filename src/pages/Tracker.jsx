@@ -8,7 +8,7 @@ function Tracker() {
 
 
 
-    const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //recuperation de la cle d'access au serveur
+    const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //recuperation de la cle d'access au serveur (access_token)
     const [docs] = useState(data);
     const [search, setSearch] = useState("");
     const handleChange = (e) => {
@@ -30,11 +30,18 @@ function Tracker() {
 
     const getDocs = async () => {
         try{
-          await axiosRequest.get('/docs')
+          await axiosRequest.get('/docs', {headers: {Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"}})
+          .then(({data}) => console.log(data))
+          .catch((err) => console.log(err))
         }catch(err) {
-
+          console.log('Erreur de connexion');
+          
         }
     }
+
+    useEffect(() => {
+      getDocs()
+    }, [token])
   return (
     <>
                   <div className=" w-[100%]  justify-center flex p-3 mb-5 relative text-black">
