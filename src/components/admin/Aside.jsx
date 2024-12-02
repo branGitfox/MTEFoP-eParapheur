@@ -5,8 +5,8 @@ function Aside() {
   const location = useLocation();
   return (
     <>
-      <aside className="relative bg-sidebar h-screen w-[19.7rem] hidden sm:block shadow-xl bg-[#191970]">
-        <div className="p-6 ">
+      <aside className="relative h-screen w-[295px] hidden sm:block shadow-xl bg-[#191970]">
+        <div className="p-3 ">
           <Link
             to="/admin"
             className="text-white text-xl font-semibold uppercase hover:text-gray-300"
