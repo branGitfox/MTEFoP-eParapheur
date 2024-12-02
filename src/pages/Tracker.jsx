@@ -44,6 +44,7 @@ function Tracker() {
         }
     }
 
+    //appel de la fonction de recuperation
     useEffect(() => {
       getDocs()
     }, [token])
