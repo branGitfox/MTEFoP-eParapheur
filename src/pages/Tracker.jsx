@@ -1,13 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { FaSearch, } from "react-icons/fa";
-import data from "../data";
 import TdData from '../components/TdData';
 import axiosRequest from '../axiosClient/axiosClient';
 
 function Tracker() {
 
 
-
+    const [loader, setLoader] = useState(false) //L'etat du loader
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //recuperation de la cle d'access au serveur (access_token)
     const [docs, setDocs] = useState([])
     const [search, setSearch] = useState("");
@@ -30,9 +29,12 @@ function Tracker() {
 
     const getDocs = async () => {
         try{
+          setLoader(true)
           await axiosRequest.get('/docs', {headers: {Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"}})
           .then(({data}) =>setDocs(data))
+          .then(() => setLoader(false))
           .catch((err) => console.log(err))
+          .finally(() => setLoader(false))
         }catch(err) {
           console.log('Erreur de connexion');
           
