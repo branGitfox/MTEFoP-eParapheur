@@ -9,21 +9,21 @@ function Tracker() {
 
 
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //recuperation de la cle d'access au serveur (access_token)
-    const [docs] = useState(data);
+    const [docs, setDocs] = useState([])
     const [search, setSearch] = useState("");
     const handleChange = (e) => {
       setSearch(e.target.value);
     };
     const filtered = docs.filter((doc) => {
-      if (doc.prop.toLowerCase().includes(search.toLowerCase())) {
+      if (doc.propr.toLowerCase().includes(search.toLowerCase())) {
+        return true;
+      }
+  
+      if (doc.chrono.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
   
       if (doc.ref.toLowerCase().includes(search.toLowerCase())) {
-        return true;
-      }
-  
-      if (doc.mat.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
     });
@@ -31,7 +31,7 @@ function Tracker() {
     const getDocs = async () => {
         try{
           await axiosRequest.get('/docs', {headers: {Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"}})
-          .then(({data}) => console.log(data))
+          .then(({data}) =>setDocs(data))
           .catch((err) => console.log(err))
         }catch(err) {
           console.log('Erreur de connexion');
@@ -71,6 +71,8 @@ function Tracker() {
                   <th className="px-4 py-3 text-gray-800">Date</th>
                   <th className="px-4 py-3 text-gray-800">Status</th>
                   <th className="px-4 py-3 text-gray-800">Livre</th>
+                  <th className="px-4 py-3 text-gray-800">Infos</th>
+                  <th className="px-4 py-3 text-gray-800">Infos</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y ">
