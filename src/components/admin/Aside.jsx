@@ -17,7 +17,7 @@ function Aside() {
         </div>
         <nav className="text-white text-normal font-semibold pt-3">
           <Link
-            to="index.html"
+            to="/admin"
             className={`flex items-center relative rounded-sm  hover:bg-blue-900  text-white py-4 pl-6 nav-item`}
           >
                {
