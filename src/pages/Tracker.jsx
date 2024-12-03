@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from 'react'
+import React, {useEffect, useId, useState } from 'react'
 import { FaSearch, } from "react-icons/fa";
 import TdData from '../components/TdData';
 import axiosRequest from '../axiosClient/axiosClient';
@@ -90,7 +90,7 @@ function Tracker() {
           
                 {filtered.map((data, index) => (
                   <>
-                    <TdData data={data} key={index}/>
+                    <TdData data={data} key={useId}/>
                   </>
                   
                 ))}
