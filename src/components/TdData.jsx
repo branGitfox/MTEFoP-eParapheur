@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { BiDotsHorizontal } from 'react-icons/bi';
-import { FaArrowCircleDown, FaArrowCircleUp, FaArrowDown, FaArrowUp, FaCheckCircle, FaInfoCircle, FaSearch, } from "react-icons/fa";
+import { FaArrowCircleDown, FaArrowCircleUp, FaArrowDown, FaArrowUp, FaCheckCircle, FaClosedCaptioning, FaExclamationCircle, FaInfoCircle, FaSearch, } from "react-icons/fa";
 
 function TdData({data}) {
     const [showInfo, setShowInfo] = useState(false)
@@ -26,14 +26,15 @@ function TdData({data}) {
                     <td className="px-4 py-3 text-sm">{data.caracteristique}</td>
                     <td className="px-4 py-3 text-sm">{data.nom_dir}</td>
                     <td className="px-4 py-3 text-sm">{data.created_at}</td>
-                    <td className="px-4 py-3 text-sm">{data.status}</td>
-                    <td className="px-4 py-3 text-xs">
+                    {/* <td className="px-4 py-3 text-sm">{data.status}</td> */}
+                    {/* <td className="px-4 py-3 text-xs">
                       <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full ">
                         Decharge
                       </span>
-                    </td>
+                    </td> */}
                     <td className="px-4 py-3 text-xs">
-                      <FaCheckCircle className="text-green-600 text-xl" />
+                      {/* <FaCheckCircle className="text-green-600 text-xl" /> */}
+                      <FaExclamationCircle className='text-red-500 text-xl'/>
                     </td>
                     <td className="px-4 py-3 text-xs">
                         {showInfo === true? <FaArrowUp onClick={toggleShow} className="text-gray-400 text-xl" />: <BiDotsHorizontal onClick={toggleShow} className="text-gray-400 text-xl" />}
