@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Register() {
+    const [formData, setFormData]=useState({}) //donnee du formulaire
+
+    //gere le changement du formuulaire
+    const handleChange = (e) => {
+        const {name, value} = e.target
+    }
+
+
   return (
     <>
         <h3 className='text-gray-900 text-2xl ml-2.5 font-semibold '>Enregistrement d'un Dossier</h3>
