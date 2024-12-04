@@ -107,7 +107,7 @@ function Login() {
             onSubmit={handleSubmit}
             className="flex flex-col w-[100%] px-10  items-center"
           >
-            <div className="mb-5 w-[100%] relative">
+            <div className="mb-10 w-[100%] relative">
               <label htmlFor="email" className="block text-semibold text-black">
                 Email
               </label>
