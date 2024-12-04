@@ -1,5 +1,5 @@
 import { FaChartLine, FaFlag, FaMailBulk, FaUserPlus } from "react-icons/fa";
-import { FaHouseLaptop, FaUnlockKeyhole } from "react-icons/fa6";
+import { FaHouseLaptop } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
 function Aside() {
   const location = useLocation();
