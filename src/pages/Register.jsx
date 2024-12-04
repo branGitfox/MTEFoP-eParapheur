@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import { userContext } from '../components/ContextWrapper'
-import "react-toastify/dist/ReactToastify.css";
 import axiosRequest from '../axiosClient/axiosClient';
 
 function Register() {
@@ -43,7 +42,7 @@ function Register() {
         </div>
         <div className='mb-5'>
             <label htmlFor="provenance" className="block mb-2 text-sm font-medium text-gray-900 ">Provenance</label>
-            <input type="text" onChange={handleChange} id="provenance" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="Provenance" name='Provenance'/>
+            <input type="text" onChange={handleChange} id="provenance" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="Provenance" name='provenance'/>
         </div>
         <div className='mb-5'>
             <label htmlFor="prop" className="block mb-2 text-sm font-medium text-gray-900 ">Proprietaire</label>
@@ -71,7 +70,6 @@ function Register() {
         </div>
     <button type="submit" className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-10">Enregistrer</button>
 </form>
-    <ToastContainer/>
     </>
   )
 }
