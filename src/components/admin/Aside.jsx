@@ -29,7 +29,7 @@ function Aside() {
               ) : (
                 ""
               )
-            } <FaChartLine size={20} className="mr-3" />
+            } <FaChartLine  className="mr-4" />
             Tableau de Bord
           </Link>
           <Link
@@ -45,7 +45,7 @@ function Aside() {
               ) : (
                 ""
               )
-            }<FaUserPlus size={20} className="mr-3" />
+            }<FaUserPlus className="mr-4" />
             Ajout Utilisateur
           </Link>
           <Link
@@ -61,19 +61,19 @@ function Aside() {
               ) : (
                 ""
               )
-            } <FaHouseLaptop size={20} className="mr-3" />
+            } <FaHouseLaptop  className="mr-4" />
             Ajout Dir/Serv
           </Link>
           <Link
             to="/scc"
             className="flex items-center text-white rounded-sm hover:bg-blue-900 py-4 pl-6 nav-item"
           >
-            <FaMailBulk size={20} className="mr-3" />
+            <FaMailBulk  className="mr-4" />
             Visiter Service-CC
           </Link>
         </nav>
         <h2 className="absolute w-full font-bold    bottom-10  text-white flex items-center justify-center py-4">
-          <FaFlag className="mr-3" />
+          <FaFlag className="mr-4" />
           E-parapheur
         </h2>
       </aside>
