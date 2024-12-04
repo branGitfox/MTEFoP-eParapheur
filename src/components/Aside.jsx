@@ -13,12 +13,13 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             <aside
         className="z-20 hidden w-64 overflow-y-auto bg-[#191970] relative  md:block flex-shrink-0"
       >
-        <div className="py-4 text-white ">
+        <div className="py-4 text-white">
+          <img src="/mtefp_logo.jpeg " className='w-10 h-10 rounded-full inline ml-5' alt="" />
           <a
             className="ml-6 text-lg font-bold text-white "
             href="#"
           >
-            MTEFoP
+            e-Parapheur
           </a>
           <ul className="mt-6">
        
@@ -139,11 +140,13 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
 
         <div className="py-4 text-white relative">
         <BiX className="text-gray-200 md:hidden z-50 absolute right-2" onClick={toggleMenu} size={20} cursor={'pointer'}/>
+        <img src="/mtefp_logo.jpeg " className='w-10 h-10 rounded-full inline ml-5' alt="" />
+
           <a
             className="ml-6 text-lg font-bold text-white "
             href="#"
           >
-            MTEFoP
+            e-Parapheur
           </a>
           <ul className="mt-6">
        
