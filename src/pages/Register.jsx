@@ -34,35 +34,35 @@ function Register() {
         <h3 className='text-gray-900 text-2xl ml-2.5 font-semibold '>Enregistrement d'un Dossier</h3>
     <form onSubmit={submit} className='w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10' >
         <div className='mb-5'>
-            <label htmlFor="ref" className="block mb-2 text-sm font-medium text-gray-900 ">Chrono</label>
-            <input type="text" id="ref" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="reference du dossier" name='chrono'/>
+            <label htmlFor="chrono" className="block mb-2 text-sm font-medium text-gray-900 ">Chrono</label>
+            <input type="text"  onChange={handleChange} id="chrono" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="reference du dossier" name='chrono'/>
         </div>
         <div className='mb-5'>
-            <label htmlFor="chrono" className="block mb-2 text-sm font-medium text-gray-900 ">Reference</label>
-            <input type="text" id="Chrono" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="chrono initial" name='ref'/>
+            <label htmlFor="ref" className="block mb-2 text-sm font-medium text-gray-900 ">Reference</label>
+            <input type="text" id="ref" onChange={handleChange} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="chrono initial" name='ref'/>
         </div>
         <div className='mb-5'>
-            <label htmlFor="chrono" className="block mb-2 text-sm font-medium text-gray-900 ">Provenance</label>
-            <input type="text" id="Chrono" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="Provenance" name='Provenance'/>
+            <label htmlFor="provenance" className="block mb-2 text-sm font-medium text-gray-900 ">Provenance</label>
+            <input type="text" onChange={handleChange} id="provenance" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="Provenance" name='Provenance'/>
         </div>
         <div className='mb-5'>
             <label htmlFor="prop" className="block mb-2 text-sm font-medium text-gray-900 ">Proprietaire</label>
-            <input type="text" id="prop" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="proprietaire du dossier" name='propr'/>
+            <input type="text" onChange={handleChange} id="prop" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="proprietaire du dossier" name='propr'/>
         </div>  
         <div className='mb-5'>
             <label htmlFor="objet" className="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
-            <input type="text" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   " placeholder="objet du depot"  name='motif' />
+            <input type="text" onChange={handleChange} id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   " placeholder="objet du depot"  name='motif' />
         </div >
         <div className='mb-5'>
             <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 ">Caracteristique</label>
-            <select className='text-gray-900 w-full p-2 rounded' name="caracteristique" id="">
+            <select onChange={handleChange} className='text-gray-900 w-full p-2 rounded' name="caracteristique" id="">
                 <option value="">- Selectionner ici -</option>
                 <option value="plis ferme">Plis Ferme</option>
             </select>
         </div>
         <div className='mb-5'>
             <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 ">Direction</label>
-            <select className='text-gray-900 w-full p-2 rounded' name="dir_id" id="">
+            <select onChange={handleChange} className='text-gray-900 w-full p-2 rounded' name="dir_id" id="">
                 <option value="">DRFP</option>
                 <option value="">DSI</option>
                 <option value="">DRHE</option>
