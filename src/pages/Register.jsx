@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import { userContext } from '../components/ContextWrapper'
 
 function Register() {
-    const [formData, setFormData]=useState({status:'non reçu', user_id:}) //donnee du formulaire
+    const [formData, setFormData]=useState({status:'non reçu', user_id:user.id}) //donnee du formulaire
     const {user} = useContext(userContext)
     const [isLoading, setIsLoading] = useState(false) //etat du loader
     //gere le changement du formuulaire
