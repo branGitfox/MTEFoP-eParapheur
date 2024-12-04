@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { userContext } from '../components/ContextWrapper'
+import "react-toastify/dist/ReactToastify.css";
 
 
 function Register() {
