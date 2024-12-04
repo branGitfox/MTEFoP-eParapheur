@@ -189,6 +189,23 @@ function SccDirServDg() {
                        
                       </select>)
               }
+
+          <div className="mt-2">
+            <label className="block text-md  text-gray-600" htmlFor="pdir">
+                Porte de la Direction
+              </label>
+              <input
+                onChange={handleChangeDir}
+                value={formDataDir?.porte_dir}
+                className="w-full px-5 py-1 text-gray-700 border-gray-300 rounded-md border-2 focus:outline-blue-900 bg-gray-50 "
+                id="pdir"
+                name="porte_dir"
+                type="text"
+                placeholder="La Porte De la Direction "
+                aria-label="porte_dir"
+              />
+  
+            </div>
          
             </div>
 
@@ -207,7 +224,7 @@ function SccDirServDg() {
         {/* form pour creer un service */}
         <div className="leading-loose">
           <form className="p-3 bg-white rounded shadow-xl" onSubmit={submitServ}>
-            <p className="text-lg text-gray-800 font-medium pb-4">
+            <p className="text-lg text-gray-800 font-medium mb-4">
               Creer un service
             </p>
             <div className="">
@@ -252,7 +269,23 @@ function SccDirServDg() {
               }
              
             </div>
-
+            <div className="mt-2">
+            <label className="block text-md  text-gray-600" htmlFor="pserv">
+                Porte du service
+              </label>
+              <input
+                onChange={handleChangeServ}
+                value={formDataServ?.porte_serv}
+                className="w-full px-5 py-1 text-gray-700 border-gray-300 rounded-md border-2 focus:outline-blue-900 bg-gray-50 "
+                id="pserv"
+                name="porte_serv"
+                type="text"
+                placeholder="La Porte Du Service "
+                aria-label="porte_serv"
+              />
+  
+            </div>
+            
             <div className="mt-6">
               <button
                 className="px-4 py-1 text-white font-light tracking-wider bg-blue-900 rounded-md"
