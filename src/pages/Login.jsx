@@ -92,7 +92,7 @@ function Login() {
   return (
     <div className="w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen">
       <div className=" w-[100%] lg:w-[1200px]  h-auto lg:h-2/3 bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
-        <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center bg-[#191970]">
+        <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center lg:bg-[#191970]">
           <img
             src="/hero.png"
             className="w-3/5 md:w-3/5 lg:w-5/6 h-auto"
@@ -147,7 +147,7 @@ function Login() {
               </label>
               <input type="checkbox" id="ss" className="mx-3" />
             </div>
-            <div className="mb-5 w-[100%]">
+            <div className="mb-5  w-[100%]">
               <button className="py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded">
                 {isLoading ? <BeatLoader color="yellow" /> : "Se Connecter"}
               </button>
