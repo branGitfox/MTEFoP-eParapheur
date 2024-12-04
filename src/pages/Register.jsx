@@ -10,6 +10,8 @@ function Register() {
     const [formData, setFormData]=useState({status:'non reçu', user_id:user.id}) //donnee du formulaire
     const [isLoading, setIsLoading] = useState(false) //etat du loader
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'acces
+    const [dir, setDir] = useState([]) //liste des directions
+    const [waiting, setWaiting] = useState(false) // looder pour la recuperation des directions
     //gere le changement du formuulaire
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -29,7 +31,22 @@ function Register() {
           .finally(() => setIsLoading(false));
       };
 
-
+        //recuperation de la liste de Direction
+  const getDir = async () => {
+    setWaiting(true)
+ 
+     await axiosRequest
+       .get("/dir", {
+         headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
+       })
+       .then(({ data }) => setDir(data))
+       .then(() => setWaiting(false))
+ 
+       .catch((err) => console.log(err)
+       .finally(() => setWaiting(false))
+ 
+       )
+   };
   return (
     <>
         <h3 className='text-gray-900 text-2xl ml-2.5 font-semibold '>Enregistrement d'un Dossier</h3>
