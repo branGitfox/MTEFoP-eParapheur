@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 function Register() {
     const [formData, setFormData]=useState({}) //donnee du formulaire
@@ -14,8 +15,8 @@ function Register() {
         setIsLoading(true);
         e.preventDefault();
         await axiosRequest
-          .post("/doc", formData, {headers:{Authorization:`Bearer ${}`}})
-          .then(({ data }) => setUserData(data))
+          .post("/doc", formData, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api"}})
+          .then(({ data }) => toast.success(data.message))
           .then(() => setIsLoading(false))
     
           .catch((err) => toast.error(err.response?.data?.message))
@@ -26,7 +27,7 @@ function Register() {
   return (
     <>
         <h3 className='text-gray-900 text-2xl ml-2.5 font-semibold '>Enregistrement d'un Dossier</h3>
-<form className='w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10' >
+    <form onSubmit={submit} className='w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10' >
         <div className='mb-5'>
             <label htmlFor="ref" className="block mb-2 text-sm font-medium text-gray-900 ">Chrono</label>
             <input type="text" id="ref" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="reference du dossier" name='chrono'/>
