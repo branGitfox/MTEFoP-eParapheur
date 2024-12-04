@@ -11,7 +11,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
   return (
     <>
             <aside
-        className="z-20 hidden w-64 overflow-y-auto bg-[#191970]  md:block flex-shrink-0"
+        className="z-20 hidden w-64 overflow-y-auto bg-[#191970] relative  md:block flex-shrink-0"
       >
         <div className="py-4 text-white ">
           <a
@@ -120,13 +120,13 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               </Link>
             </li>):''}
              </ul>
-          <div className="px-6 my-6">
+          <div className="px-6 my-6 absolute bottom-0">
             <button
             onClick={logout}
               className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
              {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
-              <FaArrowRight/>
+              <FaArrowRight className='ml-[4rem]'/>
             </button>
           </div>
         </div>
@@ -235,17 +235,17 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               </Link>
             </li>
              </ul>
-          <div className="px-6 my-6">
+        </div>
+          <div className="px-6 my-6 absolute bottom-0">
             <button
             onClick={logout}
               className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
              {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
-             <FaArrowRight/>
+             <FaArrowRight   className='ml-[4rem]'/>
              
             </button>
           </div>
-        </div>
       </aside>}
 
     </>
