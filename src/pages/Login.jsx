@@ -95,7 +95,7 @@ function Login() {
         <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center ">
           <img
             src="/hero.png"
-            className="w-3/5 md:w-3/5 lg:w-full h-auto"
+            className="w-3/5 md:w-3/5 lg:w-5/6 h-auto"
             alt=""
           />
         </div>
