@@ -7,23 +7,23 @@ function Register() {
 <form className='w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10' >
         <div className='mb-5'>
             <label htmlFor="ref" className="block mb-2 text-sm font-medium text-gray-900 ">Chrono</label>
-            <input type="text" id="ref" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " placeholder="reference du dossier" name='chrono'/>
+            <input type="text" id="ref" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="reference du dossier" name='chrono'/>
         </div>
         <div className='mb-5'>
             <label htmlFor="chrono" className="block mb-2 text-sm font-medium text-gray-900 ">Reference</label>
-            <input type="text" id="Chrono" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " placeholder="chrono initial" name='ref'/>
+            <input type="text" id="Chrono" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="chrono initial" name='ref'/>
         </div>
         <div className='mb-5'>
             <label htmlFor="chrono" className="block mb-2 text-sm font-medium text-gray-900 ">Provenance</label>
-            <input type="text" id="Chrono" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " placeholder="Provenance" name='Provenance'/>
+            <input type="text" id="Chrono" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="Provenance" name='Provenance'/>
         </div>
         <div className='mb-5'>
             <label htmlFor="prop" className="block mb-2 text-sm font-medium text-gray-900 ">Proprietaire</label>
-            <input type="text" id="prop" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  " placeholder="proprietaire du dossier" name='propr'/>
+            <input type="text" id="prop" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="proprietaire du dossier" name='propr'/>
         </div>  
         <div className='mb-5'>
             <label htmlFor="objet" className="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
-            <input type="text" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5   " placeholder="objet du depot"  name='motif' />
+            <input type="text" id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   " placeholder="objet du depot"  name='motif' />
         </div >
         <div className='mb-5'>
             <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 ">Caracteristique</label>
@@ -41,10 +41,6 @@ function Register() {
                 <option value="">DMI</option>
             </select>
         </div>
-        <div>
-            <label htmlFor="date" className="block mb-2 text-sm font-medium text-gray-900 ">Date D'ajout</label>
-                <input type="date" name="" id="date" className='text-black w-full border p-1 rounded' />
-            </div>
     {/* </div> */}
     
     
