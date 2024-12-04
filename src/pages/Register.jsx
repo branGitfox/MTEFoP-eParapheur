@@ -2,13 +2,25 @@ import React, { useState } from 'react'
 
 function Register() {
     const [formData, setFormData]=useState({}) //donnee du formulaire
-
+    const [isLoading, setIsLoading] = useState(false) //etat du loader
     //gere le changement du formuulaire
     const handleChange = (e) => {
         const {name, value} = e.target
         setFormData((formData) => ({...formData, [name]:value}))
-        
     }
+
+    //gere la submission du formulaire
+    const submit = async (e) => {
+        setIsLoading(true);
+        e.preventDefault();
+        await axiosRequest
+          .post("/login", formData)
+          .then(({ data }) => setUserData(data))
+          .then(() => setIsLoading(false))
+    
+          .catch((err) => toast.error(err.response?.data?.message))
+          .finally(() => setIsLoading(false));
+      };
 
 
   return (
