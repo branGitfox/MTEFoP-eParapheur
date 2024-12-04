@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
-import { toast } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import { userContext } from '../components/ContextWrapper'
+
 
 function Register() {
     const [formData, setFormData]=useState({status:'non reçu', user_id:user.id}) //donnee du formulaire
@@ -69,7 +70,7 @@ function Register() {
         </div>
     <button type="submit" className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-10">Enregistrer</button>
 </form>
-
+    <ToastContainer/>
     </>
   )
 }
