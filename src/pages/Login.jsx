@@ -91,15 +91,15 @@ function Login() {
 
   return (
     <div className="w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen">
-      <div className=" w-[100%] lg:w-[1200px]  h-auto bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
-        <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center pt-3">
+      <div className=" w-[100%] lg:w-[1200px]  h-auto lg:h-2/3 bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
+        <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center ">
           <img
             src="/hero.png"
-            className="w-3/5 md:w-3/5 lg:w-4/5 h-auto"
+            className="w-3/5 md:w-3/5 lg:w-full h-auto"
             alt=""
           />
         </div>
-        <div className="w-[100%] lg:w-[50%] py-5">
+        <div className="w-[100%] lg:w-[50%]  flex flex-col items-center justify-center">
           <h1 className="text-4xl text-center  mt-[1.5rem] mb-10  text-[#A10304]">
             Connexion
           </h1>
