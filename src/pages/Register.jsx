@@ -81,12 +81,16 @@ function Register() {
         </div>
         <div className='mb-5'>
             <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 ">Direction</label>
-            <select onChange={handleChange} className='text-gray-900 w-full p-2 rounded' name="dir_id" id="">
-                <option value="1">DRFP</option>
-                <option value="">DSI</option>
-                <option value="">DRHE</option>
-                <option value="">DMI</option>
-            </select>
+          {waiting?(<Oval  visible={true}
+                    height="20"
+                    width="20"
+                    color="blue"
+                    ariaLabel="oval-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""/>):(<select onChange={handleChange} className='text-gray-900 w-full p-2 rounded' name="dir_id" id="">
+                        <option value="">- Selectionner ici -</option>
+                        {dir.map((d, index) => <option value={d.id} key={index}>{d.nom_dir}</option>)}
+                    </select>)}  
         </div>
     <button type="submit" className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-10"> {isLoading ? <BeatLoader color="yellow" /> : "Enregistrer"}</button>
 </form>
