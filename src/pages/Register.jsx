@@ -3,6 +3,7 @@ import { toast } from 'react-toastify'
 import { userContext } from '../components/ContextWrapper'
 import axiosRequest from '../axiosClient/axiosClient';
 import { BeatLoader } from "react-spinners";
+import { Oval } from "react-loader-spinner";
 
 
 function Register() {
@@ -23,7 +24,7 @@ function Register() {
         setIsLoading(true);
         e.preventDefault();
         await axiosRequest
-          .post("/doc", formData, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api"}})
+          .post("/doc", formData, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin": "http://127.0.0.1:8000"}})
           .then(({ data }) => toast.success(data.message))
           .then(() => setIsLoading(false))
     
