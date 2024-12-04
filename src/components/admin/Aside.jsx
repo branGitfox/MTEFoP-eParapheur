@@ -7,12 +7,14 @@ function Aside() {
     <>
       <aside className="relative h-screen w-[295px] hidden sm:block shadow-xl bg-[#191970]">
         <div className="p-3 ">
+        <img src="/mtefp_logo.jpeg " className='w-10 h-10 rounded-full inline ml-2' alt="" />
+
           <Link
             to="/admin"
-            className="text-white text-xl font-semibold uppercase hover:text-gray-300"
+            className="text-white text-xl ml-5 font-semibold  hover:text-gray-300"
           >
-            <FaUnlockKeyhole className="inline mr-3 mb-2" />
-            Admin
+         
+            e-Parapheur
           </Link>
         </div>
         <nav className="text-white text-normal font-semibold pt-3">
