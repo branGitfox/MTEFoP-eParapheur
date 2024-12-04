@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
+import { userContext } from '../components/ContextWrapper'
 
 function Register() {
-    const [formData, setFormData]=useState({}) //donnee du formulaire
+    const [formData, setFormData]=useState({status:'non reçu', user_id:}) //donnee du formulaire
+    const {user} = useContext(userContext)
     const [isLoading, setIsLoading] = useState(false) //etat du loader
     //gere le changement du formuulaire
     const handleChange = (e) => {
@@ -57,7 +59,7 @@ function Register() {
         </div>
         <div className='mb-5'>
             <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 ">Direction</label>
-            <select className='text-gray-900 w-full p-2 rounded' name="dir" id="">
+            <select className='text-gray-900 w-full p-2 rounded' name="dir_id" id="">
                 <option value="">DRFP</option>
                 <option value="">DSI</option>
                 <option value="">DRHE</option>
