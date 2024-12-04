@@ -6,6 +6,7 @@ function Register() {
     const [formData, setFormData]=useState({status:'non reçu', user_id:user.id}) //donnee du formulaire
     const {user} = useContext(userContext)
     const [isLoading, setIsLoading] = useState(false) //etat du loader
+    const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'acces
     //gere le changement du formuulaire
     const handleChange = (e) => {
         const {name, value} = e.target
