@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import { toast } from 'react-toastify'
 import { userContext } from '../components/ContextWrapper'
 import axiosRequest from '../axiosClient/axiosClient';
+import { BeatLoader } from "react-spinners";
+
 
 function Register() {
     const {user} = useContext(userContext)
