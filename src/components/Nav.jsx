@@ -12,14 +12,14 @@ function Nav() {
     <>
     
 
-    <nav id="header" className="fixed w-full z-30 top-0 text-white ">
-    <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
+    <nav id="header" className="fixed w-full z-50 top-0 text-white bg-blue-900">
+    <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2 -z-50">
       <div className="pl-4 flex items-center">
         <a className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
       
-          <img src="/mtefp_logo.jpeg" className='w-[50px] rounded-full mr-3 h-[50px] inline
+          <img src="/mtefp_logo.jpeg" className='w-[50px]  rounded-full mr-3 h-[50px] inline
           ' alt="logo de MTEFoP" />
-          MTEFoP
+          e-Parapheur
         </a>
       </div>
       <div className="block lg:hidden pr-4">
@@ -53,8 +53,7 @@ function Nav() {
         </Link>
       </div>
     </div>
-    <hr className="border-b border-gray-100 opacity-25 my-0 py-0" />
-  </nav>
+    {/* <hr className="border-b border-gray-100 opacity-25 my-0 py-0" /> */}
   {showMenu &&       <div className="absolute top-[4.2rem] z-20 bg-blue-900 w-full flex flex-col items-center justify-center p-3 gap-1">
       <li className="list-none">
             <Link className="inline-block py-2 px-4 text-gray-100 font-bold no-underline" to="/">Accueil</Link>
@@ -74,6 +73,7 @@ function Nav() {
           Mon Dossier
         </Link>
       </div>}
+  </nav>
 
   </>
   )
