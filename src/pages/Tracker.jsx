@@ -88,7 +88,7 @@ function Tracker() {
                     wrapperStyle={{}}
                     wrapperClass="absolute left-1/2 z-50" />):(        <tbody className="bg-white divide-y ">
           
-                {filtered.map((data, index) => (
+                {filtered.reverse().map((data, index) => (
                   <>
                     <TdData data={data} key={useId}/>
                   </>
