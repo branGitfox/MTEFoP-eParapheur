@@ -62,7 +62,7 @@ function Register() {
         <div className='mb-5'>
             <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 ">Direction</label>
             <select onChange={handleChange} className='text-gray-900 w-full p-2 rounded' name="dir_id" id="">
-                <option value="">DRFP</option>
+                <option value="1">DRFP</option>
                 <option value="">DSI</option>
                 <option value="">DRHE</option>
                 <option value="">DMI</option>
