@@ -14,7 +14,7 @@ function Register() {
         setIsLoading(true);
         e.preventDefault();
         await axiosRequest
-          .post("/login", formData)
+          .post("/doc", formData, {headers:{Authorization:`Bearer ${}`}})
           .then(({ data }) => setUserData(data))
           .then(() => setIsLoading(false))
     
