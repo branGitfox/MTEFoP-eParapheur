@@ -2,11 +2,11 @@ import React, { useContext, useState } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
 import { userContext } from '../components/ContextWrapper'
 import "react-toastify/dist/ReactToastify.css";
-
+import axiosRequest from '../axiosClient/axiosClient';
 
 function Register() {
-    const [formData, setFormData]=useState({status:'non reçu', user_id:user.id}) //donnee du formulaire
     const {user} = useContext(userContext)
+    const [formData, setFormData]=useState({status:'non reçu', user_id:user.id}) //donnee du formulaire
     const [isLoading, setIsLoading] = useState(false) //etat du loader
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'acces
     //gere le changement du formuulaire
