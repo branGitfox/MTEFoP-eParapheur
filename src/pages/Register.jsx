@@ -50,8 +50,8 @@ function Register() {
             <input type="text" onChange={handleChange} id="prop" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  " placeholder="proprietaire du dossier" name='propr'/>
         </div>  
         <div className='mb-5'>
-            <label htmlFor="objet" className="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
-            <input type="text" onChange={handleChange} id="phone" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   " placeholder="objet du depot"  name='motif' />
+            <label htmlFor="motif" className="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
+            <input type="text" onChange={handleChange} id="motif" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   " placeholder="objet du depot"  name='motif' />
         </div >
         <div className='mb-5'>
             <label htmlFor="website" className="block mb-2 text-sm font-medium text-gray-900 ">Caracteristique</label>
