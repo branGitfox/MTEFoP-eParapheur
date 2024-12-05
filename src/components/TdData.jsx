@@ -29,6 +29,8 @@ function TdData({data}) {
                     <td className="px-4 py-3 text-xs">
                       {data.status ==='reçu'? ( <FaCheckCircle className="text-green-600 text-xl" />):( <FaExclamationCircle className='text-red-500 text-xl'/>)}
                     </td>
+                    <td className="px-4 py-3 text-sm">{data.porte_dir}</td>
+
                     <td className="px-4 py-3 text-xs">
                         {showInfo === true? <FaArrowUp onClick={toggleShow} className="text-gray-400 text-xl" />: <BiDotsHorizontal onClick={toggleShow} className="text-gray-400 text-xl" />}
                      
