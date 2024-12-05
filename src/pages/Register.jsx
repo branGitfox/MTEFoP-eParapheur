@@ -191,7 +191,7 @@ function Register() {
             >
               <option value="">- Selectionner ici -</option>
               {dir.map((d, index) => (
-                <option value={d.id} key={index}>
+                <option value={d.d_id} key={index}>
                   {d.nom_dir}
                 </option>
               ))}
