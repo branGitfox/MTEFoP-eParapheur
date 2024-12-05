@@ -1,8 +1,9 @@
 import axiosRequest from "../axiosClient/axiosClient";
 import { BeatLoader } from "react-spinners";
 import { useEffect, useRef, useState } from "react";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import { Oval } from "react-loader-spinner";
+import "react-toastify/dist/ReactToastify.css";
 
 function UserRegister() {
   const [formData, setFormData] = useState({status:'active'});
@@ -59,7 +60,7 @@ function UserRegister() {
       .then(({ data }) => toast.success(data.message))
       .then(() => toast.info("l'email a ete bien envoyee"))
       .then(() => setIsLoading(false))
-      .catch((err) => toast.error(err.response.data.message))
+      .catch((err) => toast.error(err?.response?.data?.message))
       .finally(() => setIsLoading(false));
     }catch(err){
       toast.error('Erreur de connexion au serveur')
@@ -224,6 +225,7 @@ function UserRegister() {
             </div>
           </form>
         </div>
+        <ToastContainer/>
       </main>
     </>
   );
