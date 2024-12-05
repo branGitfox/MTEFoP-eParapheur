@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import { BiDotsHorizontal } from 'react-icons/bi';
-import { FaArrowCircleDown, FaArrowCircleUp, FaArrowDown, FaArrowUp, FaCheckCircle, FaClosedCaptioning, FaExclamationCircle, FaInfoCircle, FaSearch, } from "react-icons/fa";
+import { FaArrowUp, FaCheckCircle,FaExclamationCircle} from "react-icons/fa";
+import axiosRequest from '../axiosClient/axiosClient';
 
 function TdData({data}) {
     const [showInfo, setShowInfo] = useState(false)
-
-    const toggleShow = () => {
+    const [infoLoader, setInfoLoader] = useState(false)
+    const [history, setHistory] = useState([])
+    const toggleShow =async () => {
+        setInfoLoader(true)
+        await axiosRequest('/getDocsHistory', {headers:{"Access-Control-Allow-Origin":'http://127.0.0.1:8000'}})
+        .then(({data}) => setHistory(data))
+        .then(() => setInfoLoader(false))
+        .catch((err) => )
         setShowInfo(!showInfo)
     }
   return (
