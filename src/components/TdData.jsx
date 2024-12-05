@@ -74,7 +74,7 @@ const History = ({loader, history}) => {
                     color="blue"
                     ariaLabel="oval-loading"
                     wrapperStyle={{}}
-                    wrapperClass="absolute left-1/2 z-50" />):(
+                    wrapperClass="absolute left-[57%] z-50" />):(
       <tr>
           <td colSpan={12} className='text-center text-gray-800'>
               {history.map((h, index) => <HistoryData history={h}/>)}
@@ -94,6 +94,7 @@ const HistoryData = ({history}) => {
     <p>{history.ref_propre}</p>
     <p>{history.ref_initial}</p>
     <p>{history.name}</p>
+    <hr />
   </>
   )
 }
