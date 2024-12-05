@@ -91,8 +91,8 @@ function Login() {
 
   return (
     <div className="w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen">
-      <div className=" w-[100%] lg:w-[1200px]  h-auto lg:h-2/3 bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap">
-        <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center justify-center lg:bg-[#191970]">
+      <div className=" w-[100%] lg:w-[1200px]  h-auto lg:h-2/3 bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap rounded-md">
+        <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center rounded-md justify-center lg:bg-[#191970]">
           <img
             src="/hero.png"
             className="w-3/5 md:w-3/5 lg:w-5/6 h-auto"
