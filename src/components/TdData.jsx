@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BiDotsHorizontal } from 'react-icons/bi';
 import { FaArrowUp, FaCheckCircle,FaExclamationCircle} from "react-icons/fa";
 import axiosRequest from '../axiosClient/axiosClient';
-
+import { Oval } from 'react-loader-spinner';
 function TdData({data, doc_id}) {
     const [showInfo, setShowInfo] = useState(false)
     const [infoLoader, setInfoLoader] = useState(false)
@@ -68,7 +68,13 @@ function TdData({data, doc_id}) {
 const History = ({loader, history}) => {
   return (
     <>
-      {loader ? 'loading':(
+      {loader ? (<Oval  visible={true}
+                    height="30"
+                    width="30"
+                    color="blue"
+                    ariaLabel="oval-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="absolute left-1/2 z-50" />):(
       <tr>
           <td colSpan={12} className='text-center text-gray-800'>
               {history.map((h, index) => <HistoryData history={h}/>)}
