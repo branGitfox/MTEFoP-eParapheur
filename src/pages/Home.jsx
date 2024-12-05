@@ -5,8 +5,8 @@ function Home() {
   return (
     <>
       <div className="pt-24 lg:pt-15">
-      <div className="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <div className="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
+      <div className="container px-3 mx-auto flex flex-wrap flex-col lg:flex-row items-center">
+        <div className="flex flex-col w-full lg:w-2/5 justify-center items-start text-center md:text-left">
           <p className="uppercase tracking-loose w-full text-semibold text-4xl text-center animate__animated animate__fadeInDown">Ministere du Travail,<br /> de l'Emploi <br /> et de la Fonction Publique</p>
           <h1 className="my-4 text-5xl font-bold leading-tight self-center animate__animated animate__fadeInLeft">
             e-Parapheur
