@@ -13,22 +13,24 @@ function Tracker() {
     const handleChange = (e) => {
       setSearch(e.target.value);
     };
-
+    
+    
     //filtrage des recherches
     const filtered = docs.filter((doc) => {
       if (doc.propr.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
-  
+      
       if (doc.chrono.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
-  
+      
       if (doc.ref.toLowerCase().includes(search.toLowerCase())) {
         return true;
       }
     });
-
+    
+    
     //recuperation des courriers
     const getDocs = async () => {
         try{
@@ -88,10 +90,9 @@ function Tracker() {
                     ariaLabel="oval-loading"
                     wrapperStyle={{}}
                     wrapperClass="absolute left-[57%] z-50" />):(        <tbody className="bg-white divide-y ">
-          
                 {filtered.reverse().map((data, index) => (
                   <>
-                    <TdData data={data} doc_id={data.id} key={useId}/>
+                    <TdData data={data} doc_id={data.c_id} key={useId}/>
                   </>
                   
                 ))}

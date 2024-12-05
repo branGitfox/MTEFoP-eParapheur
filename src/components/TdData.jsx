@@ -7,10 +7,11 @@ function TdData({data, doc_id}) {
     const [showInfo, setShowInfo] = useState(false)
     const [infoLoader, setInfoLoader] = useState(false)
     const [history, setHistory] = useState([])
-  
-
+    
+    
     //Active et desactive l'info
     const toggleShow = () => {
+      console.log(doc_id);
        setShowInfo(!showInfo)
 
       }

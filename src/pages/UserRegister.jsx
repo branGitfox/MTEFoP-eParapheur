@@ -159,7 +159,7 @@ function UserRegister() {
               >
                 <option value=''>Selectionner un service</option>
                 {
-                    services.map((serv, index) =><option key={index} value={serv.id}>{serv.nom_serv}</option>)
+                    services.map((serv, index) =><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)
                 }
               </select>)
             }

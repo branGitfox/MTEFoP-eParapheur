@@ -184,7 +184,7 @@ function SccDirServDg() {
                        
                                <option value="">- Selectionner une direction -</option>
                                {
-                                dg.map((d, index) => <option value={d.id}>{d.nom_dg}</option>)
+                                dg.map((d, index) => <option value={d.dg_id}>{d.nom_dg}</option>)
                                }
                        
                       </select>)
@@ -263,7 +263,7 @@ function SccDirServDg() {
                       >
                         <option value="">- Selectionner une direction -</option>
                        {
-                        dir.map((d, index) => <option value={d.id}>{d.nom_dir}</option>)
+                        dir.map((d, index) => <option value={d.d_id}>{d.nom_dir}</option>)
                        }
                       </select>)
               }
