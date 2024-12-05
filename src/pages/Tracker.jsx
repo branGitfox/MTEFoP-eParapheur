@@ -87,7 +87,7 @@ function Tracker() {
                     color="blue"
                     ariaLabel="oval-loading"
                     wrapperStyle={{}}
-                    wrapperClass="absolute left-1/2 z-50" />):(        <tbody className="bg-white divide-y ">
+                    wrapperClass="absolute left-[57%] z-50" />):(        <tbody className="bg-white divide-y ">
           
                 {filtered.reverse().map((data, index) => (
                   <>
