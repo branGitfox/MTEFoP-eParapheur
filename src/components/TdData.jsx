@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { BiDotsHorizontal } from 'react-icons/bi';
 import { FaArrowUp, FaCheckCircle,FaExclamationCircle} from "react-icons/fa";
 import axiosRequest from '../axiosClient/axiosClient';
 
-function TdData({data}) {
+function TdData({data, doc_id}) {
     const [showInfo, setShowInfo] = useState(false)
     const [infoLoader, setInfoLoader] = useState(false)
     const [history, setHistory] = useState([])
-    const toggleShow =async () => {
-        setInfoLoader(true)
-        await axiosRequest('/getDocsHistory', {headers:{"Access-Control-Allow-Origin":'http://127.0.0.1:8000'}})
-        .then(({data}) => setHistory(data))
-        .then(() => setInfoLoader(false))
-        .catch((err) => )
-        setShowInfo(!showInfo)
+  
+    const toggleShow = () => {
+       setShowInfo(!showInfo)
+
+      }
+      const getHistory = async () => {
+      setInfoLoader(true)
+      await axiosRequest.get(`/getDocsHistory/${doc_id}`, {headers:{"Access-Control-Allow-Origin":'http://127.0.0.1:8000'}})
+      .then(({data}) => setHistory(data))
+      .then(() => setInfoLoader(false))
+      .catch((err) => console.log(err))
+      .finally(() => setInfoLoader(false))
     }
+    useEffect(() => {
+        getHistory()
+    }, [showInfo])
+    console.log(history);
+    
   return (
     <>
         <tr  className="text-gray-700">
@@ -43,13 +53,36 @@ function TdData({data}) {
                      
                     </td>
                   </tr>
-                  {showInfo &&  <tr>
-                      <td colSpan={12} className='text-center text-gray-800'>
-                        <h1>Hello world</h1>
-                      </td>
-                  </tr>}
+                  {showInfo &&  <History history={history} loader={infoLoader}/> }
                 
     </>
+  )
+}
+
+const History = ({loader, history}) => {
+  return (
+    <>
+      {loader ? 'loading':(
+      <tr>
+          <td colSpan={12} className='text-center text-gray-800'>
+              {history.map((h, index) => <HistoryData history={h}/>)}
+          
+           
+          </td>
+      </tr>
+      )}
+    </>
+  )
+}
+
+const HistoryData = ({history}) => {
+  return (
+    <>
+    <p className='text-black'>{history.created_at}</p>
+    <p>{history.ref_propre}</p>
+    <p>{history.ref_initial}</p>
+    <p>{history.name}</p>
+  </>
   )
 }
 

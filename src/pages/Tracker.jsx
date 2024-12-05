@@ -91,7 +91,7 @@ function Tracker() {
           
                 {filtered.reverse().map((data, index) => (
                   <>
-                    <TdData data={data} key={useId}/>
+                    <TdData data={data} doc_id={data.id} key={useId}/>
                   </>
                   
                 ))}
