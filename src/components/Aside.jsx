@@ -11,7 +11,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
   return (
     <>
             <aside
-        className="z-20 hidden w-64 overflow-y-auto bg-[#191970] relative  md:block flex-shrink-0"
+        className="z-20 hidden w-64 overflow-y-auto bg-[#191970] relative  md:block flex-shrink-0 rounded-r-xl"
       >
         <div className="py-4 text-white">
           <img src="/mtefp_logo.jpeg " className='w-10 h-10 rounded-full inline ml-5' alt="" />
@@ -135,7 +135,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
 
       {/* Side bar  pour mobile */}
       {menu &&       <aside
-        className="z-20  w-64 overflow-y-auto absolute h-screen bg-[#191970]  md:block flex-shrink-0"
+        className="z-20  w-64 overflow-y-auto absolute h-screen bg-[#191970]  md:block flex-shrink-0 rounded-r-xl"
       >
 
         <div className="py-4 text-white relative">

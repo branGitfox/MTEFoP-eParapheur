@@ -5,7 +5,7 @@ function Aside() {
   const location = useLocation();
   return (
     <>
-      <aside className="relative h-screen w-[295px] hidden sm:block shadow-xl bg-[#191970]">
+      <aside className="relative h-screen w-[295px] hidden sm:block shadow-xl bg-[#191970] rounded-r-xl">
         <div className="p-3 ">
         <img src="/mtefp_logo.jpeg " className='w-10 h-10 rounded-full inline ml-2' alt="" />
 
