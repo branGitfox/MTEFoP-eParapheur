@@ -8,10 +8,14 @@ function TdData({data, doc_id}) {
     const [infoLoader, setInfoLoader] = useState(false)
     const [history, setHistory] = useState([])
   
+
+    //Active et desactive l'info
     const toggleShow = () => {
        setShowInfo(!showInfo)
 
       }
+
+      //recuperation de l'historique de mouvement
       const getHistory = async () => {
       setInfoLoader(true)
       await axiosRequest.get(`/getDocsHistory/${doc_id}`, {headers:{"Access-Control-Allow-Origin":'http://127.0.0.1:8000'}})
@@ -19,11 +23,13 @@ function TdData({data, doc_id}) {
       .then(() => setInfoLoader(false))
       .catch((err) => console.log(err))
       .finally(() => setInfoLoader(false))
-    }
-    useEffect(() => {
-        getHistory()
-    }, [showInfo])
-    console.log(history);
+      }
+
+        //Appel de la fonction de recuperation d'historique
+        useEffect(() => {
+            getHistory()
+        }, [showInfo])
+        console.log(history);
     
   return (
     <>
