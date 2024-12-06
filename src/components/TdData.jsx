@@ -79,7 +79,12 @@ const History = ({loader, history}) => {
       <tr>
           <td colSpan={12} className='text-center text-gray-800'>
               {history.map((h, index) => <HistoryData history={h}/>)}
-          
+              <ul className="steps steps-vertical">
+  <li className="step step-primary">Register</li>
+  <li className="step step-primary">Choose plan</li>
+  <li className="step">Purchase</li>
+  <li className="step">Receive Product</li>
+</ul>
            
           </td>
       </tr>
@@ -95,6 +100,7 @@ const HistoryData = ({history}) => {
     <p>{history.ref_propre}</p>
     <p>{history.ref_initial}</p>
     <p>{history.name}</p>
+
     <hr />
   </>
   )
