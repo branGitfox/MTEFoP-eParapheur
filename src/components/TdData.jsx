@@ -11,7 +11,7 @@ function TdData({data, doc_id}) {
     
     //Active et desactive l'info
     const toggleShow = () => {
-      console.log(doc_id);
+   
        setShowInfo(!showInfo)
 
       }
@@ -30,7 +30,7 @@ function TdData({data, doc_id}) {
         useEffect(() => {
             getHistory()
         }, [showInfo])
-        console.log(history);
+    
     
   return (
     <>
