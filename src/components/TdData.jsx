@@ -104,39 +104,21 @@ const History = ({ loader, history }) => {
 const HistoryData = ({ history, index }) => {
   return (
     <>
-      <div class="flex">
+      <div class="flex" key={index}>
         <div class="mr-4 flex flex-col items-center">
           <div>
-            <div class="flex h-10 w-10 items-center justify-center rounded-full border-2 border-blue-900">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="h-6 w-6 text-blue-800 dark:text-slate-200"
-              >
-                <path d="M12 5l0 14"></path>
-                <path d="M18 13l-6 6"></path>
-                <path d="M6 13l6 6"></path>
-              </svg>
+            <div class="flex h-10 w-10 items-center justify-center rounded-full border-2  border-blue-900">
+                <span>{index + 1}</span>
             </div>
           </div>
-          <div class="h-full w-px bg-gray-300 dark:bg-slate-500"></div>
+          <div class="h-full w-px bg-yellow-600 "></div>
         </div>
         <div class="pt-1 pb-8">
-          <p class="mb-2 text-xl font-bold text-gray-900 dark:text-slate-300">
-            Step 1
+          <p class="mb-2 text-xl font-bold text-gray-700 ">
+            {history.type+' - '+history.created_at}
           </p>
-          <p class="text-gray-600 dark:text-slate-400">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            sagittis, quam nec venenatis lobortis, mirisus tempus nulla, sed
-            porttitor est nibh at nulla. Praesent placerat enim ut ex tincidunt
-            vehicula. Fusce sit amet dui tellus.
+          <p class="text-gray-600 ">
+
           </p>
         </div>
       </div>
