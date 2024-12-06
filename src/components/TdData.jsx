@@ -90,8 +90,8 @@ const History = ({ loader, history }) => {
         />
       ) : (
         <tr>
-          <td colSpan={12} className=" text-gray-800 flex-col justify-center">
-            <div class="flex flex-col justify-center w-full p-5">
+          <td colSpan={12} className=" text-gray-800 flex-col justify-center m-auto">
+            <div class="flex flex-col justify-center md:items-center w-full p-5 m-auto">
               {history.map((h, index) => (
                 <HistoryData key={useId} index={index} history={h} />
               ))}
@@ -120,10 +120,10 @@ const HistoryData = ({ history, index }) => {
             {history.type+' - '+history.created_at}
           </p>
           <ul>
-            <li>Reference Initial: {history.ref_initial}</li>
-            <li>Chrono: {history.ref_propre}</li>
-            <li>Proprietaire: {history.propr}</li>
-            <li>Declenchee Par: {history.name}</li>
+            <li><span className="underline decoration-dotted">Reference Initial</span>: {history.ref_initial}</li>
+            <li ><span className="underline decoration-dotted">Chrono</span>: {history.ref_propre}</li>
+            <li><span className="underline decoration-dotted">Proprietaire</span>: {history.propr}</li>
+            <li><span className="underline decoration-dotted">Declenchee Par</span>: {history.name}</li>
           </ul>
           <p class="text-gray-600 ">
            {history.description}
