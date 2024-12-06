@@ -108,10 +108,10 @@ const HistoryData = ({ history, index }) => {
         <div class="mr-4 flex flex-col items-center">
           <div>
             <div class="flex h-10 w-10 items-center justify-center rounded-full border-2  border-blue-900">
-                <span>{index + 1}</span>
+                <span className="font-bold text-yellow-500">{index + 1}</span>
             </div>
           </div>
-          <div class="h-full w-px bg-yellow-600 "></div>
+          <div class="h-full w-px bg-gray-400 "></div>
         </div>
         <div class="pt-1 pb-8">
           <p class="mb-2 text-xl font-bold text-gray-700 ">
