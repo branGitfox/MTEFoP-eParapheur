@@ -8,6 +8,8 @@ function TdData({ data, doc_id }) {
   const [infoLoader, setInfoLoader] = useState(false);
   const [history, setHistory] = useState([]);
 
+  console.log(history);
+  
   //Active et desactive l'info
   const toggleShow = () => {
     setShowInfo(!showInfo);
@@ -117,8 +119,14 @@ const HistoryData = ({ history, index }) => {
           <p class="mb-2 text-xl font-bold text-gray-700 ">
             {history.type+' - '+history.created_at}
           </p>
+          <ul>
+            <li>Reference Initial: {history.ref_initial}</li>
+            <li>Chrono: {history.ref_propre}</li>
+            <li>Proprietaire: {history.propr}</li>
+            <li>Declenchee Par: {history.name}</li>
+          </ul>
           <p class="text-gray-600 ">
-
+           {history.description}
           </p>
         </div>
       </div>
@@ -127,3 +135,4 @@ const HistoryData = ({ history, index }) => {
 };
 
 export default TdData;
+
