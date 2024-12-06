@@ -82,16 +82,16 @@ const History = ({loader, history}) => {
         <div class="flex justify-center w-full">
             <ul class="w-full">
 
-                <li class="text-left mb-10 w-full">
-                    <div class="flex flex-wrap lg:flex-row items-center justify-center">
-                        <div class="flex flex-row md:flex-col items-center justify-center mr-5">
+            <li class="text-left mb-10">
+                    <div class="flex flex-row items-start">
+                        <div class="flex flex-col items-center justify-center mr-5">
                             <div
                                 class="flex items-center justify-center h-20 w-20 rounded-full bg-indigo-500 text-white border-4 border-white text-xl font-semibold">
                                 1
                             </div>
                             <span class="text-gray-500">STEP</span>
                         </div>
-                        <div class="bg-gray-100 p-5 pb-10">
+                        <div class="bg-gray-100 p-5 pb-10 ">
                             <h4 class="text-lg leading-6 font-semibold text-gray-900">Enter Headline</h4>
                             <p class="mt-2 text-base leading-6 text-gray-500">
                                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis
@@ -100,6 +100,7 @@ const History = ({loader, history}) => {
                         </div>
                     </div>
                 </li>
+           
             </ul>
         </div>
 
