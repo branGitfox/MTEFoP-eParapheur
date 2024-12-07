@@ -15,6 +15,8 @@ function TdData({ data, doc_id }) {
     setShowInfo(!showInfo);
   };
 
+
+  
   //recuperation de l'historique de mouvement
   const getHistory = async () => {
     setInfoLoader(true);
@@ -62,6 +64,7 @@ function TdData({ data, doc_id }) {
         <td className="px-4 py-3 text-xs">
           {showInfo === true ? (
             <FaArrowUp onClick={toggleShow} className="text-gray-400 text-xl" />
+            
           ) : (
             <BiDotsHorizontal
               onClick={toggleShow}
@@ -97,8 +100,7 @@ const History = ({ loader, history }) => {
                 <HistoryData key={useId} index={index} history={h} />
               ))}
            
-        </ul> 
-          
+        </ul>          
           </td>
         </tr>
       )}
@@ -122,10 +124,10 @@ const HistoryData = ({ history, index }) => {
                         class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
                         {history.type+' - '+history.created_at}
                     </h3>
-                    <li><span className="underline decoration-dotted">Reference Initial</span>: {history.ref_initial}</li>
-                    <li ><span className="underline decoration-dotted">Chrono</span>: {history.ref_propre}</li>
-                    <li><span className="underline decoration-dotted">Proprietaire</span>: {history.propr}</li>
-                    <li><span className="underline decoration-dotted">Declenchee Par</span>: {history.name}</li>
+                    <li><span className="underline">Reference Initial</span>: {history.ref_initial}</li>
+                    <li ><span className="underline">Chrono</span>: {history.ref_propre}</li>
+                    <li><span className="underline">Proprietaire</span>: {history.propr}</li>
+                    <li><span className="underline">Declenchee Par</span>: {history.name}</li>
                     <h4 class="mt-2 text-base text-gray-700"> {history.description}</h4>
                 </div>
             </li>
