@@ -8,7 +8,7 @@ function TdData({ data, doc_id }) {
   const [infoLoader, setInfoLoader] = useState(false);
   const [history, setHistory] = useState([]);
 
-  console.log(history);
+  
   
   //Active et desactive l'info
   const toggleShow = () => {
@@ -77,7 +77,7 @@ function TdData({ data, doc_id }) {
     </>
   );
 }
-// 0345040255
+
 const History = ({ loader, history }) => { 
   return (
     <>
@@ -111,7 +111,7 @@ const History = ({ loader, history }) => {
 const HistoryData = ({ history, index, length}) => {
   return (
     <>
-       <li class="flex-start group relative flex lg:flex-col">
+       <li key={index} class="flex-start group relative flex lg:flex-col">
                 <span
                     class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-300  lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                     aria-hidden="true"></span>

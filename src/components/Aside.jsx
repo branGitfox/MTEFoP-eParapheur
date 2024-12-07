@@ -124,7 +124,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
           <div className="px-6 my-6 absolute bottom-0">
             <button
             onClick={logout}
-              className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              className="flex items-center justify-between w-full px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
              {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
               <FaArrowRight className='ml-[4rem]'/>
@@ -242,7 +242,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
           <div className="px-6 my-6 absolute bottom-0">
             <button
             onClick={logout}
-              className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+              className="flex items-center justify-between w-full px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
              {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
              <FaArrowRight   className='ml-[4rem]'/>
