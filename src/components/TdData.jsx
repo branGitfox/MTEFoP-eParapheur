@@ -97,7 +97,7 @@ const History = ({ loader, history }) => {
    
             <ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-4">
               {history.map((h, index) => (
-                <HistoryData key={useId} index={index} history={h} />
+                <HistoryData key={useId} index={index} length={history.length} history={h} />
               ))}
            
         </ul>          
@@ -108,15 +108,15 @@ const History = ({ loader, history }) => {
   );
 };
 
-const HistoryData = ({ history, index }) => {
+const HistoryData = ({ history, index, length}) => {
   return (
     <>
        <li class="flex-start group relative flex lg:flex-col">
                 <span
-                    class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-300 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
+                    class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-300  lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                     aria-hidden="true"></span>
                 <div
-                    class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-300 bg-gray-50 transition-all duration-200 group-hover:border-blue-900 group-hover:text-white group-hover:bg-blue-900">
+                    class={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-300  ${index == length - 1?'bg-blue-900 text-white':'bg-gray-50'}  transition-all duration-200 group-hover:border-blue-900 group-hover:text-white group-hover:bg-blue-900`}>
                    {index + 1}
                 </div>
                 <div class="ml-6 lg:ml-0 lg:mt-10">
