@@ -74,9 +74,9 @@ function Tracker() {
           />
           {/* <button onClick={fresh} className="bg-blue-900 text-white px-3   py-2 rounded-md">Actualiser</button> */}
       </div>
-      <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%]">
-        <table className="w-full whitespace-no-wrap">
-          <thead>
+      <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
+        <table className="w-full whitespace-no-wrap ">
+          <thead >
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
               <th className="px-4 py-3 text-gray-800">Chrono</th>
               <th className="px-4 py-3 text-gray-800">Provenance</th>

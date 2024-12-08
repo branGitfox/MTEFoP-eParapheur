@@ -30,7 +30,7 @@ function Nav() {
             </a>
 
           </div>
-          <div className="absolute hidden md:block  left-[50%]">
+          <div className="absolute hidden md:block  left-[50%] animate__animated animate__fadeInDown">
             <img src="/Madagascar-l.gif" alt="" className="w-10 h-10" />
           </div>
           <div className="block lg:hidden pr-4">
