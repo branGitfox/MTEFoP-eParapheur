@@ -70,9 +70,9 @@ function Tracker() {
           />
           <FaSearch
             size={20}
-            className="absolute text-gray-900 right-[20%] md:right-[25.5%] top-6 "
+            className="absolute text-gray-900 right-[20%] md:right-[18%] top-6 "
           />
-          <button onClick={fresh} className="bg-blue-900 text-white px-3   py-2 rounded-md">Actualiser</button>
+          {/* <button onClick={fresh} className="bg-blue-900 text-white px-3   py-2 rounded-md">Actualiser</button> */}
       </div>
       <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%]">
         <table className="w-full whitespace-no-wrap">
