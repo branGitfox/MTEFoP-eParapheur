@@ -35,7 +35,8 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
          
               <Link
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
-                to='/scc'              >
+        
+              to='/scc'              >
                 <svg
                   className="w-5 h-5"
                   aria-hidden="true"
@@ -61,6 +62,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               ></span>):''
                 }
               <Link
+             
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc/register'
               >
@@ -91,6 +93,8 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               <Link
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc/stats'
+            
+
               >
                 <svg
                   className="w-5 h-5"
@@ -161,6 +165,8 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
                 }
          
               <Link
+              onClick={toggleMenu}
+
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc'              >
                 <svg
@@ -188,6 +194,8 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               ></span>):''
                 }
               <Link
+              onClick={toggleMenu}
+
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc/register'
               >
@@ -216,6 +224,8 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               ></span>):''
                 }
               <Link
+              onClick={toggleMenu}
+
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
                 to='/scc/stats'
               >
