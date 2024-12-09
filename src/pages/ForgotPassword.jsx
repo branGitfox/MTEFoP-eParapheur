@@ -1,23 +1,32 @@
 import React from 'react'
 import { FaArrowLeft, FaMailBulk } from 'react-icons/fa'
 import { useState } from 'react';
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import { BeatLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
+import axiosRequest from '../axiosClient/axiosClient';
 function ForgotPassword() {
   const [isLoading, setIsLoading] = useState(false);
+   const [email, setEmail] = useState({})
 
 
-
-    const handleChange = () => {
-
-
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setEmail((email) => ({...email, [name]:value}))
     }
 
 
-    const handleSubmit = () => {
-
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setIsLoading(true)
+        await axiosRequest.post('/forgotPassword', email, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000", Accept:'application/json'}})
+        .then(({data}) => toast.success(data.message))
+        .then(() => setIsLoading(true))
+        .catch((err) => toast.error(err?.response?.data?.message))
+        .finally(() => setIsLoading(false))
+        
     }
+
   return (
     <div className="w-[100%]  relative top-[4.5rem] lg:top-0 flex items-center  lg:h-screen">
     <div className=" w-[100%] lg:w-[1200px]  h-auto lg:h-2/3 bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap animate__animated animate__pulse">
