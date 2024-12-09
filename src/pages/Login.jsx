@@ -1,6 +1,6 @@
 import { FaKey, FaMailBulk } from "react-icons/fa";
 import { userContext } from "../components/ContextWrapper";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import axiosRequest from "../axiosClient/axiosClient";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,6 +14,12 @@ function Login() {
   const navigation = useNavigate();
   const [formData, setFormData] = useState({});
   const [token]=useState(localStorage.getItem('ACCESS_TOKEN'))
+  const [showPassword, setShowPassword] = useState(false)
+
+const checkeds = useRef(null)
+  const togglePassword = () => {
+    setShowPassword(!showPassword)
+  }
 
 
   //recuperation de l'utilisateur connecte
@@ -130,8 +136,8 @@ function Login() {
               </label>
               <input
                 onChange={handleChange}
-                type="text"
-            
+                type={showPassword?'text':'password'}
+                ref={checkeds}
                 name="password"
                 placeholder="mot de passe"
                 className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900 rounded-md"
@@ -145,7 +151,7 @@ function Login() {
               <label htmlFor="ss" className="text-semibold text-black">
                 Afficher le mot de passe
               </label>
-              <input type="checkbox" id="ss" className="mx-3" />
+              <input onChange={togglePassword}   type="checkbox" id="ss" className="mx-3"  checked={showPassword}/>
             </div>
             <div className="mb-5  w-[100%]">
               <button className="py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded">
