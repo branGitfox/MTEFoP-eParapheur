@@ -143,7 +143,7 @@ function Login() {
             </div>
             <div className="mb-5 w-[100%]">
               <label htmlFor="ss" className="text-semibold text-black">
-                Se Souvenir de moi
+                Afficher le mot de passe
               </label>
               <input type="checkbox" id="ss" className="mx-3" />
             </div>
