@@ -23,7 +23,7 @@ function ForgotPassword() {
     <div className=" w-[100%] lg:w-[1200px]  h-auto lg:h-2/3 bg-white m-auto relative top-1 lg:top-9 rounded-md flex flex-wrap animate__animated animate__pulse">
       <div className="w-[100%] lg:w-[50%] h-[100%] flex items-center rounded-l-md justify-center lg:bg-[#191970]">
         <img
-          src="/hero.png"
+          src="/forgot.webp"
           className="w-3/5 md:w-3/5 lg:w-5/6 h-auto"
           alt=""
         />
