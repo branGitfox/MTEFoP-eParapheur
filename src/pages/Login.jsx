@@ -2,11 +2,11 @@ import { FaKey, FaMailBulk } from "react-icons/fa";
 import { userContext } from "../components/ContextWrapper";
 import { useContext, useEffect, useRef, useState } from "react";
 import axiosRequest from "../axiosClient/axiosClient";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
 import {useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 function Login() {
   const { setUser, user } = useContext(userContext);
   const [isLoading, setIsLoading] = useState(false);
@@ -152,7 +152,9 @@ const checkeds = useRef(null)
                 Afficher le mot de passe
               </label>
               <input onChange={togglePassword}   type="checkbox" id="ss" className="mx-3"  checked={showPassword}/>
+              <Link to='/forgotPassword' className="underline text-blue-500">Mot de Passe oublie</Link>
             </div>
+            
             <div className="mb-5  w-[100%]">
               <button className="py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded">
                 {isLoading ? <BeatLoader color="yellow" /> : "Se Connecter"}

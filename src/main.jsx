@@ -15,6 +15,7 @@ import ContextWrapper from "./components/ContextWrapper.jsx";
 import SccDirServDg from "./components/admin/SccDirServDg.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Profil from "./pages/Profil.jsx";
+import ForgotPassword from "./pages/ForgotPassword.jsx";
 
 const router = createBrowserRouter(
   [
@@ -31,6 +32,10 @@ const router = createBrowserRouter(
           path: "/login",
           element: <Login />,
         },
+        {
+          path:"/forgotPassword",
+          element:<ForgotPassword/>
+        }
       ],
     },
 
