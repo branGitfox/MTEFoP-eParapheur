@@ -10,14 +10,14 @@ function Home() {
         <div className="mx-auto mb-2 md:hidden">
             <img src="/Madagascar-l.gif" alt="" className="w-10 h-10" />
           </div>
-          <p className="uppercase tracking-loose w-full text-semibold text-4xl text-center animate__animated animate__fadeInDown">Ministere du Travail,<br /> de l'Emploi <br /> et de la Fonction Publique</p>
-          <h1 className="my-4 text-5xl font-bold leading-tight self-center animate__animated animate__fadeInLeft">
+          <p className="uppercase tracking-loose w-full text-semibold text-4xl text-left animate__animated animate__fadeInDown">Ministere du Travail,<br /> de l'Emploi <br /> et de la Fonction Publique</p>
+          <h1 className="my-4 text-5xl font-bold leading-tight self-start animate__animated animate__fadeInLeft">
             e-Parapheur
           </h1>
-          <p className="leading-normal text-2xl  lg:w-[400px] lg:m-auto  mb-8 text-center animate__animated animate__fadeInLeft">
+          <p className="leading-normal text-2xl  lg:m-auto  mb-8 text-left animate__animated animate__fadeInLeft">
             Application Web de gestion de Courriers dediee au Service Central de courriers au sein du Ministere afin de simplifier le tracage de courriers.
           </p>
-          <Link to='/login' className="mx-auto  animate__animated animate__fadeInLeft lg:mx-0 self-center hover:underline bg-white text-gray-800 font-bold rounded-full my-6 relative lg:top-10 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <Link to='/login' className="mx-auto  animate__animated animate__fadeInLeft lg:mx-0 self-start hover:underline bg-white text-gray-800 font-bold rounded-full my-6 relative lg:top-10 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Se Connecter
           </Link>
         </div>
