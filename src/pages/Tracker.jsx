@@ -115,7 +115,7 @@ function Tracker() {
             <tbody className="bg-white divide-y ">
               {filtered?.reverse().map((data, index) => (
                 <>
-                  <TdData data={data} doc_id={data.c_id} key={useId} user={user}/>
+                  <TdData data={data} doc_id={data.c_id} key={useId} user={user} fresh={freshStatus} setFresh={setFreshStatus}/>
                 </>
               ))}
             </tbody>

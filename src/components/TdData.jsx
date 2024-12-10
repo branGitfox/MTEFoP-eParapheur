@@ -12,7 +12,7 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-function TdData({ data, doc_id, user }) {
+function TdData({ data, doc_id, user, setFresh, fresh }) {
   const [showInfo, setShowInfo] = useState(false);
   const [infoLoader, setInfoLoader] = useState(false);
   const [history, setHistory] = useState([]);
@@ -35,8 +35,8 @@ function TdData({ data, doc_id, user }) {
           "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
         },
       })
-      .then(({ data }) => toast.success('Courrier bien supprimer'))
-      .then(() => )
+      .then(({ data }) => toast.success(data.message))
+      .then(() => setFresh(!fresh))
       .catch((err) => console.log(err));
 
   };
