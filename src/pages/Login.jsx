@@ -34,8 +34,16 @@ const checkeds = useRef(null)
       .then(({ data }) => {
         if (!data.message) {
           setUser(data);
-          if (data.role == "scc" || data.role == "sp") {
+          if (data.role == "scc") {
             navigation("/scc");
+          }
+
+          if(data.role == "sp"){
+            navigation("/sp");
+          }
+
+          if(data.role == "agent"){
+            navigation("/agent");
           }
 
           if (data.role == "admin") {
