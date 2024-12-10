@@ -131,7 +131,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               className="flex items-center justify-between w-full px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
             >
              {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
-              <FaArrowRight className='ml-[4rem]'/>
+              <FaArrowRight className='ml-[4  console.log(user);rem]'/>
             </button>
           </div>
         </div>
@@ -256,7 +256,6 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             >
              {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
              <FaArrowRight   className='ml-[4rem]'/>
-             
             </button>
           </div>
       </aside>}

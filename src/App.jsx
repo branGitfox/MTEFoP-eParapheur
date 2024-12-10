@@ -1,8 +1,7 @@
 
-import { useContext, useEffect } from 'react';
 import Nav from './components/Nav'
 import { Outlet } from 'react-router-dom'
-import ContextWrapper, { userContext } from './components/ContextWrapper';
+import { ToastContainer } from 'react-toastify'
 
 
 
@@ -13,6 +12,7 @@ function App() {
     <>
         <Nav/>
         <Outlet/>
+        <ToastContainer/>
     </>
   )
 }

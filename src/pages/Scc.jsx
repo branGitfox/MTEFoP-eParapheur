@@ -68,6 +68,9 @@ function Scc() {
       toast.success(`Vous connecte en tant que ${user?.role}`);
     }
   }, [user.role]);
+
+
+  
   return (
     <div className="w-[100%]  min-h-[100vh]">
       <div className="flex min-h-screen md:overflow-y-hidden  bg-gray-100 md:h-screen">
@@ -80,7 +83,7 @@ function Scc() {
         />
         <div className="w-full md:overflow-y-scroll  shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-white mb-5">
-            <h2 className="font-semibold hidden md:block text-gray-700">SCC</h2>
+            <h2 className="font-semibold hidden md:block text-gray-700">{user.nom_serv}</h2>
             <BiMenu
               className="text-gray-900 md:hidden"
               onClick={toggleMenu}

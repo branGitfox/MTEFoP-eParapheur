@@ -225,7 +225,7 @@ function UserRegister() {
             </div>
           </form>
         </div>
-        <ToastContainer/>
+        {/* <ToastContainer/> */}
       </main>
     </>
   );
