@@ -1,15 +1,16 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useContext, useEffect, useId, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import TdData from "../components/TdData";
 import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
+import { userContext } from "../components/ContextWrapper";
 function Tracker() {
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //recuperation de la cle d'access au serveur (access_token)
   const [docs, setDocs] = useState([])
   const [search, setSearch] = useState("")
   const [freshStatus, setFreshStatus] = useState(false)
-
+  const {user} = useContext(userContext)
   const fresh = () => {
     setFreshStatus(!freshStatus)
   }
@@ -93,6 +94,10 @@ function Tracker() {
               <th className="px-4 py-3 text-gray-800">Date</th>
               <th className="px-4 py-3 text-gray-800">Livre</th>
               <th className="px-4 py-3 text-gray-800">Porte</th>
+              <th className="px-4 py-3 text-gray-800">Infos</th>
+              {
+                user
+              }
               <th className="px-4 py-3 text-gray-800">Infos</th>
             </tr>
           </thead>
