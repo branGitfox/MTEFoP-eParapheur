@@ -1,4 +1,5 @@
 import React, { useEffect, useId, useState } from "react";
+
 import { BiDotsHorizontal } from "react-icons/bi";
 import {
   FaArrowUp,
@@ -10,11 +11,15 @@ import {
 import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 function TdData({ data, doc_id, user }) {
   const [showInfo, setShowInfo] = useState(false);
   const [infoLoader, setInfoLoader] = useState(false);
   const [history, setHistory] = useState([]);
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
+  //navigation
+  const navigate = useNavigate()
+
 
   //Active et desactive l'info
   const toggleShow = () => {
