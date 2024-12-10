@@ -180,9 +180,11 @@ function UserRegister() {
                 name="role"
                 className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
               >
+                <option value="">- Selectionner ici -</option>
                 <option value="admin">Admin</option>
-                <option value="sp">Secretaire Particulier</option>
                 <option value="scc">SCC</option>
+                <option value="sp">Secretaire Particulier</option>
+                <option value="agent">Agent Service</option>
               </select>
             </div>
             <div className="inline-block mt-2 w-1/2 pr-1">
