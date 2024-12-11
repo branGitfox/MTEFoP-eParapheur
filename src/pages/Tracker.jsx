@@ -68,19 +68,21 @@ function Tracker() {
   return (
     <>
       <div className=" w-[100%]  justify-evenly flex p-3 mb-5 relative text-black">
-    
-          <input
+          <div className="w-[80%] h-12 flex justify-center relative ">
+                <input
             onChange={handleChange}
             value={search}
             type="text"
-            className="border w-2/3 p-2 rounded-md focus:outline-blue-900 shadow"
+            className="border  p-2  w-full rounded-md focus:outline-blue-900 shadow"
             placeholder="rechercher"
           />
           <FaSearch
             size={20}
-            className="absolute text-gray-900 right-[28%] md:right-[24%] top-6 "
+            className="absolute  text-gray-900 right-2 top-4 "
           />
-          <button onClick={fresh} className="bg-blue-900 text-white px-3   py-2 rounded-md"><IoReloadOutline/></button>
+          </div>
+      
+          <button onClick={fresh} className="bg-blue-900 text-white flex justify-between items-center px-3   py-2 rounded-md"><IoReloadOutline className="inline mr-2"/>Actualiser</button>
       </div>
       <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
         <table className="w-full whitespace-no-wrap ">
