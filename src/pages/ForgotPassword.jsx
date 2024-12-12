@@ -38,7 +38,7 @@ function ForgotPassword() {
         />
       </div>
       <div className="w-[100%] lg:w-[50%]  flex flex-col items-center justify-center">
-        <h1 className="text-4xl text-center  mt-[1.5rem] mb-10  text-[#A10304]">
+        <h1 className="text-4xl text-center  mt-[1.5rem] mb-10  text-blue-500">
           Mot De Passe Oubliee
         </h1>
         <form
