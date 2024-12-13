@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaCheck, FaSearch } from "react-icons/fa";
 import { IoReloadOutline } from "react-icons/io5";
 import { userContext } from "../components/ContextWrapper";
 import { BiTransfer } from "react-icons/bi";
 function ListDoc() {
   const { user } = useContext(userContext);
+  const [loader, setLoader] = useState(false); //L'etat du loader
   const handleChange = () => null;
   const search = () => null;
   const fresh = () => null;
@@ -74,7 +75,8 @@ function ListDoc() {
                 </button>
               </td>
               <td className="px-8 py-3 text-sm flex ">
-                <button className="px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl">
+                <button onClick={() => console.log('hello')
+                }  className=" px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl">
                   <BiTransfer />
                 </button>
               </td>
