@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaCheck, FaSearch } from "react-icons/fa";
 import { IoReloadOutline } from "react-icons/io5";
 import { userContext } from "../components/ContextWrapper";
 import { BiTransfer } from "react-icons/bi";
 import axiosRequest from "../axiosClient/axiosClient";
 import { toast } from "react-toastify";
+import { Oval } from "react-loader-spinner";
 function ListDoc() {
   const { user } = useContext(userContext);
   const [docsByDirection, setDocsByDirection] = useState([])
@@ -18,6 +19,12 @@ function ListDoc() {
     .catch((err) => toast.error(err?.response?.data?.message))
     .finally(() => setLoader(false))
   }
+
+  useEffect(() => {
+    fetchByDirection()
+  }, [])
+
+  
 
   const handleChange = () => null;
   const search = () => null;
@@ -67,6 +74,17 @@ function ListDoc() {
               )}
             </tr>
           </thead>
+          {loader ? (
+            <Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass="absolute left-[57%] z-50"
+            />
+          ) :(
           <tbody className="bg-white divide-y ">
             <tr className="text-gray-700">
               <td className="px-4 py-3">
@@ -94,7 +112,7 @@ function ListDoc() {
                 </button>
               </td>
             </tr>
-          </tbody>
+          </tbody>)}
         </table>
       </div>
     </>
