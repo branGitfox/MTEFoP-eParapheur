@@ -18,6 +18,7 @@ import Profil from "./pages/Profil.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import Sp from "./pages/Sp.jsx";
 import Agent from "./pages/Agent.jsx";
+import ListDoc from "./pages/ListDoc.jsx";
 const router = createBrowserRouter(
   [
     {
