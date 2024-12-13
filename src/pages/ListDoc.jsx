@@ -37,17 +37,17 @@ function ListDoc() {
               <th className="px-4 py-3 text-gray-800">Proprietaire</th>
               <th className="px-4 py-3 text-gray-800">Motif</th>
               <th className="px-4 py-3 text-gray-800">Caracteristique</th>
-
               <th className="px-4 py-3 text-gray-800">Date</th>
               <th className="px-4 py-3 text-gray-800">Livre</th>
 
               {
                 user.role =='admin' && <th className="px-4 py-3 text-gray-800">Actions</th>
               }
-      
-              
             </tr>
           </thead>
+          <tbody className="bg-white divide-y ">
+
+        </tbody>
           </table>
     </div>
     </>
