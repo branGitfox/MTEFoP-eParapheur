@@ -26,6 +26,9 @@ function ListDoc() {
       
           <button onClick={fresh} className="bg-blue-900 text-white flex justify-between items-center px-3   py-2 rounded-md"><IoReloadOutline className="inline mr-2"/>Actualiser</button>
       </div>
+      <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
+
+</div>
     </>
 
   )
