@@ -4,11 +4,19 @@ import { IoReloadOutline } from "react-icons/io5";
 import { userContext } from "../components/ContextWrapper";
 import { BiTransfer } from "react-icons/bi";
 import axiosRequest from "../axiosClient/axiosClient";
+import { toast } from "react-toastify";
 function ListDoc() {
   const { user } = useContext(userContext);
+  const [docsByDirection, setDocsByDirection] = useState([])
   const [loader, setLoader] = useState(false); //L'etat du loader
+  const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
   const fetchByDirection = async () => {
-    await axiosRequest.get('/docsByDirection', {headers:{Authorization:`Bearer `}})
+    setLoader(true)
+    await axiosRequest.get('/docsByDirection', {headers:{Authorization:`Bearer ${token}`}})
+    .then(({data}) => setDocsByDirection(data))
+    .then(() => setLoader(false))
+    .catch((err) => toast.error(err?.response?.data?.message))
+    .finally(() => setLoader(false))
   }
 
   const handleChange = () => null;
