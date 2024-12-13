@@ -11,7 +11,7 @@ function ListDoc() {
   const [docsByDirection, setDocsByDirection] = useState([])
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
-
+    const [updateLivre, setUpdateLivre] = useState(false)
   //recupere la liste des courrier par direction
   const fetchByDirection = async () => {
     setLoader(true)
@@ -22,15 +22,12 @@ function ListDoc() {
     .finally(() => setLoader(false))
   }
 
-//change le status livre
-const changeLivreStatus = async () => {
 
-}
 
   //appelle de fechByDirection
   useEffect(() => {
     fetchByDirection()
-  }, [])
+  }, [updateLivre])
 
   
 
@@ -96,7 +93,7 @@ const changeLivreStatus = async () => {
           ) :(
         
           <tbody className="bg-white divide-y ">
-                <DocByDirection docsByDirection={docsByDirection}/>
+                <DocByDirection token={token} docsByDirection={docsByDirection} updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
           </tbody>)}
         </table>
       </div>
@@ -104,15 +101,26 @@ const changeLivreStatus = async () => {
   );
 }
 
-const DocByDirection = ({docsByDirection}) => {
+const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre}) => {
     return (
         <>
-         {docsByDirection.map((doc, index) => <DocItems key={index} doc={doc} ind={index}/>)}
+         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
         </>
     )
 }
 
-const DocItems = ({doc, ind}) => {
+const DocItems = ({doc, ind, token, updateLivre, setUpdateLivre}) => {
+    const [livreLoader, setLivreLoader] = useState(false)
+    //change le status livre
+const  changeLivreStatus= async (id_doc) => {
+    setLivreLoader(true)
+    await axiosRequest.post(`/docUpdateLivre/${id_doc}`,{}, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+    .then(({data}) => toast.success(data.message))
+    .then(() => setLivreLoader(false))
+    .then(() => setUpdateLivre(!updateLivre))
+    .catch((err) => toast.error(err?.response?.data?.message))
+    .finally(() => setLivreLoader(false))
+}
     return (
         <tr key={ind} className="text-gray-700">
         <td className="px-4 py-3">
@@ -130,8 +138,16 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3 text-sm">{doc.name}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
-          <button disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
-            <FaCheck />
+          <button onClick={() =>changeLivreStatus(doc.c_id)} disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
+            {livreLoader?(     <Oval
+              visible={true}
+              height="15"
+              width="15"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+            
+            />):<FaCheck />}
             
           </button>
         </td>
