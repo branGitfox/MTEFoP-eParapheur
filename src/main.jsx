@@ -83,6 +83,11 @@ const router = createBrowserRouter(
         }
       ],
     },
+
+    {
+      path:'/sp',
+      element:<Sp/>
+    }
   ],
   {
     future: {
