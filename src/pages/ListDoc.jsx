@@ -124,7 +124,7 @@ const DocItems = ({doc, ind}) => {
             <FaCheck />
           </button>
         </td>
-        <td className="px-8 py-3 text-sm flex ">
+        <td className="px-8 py-3 text-sm">
           <button onClick={() => console.log('hello')
           }  className={`${doc.transfere =='non'?'':'bg-gray-600'} px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl`}>
             <BiTransfer />
