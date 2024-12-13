@@ -30,7 +30,7 @@ function ListDoc() {
       <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
       <table className="w-full whitespace-no-wrap ">
           <thead >
-            <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
+            <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-blue-100 ">
               <th className="px-4 py-3 text-gray-800">Chrono</th>
               <th className="px-4 py-3 text-gray-800">Provenance</th>
               <th className="px-4 py-3 text-gray-800">Ref</th>
