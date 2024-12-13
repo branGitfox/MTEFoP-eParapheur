@@ -16,7 +16,7 @@ import SccDirServDg from "./components/admin/SccDirServDg.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import Profil from "./pages/Profil.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
-
+import Sp from "./pages/Sp.jsx";
 const router = createBrowserRouter(
   [
     {
