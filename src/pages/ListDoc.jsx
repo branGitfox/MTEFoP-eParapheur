@@ -65,6 +65,7 @@ function ListDoc() {
               <th className="px-4 py-3 text-gray-800">Proprietaire</th>
               <th className="px-4 py-3 text-gray-800">Motif</th>
               <th className="px-4 py-3 text-gray-800">Caracteristique</th>
+              <th className="px-4 py-3 text-gray-800">Agent</th>
               <th className="px-4 py-3 text-gray-800">Date</th>
               <th className="px-4 py-3 text-gray-800">Livre</th>
               <th className="px-4 py-3 text-gray-800 ">Transferer</th>
@@ -118,6 +119,7 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3 text-sm">{doc.propr}</td>
         <td className="px-4 py-3 text-sm">{doc.motif}</td>
         <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
+        <td className="px-4 py-3 text-sm">{doc.name}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
           <button disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'':'bg-gray-600'} px-3 py-2 bg-green-500 text-gray-50 rounded-2xl`}>
@@ -125,7 +127,7 @@ const DocItems = ({doc, ind}) => {
           </button>
         </td>
         <td className="px-8 py-3 text-sm">
-          <button onClick={() => console.log('hello')
+          <button disabled={doc.transfere =='non'?false:true} onClick={() => console.log('hello')
           }  className={`${doc.transfere =='non'?'':'bg-gray-600'} px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl`}>
             <BiTransfer />
           </button>
