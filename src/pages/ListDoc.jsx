@@ -98,27 +98,27 @@ function ListDoc() {
 const DocByDirection = ({docsByDirection}) => {
     return (
         <>
-         {docsByDirection.map((doc, index) => <DocItems doc={doc} index={index}/>)}
+         {docsByDirection.map((doc, index) => <DocItems key={index} doc={doc} ind={index}/>)}
         </>
     )
 }
 
-const DocItems = ({doc, index}) => {
+const DocItems = ({doc, ind}) => {
     return (
-        <tr className="text-gray-700">
+        <tr key={ind} className="text-gray-700">
         <td className="px-4 py-3">
           <div className="flex items-center text-sm">
             <div>
-              <p className="font-semibold">Test de td</p>
+              <p className="font-semibold">{doc.chrono}</p>
             </div>
           </div>
         </td>
-        <td className="px-4 py-3 text-sm">test</td>
-        <td className="px-4 py-3 text-sm">test</td>
-        <td className="px-4 py-3 text-sm">test</td>
-        <td className="px-4 py-3 text-sm">test</td>
-        <td className="px-4 py-3 text-sm">test</td>
-        <td className="px-4 py-3 text-sm">test</td>
+        <td className="px-4 py-3 text-sm">{doc.provenance}</td>
+        <td className="px-4 py-3 text-sm">{doc.ref}</td>
+        <td className="px-4 py-3 text-sm">{doc.propr}</td>
+        <td className="px-4 py-3 text-sm">{doc.motif}</td>
+        <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
+        <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
           <button className="px-3 py-2 bg-green-500 text-gray-50 rounded-2xl">
             <FaCheck />
