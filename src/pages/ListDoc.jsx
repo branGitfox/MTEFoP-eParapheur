@@ -120,7 +120,7 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
-          <button className="px-3 py-2 bg-green-500 text-gray-50 rounded-2xl">
+          <button disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'':'bg-gray-600'} px-3 py-2 bg-green-500 text-gray-50 rounded-2xl`}>
             <FaCheck />
           </button>
         </td>
