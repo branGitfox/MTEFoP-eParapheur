@@ -47,7 +47,10 @@ function ListDoc() {
           </thead>
           <tbody className="bg-white divide-y ">
                  
-                 
+          <tr className="text-gray-700">
+        <td className="px-4 py-3">
+        </td>
+            </tr>
         </tbody>
           </table>
     </div>
