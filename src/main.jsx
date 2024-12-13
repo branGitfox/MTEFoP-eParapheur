@@ -92,7 +92,13 @@ const router = createBrowserRouter(
 
     {
       path:'/agent',
-      element:<Agent/>
+      element:<Agent/>,
+      children:[
+        {
+          index:true,
+          element:<ListDoc/>
+        }
+      ]
     },
   ],
   {
