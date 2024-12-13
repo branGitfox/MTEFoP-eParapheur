@@ -17,6 +17,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import Profil from "./pages/Profil.jsx";
 import ForgotPassword from "./pages/ForgotPassword.jsx";
 import Sp from "./pages/Sp.jsx";
+import Agent from "./pages/Agent.jsx";
 const router = createBrowserRouter(
   [
     {
@@ -87,7 +88,12 @@ const router = createBrowserRouter(
     {
       path:'/sp',
       element:<Sp/>
-    }
+    },
+
+    {
+      path:'/agent',
+      element:<Agent/>
+    },
   ],
   {
     future: {
