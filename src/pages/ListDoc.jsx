@@ -3,9 +3,14 @@ import { FaCheck, FaSearch } from "react-icons/fa";
 import { IoReloadOutline } from "react-icons/io5";
 import { userContext } from "../components/ContextWrapper";
 import { BiTransfer } from "react-icons/bi";
+import axiosRequest from "../axiosClient/axiosClient";
 function ListDoc() {
   const { user } = useContext(userContext);
   const [loader, setLoader] = useState(false); //L'etat du loader
+  const fetchByDirection = async () => {
+    await axiosRequest.get('/docsByDirection', {headers:{Authorization:`Bearer `}})
+  }
+
   const handleChange = () => null;
   const search = () => null;
   const fresh = () => null;
