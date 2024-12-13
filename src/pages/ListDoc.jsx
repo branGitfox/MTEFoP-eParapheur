@@ -85,38 +85,53 @@ function ListDoc() {
               wrapperClass="absolute left-[57%] z-50"
             />
           ) :(
+        
           <tbody className="bg-white divide-y ">
-            <tr className="text-gray-700">
-              <td className="px-4 py-3">
-                <div className="flex items-center text-sm">
-                  <div>
-                    <p className="font-semibold">Test de td</p>
-                  </div>
-                </div>
-              </td>
-              <td className="px-4 py-3 text-sm">test</td>
-              <td className="px-4 py-3 text-sm">test</td>
-              <td className="px-4 py-3 text-sm">test</td>
-              <td className="px-4 py-3 text-sm">test</td>
-              <td className="px-4 py-3 text-sm">test</td>
-              <td className="px-4 py-3 text-sm">test</td>
-              <td className="px-4 py-3 text-sm">
-                <button className="px-3 py-2 bg-green-500 text-gray-50 rounded-2xl">
-                  <FaCheck />
-                </button>
-              </td>
-              <td className="px-8 py-3 text-sm flex ">
-                <button onClick={() => console.log('hello')
-                }  className=" px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl">
-                  <BiTransfer />
-                </button>
-              </td>
-            </tr>
+                <DocByDirection docsByDirection={docsByDirection}/>
           </tbody>)}
         </table>
       </div>
     </>
   );
+}
+
+const DocByDirection = ({docsByDirection}) => {
+    return (
+        <>
+         {docsByDirection.map((doc, index) => <DocItems doc={doc} index={index}/>)}
+        </>
+    )
+}
+
+const DocItems = ({doc, index}) => {
+    return (
+        <tr className="text-gray-700">
+        <td className="px-4 py-3">
+          <div className="flex items-center text-sm">
+            <div>
+              <p className="font-semibold">Test de td</p>
+            </div>
+          </div>
+        </td>
+        <td className="px-4 py-3 text-sm">test</td>
+        <td className="px-4 py-3 text-sm">test</td>
+        <td className="px-4 py-3 text-sm">test</td>
+        <td className="px-4 py-3 text-sm">test</td>
+        <td className="px-4 py-3 text-sm">test</td>
+        <td className="px-4 py-3 text-sm">test</td>
+        <td className="px-4 py-3 text-sm">
+          <button className="px-3 py-2 bg-green-500 text-gray-50 rounded-2xl">
+            <FaCheck />
+          </button>
+        </td>
+        <td className="px-8 py-3 text-sm flex ">
+          <button onClick={() => console.log('hello')
+          }  className=" px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl">
+            <BiTransfer />
+          </button>
+        </td>
+      </tr>
+    )
 }
 
 export default ListDoc;
