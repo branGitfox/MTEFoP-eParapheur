@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaCheck, FaSearch } from "react-icons/fa";
 import { IoReloadOutline } from "react-icons/io5";
 import { userContext } from "../components/ContextWrapper";
+import { BiTransfer } from "react-icons/bi";
 function ListDoc() {
   const { user } = useContext(userContext);
   const handleChange = () => null;
@@ -66,7 +67,16 @@ function ListDoc() {
               <td className="px-4 py-3 text-sm">test</td>
               <td className="px-4 py-3 text-sm">test</td>
               <td className="px-4 py-3 text-sm">test</td>
-              <td className="px-4 py-3 text-sm">test</td>
+              <td className="px-4 py-3 text-sm">
+                <button className="px-3 py-2 bg-green-500 text-gray-50 rounded-2xl">
+                  <FaCheck />
+                </button>
+              </td>
+              <td className="px-4 py-3 text-sm">
+                <button className="px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl">
+                  <BiTransfer />
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
