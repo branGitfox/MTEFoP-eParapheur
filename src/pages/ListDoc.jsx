@@ -11,6 +11,8 @@ function ListDoc() {
   const [docsByDirection, setDocsByDirection] = useState([])
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+
+  //recupere la liste des courrier par direction
   const fetchByDirection = async () => {
     setLoader(true)
     await axiosRequest.get('/docsByDirection', {headers:{Authorization:`Bearer ${token}`}})
@@ -20,6 +22,12 @@ function ListDoc() {
     .finally(() => setLoader(false))
   }
 
+//change le status livre
+const changeLivreStatus = async () => {
+
+}
+
+  //appelle de fechByDirection
   useEffect(() => {
     fetchByDirection()
   }, [])
@@ -122,8 +130,9 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3 text-sm">{doc.name}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
-          <button disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'':'bg-gray-600'} px-3 py-2 bg-green-500 text-gray-50 rounded-2xl`}>
+          <button disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
             <FaCheck />
+            
           </button>
         </td>
         <td className="px-8 py-3 text-sm">
