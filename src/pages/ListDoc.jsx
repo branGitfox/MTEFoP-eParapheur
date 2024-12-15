@@ -11,6 +11,7 @@ function ListDoc() {
   const [docsByDirection, setDocsByDirection] = useState([])
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+  const [reload, setReload] = useState(false)
     const [updateLivre, setUpdateLivre] = useState(false)
   //recupere la liste des courrier par direction
   const fetchByDirection = async () => {
@@ -27,13 +28,13 @@ function ListDoc() {
   //appelle de fechByDirection
   useEffect(() => {
     fetchByDirection()
-  }, [updateLivre])
+  }, [reload, updateLivre])
 
   
 
   const handleChange = () => null;
   const search = () => null;
-  const fresh = () => null;
+  const fresh = () => setReload(!reload);
 
   return (
     <>
