@@ -109,6 +109,22 @@ function OneDoc() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />
         </div>
+        <div className="mb-5">
+          <label
+            htmlFor="reference"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Reference
+          </label>
+          <input
+            type="text"
+            disabled
+            placeholder={doc?.chrono}
+            id="reference"
+
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          />
+        </div>
 
             </form>
                 </>
