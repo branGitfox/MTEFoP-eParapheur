@@ -120,7 +120,7 @@ function ListDoc() {
           ) :(
         
           <tbody className="bg-white divide-y ">
-                <DocByDirection token={token} docsByDirection={filtered} updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
+                <DocByDirection token={token} docsByDirection={filtered} showDocByOne={showDocByOne} updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
           </tbody>)}
         </table>
       </div>
@@ -128,15 +128,15 @@ function ListDoc() {
   );
 }
 
-const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre}) => {
+const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre, showDocByOne}) => {
     return (
         <>
-         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
+         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} showDocByOne={showDocByOne} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
         </>
     )
 }
 
-const DocItems = ({doc, ind, token, updateLivre, setUpdateLivre}) => {
+const DocItems = ({doc, ind, token, updateLivre, setUpdateLivre, showDocByOne}) => {
     const [livreLoader, setLivreLoader] = useState(false)
     //change le status livre
 const  changeLivreStatus= async (id_doc) => {
