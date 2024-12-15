@@ -36,7 +36,7 @@ function OneDoc() {
               color="blue"
               ariaLabel="oval-loading"
               wrapperStyle={{}}
-              wrapperClass="absolute left-[57%] z-50"
+              wrapperClass="absolute left-[48%] lg:left-[57%] z-50"
             />):(
 
                 <>
