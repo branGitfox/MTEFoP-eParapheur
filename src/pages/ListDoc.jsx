@@ -12,6 +12,7 @@ function ListDoc() {
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
   const [reload, setReload] = useState(false)
+  const [search, setSearch] = useState("")
     const [updateLivre, setUpdateLivre] = useState(false)
   //recupere la liste des courrier par direction
   const fetchByDirection = async () => {
@@ -31,9 +32,24 @@ function ListDoc() {
   }, [reload, updateLivre])
 
   
+  const filtered = docsByDirection.filter((doc) => {
+    if (doc.propr?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
 
-  const handleChange = () => null;
-  const search = () => null;
+    if (doc.chrono?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
+
+    if (doc.ref?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
+})
+
+  const handleChange = (e) => {
+    setSearch(e.target.value)
+  };
+
   const fresh = () => setReload(!reload);
 
   return (
@@ -94,7 +110,7 @@ function ListDoc() {
           ) :(
         
           <tbody className="bg-white divide-y ">
-                <DocByDirection token={token} docsByDirection={docsByDirection} updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
+                <DocByDirection token={token} docsByDirection={filtered} updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
           </tbody>)}
         </table>
       </div>
