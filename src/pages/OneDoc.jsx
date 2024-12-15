@@ -14,8 +14,7 @@ function OneDoc() {
     const [doc, setDoc] = useState({})
     const [servLoading, setServLoading] = useState(false)
     const [servs, setServs] = useState([])
-    const [formData, setFormData] = useState({courrier_id:id_doc, user_id:user.id, status:"non reçu", propr:doc.propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono})
-
+    
     const getServs = async () => {
         setServLoading(true)
         await axiosRequest.get(`services/${user.id_dir}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
@@ -34,6 +33,9 @@ function OneDoc() {
         .finally(() => setIsLoading(false))
     }
 
+    
+    
+    
     //appel de getOneDoc
     useEffect(() => {
         getOneDoc()
@@ -43,10 +45,25 @@ function OneDoc() {
     useEffect(() => {
         getServs()
     }, [user])
+    const handleChange = (e) => {
+        const {name, value} = e.target
+        setFormData((formData) => ({...formData, [name]:value}))
+    }
+    const [formData, setFormData] =useState({})
+    const submit =async (e) => {
+        e.preventDefault()
+        console.log({...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", propr:formData.propr??doc.propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono});
+        await axiosRequest.post('/transDoc', {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", propr:doc.propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono}, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => toast.success(data.message))
+        .catch(({response}) => toast.error(response.data.message))
 
-    const submit = () => null
-    const handleChange = () => null
-    console.log(servs);
+    }
+
+
+  
+    
+   
+   
     
   return (
     <>
@@ -183,10 +200,28 @@ function OneDoc() {
             id="type"
           >
             <option value="">- Selectionner ici -</option>
-            <option value="Transfert">Transfert</option>
-            <option value="Recuperation">Recuperation</option>
+            <option value="transfert">Transfert</option>
+            <option value="recuperation">Recuperation</option>
           </select> 
         </div>
+        {formData.type == 'recuperation' &&         <div className="mb-5">
+          <label
+            htmlFor="par"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Par (la personne qui recupere le courrier)
+          </label>
+          <input
+            type="text"
+            value={formData?.propr}
+            onChange={handleChange}
+            placeholder='Recupereur'
+            id="par"
+            name='propr'
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          />
+        </div>}
+
         <div className="mb-5">
           <label
             htmlFor="Chrono"
@@ -197,8 +232,10 @@ function OneDoc() {
           <input
             type="text"
             value={formData?.chrono}
+            onChange={handleChange}
             placeholder='Chronologie'
             id="Chrono"
+            name='ref_propre'
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />
         </div>
