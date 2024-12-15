@@ -6,6 +6,7 @@ import { BiTransfer } from "react-icons/bi";
 import axiosRequest from "../axiosClient/axiosClient";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 
 function ListDoc() {
   const { user } = useContext(userContext);
@@ -54,6 +55,11 @@ function ListDoc() {
 
   //actualise les donnees
   const fresh = () => setReload(!reload);
+
+  //affiche les courriers par (ID)
+  const showDocByOne = (id_doc) => {
+
+  }
 
   return (
     <>
