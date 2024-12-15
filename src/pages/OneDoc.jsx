@@ -37,7 +37,15 @@ function OneDoc() {
               ariaLabel="oval-loading"
               wrapperStyle={{}}
               wrapperClass="absolute left-[57%] z-50"
-            />):(<div>OneDoc</div>)}
+            />):(
+
+                <>
+                     <h3 className="text-gray-900 text-2xl ml-2.5 font-semibold ">
+                             Transfert D'un Courrier
+                    </h3>
+                </>
+
+            )}
     </>
   )
 }
