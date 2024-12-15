@@ -19,6 +19,7 @@ import ForgotPassword from "./pages/ForgotPassword.jsx";
 import Sp from "./pages/Sp.jsx";
 import Agent from "./pages/Agent.jsx";
 import ListDoc from "./pages/ListDoc.jsx";
+import OneDoc from "./pages/OneDoc.jsx";
 const router = createBrowserRouter(
   [
     {
@@ -98,6 +99,11 @@ const router = createBrowserRouter(
         {
           index:true,
           element:<ListDoc/>
+        },
+
+        {
+          path:'/agent/doc/:id_doc',
+          element:<OneDoc/>
         }
       ]
     },

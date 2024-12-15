@@ -16,6 +16,7 @@ function ListDoc() {
   const [reload, setReload] = useState(false)
   const [search, setSearch] = useState("")
     const [updateLivre, setUpdateLivre] = useState(false)
+    const navigate = useNavigate()
   //recupere la liste des courrier par direction
   const fetchByDirection = async () => {
     setLoader(true)
@@ -58,7 +59,7 @@ function ListDoc() {
 
   //affiche les courriers par (ID)
   const showDocByOne = (id_doc) => {
-
+    navigate('')
   }
 
   return (
