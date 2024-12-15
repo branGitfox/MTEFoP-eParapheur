@@ -25,6 +25,8 @@ function OneDoc() {
         getOneDoc()
     }, [])
 
+    const submit = () => null
+    const handleChange = () => null
     console.log(doc);
     
   return (
@@ -43,6 +45,72 @@ function OneDoc() {
                      <h3 className="text-gray-900 text-2xl ml-2.5 font-semibold ">
                              Transfert D'un Courrier
                     </h3>
+            <form
+                onSubmit={submit}
+                className="w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10"
+            >
+                <div className="mb-5">
+          <label
+            htmlFor="Proprietaire"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Proprietaire
+          </label>
+          <input
+            type="text"
+            disabled
+            placeholder={doc?.propr}
+            id="Proprietaire"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          />
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="Motif"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Motif
+          </label>
+          <input
+            type="text"
+            disabled
+            placeholder={doc?.motif}
+            id="Motif"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          />
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="Motif"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Caracteristique
+          </label>
+          <input
+            type="text"
+            disabled
+            placeholder={doc?.caracteristique}
+            id="caracteristique"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          />
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="provenance"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Provenance
+          </label>
+          <input
+            type="text"
+            disabled
+            placeholder={doc?.provenance}
+            id="provenance"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          />
+        </div>
+
+            </form>
                 </>
 
             )}
