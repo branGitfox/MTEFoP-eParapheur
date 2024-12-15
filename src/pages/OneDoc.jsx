@@ -187,7 +187,22 @@ function OneDoc() {
             <option value="Recuperation">Recuperation</option>
           </select> 
         </div>
-
+        <div className="mb-5">
+          <label
+            htmlFor="Chrono"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Chrono
+          </label>
+          <input
+            type="text"
+            value={formData?.chrono}
+            placeholder='Chronologie'
+            id="Chrono"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          />
+        </div>
+        <button className='bg-blue-900 px-3 py-2 rounded-md' type='submit'>Transferer</button>
             </form>
                 </>
 
