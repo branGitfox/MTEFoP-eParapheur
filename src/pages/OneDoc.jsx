@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axiosRequest from '../axiosClient/axiosClient'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { Oval } from 'react-loader-spinner'
 
 function OneDoc() {
 
@@ -27,7 +28,17 @@ function OneDoc() {
     console.log(doc);
     
   return (
-    <div>OneDoc</div>
+    <>
+        {isLoading ? ( <Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass="absolute left-[57%] z-50"
+            />):(<div>OneDoc</div>)}
+    </>
   )
 }
 
