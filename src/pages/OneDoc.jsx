@@ -14,6 +14,7 @@ function OneDoc() {
     const [doc, setDoc] = useState({})
     const [servLoading, setServLoading] = useState(false)
     const [servs, setServs] = useState([])
+    const [formData, setFormData] = useState({courrier_id:id_doc, user_id:user.id, status:"non reçu", propr:doc.propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono})
 
     const getServs = async () => {
         setServLoading(true)
@@ -41,7 +42,6 @@ function OneDoc() {
     //appel de getServs
     useEffect(() => {
         getServs()
-
     }, [user])
 
     const submit = () => null
@@ -146,7 +146,7 @@ function OneDoc() {
         </div>
         <div className="mb-5">
           <label
-            htmlFor="reference"
+            htmlFor="services"
             className="block mb-2 text-sm font-medium text-gray-900"
           >
             Transferer vers (Service)
@@ -162,13 +162,30 @@ function OneDoc() {
             />):(  <select
             onChange={handleChange}
             className="text-gray-900 w-full p-2 rounded"
-            name="caracteristique"
-            id=""
+            name="serv_id"
+            id="services"
           >
             <option value="">- Selectionner ici -</option>
             {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
-          </select>)}
-        
+          </select>)}  
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="type"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Type de Mouvements
+          </label>
+       <select
+            onChange={handleChange}
+            className="text-gray-900 w-full p-2 rounded"
+            name="type"
+            id="type"
+          >
+            <option value="">- Selectionner ici -</option>
+            <option value="Transfert">Transfert</option>
+            <option value="Recuperation">Recuperation</option>
+          </select> 
         </div>
 
             </form>
