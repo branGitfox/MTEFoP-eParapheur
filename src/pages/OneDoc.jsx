@@ -16,7 +16,8 @@ function OneDoc() {
     const [servs, setServs] = useState([])
 
     const getServs = async () => {
-        await axiosRequest.get(`services/${user.dir_id}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        setServLoading(true)
+        await axiosRequest.get(`services/${user.id_dir}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setServs(data))
         .then(() => setServLoading(false))
         .catch((err) => toast.error(err.response?.data?.message))
@@ -35,8 +36,13 @@ function OneDoc() {
     //appel de getOneDoc
     useEffect(() => {
         getOneDoc()
-        getServs()
     }, [])
+    
+    //appel de getServs
+    useEffect(() => {
+        getServs()
+
+    }, [user])
 
     const submit = () => null
     const handleChange = () => null
@@ -159,10 +165,8 @@ function OneDoc() {
             name="caracteristique"
             id=""
           >
-
             <option value="">- Selectionner ici -</option>
-            {/* <option value="plis ferme">Plis Ferme</option> */}
-            {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option> )}
+            {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
           </select>)}
         
         </div>
