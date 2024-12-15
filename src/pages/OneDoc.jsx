@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axiosRequest from '../axiosClient/axiosClient'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Oval } from 'react-loader-spinner'
+import { userContext } from '../components/ContextWrapper'
+
 
 function OneDoc() {
-
+    const {user}= useContext(userContext)
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'access
     const {id_doc} = useParams() //id du courrier dans le parametre du lien
     const [isLoading, setIsLoading] = useState(false)
     const [doc, setDoc] = useState({})
+    const [servs, setServs] = useState([])
+
+    const getServs = async () => {
+        await axiosRequest.get(`services/{doc?.}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .
+    }
     //recupere un courrier par son :id
     const getOneDoc = async () => {
         setIsLoading(true)
@@ -124,6 +132,23 @@ function OneDoc() {
 
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="reference"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Transferer vers (Service)
+          </label>
+          <select
+            onChange={handleChange}
+            className="text-gray-900 w-full p-2 rounded"
+            name="caracteristique"
+            id=""
+          >
+            <option value="">- Selectionner ici -</option>
+            <option value="plis ferme">Plis Ferme</option>
+          </select>
         </div>
 
             </form>
