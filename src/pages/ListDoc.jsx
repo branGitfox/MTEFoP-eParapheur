@@ -32,7 +32,7 @@ function ListDoc() {
     fetchByDirection()
   }, [reload, updateLivre])
 
-  
+  //filtre la barre de recherche
   const filtered = docsByDirection.filter((doc) => {
     if (doc.propr?.toLowerCase().includes(search?.toLowerCase())) {
       return true;
