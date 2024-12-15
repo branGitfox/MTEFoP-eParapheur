@@ -47,10 +47,12 @@ function ListDoc() {
     }
 })
 
+//prend la valeur de la barre de recherche
   const handleChange = (e) => {
     setSearch(e.target.value)
   };
 
+  //actualise les donnees
   const fresh = () => setReload(!reload);
 
   return (
