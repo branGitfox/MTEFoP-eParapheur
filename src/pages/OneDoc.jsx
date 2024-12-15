@@ -12,11 +12,15 @@ function OneDoc() {
     const {id_doc} = useParams() //id du courrier dans le parametre du lien
     const [isLoading, setIsLoading] = useState(false)
     const [doc, setDoc] = useState({})
+    const [servLoading, setServLoading] = useState(false)
     const [servs, setServs] = useState([])
 
     const getServs = async () => {
-        await axiosRequest.get(`services/{doc?.}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
-        .
+        await axiosRequest.get(`services/${user.dir_id}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setServs(data))
+        .then(() => setServLoading(false))
+        .catch((err) => toast.error(err.response?.data?.message))
+        .finally(() => setServLoading(false))
     }
     //recupere un courrier par son :id
     const getOneDoc = async () => {
@@ -31,11 +35,12 @@ function OneDoc() {
     //appel de getOneDoc
     useEffect(() => {
         getOneDoc()
+        getServs()
     }, [])
 
     const submit = () => null
     const handleChange = () => null
-    console.log(doc);
+    console.log(servs);
     
   return (
     <>
@@ -140,15 +145,26 @@ function OneDoc() {
           >
             Transferer vers (Service)
           </label>
-          <select
+          {servLoading?(<Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />):(  <select
             onChange={handleChange}
             className="text-gray-900 w-full p-2 rounded"
             name="caracteristique"
             id=""
           >
+
             <option value="">- Selectionner ici -</option>
-            <option value="plis ferme">Plis Ferme</option>
-          </select>
+            {/* <option value="plis ferme">Plis Ferme</option> */}
+            {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option> )}
+          </select>)}
+        
         </div>
 
             </form>
