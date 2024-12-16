@@ -59,10 +59,7 @@ function ListTrans() {
     //actualise les donnees
     const fresh = () => setReload(!reload);
     console.log(moveByDirection);
-      //affiche les courriers par (ID)
-  const showDocByOne = (id_doc) => {
-    navigate(`/agent/doc/${id_doc}`)
-  }
+
   return (
     <>
               <div className=" w-[100%]  justify-evenly flex p-3 mb-5 relative text-black">
@@ -122,7 +119,7 @@ function ListTrans() {
           ) :(
         
           <tbody className="bg-white divide-y ">
-                <DocByDirection token={token} docsByDirection={filtered} showDocByOne={showDocByOne} updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
+                <DocByDirection token={token} docsByDirection={filtered}  updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
           </tbody>)}
         </table>
       </div>
@@ -130,15 +127,15 @@ function ListTrans() {
   )
 }
 
-const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre, showDocByOne}) => {
+const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre}) => {
     return (
         <>
-         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} showDocByOne={showDocByOne} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
+         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index}  setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
         </>
     )
 }
 
-const DocItems = ({doc, ind, token, updateLivre, setUpdateLivre, showDocByOne}) => {
+const DocItems = ({doc, ind, token, updateLivre, setUpdateLivre}) => {
     const [livreLoader, setLivreLoader] = useState(false)
     //change le status livre
 const  changeLivreStatus= async (id_doc) => {
@@ -175,7 +172,7 @@ const  changeLivreStatus= async (id_doc) => {
           )}
         </td>
         {/* <td className="px-8 py-3 text-sm">
-          <button disabled={doc.transfere =='non'?false:true} onClick={() =>showDocByOne(doc.c_id)
+          <button disabled={doc.transfere =='non'?false:true} onClick={() (doc.c_id)
           }  className={`${doc.transfere =='non'?'':'bg-gray-600'} px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl`}>
     
             <BiTransfer />
