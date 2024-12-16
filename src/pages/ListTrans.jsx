@@ -17,8 +17,7 @@ function ListTrans() {
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
     const [reload, setReload] = useState(false)
     const [search, setSearch] = useState("")
-      const [updateLivre, setUpdateLivre] = useState(false)
-      const navigate = useNavigate()
+    
     //recupere la liste des courrier par direction
     const fetchByDirection = async () => {
       setLoader(true)
@@ -34,7 +33,7 @@ function ListTrans() {
     //appelle de fechByDirection
     useEffect(() => {
       fetchByDirection()
-    }, [reload, updateLivre])
+    }, [reload])
   
     //filtre la barre de recherche
     const filtered = moveByDirection.filter((doc) => {
@@ -91,6 +90,7 @@ function ListTrans() {
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-blue-100">
               <th className="px-4 py-3 text-gray-800">Chrono</th>
               <th className="px-4 py-3 text-gray-800">Provenance</th>
+              <th className="px-4 py-3 text-gray-800">Service</th>
               <th className="px-4 py-3 text-gray-800">Ref</th>
               <th className="px-4 py-3 text-gray-800">Type</th>
               <th className="px-4 py-3 text-gray-800">Proprietaire</th>
@@ -119,7 +119,7 @@ function ListTrans() {
           ) :(
         
           <tbody className="bg-white divide-y ">
-                <DocByDirection token={token} docsByDirection={filtered}  updateLivre={updateLivre} setUpdateLivre={setUpdateLivre}/>
+                <DocByDirection token={token} docsByDirection={filtered}  />
           </tbody>)}
         </table>
       </div>
@@ -127,26 +127,16 @@ function ListTrans() {
   )
 }
 
-const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre}) => {
+const DocByDirection = ({docsByDirection}) => {
     return (
         <>
-         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index}  setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
+         {docsByDirection.map((doc, index) => <DocItems key={index}  doc={doc} ind={index} />)}
         </>
     )
 }
 
-const DocItems = ({doc, ind, token, updateLivre, setUpdateLivre}) => {
-    const [livreLoader, setLivreLoader] = useState(false)
-    //change le status livre
-const  changeLivreStatus= async (id_doc) => {
-    setLivreLoader(true)
-    await axiosRequest.post(`/docUpdateLivre/${id_doc}`,{}, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
-    .then(({data}) => toast.success(data.message))
-    .then(() => setLivreLoader(false))
-    .then(() => setUpdateLivre(!updateLivre))
-    .catch((err) => toast.error(err?.response?.data?.message))
-    .finally(() => setLivreLoader(false))
-}
+const DocItems = ({doc, ind}) => {
+
     return (
         <tr key={ind} className="text-gray-700">
         <td className="px-4 py-3">
@@ -157,6 +147,7 @@ const  changeLivreStatus= async (id_doc) => {
           </div>
         </td>
         <td className="px-4 py-3 text-sm">{doc.provenance}</td>
+        <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
         <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
         <td className="px-4 py-3 text-sm">{doc.type}</td>
         <td className="px-4 py-3 text-sm">{doc.propr}</td>
