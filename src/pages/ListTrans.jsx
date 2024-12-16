@@ -1,14 +1,14 @@
 
 import React, { useContext, useEffect, useState } from "react";
-import { FaCheck, FaSearch } from "react-icons/fa";
+import { FaExclamationCircle, FaSearch, FaCheckCircle } from "react-icons/fa"; 
 import { IoReloadOutline } from "react-icons/io5";
 import { userContext } from "../components/ContextWrapper";
-import { BiTransfer } from "react-icons/bi";
+
 import axiosRequest from "../axiosClient/axiosClient";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-import { mockComponent } from "react-dom/test-utils";
+
 
 function ListTrans() {
     const { user } = useContext(userContext);
@@ -167,19 +167,12 @@ const  changeLivreStatus= async (id_doc) => {
         <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{doc.name}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
-        <td className="px-4 py-3 text-sm">
-          <button onClick={() =>changeLivreStatus(doc.c_id)} disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
-            {livreLoader?(     <Oval
-              visible={true}
-              height="15"
-              width="15"
-              color="blue"
-              ariaLabel="oval-loading"
-              wrapperStyle={{}}
-            
-            />):<FaCheck />}
-            
-          </button>
+        <td className="px-4 py-3 text-xs">
+          {doc.status === "reçu" ? (
+            <FaCheckCircle className="text-green-600 text-xl" />
+          ) : (
+            <FaExclamationCircle className="text-red-500 text-xl" />
+          )}
         </td>
         {/* <td className="px-8 py-3 text-sm">
           <button disabled={doc.transfere =='non'?false:true} onClick={() =>showDocByOne(doc.c_id)
