@@ -75,7 +75,7 @@ function ListDoc() {
           />
           <FaSearch
             size={20}
-            className="absolute  text-gray-900 right-2 top-4 "
+            className="absolute  text-gray-600 right-2 top-4 "
           />
         </div>
 
