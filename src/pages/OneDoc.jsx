@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axiosRequest from '../axiosClient/axiosClient'
-import { useParams } from 'react-router-dom'
+import { Navigate, redirect, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Oval } from 'react-loader-spinner'
 import { userContext } from '../components/ContextWrapper'
 
 
 function OneDoc() {
+    const [formData, setFormData] =useState({})
     const {user}= useContext(userContext)
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'access
     const {id_doc} = useParams() //id du courrier dans le parametre du lien
@@ -15,6 +16,10 @@ function OneDoc() {
     const [servLoading, setServLoading] = useState(false)
     const [servs, setServs] = useState([])
     const [propr, setPropr] = useState({})
+
+    const navigate = useNavigate()
+
+        
     
     const getServs = async () => {
         setServLoading(true)
@@ -32,6 +37,7 @@ function OneDoc() {
         .then(() => setIsLoading(false))
         .catch(({response}) => toast.error(response.data?.message))
         .finally(() => setIsLoading(false))
+       
     }
 
     
@@ -55,7 +61,6 @@ function OneDoc() {
         const {name, value} = e.target
         setPropr((propr) => ({...propr, [name]:value}))
     }
-    const [formData, setFormData] =useState({})
     const submit =async (e) => {
         e.preventDefault()
         let data
@@ -65,15 +70,17 @@ function OneDoc() {
            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
-        console.log(propr);
         
         await axiosRequest.post('/transDoc', data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => toast.success(data.message))
+        .then(() =>  navigate('/agent'))
         .catch(({response}) => toast.error(response.data.message))
+        
+   
 
     }
 
-
+  
   
     
    
