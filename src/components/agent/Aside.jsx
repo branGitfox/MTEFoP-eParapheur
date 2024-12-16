@@ -4,7 +4,7 @@ import { BiTransferAlt, BiX } from 'react-icons/bi'
 import { BeatLoader } from 'react-spinners'
 import { FaArrowRight } from 'react-icons/fa'
 import {FaUnlockKeyhole } from 'react-icons/fa6'
-import { FcCallTransfer } from 'react-icons/fc'
+
 
 
 function Aside({toggleMenu,menu, logout, loading, user}) {
@@ -57,7 +57,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             </li>
             <li className="relative px-6 py-3">
             {
-                    location.pathname ==='/scc/register'?(   <span
+                    location.pathname ==='/agent/ListTrans'?(   <span
                 className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
@@ -65,7 +65,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
               <Link
              
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
-                to='/scc/register'
+                to='/agent/ListTrans'
               >
                 <BiTransferAlt size={20}/>
                 <span className="ml-4">Liste de Transferts</span>
