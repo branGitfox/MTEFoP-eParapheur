@@ -14,6 +14,7 @@ function OneDoc() {
     const [doc, setDoc] = useState({})
     const [servLoading, setServLoading] = useState(false)
     const [servs, setServs] = useState([])
+    const [propr, setPropr] = useState({})
     
     const getServs = async () => {
         setServLoading(true)
@@ -49,11 +50,24 @@ function OneDoc() {
         const {name, value} = e.target
         setFormData((formData) => ({...formData, [name]:value}))
     }
+
+    const handleChangePropr = (e) => {
+        const {name, value} = e.target
+        setPropr((propr) => ({...propr, [name]:value}))
+    }
     const [formData, setFormData] =useState({})
     const submit =async (e) => {
         e.preventDefault()
-        console.log({...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", propr:formData.propr??doc.propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono});
-        await axiosRequest.post('/transDoc', {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", propr:doc.propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono}, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        let data
+        if(formData.type == 'transfert'){
+            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu",  description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+        }else{
+           data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+        }
+
+        console.log(propr);
+        
+        await axiosRequest.post('/transDoc', data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => toast.success(data.message))
         .catch(({response}) => toast.error(response.data.message))
 
@@ -204,7 +218,7 @@ function OneDoc() {
             <option value="recuperation">Recuperation</option>
           </select> 
         </div>
-        {formData.type == 'recuperation' &&         <div className="mb-5">
+        {formData.type =="recuperation" && <div className="mb-5">
           <label
             htmlFor="par"
             className="block mb-2 text-sm font-medium text-gray-900"
@@ -213,15 +227,16 @@ function OneDoc() {
           </label>
           <input
             type="text"
-            value={formData?.propr}
-            onChange={handleChange}
+            value={propr?.propr}
+            onChange={handleChangePropr}
             placeholder='Recupereur'
             id="par"
             name='propr'
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />
-        </div>}
-
+        </div>
+}
+      
         <div className="mb-5">
           <label
             htmlFor="Chrono"
