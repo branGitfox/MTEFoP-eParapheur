@@ -24,6 +24,7 @@ import OneDoc from "./pages/OneDoc.jsx";
 import OneDoc2 from "./pages/OneDoc2.jsx";
 import ListTrans from "./pages/ListTrans.jsx";
 import ListTrans2 from "./pages/ListTrans2.jsx";
+import MyDoc from "./pages/MyDoc.jsx";
 const router = createBrowserRouter(
   [
     {
@@ -42,6 +43,11 @@ const router = createBrowserRouter(
         {
           path:"/forgotPassword",
           element:<ForgotPassword/>
+        },
+
+        {
+          path:'/mydoc',
+          element:<MyDoc/>
         }
       ],
     },

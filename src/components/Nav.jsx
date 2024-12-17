@@ -91,7 +91,7 @@ function Nav() {
             </ul>
             <Link
               id="navAction"
-              to={"/scc"}
+              to="/mydoc"
               className="mx-auto lg:mx-0 hover:underline bg-gradient-to-r from-yellow-600 to-blue-900  text-gray-300 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
             >
               Mon Dossier
@@ -128,7 +128,7 @@ function Nav() {
             </li>
             <Link
               id="navAction"
-              to={"/scc"}
+              to="/mydoc"
               className="mx-auto lg:mx-0 hover:underline bg-gradient-to-r from-yellow-600 to-blue-900  text-gray-300 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
             >
               Mon Dossier
