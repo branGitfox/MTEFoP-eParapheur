@@ -21,6 +21,7 @@ import Agent from "./pages/Agent.jsx";
 import ListDoc from "./pages/ListDoc.jsx";
 import ListDoc2 from "./pages/ListDoc2.jsx";
 import OneDoc from "./pages/OneDoc.jsx";
+import OneDoc2 from "./pages/OneDoc2.jsx";
 import ListTrans from "./pages/ListTrans.jsx";
 import ListTrans2 from "./pages/ListTrans2.jsx";
 const router = createBrowserRouter(
@@ -122,7 +123,7 @@ const router = createBrowserRouter(
 
         {
           path:'/agent/doc/:id_doc',
-          element:<OneDoc/>
+          element:<OneDoc2/>
         },
         {
           path:'/agent/ListTrans',

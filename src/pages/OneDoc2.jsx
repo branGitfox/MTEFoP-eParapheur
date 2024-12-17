@@ -6,7 +6,7 @@ import { Oval } from 'react-loader-spinner'
 import { userContext } from '../components/ContextWrapper'
 
 
-function OneDoc() {
+function OneDoc2() {
     const [formData, setFormData] =useState({})
     const {user}= useContext(userContext)
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'access
@@ -32,7 +32,7 @@ function OneDoc() {
     //recupere un courrier par son :id
     const getOneDoc = async () => {
         setIsLoading(true)
-        await axiosRequest.get(`/docByDirection/${id_doc}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        await axiosRequest.get(`/docByService/${id_doc}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setDoc(data))
         .then(() => setIsLoading(false))
         .catch(({response}) => toast.error(response.data?.message))
@@ -71,9 +71,9 @@ function OneDoc() {
         }
 
         
-        await axiosRequest.post('/transDoc', data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        await axiosRequest.post('/transDocMove', data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => toast.success(data.message))
-        .then(() =>  navigate('/sp'))
+        .then(() =>  navigate('/agent'))
         .catch(({response}) => toast.error(response.data.message))
         
    
@@ -270,4 +270,4 @@ function OneDoc() {
   )
 }
 
-export default OneDoc
+export default OneDoc2

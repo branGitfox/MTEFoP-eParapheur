@@ -142,7 +142,7 @@ const DocItems = ({doc, ind, token, updateLivre, setUpdateLivre, showDocByOne}) 
     //change le status livre
 const  changeLivreStatus= async (id_doc) => {
     setLivreLoader(true)
-    await axiosRequest.post(`/docUpdateLivre/${id_doc}`,{}, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+    await axiosRequest.post(`/docUpdateLivreMove/${id_doc}`,{}, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
     .then(({data}) => toast.success(data.message))
     .then(() => setLivreLoader(false))
     .then(() => setUpdateLivre(!updateLivre))
@@ -166,7 +166,7 @@ const  changeLivreStatus= async (id_doc) => {
         <td className="px-4 py-3 text-sm">{doc.name}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
-          <button onClick={() =>changeLivreStatus(doc.c_id)} disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
+          <button onClick={() =>changeLivreStatus(doc.m_id)} disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
             {livreLoader?(     <Oval
               visible={true}
               height="15"
