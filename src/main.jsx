@@ -19,8 +19,10 @@ import ForgotPassword from "./pages/ForgotPassword.jsx";
 import Sp from "./pages/Sp.jsx";
 import Agent from "./pages/Agent.jsx";
 import ListDoc from "./pages/ListDoc.jsx";
+import ListDoc2 from "./pages/ListDoc2.jsx";
 import OneDoc from "./pages/OneDoc.jsx";
 import ListTrans from "./pages/ListTrans.jsx";
+import ListTrans2 from "./pages/ListTrans2.jsx";
 const router = createBrowserRouter(
   [
     {
@@ -115,7 +117,7 @@ const router = createBrowserRouter(
       children:[
         {
           index:true,
-          element:<ListDoc/>
+          element:<ListDoc2/>
         },
 
         {
@@ -124,7 +126,7 @@ const router = createBrowserRouter(
         },
         {
           path:'/agent/ListTrans',
-          element:<ListTrans/>
+          element:<ListTrans2/>
         }
       ]
     },

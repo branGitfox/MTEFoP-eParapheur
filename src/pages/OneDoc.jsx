@@ -65,9 +65,9 @@ function OneDoc() {
         e.preventDefault()
         let data
         if(formData.type == 'transfert'){
-            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu",  description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu",current_trans_id:user.id_serv ,description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }else{
-           data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+           data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
         
