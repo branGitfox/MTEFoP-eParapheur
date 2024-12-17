@@ -1,7 +1,7 @@
 
 import React, { useContext, useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa";
-import Aside from "../components/Aside";
+import Aside from "../components/sp/Aside";
 import { Link, Outlet } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import { userContext } from "../components/ContextWrapper";
@@ -10,7 +10,9 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Security from "../security/Security";
 import axiosRequest from "../axiosClient/axiosClient";
-function Sp() {
+
+function Agent() {
+
     const [showMenu, setShowMenu] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
@@ -107,4 +109,4 @@ function Sp() {
   )
 }
 
-export default Sp
+export default Agent

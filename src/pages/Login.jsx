@@ -36,19 +36,28 @@ const checkeds = useRef(null)
           setUser(data);
           if (data.role == "scc") {
             navigation("/scc");
+      
+            
           }
-
+          
           if(data.role == "sp"){
-            navigation("/sp");
+              navigation("/sp");
           }
 
-          if(data.role == "agent"){
+           if(data.role == "agent"){
+           
+
             navigation("/agent");
           }
+          
+          if(data.role == "admin"){
+          
 
-          if (data.role == "admin") {
             navigation("/admin");
           }
+
+        
+
         }
       })
       .catch((err) => console.log(''))
@@ -64,10 +73,13 @@ const checkeds = useRef(null)
     if (userData !== null) {
       setUser(userData.user);
       localStorage.setItem("ACCESS_TOKEN", userData.token);
-      if (userData.user.role == "scc" || userData.user.role == "sp") {
+      if (userData.user.role == "scc") {
         navigation("/scc");
-      } else {
+      } else if(userData.user.role == "admin"){
         navigation("/admin");
+      }else if(userData.user.role == "sp"){
+        navigation("/sp");
+
       }
     }
   }, [userData]);
@@ -75,13 +87,27 @@ const checkeds = useRef(null)
   //redirection au page par rapport au role
   useEffect(() => {
     if (localStorage.getItem("ACCESS_TOKEN") !== null) {
-      if (user.role == "scc" || user.role == "sp") {
+      if (user.role == "scc" ) {
         navigation("/scc");
       }
 
+      if(user.role == "sp"){
+        navigation("/sp");
+
+      }
+      
       if (user.role == "admin") {
         navigation("/admin");
       }
+      
+      if (user.role == "agent"){
+        navigation("/agent")
+
+      }
+  
+
+    
+
     }
   }, [user]);
 

@@ -90,7 +90,23 @@ const router = createBrowserRouter(
 
     {
       path:'/sp',
-      element:<Sp/>
+      element:<Sp/>,
+      children:[
+        {
+          index:true,
+          element:<ListDoc/>
+        },
+
+        {
+          path:'/sp/doc/:id_doc',
+          element:<OneDoc/>
+        },
+        {
+          path:'/sp/ListTrans',
+          element:<ListTrans/>
+        }
+      ]
+
     },
 
     {
