@@ -23,7 +23,8 @@ function ListDoc() {
     await axiosRequest.get('/docsByDirection', {headers:{Authorization:`Bearer ${token}`}})
     .then(({data}) => setDocsByDirection(data))
     .then(() => setLoader(false))
-    .catch((err) => toast.error(err?.response?.data?.message))
+    .catch((err) => console.log("")
+    )
     .finally(() => setLoader(false))
   }
 
