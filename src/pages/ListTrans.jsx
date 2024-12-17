@@ -21,7 +21,7 @@ function ListTrans() {
     //recupere la liste des courrier par direction
     const fetchByDirection = async () => {
       setLoader(true)
-      await axiosRequest.get('/moveByDirection', {headers:{Authorization:`Bearer ${token}`}})
+      await axiosRequest.get('/moveTransferedByService', {headers:{Authorization:`Bearer ${token}`}})
       .then(({data}) => setMoveByDirection(data))
       .then(() => setLoader(false))
       .catch((err) => toast.error(err?.response?.data?.message))
