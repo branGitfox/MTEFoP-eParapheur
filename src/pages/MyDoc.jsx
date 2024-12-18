@@ -9,12 +9,14 @@ function MyDoc() {
     const [history, setHistory] = useState([])
     const [show, setShow] = useState(false)
     const [historyLoader, setHistoryLoader] = useState(false)
-
+ 
+    //gere le changement de la valeur de la barre de recherche
    const handleChange = (e) => {
         const {name, value} = e.target
         setSearch((search) => ({...search, [name]:value}))
    }
 
+   //envoi de la reference au serveur
    const submit = async (e) => {
         setDocLoading(true)
         setShow(false)
@@ -28,6 +30,7 @@ function MyDoc() {
      
    }
 
+   //boutton d'affichage de l'historique
    const showMove = async (c_id) => {
     setShow(true)
     setHistoryLoader(true)
