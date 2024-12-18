@@ -1,11 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axiosRequest from '../axiosClient/axiosClient'
 import { Oval } from 'react-loader-spinner'
+import { useId } from 'react'
 function MyDoc() {
     const [doc, setDoc] = useState({})
     const [search, setSearch] = useState({})
     const [docLoading, setDocLoading]= useState(false)
     const [history, setHistory] = useState([])
+    const [show, setShow] = useState(false)
     const [historyLoader, setHistoryLoader] = useState(false)
 
    const handleChange = (e) => {
@@ -25,6 +27,7 @@ function MyDoc() {
    }
 
    const showMove = async (c_id) => {
+    setShow(true)
     setHistoryLoader(true)
         await axiosRequest.get(`/getDocsHistory/${c_id}`, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setHistory(data))
@@ -34,7 +37,7 @@ function MyDoc() {
        
    }
 
-   console.log(history);
+
    
 
    
@@ -85,6 +88,8 @@ function MyDoc() {
                     <button onClick={() => showMove(doc.c_id)} className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Mouvements</button>
                 </td>
             </tr>
+            {show&&  <History history={history} loader={historyLoader} />}
+          
           </tbody>
                 
           </table>
@@ -98,4 +103,79 @@ function MyDoc() {
   )
 }
 
+const History = ({ loader, history }) => {
+    return (
+      <>
+        {loader ? (
+          <Oval
+            visible={true}
+            height="30"
+            width="30"
+            color="blue"
+            ariaLabel="oval-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        ) : (
+          <tr>
+            <td
+              colSpan={12}
+              className=" text-gray-800 flex-col justify-center m-auto"
+            >
+              <ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-4">
+                {history.map((h, index) => (
+                  <HistoryData
+                    key={useId}
+                    index={index}
+                    length={history.length}
+                    history={h}
+                  />
+                ))}
+              </ul>
+            </td>
+          </tr>
+        )}
+      </>
+    );
+  };
+
+  const HistoryData = ({ history, index, length }) => {
+    return (
+      <>
+        <li key={index} class="flex-start group relative flex lg:flex-col">
+          <span
+            class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-300  lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
+            aria-hidden="true"
+          ></span>
+          <div
+            class={`inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-300  ${
+              index == length - 1 ? "bg-blue-900 text-white" : "bg-gray-50"
+            }  transition-all duration-200 group-hover:border-blue-900 group-hover:text-white group-hover:bg-blue-900`}
+          >
+            {index + 1}
+          </div>
+          <div class="ml-6 lg:ml-0 lg:mt-10">
+            <h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+              {history.type + " - " + history.created_at}
+            </h3>
+            <li>
+              <span className="underline">Reference Initial</span>:{" "}
+              {history.ref_initial}
+            </li>
+            <li>
+              <span className="underline">Chrono</span>: {history.ref_propre}
+            </li>
+            <li>
+              <span className="underline">Proprietaire</span>: {history.propr}
+            </li>
+            <li>
+              <span className="underline">Declenchee Par</span>: {history.name}
+            </li>
+            <h4 class="mt-2 text-base text-gray-700"> {history.description}</h4>
+          </div>
+        </li>
+      </>
+    );
+  };
+  
 export default MyDoc
