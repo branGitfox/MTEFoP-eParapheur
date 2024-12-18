@@ -1,10 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {FaThumbsUp } from 'react-icons/fa';
 import { SiPaperswithcode, SiPinboard } from 'react-icons/si';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar } from 'recharts'
+import axiosRequest from '../axiosClient/axiosClient';
 const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', uv: 100, pv: 2400, amt: 2400}, {name: 'Page A', uv: 200, pv: 2200, amt: 2200}];
 
 function Stats() {
+    const [doc, setDoc] = useState([])
+    const [date, setDate] = useState([])
+    const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+    //recuperation des courriers
+    const getDoc = async () => {
+        await axiosRequest.get('/stats/count', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setDoc(data))
+        .catch((err) => console.log(err))
+    }
+
+    const getDate = async () => {
+        await axiosRequest.get('/stats/date', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setDate(data))
+        .catch((err) => console.log(err))
+    }
+    useEffect(() => {
+        getDoc()
+        getDate()
+    }, [])
+
+    console.log(date);
+    
   return (
     <>    
         <div className="flex gap-4">
