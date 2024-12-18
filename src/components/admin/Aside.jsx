@@ -1,8 +1,34 @@
 import { FaChartLine, FaFlag, FaMailBulk, FaUserPlus } from "react-icons/fa";
 import { FaHouseLaptop } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+import { BeatLoader } from "react-spinners";
+import axios from "axios";
+import { useState } from "react";
+import { toast } from "react-toastify";
 function Aside() {
-  const location = useLocation();
+  const locations = useLocation();
+  const [loading, setIsLoading] = useState(false);
+
+  const logout = async () => {
+    setIsLoading(true);
+    await axios
+      .post(
+        "http://127.0.0.1:8000/api/logout",
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
+            "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
+          },
+        }
+      )
+      .then(({ data }) => console.log(data.message))
+      .then(() => localStorage.removeItem("ACCESS_TOKEN"))
+      .then(() => setIsLoading(false))
+      .then(() => location.reload())
+      .catch((err) => toast.error(err.message));
+  };
   return (
     <>
       <aside className="relative h-screen w-[295px] hidden sm:block shadow-xl bg-[#191970] rounded-r-xl ">
@@ -23,7 +49,7 @@ function Aside() {
             className={`flex items-center relative rounded-sm  hover:bg-blue-900  text-white py-4 pl-6 nav-item`}
           >
                {
-              location.pathname === "/admin" ? (
+              locations.pathname === "/admin" ? (
                 <span
                   class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
@@ -39,7 +65,7 @@ function Aside() {
             className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
           >
             {
-              location.pathname === "/admin/userregister" ? (
+              locations.pathname === "/admin/userregister" ? (
                 <span
                   class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
@@ -55,7 +81,7 @@ function Aside() {
             className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
           >
                {
-              location.pathname === "/admin/sccservdirdg" ? (
+              locations.pathname === "/admin/sccservdirdg" ? (
                 <span
                   class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
@@ -74,10 +100,19 @@ function Aside() {
             Visiter Service-CC
           </Link>
         </nav>
-        <h2 className="absolute w-full font-bold    bottom-10  text-white flex items-center justify-center py-4">
+        {/* <h2 className="absolute w-full font-bold    bottom-10  text-white flex items-center justify-center py-4">
           <FaFlag className="mr-4" />
           E-parapheur
-        </h2>
+        </h2> */}
+        <div className="px-6 my-6 absolute bottom-0">
+            <button
+            onClick={logout}
+              className="flex items-center justify-between w-full px-2 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#A10304] border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
+            >
+             {loading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
+             <FaArrowRight   className='ml-[3rem]'/>
+            </button>
+          </div>
       </aside>
     </>
   );
