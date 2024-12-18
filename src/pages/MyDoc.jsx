@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axiosRequest from '../axiosClient/axiosClient'
 import { Oval } from 'react-loader-spinner'
 import { useId } from 'react'
+import { IoIosArrowDown } from 'react-icons/io'
 function MyDoc() {
     const [doc, setDoc] = useState({})
     const [search, setSearch] = useState({})
@@ -55,7 +56,7 @@ function MyDoc() {
             <p className='relative top-[68px] text-gray-900 text-center mt-5'>Pour suivre votre dossier il suffit d'entrer la reference dans la barre de recherche ci dessous.Puis appuyer sur le boutton "rechercher".</p>
             <form onSubmit={submit} className="lg:w-[50%] mx-auto h-12  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly">
                 <input onChange={handleChange} name='ref' value={search?.ref} type="text" className='px-2 py-3 w-full border-2 border-gray-500 text-gray-900 shadow-sm focus:outline-blue-900 rounded-3xl' placeholder='la reference de votre dossier ici'/>
-                <button className='bg-blue-500 rounded-3xl px-2 py-3'>Rechercher</button>
+                <button className='bg-blue-500 rounded-3xl px-4 py-3'>Rechercher</button>
             </form>
             <div className="lg:w-[50%] mx-auto  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly w-full overflow-x-auto  ">
                 {docLoading ? (<Oval
@@ -95,7 +96,7 @@ function MyDoc() {
          
             {doc.chrono &&   <tr className="text-black">
                 <td colSpan={8} className='text-left lg:text-center '>
-                    <button onClick={() => showMove(doc.c_id)} className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Afficher Mouvements</button>
+                    <button onClick={() => showMove(doc.c_id)} className='px-4 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Afficher Mouvements <IoIosArrowDown className='ml-2 inline'/></button>
                 </td>
             </tr>}
          
