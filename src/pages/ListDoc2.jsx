@@ -159,7 +159,7 @@ const  changeLivreStatus= async (id_doc) => {
         </td>
         <td className="px-4 py-3 text-sm">{doc.nom_serv}</td>
         <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
-        <td className="px-4 py-3 text-sm">{doc.propr}</td>
+        <td className="px-4 py-3 text-sm">{doc.propr??doc.proprietaire}</td>
         <td className="px-4 py-3 text-sm">{doc.motif}</td>
         <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{doc.name}</td>
