@@ -12,6 +12,7 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 function TdData({ data, doc_id, user, setFresh, fresh }) {
   const [showInfo, setShowInfo] = useState(false);
   const [infoLoader, setInfoLoader] = useState(false);
@@ -95,11 +96,11 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
         )}
         <td className="px-4 py-3 text-xs">
           {showInfo === true ? (
-            <FaArrowUp onClick={toggleShow} className="text-gray-400 text-xl" />
+            <IoIosArrowUp onClick={toggleShow} className="text-blue-500 text-xl" />
           ) : (
-            <BiDotsHorizontal
+            <IoIosArrowDown
               onClick={toggleShow}
-              className="text-gray-400 text-xl"
+              className="text-blue-500 text-xl"
             />
           )}
         </td>
