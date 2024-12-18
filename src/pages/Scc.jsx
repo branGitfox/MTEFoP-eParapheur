@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Security from "../security/Security";
 import axiosRequest from "../axiosClient/axiosClient";
+import MatchRoleSCC from "../security/MatchRoleSCC";
 
 function Scc() {
   const [showMenu, setShowMenu] = useState(false);
@@ -101,7 +102,9 @@ function Scc() {
             </Link>
           </div>
           <Security>
-            <Outlet />
+            <MatchRoleSCC>
+              <Outlet />
+            </MatchRoleSCC>
           </Security>
         </div>
       </div>

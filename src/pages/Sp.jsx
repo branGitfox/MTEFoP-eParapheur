@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Security from "../security/Security";
 import axiosRequest from "../axiosClient/axiosClient";
+import MatchRoleSp from "../security/MatchRoleSp";
 
 function Agent() {
 
@@ -100,7 +101,10 @@ function Agent() {
           </Link>
         </div>
         <Security>
-          <Outlet />
+          <MatchRoleSp>
+
+              <Outlet />
+          </MatchRoleSp>
         </Security>
       </div>
     </div>
