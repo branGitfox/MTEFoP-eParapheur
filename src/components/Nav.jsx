@@ -31,7 +31,7 @@ function Nav() {
 
           </div>
           <div className="absolute hidden md:block  left-[50%] animate__animated animate__fadeInDown">
-            <img src="/Madagascar-l.gif" alt="" className="w-10 h-10" />
+            <img src="/Rpp.png" alt="" className="w-[100px] h-auto" />
           </div>
           <div className="block lg:hidden pr-4">
             {showMenu === false ? (

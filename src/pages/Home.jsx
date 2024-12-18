@@ -8,7 +8,8 @@ function Home() {
       <div className="container px-3 mx-auto flex flex-wrap flex-col lg:flex-row items-center">
         <div className="flex flex-col w-full lg:w-2/5 justify-center items-start text-center md:text-left">
         <div className="mx-auto mb-2 md:hidden">
-            <img src="/Madagascar-l.gif" alt="" className="w-10 h-10" />
+        <img src="/Rpp.png" alt="" className="w-[100px] h-auto" />
+
           </div>
           <p className="uppercase tracking-loose w-full text-semibold text-4xl text-left animate__animated animate__fadeInDown">Ministere du Travail,<br /> de l'Emploi <br /> et de la Fonction Publique</p>
           <h1 className="my-4 text-5xl font-bold leading-tight self-start animate__animated animate__fadeInLeft">
