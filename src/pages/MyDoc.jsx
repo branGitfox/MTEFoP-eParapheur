@@ -41,8 +41,8 @@ function MyDoc() {
               color="blue"
               ariaLabel="oval-loading"
               wrapperStyle={{}}
-              wrapperClass="absolute left-[48%] lg:left-[57%] z-50"
-            />):(<table className="w-full whitespace-no-wrap ">
+              wrapperClass=""
+            />):(<><table className="w-full whitespace-no-wrap ">
           <thead >
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
               <th className="px-4 py-3 text-gray-800">Chrono</th>
@@ -57,7 +57,7 @@ function MyDoc() {
           </thead>
           <tbody >
             <tr className="text-gray-700">
-                <td className="px-4 py-3 text-sm text-black">{doc?.chrono}</td>
+                <td className="px-4 py-3 text-sm">{doc?.chrono}</td>
                 <td className="px-4 py-3 text-sm">{doc?.provenance}</td>
                 <td className="px-4 py-3 text-sm">{doc?.ref}</td>
                 <td className="px-4 py-3 text-sm">{doc?.propr}</td>
@@ -66,14 +66,17 @@ function MyDoc() {
                 <td className="px-4 py-3 text-sm">{doc?.nom_dir}</td>
                 <td className="px-4 py-3 text-sm">{doc?.created_at}</td>
             </tr>
-            <tr>
-                <td colSpan={8} className='text-center'>
-                    hello world
+            <tr className="text-black">
+                <td colSpan={8} className='text-left lg:text-center '>
+                    <button className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Mouvements</button>
                 </td>
             </tr>
           </tbody>
-        
-          </table>)}
+                
+          </table>
+                </>
+        )}
+
 
             </div>
         </div>
