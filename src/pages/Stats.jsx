@@ -3,7 +3,7 @@ import {FaThumbsUp } from 'react-icons/fa';
 import { SiPaperswithcode, SiPinboard } from 'react-icons/si';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar } from 'recharts'
 import axiosRequest from '../axiosClient/axiosClient';
-const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', uv: 100, pv: 2400, amt: 2400}, {name: 'Page A', uv: 200, pv: 2200, amt: 2200}];
+
 
 function Stats() {
     const [doc, setDoc] = useState([])
@@ -12,7 +12,8 @@ function Stats() {
     const [livred, setLivred] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
     const [currentDate, setCurrentDate] = useState("")
-
+    // const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', uv: 100, pv: 2400, amt: 2400}, {name: 'Page A', uv: 200, pv: 200, amt: 2200}];
+    const data = []
     //recuperation des courriers
     const getDoc = async () => {
         await axiosRequest.get('/stats/count', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
@@ -54,8 +55,16 @@ const handleChangeDate = (e) => {
         
     }, [])
 
-console.log(currentDate);
+if(doc.length !==0){
+    doc.forEach((dc) => {
+        
+      let uv = doc.filter((d) => d.created_at == dc.created_at).length;
+        
+        data.push({name:'Courrier', courrier:uv , pv:doc.length, amt:date.length})
+    })
+}
 
+console.log(data);
 
 
   return (
@@ -127,19 +136,19 @@ console.log(currentDate);
         <div className="flex flex-wrap justify-evenly w-[100%] items-center gap-y-4 p-3 mt-10">
 
               <LineChart width={500} height={300} data={data}>
-              <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+              <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
               <Line type="monotone" dataKey="pv" stroke="green" />
               <CartesianGrid stroke="#ccc" />
               <XAxis  dataKey="uv" />
               <YAxis />
               </LineChart>
               <BarChart width={500} height={300} data={data}>
-              <XAxis dataKey="uv" stroke="#8884d8" />
+              <XAxis dataKey="courrier" stroke="#8884d8" />
               <YAxis />
               <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
               <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
               <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-              <Bar dataKey="uv" fill="#8884d8" barSize={30} />
+              <Bar dataKey="courrier" fill="#8884d8" barSize={30} />
             </BarChart>
         </div>
     
