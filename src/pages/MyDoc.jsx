@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axiosRequest from '../axiosClient/axiosClient'
 
 function MyDoc() {
     const [doc, setDoc] = useState({})
@@ -11,8 +12,14 @@ function MyDoc() {
 
    const submit = async (e) => {
         e.preventDefault()
-        await axios
+        await axiosRequest.post('findDoc', search, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setDoc(data))
+        .catch((err) => console.log("")
+        )
    }
+
+   console.log(doc);
+   
   return (
     <div className='relative'>
         <div className="w-[100%] h-screen bg-white relative overflow-y-scroll">
