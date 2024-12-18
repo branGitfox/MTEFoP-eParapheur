@@ -65,13 +65,13 @@ function OneDoc2() {
         e.preventDefault()
         let data
         if(formData.type == 'transfert'){
-            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu",current_trans_id:user.id_serv ,description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+            data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu",current_trans_id:user.id_serv ,description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }else{
-           data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+           data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
         
-        await axiosRequest.post('/transDocMove', data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        await axiosRequest.post(`/transDocMove/${id_doc}`, data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => toast.success(data.message))
         .then(() =>  navigate('/agent'))
         .catch(({response}) => toast.error(response.data.message))

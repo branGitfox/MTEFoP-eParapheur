@@ -179,7 +179,7 @@ const  changeLivreStatus= async (id_doc) => {
           </button>
         </td>
         <td className="px-8 py-3 text-sm">
-          <button disabled={doc.transfere =='non'?false:true} onClick={() =>showDocByOne(doc.c_id)
+          <button disabled={doc.transfere =='non'?false:true} onClick={() =>showDocByOne(doc.m_id)
           }  className={`${doc.transfere =='non'?'':'bg-gray-600'} px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl`}>
     
             <BiTransfer />
