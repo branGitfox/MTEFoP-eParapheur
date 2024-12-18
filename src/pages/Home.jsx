@@ -16,7 +16,7 @@ function Home() {
             e-Parapheur
           </h1>
           <p className="leading-normal text-2xl  lg:m-auto  mb-8 text-left animate__animated animate__fadeInLeft">
-            Application Web de gestion de Courriers dédié au Service Central de courriers au sein du Ministere afin de simplifier le  tracage de courriers.
+            Application Web de suivi de Courriers dédié au Service Central de courriers au sein du Ministere afin de simplifier le  tracage de courriers.
             
           </p>
           <Link to='/login' className="mx-auto z-50  animate__animated animate__fadeInLeft lg:mx-0 self-start hover:underline bg-gradient-to-r from-blue-600 to-yellow-900  text-white font-bold rounded-full my-6 relative lg:top-10 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
