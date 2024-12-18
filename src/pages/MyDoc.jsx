@@ -41,6 +41,9 @@ function MyDoc() {
         .finally(() =>  setHistoryLoader(false)) 
    }
 
+//    useEffect(() => {
+//     setShow(false)
+//    }, [])
 
    
 
@@ -90,7 +93,7 @@ function MyDoc() {
                 <td className="px-4 py-3 text-sm">{doc?.created_at}</td></>
            ):(<td colSpan={8} className=' text-center text-red-500'>Entrez une reference valide</td>)} </tr>
          
-            {doc &&   <tr className="text-black">
+            {doc.chrono &&   <tr className="text-black">
                 <td colSpan={8} className='text-left lg:text-center '>
                     <button onClick={() => showMove(doc.c_id)} className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Afficher Mouvements</button>
                 </td>
