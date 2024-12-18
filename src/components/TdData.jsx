@@ -166,15 +166,24 @@ const HistoryData = ({ history, index, length }) => {
             {history.type + " - " + history.created_at}
           </h3>
           <li>
+            <span className="underline">Vers</span>:{" "}
+            {history.nom_serv}
+          </li>
+          <li>
+            <span className="underline">Porte</span>:{" "}
+            {history.porte_serv}
+          </li>
+          <li>
             <span className="underline">Reference Initial</span>:{" "}
             {history.ref_initial}
           </li>
           <li>
             <span className="underline">Chrono</span>: {history.ref_propre}
           </li>
-          <li>
-            <span className="underline">Proprietaire</span>: {history.propr??history.proprietaire}
-          </li>
+            
+          {history.type=="recuperation" &&     <li>
+            <span className="underline">Recupere Par</span>: {history.propr}
+          </li>}
           <li>
             <span className="underline">Declenchee Par</span>: {history.name}
           </li>
