@@ -8,7 +8,10 @@ const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', u
 function Stats() {
     const [doc, setDoc] = useState([])
     const [date, setDate] = useState([])
+    const [notLivred, setNotLivred] = useState([])
+    const [livred, setLivred] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+
     //recuperation des courriers
     const getDoc = async () => {
         await axiosRequest.get('/stats/count', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
@@ -16,17 +19,36 @@ function Stats() {
         .catch((err) => console.log(err))
     }
 
+    //recuperation de la liste de dates
     const getDate = async () => {
         await axiosRequest.get('/stats/date', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setDate(data))
         .catch((err) => console.log(err))
     }
+
+    //recuperation de la liste de courrier non livre
+    const getNotLivred = async () => {
+        await axiosRequest.get('/stats/notLivred', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setNotLivred(data))
+        .catch((err) => console.log(err))
+    }
+
+    //recuperation de la liste de courrier non livre
+    const getLivred = async () => {
+        await axiosRequest.get('/stats/livred', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setLivred(data))
+        .catch((err) => console.log(err))
+    }
+
+
     useEffect(() => {
         getDoc()
         getDate()
+        getNotLivred()
+        getLivred()
     }, [])
 
-    console.log(date);
+    console.log(livred);
     
   return (
     <>    
