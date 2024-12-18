@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {FaThumbsUp } from 'react-icons/fa';
 import { SiPaperswithcode, SiPinboard } from 'react-icons/si';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar } from 'recharts'
@@ -11,6 +11,7 @@ function Stats() {
     const [notLivred, setNotLivred] = useState([])
     const [livred, setLivred] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+    const [currentDate, setCurrentDate] = useState("")
 
     //recuperation des courriers
     const getDoc = async () => {
@@ -23,7 +24,9 @@ function Stats() {
     const getDate = async () => {
         await axiosRequest.get('/stats/date', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setDate(data))
+ 
         .catch((err) => console.log(err))
+      
     }
 
     //recuperation de la liste de courrier non livre
@@ -40,26 +43,33 @@ function Stats() {
         .catch((err) => console.log(err))
     }
 
-
+const handleChangeDate = (e) => {
+    setCurrentDate(e.target.value)
+}
     useEffect(() => {
         getDoc()
         getDate()
         getNotLivred()
         getLivred()
+        
     }, [])
 
-    console.log(livred);
-    
+console.log(currentDate);
+
+
+
   return (
     <>    
         <div className="flex gap-4">
                <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
-                <select name="" id="" className='text-gray-200 border p-1 rounded-xl bg-yellow-600 focus:outline-none'>
-                    {date.reverse().map((dt, index) => <option key={index} value="">{dt}</option>)}
+                <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1 rounded-xl bg-yellow-600 focus:outline-none'>
+       
+                    {date.reverse().map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
 {/*                       
                       <option value="">2022</option>
                       <option value="">2023</option>
                       <option value="">2024</option> */}
+                        <option value="">2022</option>
                 </select>
         </div>
    
@@ -73,7 +83,7 @@ function Stats() {
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Dossiers</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">3249 <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{doc.filter(dc => dc?.created_at?.substring(0, 7) == currentDate).length} <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -88,7 +98,7 @@ function Stats() {
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total En Attente</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">3249 <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == currentDate).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -103,7 +113,7 @@ function Stats() {
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Livre</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">3249 <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{livred.filter(lv => lv?.created_at?.substring(0, 7) == currentDate).length} <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
