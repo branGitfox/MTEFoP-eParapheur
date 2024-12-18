@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import axiosRequest from '../axiosClient/axiosClient'
-
+import { Oval } from 'react-loader-spinner'
 function MyDoc() {
     const [doc, setDoc] = useState({})
     const [search, setSearch] = useState({})
+    const [docLoading, setDocLoading]= useState(false)
 
    const handleChange = (e) => {
         const {name, value} = e.target
@@ -11,14 +12,17 @@ function MyDoc() {
    }
 
    const submit = async (e) => {
+        setDocLoading(true)
         e.preventDefault()
         await axiosRequest.post('findDoc', search, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setDoc(data))
+        .then(() => setDocLoading(false))
         .catch((err) => console.log("")
+        .finaly(() => setDocLoading(false))
         )
    }
 
-   console.log(doc);
+
    
   return (
     <div className='relative'>
@@ -30,7 +34,15 @@ function MyDoc() {
                 <button className='bg-blue-500 rounded-3xl px-2 py-3'>Rechercher</button>
             </form>
             <div className="lg:w-[50%] mx-auto  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly w-full overflow-x-auto  ">
-            <table className="w-full whitespace-no-wrap ">
+                {docLoading ? (<Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass="absolute left-[48%] lg:left-[57%] z-50"
+            />):(<table className="w-full whitespace-no-wrap ">
           <thead >
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
               <th className="px-4 py-3 text-gray-800">Chrono</th>
@@ -54,9 +66,15 @@ function MyDoc() {
                 <td className="px-4 py-3 text-sm">{doc?.nom_dir}</td>
                 <td className="px-4 py-3 text-sm">{doc?.created_at}</td>
             </tr>
+            <tr>
+                <td colSpan={8} className='text-center'>
+                    hello world
+                </td>
+            </tr>
           </tbody>
         
-          </table>
+          </table>)}
+
             </div>
         </div>
     </div>
