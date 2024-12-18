@@ -77,7 +77,9 @@ function MyDoc() {
             </tr>
           </thead>
           <tbody >
-            <tr className="text-gray-700">
+           <tr className="text-gray-700">
+           {doc?( 
+            <>
                 <td className="px-4 py-3 text-sm">{doc?.chrono}</td>
                 <td className="px-4 py-3 text-sm">{doc?.provenance}</td>
                 <td className="px-4 py-3 text-sm">{doc?.ref}</td>
@@ -85,13 +87,15 @@ function MyDoc() {
                 <td className="px-4 py-3 text-sm">{doc?.motif}</td>
                 <td className="px-4 py-3 text-sm">{doc?.caracteristique}</td>
                 <td className="px-4 py-3 text-sm">{doc?.nom_dir}</td>
-                <td className="px-4 py-3 text-sm">{doc?.created_at}</td>
-            </tr>
-            <tr className="text-black">
+                <td className="px-4 py-3 text-sm">{doc?.created_at}</td></>
+           ):(<td colSpan={8} className=' text-center text-red-500'>Entrez une reference valide</td>)} </tr>
+         
+            {doc &&   <tr className="text-black">
                 <td colSpan={8} className='text-left lg:text-center '>
                     <button onClick={() => showMove(doc.c_id)} className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Afficher Mouvements</button>
                 </td>
-            </tr>
+            </tr>}
+         
             {show&&  <History history={history} loader={historyLoader} />}
           
           </tbody>
