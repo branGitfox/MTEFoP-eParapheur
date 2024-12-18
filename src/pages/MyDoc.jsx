@@ -17,6 +17,7 @@ function MyDoc() {
 
    const submit = async (e) => {
         setDocLoading(true)
+        setShow(false)
         e.preventDefault()
         await axiosRequest.post('findDoc', search, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setDoc(data))
@@ -24,6 +25,7 @@ function MyDoc() {
         .catch((err) => console.log("")
         .finally(() => setDocLoading(false))
         )
+     
    }
 
    const showMove = async (c_id) => {
@@ -33,8 +35,7 @@ function MyDoc() {
         .then(({data}) => setHistory(data))
         .then(() => setHistoryLoader(false))
         .catch((err) => console.log(err))
-        .finally(() =>  setHistoryLoader(false))
-       
+        .finally(() =>  setHistoryLoader(false)) 
    }
 
 
@@ -85,7 +86,7 @@ function MyDoc() {
             </tr>
             <tr className="text-black">
                 <td colSpan={8} className='text-left lg:text-center '>
-                    <button onClick={() => showMove(doc.c_id)} className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Mouvements</button>
+                    <button onClick={() => showMove(doc.c_id)} className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Afficher Mouvements</button>
                 </td>
             </tr>
             {show&&  <History history={history} loader={historyLoader} />}
