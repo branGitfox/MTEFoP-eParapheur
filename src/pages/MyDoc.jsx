@@ -6,6 +6,7 @@ function MyDoc() {
     const [search, setSearch] = useState({})
     const [docLoading, setDocLoading]= useState(false)
     const [history, setHistory] = useState([])
+    const [historyLoader, setHistoryLoader] = useState(false)
 
    const handleChange = (e) => {
         const {name, value} = e.target
@@ -19,15 +20,22 @@ function MyDoc() {
         .then(({data}) => setDoc(data))
         .then(() => setDocLoading(false))
         .catch((err) => console.log("")
-        .finaly(() => setDocLoading(false))
+        .finally(() => setDocLoading(false))
         )
    }
 
    const showMove = async (c_id) => {
+    setHistoryLoader(true)
         await axiosRequest.get(`/getDocsHistory/${c_id}`, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
-        .then(())
+        .then(({data}) => setHistory(data))
+        .then(() => setHistoryLoader(false))
+        .catch((err) => console.log(err))
+        .finally(() =>  setHistoryLoader(false))
+       
    }
 
+   console.log(history);
+   
 
    
   return (
