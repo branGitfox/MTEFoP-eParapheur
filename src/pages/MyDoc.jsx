@@ -5,6 +5,7 @@ function MyDoc() {
     const [doc, setDoc] = useState({})
     const [search, setSearch] = useState({})
     const [docLoading, setDocLoading]= useState(false)
+    const [history, setHistory] = useState([])
 
    const handleChange = (e) => {
         const {name, value} = e.target
@@ -20,6 +21,11 @@ function MyDoc() {
         .catch((err) => console.log("")
         .finaly(() => setDocLoading(false))
         )
+   }
+
+   const showMove = async (c_id) => {
+        await axiosRequest.get(`/getDocsHistory/${c_id}`, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(())
    }
 
 
@@ -68,7 +74,7 @@ function MyDoc() {
             </tr>
             <tr className="text-black">
                 <td colSpan={8} className='text-left lg:text-center '>
-                    <button className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Mouvements</button>
+                    <button onClick={() => showMove(doc.c_id)} className='px-2 py-3 bg-blue-500 text-gray-50 rounded-3xl '>Mouvements</button>
                 </td>
             </tr>
           </tbody>
