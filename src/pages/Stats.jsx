@@ -55,10 +55,11 @@ function Stats() {
         <div className="flex gap-4">
                <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
                 <select name="" id="" className='text-gray-200 border p-1 rounded-xl bg-yellow-600 focus:outline-none'>
-                      <option value="">2021</option>
+                    {date.reverse().map((dt, index) => <option key={index} value="">{dt}</option>)}
+{/*                       
                       <option value="">2022</option>
                       <option value="">2023</option>
-                      <option value="">2024</option>
+                      <option value="">2024</option> */}
                 </select>
         </div>
    
