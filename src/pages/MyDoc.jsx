@@ -10,7 +10,7 @@ function MyDoc() {
                 <input type="text" className='px-2 py-3 w-full border-2 border-gray-500 text-gray-900 shadow-sm focus:outline-blue-900 rounded-3xl' placeholder='la reference de votre dossier ici'/>
                 <button className='bg-blue-500 rounded-3xl px-2 py-3'>Rechercher</button>
             </div>
-            <div className="lg:w-[50%] mx-auto h-12  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly">
+            <div className="lg:w-[50%] mx-auto h-12  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly w-full overflow-x-auto overflow-y-scroll max-h-[83%]">
             <table className="w-full whitespace-no-wrap ">
           <thead >
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
