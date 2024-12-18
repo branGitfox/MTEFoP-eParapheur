@@ -29,7 +29,7 @@ function MyDoc() {
                 <input onChange={handleChange} name='ref' value={search?.ref} type="text" className='px-2 py-3 w-full border-2 border-gray-500 text-gray-900 shadow-sm focus:outline-blue-900 rounded-3xl' placeholder='la reference de votre dossier ici'/>
                 <button className='bg-blue-500 rounded-3xl px-2 py-3'>Rechercher</button>
             </form>
-            <div className="lg:w-[50%] mx-auto h-12  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly w-full overflow-x-auto overflow-y-scroll max-h-[83%]">
+            <div className="lg:w-[50%] mx-auto  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly w-full overflow-x-auto  ">
             <table className="w-full whitespace-no-wrap ">
           <thead >
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
@@ -43,6 +43,19 @@ function MyDoc() {
               <th className="px-4 py-3 text-gray-800">Date</th>
             </tr>
           </thead>
+          <tbody >
+            <tr className="text-gray-700">
+                <td className="px-4 py-3 text-sm text-black">{doc?.chrono}</td>
+                <td className="px-4 py-3 text-sm">{doc?.provenance}</td>
+                <td className="px-4 py-3 text-sm">{doc?.ref}</td>
+                <td className="px-4 py-3 text-sm">{doc?.propr}</td>
+                <td className="px-4 py-3 text-sm">{doc?.motif}</td>
+                <td className="px-4 py-3 text-sm">{doc?.caracteristique}</td>
+                <td className="px-4 py-3 text-sm">{doc?.nom_dir}</td>
+                <td className="px-4 py-3 text-sm">{doc?.created_at}</td>
+            </tr>
+          </tbody>
+        
           </table>
             </div>
         </div>
