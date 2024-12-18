@@ -60,7 +60,7 @@ function ListDoc() {
 
   //affiche les courriers par (ID)
   const showDocByOne = (id_doc) => {
-    navigate(`/agent/doc/${id_doc}`)
+    navigate(`/sp/doc/${id_doc}`)
   }
 
   return (
@@ -103,9 +103,9 @@ function ListDoc() {
               <th className="px-4 py-3 text-gray-800">Livre</th>
               <th className="px-4 py-3 text-gray-800 ">Transferer</th>
 
-              {user.role == "admin" && (
+              {/* {user.role == "admin" && (
                 <th className="px-4 py-3 text-gray-800">Actions</th>
-              )}
+              )} */}
             </tr>
           </thead>
           {loader ? (

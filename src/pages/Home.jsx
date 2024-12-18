@@ -16,7 +16,8 @@ function Home() {
             e-Parapheur
           </h1>
           <p className="leading-normal text-2xl  lg:m-auto  mb-8 text-left animate__animated animate__fadeInLeft">
-            Application Web de gestion de Courriers dediee au Service Central de courriers au sein du Ministere afin de simplifier le tracage de courriers.
+            Application Web de gestion de Courriers dédié au Service Central de courriers au sein du Ministere afin de simplifier le  tracage de courriers.
+            
           </p>
           <Link to='/login' className="mx-auto z-50  animate__animated animate__fadeInLeft lg:mx-0 self-start hover:underline bg-gradient-to-r from-blue-600 to-yellow-900  text-white font-bold rounded-full my-6 relative lg:top-10 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Se Connecter
@@ -49,7 +50,7 @@ function Home() {
     <section className="bg-white border-b py-8">
       <div className="container max-w-5xl mx-auto m-8">
         <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-          Dirige par
+          dirigé par
         </h2>
         <div className="w-full mb-4">
           <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
@@ -60,7 +61,7 @@ function Home() {
              DRFP
             </h3>
             <p className="text-gray-600 mb-2">
-            Direction de la Reforme de la Fonction Publique, dont l'activite principale est la Digitalisation  des fonctions publiques.
+            Direction de la Reforme de la Fonction Publique, dont l'activité principale est la Digitalisation  des fonctions publiques.
             </p>
           </div>
           

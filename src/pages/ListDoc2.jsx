@@ -102,9 +102,9 @@ function ListDoc2() {
               <th className="px-4 py-3 text-gray-800">Livre</th>
               <th className="px-4 py-3 text-gray-800 ">Transferer</th>
 
-              {user.role == "admin" && (
+              {/* {user.role == "admin" && (
                 <th className="px-4 py-3 text-gray-800">Actions</th>
-              )}
+              )} */}
             </tr>
           </thead>
           {loader ? (

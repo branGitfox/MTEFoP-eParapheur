@@ -10,6 +10,7 @@ function Register() {
   const { user } = useContext(userContext);
   const [formData, setFormData] = useState({
     status: "non reçu",
+    transfere:"non",
     user_id: user.id,
   }); //donnee du formulaire
   const [isLoading, setIsLoading] = useState(false); //etat du loader
