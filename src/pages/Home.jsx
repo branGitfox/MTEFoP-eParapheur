@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTools } from "react-icons/fa";
+import { FaHandHoldingHeart, FaTools } from "react-icons/fa";
 import { MdOutlineDangerous } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { Link } from "react-router-dom";
@@ -79,13 +79,13 @@ function Home() {
       </div>
       <section className="bg-white border-b py-8">
         <div className="container max-w-5xl mx-auto m-8">
-          <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            A propos de ce Site Web <TbWorld className="inline text-blue-500"/>
+          <h2 className="w-full my-2 text-2xl md:text-5xl font-bold leading-tight text-center text-gray-800">
+            A propos de ce Site Web <TbWorld className="inline text-blue-500 mx-3"/>
           </h2>
           <div className="w-full mb-4">
             <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
           </div>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap ">
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
                   Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10 mx-3"/>
@@ -108,13 +108,14 @@ function Home() {
           
               </ul>
             </div>
+            
           </div>
         </div>
       </section>
       <section className="bg-white border-b py-8">
         <div className="container max-w-5xl mx-auto m-8">
-          <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            dirigé par
+          <h2 className="w-full my-2 text-2xl md:text-5xl font-bold leading-tight text-center text-gray-800">
+            Mise en Oeuvre <FaHandHoldingHeart className="inline text-blue-500 mx-3"/>
           </h2>
           <div className="w-full mb-4">
             <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
