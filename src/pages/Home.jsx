@@ -87,7 +87,7 @@ function Home() {
           </div>
           <div className="flex flex-wrap ">
             <div className="w-5/6 sm:w-1/2 p-6">
-              <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
+              <h3 className="text-xl md:text-3xl text-gray-800 font-bold leading-none mb-3">
                   Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10 mx-3"/>
               </h3>
               <ul className="text-gray-600 mb-2 list-disc">
@@ -98,7 +98,7 @@ function Home() {
               </ul>
             </div>
             <div className="w-5/6 sm:w-1/2 p-6">
-              <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
+              <h3 className="text-xl md:text-3xl text-gray-800 font-bold leading-none mb-3">
                 Après <FaTools className="inline text-green-500 w-7 mx-3 h-7"/>
               </h3>
               <ul className="text-gray-600 mb-2 list-disc">
@@ -121,7 +121,7 @@ function Home() {
           </div>
           <div className="flex flex-wrap">
             <div className="w-5/6 sm:w-1/2 p-6">
-              <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3 flex items-center ">
+              <h3 className=" text-xl md:text-3xl text-gray-800 font-bold leading-none mb-3 flex items-center ">
                 Direction Général de la FOnction Publique <img src="/dgfop.JPG" className=" mx-3 inline w-20 h-20 rounded-full" alt="" />
               </h3>
               <p className="text-gray-600 mb-2">
@@ -129,7 +129,7 @@ function Home() {
               </p>
             </div>
             <div className="w-5/6 sm:w-1/2 p-6">
-              <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3 flex items-center ">
+              <h3 className="text-xl md:text-3xl text-gray-800 font-bold leading-none mb-3 flex items-center ">
                 Direction Général de la FOnction Publique <img src="/dgfop.JPG" className=" mx-3 inline w-20 h-20 rounded-full" alt="" />
               </h3>
               <p className="text-gray-600 mb-2">
