@@ -130,10 +130,10 @@ function Home() {
             </div>
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-xl md:text-3xl text-gray-800 font-bold leading-none mb-3 flex items-center ">
-                Direction Général de la FOnction Publique <img src="/dgfop.JPG" className=" mx-3 inline w-20 h-20 rounded-full" alt="" />
+                Direction de la Réforme de la Fonction Publique <img src="/fop.jpeg" className=" mx-3 inline w-20 h-20 rounded-full" alt="" />
               </h3>
               <p className="text-gray-600 mb-2">
-               Monsieur le Directeur Général, 
+               Monsieur le Directeur , Christian
               </p>
             </div>
           </div>
