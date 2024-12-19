@@ -52,7 +52,7 @@ function MyDoc() {
    
   return (
     <div className='relative'>
-        <div className="w-[100%] h-screen bg-white relative overflow-y-scroll">
+        <div className="w-[100%] h-screen bg-white relative overflow-y-scroll p-5">
             <h1 className=' relative top-[68px] text-blue-500 mt-10 text-center text-3xl font-bold'>Suivre mon dossier</h1>
             <p className='relative top-[68px] text-gray-900 text-center mt-5'>Pour suivre votre dossier il suffit d'entrer la reference dans la barre de recherche ci dessous.Puis appuyer sur le boutton "rechercher".</p>
             <form onSubmit={submit} className="lg:w-[50%] mx-auto h-12  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly">
@@ -135,7 +135,7 @@ const History = ({ loader, history }) => {
               colSpan={12}
               className=" text-gray-800 flex-col justify-center m-auto"
             >
-              <ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-4">
+              <ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-3">
                 {history.map((h, index) => (
                   <HistoryData
                     key={useId}
