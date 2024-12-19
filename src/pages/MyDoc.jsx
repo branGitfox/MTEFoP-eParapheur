@@ -3,6 +3,7 @@ import axiosRequest from '../axiosClient/axiosClient'
 import { Oval } from 'react-loader-spinner'
 import { useId } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
+import { CgDanger } from 'react-icons/cg'
 function MyDoc() {
     const [doc, setDoc] = useState({})
     const [search, setSearch] = useState({})
@@ -92,7 +93,7 @@ function MyDoc() {
                 <td className="px-4 py-3 text-sm">{doc?.caracteristique}</td>
                 <td className="px-4 py-3 text-sm">{doc?.nom_dir}</td>
                 <td className="px-4 py-3 text-sm">{doc?.created_at}</td></>
-           ):(<td colSpan={8} className=' text-center text-red-500'>Entrez une reference valide</td>)} </tr>
+           ):(<td colSpan={8} className=' text-center text-red-500'>Entrez une reference valide <CgDanger className='inline w-5 h-5'/></td>)} </tr>
          
             {doc.chrono &&   <tr className="text-black">
                 <td colSpan={8} className='text-left lg:text-center '>
