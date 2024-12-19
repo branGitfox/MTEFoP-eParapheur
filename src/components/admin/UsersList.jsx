@@ -1,8 +1,26 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
+import axiosRequest from '../../axiosClient/axiosClient'
 function UsersList() {
+  const [users, setUsers] = useState([])
+  const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+  const [isLoading, setIsLoading] = useState(false)
+
     const handleChange = () => null
     const search = null
+
+    const getUsers = async () => {
+      setIsLoading(true)
+      await axiosRequest.get('/usersList', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http:://127.0.0.1:8000"}})
+      .then(({data}) => setUsers(data))
+      .then(() => setIsLoading(false))
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false))
+    }
+
+    useEffect(() => {
+
+    }, [])
   return (
    <>
    <div className=" w-[100%]  justify-evenly flex p-3 mb-5 relative text-black">

@@ -114,8 +114,7 @@ console.log(new Set(only));
                     </div>
                    
                 </div>
-                <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-                   
+                <div className="w-full md:w-1/2 xl:w-1/3 p-3">    
                     <div className="bg-white border rounded shadow p-2">
                         <div className="flex flex-row items-center">
                             <div className="flex-shrink pr-4">
@@ -126,11 +125,9 @@ console.log(new Set(only));
                                 <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == currentDate?currentDate:doc.reverse()[0]).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
-                    </div>
-                   
+                    </div>       
                 </div>
-                <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-                   
+                <div className="w-full md:w-1/2 xl:w-1/3 p-3">  
                     <div className="bg-white border rounded shadow p-2">
                         <div className="flex flex-row items-center">
                             <div className="flex-shrink pr-4">
@@ -142,9 +139,7 @@ console.log(new Set(only));
                             </div>
                         </div>
                     </div>
-                   
-                </div>
-                
+                </div>     
             </div>
             <hr  className='mt-5 mb-5'/>
             <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Graphiques</h3> 
