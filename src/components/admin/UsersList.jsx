@@ -2,15 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import axiosRequest from '../../axiosClient/axiosClient'
 import { Oval } from 'react-loader-spinner'
+import { toast } from 'react-toastify'
+import { useLocation, useNavigate } from 'react-router-dom'
 function UsersList() {
   const [users, setUsers] = useState([])
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
   const [isLoading, setIsLoading] = useState(false)
+  const [fresh, setFresh] = useState(true)
 const [search, setSearch] = useState("")
     const handleChange = (e) => {
       setSearch(e.target.value)
     }
-    
+
+    const navigate = useNavigate()
+   
 
     const getUsers = async () => {
       setIsLoading(true)
@@ -21,9 +26,17 @@ const [search, setSearch] = useState("")
       .finally(() => setIsLoading(false))
     }
 
+    const updateUserStatus = async (user_id) => {
+      await axiosRequest.post(`/updateStatus/${user_id}`, {}, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+      .then(({data}) => toast.success(data.message))
+      .then(() => setFresh(!fresh))
+      .catch((err) => console.log(err))
+
+    }
+
     useEffect(() => {
         getUsers()
-    }, [])
+    }, [fresh])
 
    const filtered = users.filter((u) => {
       if(u?.im?.toLowerCase()?.includes(search.toLowerCase())){
@@ -33,7 +46,7 @@ const [search, setSearch] = useState("")
       if(u?.name?.toLowerCase()?.includes(search.toLowerCase())){
         return true
       }
-      
+
       if(u?.email?.toLowerCase()?.includes(search.toLowerCase())){
         return true
       }
@@ -103,7 +116,7 @@ const [search, setSearch] = useState("")
                   <td className="px-4 py-3 text-sm">{user.updated_at}</td>
                   <td className='px-4 py-3 text-sm rounded-3xl text-white'><button className={`px-3 py-3 rounded-3xl cursor-default ${user.status=="active"?"bg-green-500":"bg-red-500"}`}>{user.status}</button></td>
                   <td className="px-4 py-3 text-sm">
-                    <button className='px-3 py-3 rounded-3xl bg-red-500 text-white'>{user.status=="active"?"Bloquer":"Debloquer"}</button>  
+                    <button onClick={() => updateUserStatus(user.id)} className={`px-3 py-3 rounded-3xl ${user.status=="active"?"bg-red-500":"bg-green-500"}  text-white`}>{user.status=="active"?"Bloquer":"Debloquer"}</button>  
                   </td> 
                 </tr>
                </> )}

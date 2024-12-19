@@ -16,7 +16,7 @@ function UserRegister() {
 
   
  
-  const dir = useRef();
+ 
 
  
   
@@ -25,7 +25,7 @@ function UserRegister() {
   const getServices = async () => {
     setServLoading(true)
     await axiosRequest
-      .get(`/services/${dir?.current?.value}`, {
+      .get(`/services/${formData?.id_dir}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
@@ -54,7 +54,7 @@ function UserRegister() {
   useEffect(() => {
     getServices()    
    
-  }, [dir?.current?.value]);
+  }, [formData?.id_dir]);
 
   useEffect(() => {
     getDir()
@@ -166,7 +166,7 @@ function UserRegister() {
               className="text-gray-900 w-full p-2 rounded"
               name="id_dir"
               id="dir"
-              ref={dir}
+              
             >
               <option value="">- Selectionner ici -</option>
               {dirs.map((d, index) => (
