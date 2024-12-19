@@ -59,8 +59,8 @@ if(doc.length !==0){
     doc.forEach((dc) => {
         
       let uv = doc.filter((d) => d.created_at == dc.created_at).length;
-        
-        data.push({name:'Courrier', courrier:uv , pv:doc.length, amt:date.length})
+        let pv = doc.filter((d) => d.created_at == currentDate).length
+        data.push({name:'Courrier', courrier:uv , pv:pv, amt:doc.length})
     })
 }
 
@@ -148,7 +148,7 @@ console.log(data);
               <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
               <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
               <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-              <Bar dataKey="courrier" fill="#8884d8" barSize={30} />
+              <Bar dataKey="courrier" fill="#8884d8" barSize={50} />
             </BarChart>
         </div>
     
