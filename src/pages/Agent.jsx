@@ -68,7 +68,7 @@ function Agent() {
   
     useEffect(() => {
       if (user.role !== undefined) {
-        toast.success(`Vous connecte en tant que ${user?.role}`);
+        toast.success(`Vous etes connecte en tant que ${user?.role}`);
       }
     }, [user.role]);
   return (

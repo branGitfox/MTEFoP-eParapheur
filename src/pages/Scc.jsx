@@ -66,7 +66,7 @@ function Scc() {
 
   useEffect(() => {
     if (user.role !== undefined) {
-      toast.success(`Vous connecte en tant que ${user?.role}`);
+      toast.success(`Vous connecte etes en tant que ${user?.role}`);
     }
   }, [user.role]);
 
