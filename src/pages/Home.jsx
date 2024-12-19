@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHandHoldingHeart, FaTools } from "react-icons/fa";
+import { FaHandHoldingHeart, FaHandsHelping, FaTools } from "react-icons/fa";
 import { MdOutlineDangerous } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { Link } from "react-router-dom";
@@ -134,10 +134,24 @@ function Home() {
               </h3>
               <p className="text-gray-600 mb-2">
                Monsieur le Directeur , Christian
-              </p>
+              </p> 
+        
             </div>
+         
           </div>
         </div>
+      </section>
+      <section className="bg-white border-b py-8">
+          <div className="container max-w-5xl mx-auto m-8">
+          <h2 className="w-full my-2 text-2xl md:text-3xl font-bold leading-tight text-center text-gray-800">
+            Partenariat <FaHandsHelping className="inline text-blue-500 mx-3"/>
+          </h2>
+          <div className="full flex justify-center">
+             <img src="/ispm.jpeg" className="  inline w-20 h-20 rounded-full mx-auto mt-5" alt="" />  
+          </div>
+             <h3 className="text-gray-900 text-xl text-center  font-bold">Institut Superieur Polytechnique de Madagascar</h3>
+       
+          </div>
       </section>
 
       <svg
