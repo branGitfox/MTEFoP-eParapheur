@@ -162,7 +162,7 @@ const HistoryData = ({ history, index, length }) => {
           {index + 1}
         </div>
         <div class="ml-6 lg:ml-0 lg:mt-10">
-          <h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+          <h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500 capitalize">
             {history.type + " - " + history.created_at}
           </h3>
           <li>
