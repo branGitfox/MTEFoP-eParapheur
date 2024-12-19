@@ -4,8 +4,7 @@ import TdData from "../components/TdData";
 import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
 import { userContext } from "../components/ContextWrapper";
-import { BiDownArrowCircle, BiLoader } from "react-icons/bi";
-import { IoReaderOutline, IoReloadOutline } from "react-icons/io5";
+import { IoReloadOutline } from "react-icons/io5";
 function Tracker() {
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //recuperation de la cle d'access au serveur (access_token)
