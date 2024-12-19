@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTools } from "react-icons/fa";
 import { MdOutlineDangerous } from "react-icons/md";
+import { TbWorld } from "react-icons/tb";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -79,7 +80,7 @@ function Home() {
       <section className="bg-white border-b py-8">
         <div className="container max-w-5xl mx-auto m-8">
           <h2 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            A propos de ce Site Web
+            A propos de ce Site Web <TbWorld className="inline text-blue-500"/>
           </h2>
           <div className="w-full mb-4">
             <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
