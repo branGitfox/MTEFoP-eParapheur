@@ -24,7 +24,7 @@ function Home() {
             </p>
             <Link
               to="/login"
-              className="mx-auto z-50  animate__animated animate__fadeInLeft lg:mx-0 self-start hover:underline bg-gradient-to-r from-blue-600 to-yellow-900  text-white font-bold rounded-full my-6 relative lg:top-10 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
+              className="mx-auto z-30  animate__animated animate__fadeInLeft lg:mx-0 self-start hover:underline bg-gradient-to-r from-blue-600 to-yellow-900  text-white font-bold rounded-full my-6 relative lg:top-10 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
             >
               Se Connecter
             </Link>
@@ -85,7 +85,7 @@ function Home() {
           <div className="flex flex-wrap">
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
-               Ministre Actuel
+                
               </h3>
               <p className="text-gray-600 mb-2">
                HANITRA RAZAKABOANA
