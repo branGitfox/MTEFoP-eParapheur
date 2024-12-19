@@ -55,16 +55,35 @@ const handleChangeDate = (e) => {
         
     }, [])
 
+const only = [{created_at:2023-11}]
 if(doc.length !==0){
-    doc.forEach((dc) => {
+     doc.forEach((d) => {    
+        let data
+        if(d?.created_at){
+            data =  {created_at:d?.created_at.substring(0,7)}
+                only.push(data);
+        }
+})
+}
+ 
+
+if(only.length !==0){
+ new Set(only).forEach((dc) => {
+        console.log(dc.created_at);
         
-      let uv = doc.filter((d) => d.created_at == dc.created_at).length;
+      let uv = doc.filter((d) => d.created_at.substring(0,7) == dc.created_at).length;
         let pv = doc.filter((d) => d.created_at == currentDate).length
-        data.push({name:'Courrier', courrier:uv , pv:pv, amt:doc.length})
+        let amt = doc.filter((d) => d.created_at == dc.created_at)
+        data.push({name:'Courrier', courrier:uv , pv:pv, amt:dc.created_at})
+        
     })
+
+
+  
+    
 }
 
-console.log(data);
+console.log(new Set(only));
 
 
   return (
@@ -140,7 +159,7 @@ console.log(data);
               <YAxis />
               </LineChart>
               <BarChart width={500} height={300} data={data}>
-              <XAxis dataKey="courrier" stroke="#8884d8" />
+              <XAxis dataKey="amt" stroke="#8884d8" />
               <YAxis />
               <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
               <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
