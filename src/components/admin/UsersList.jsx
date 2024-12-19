@@ -70,7 +70,21 @@ function UsersList() {
           ) :(
         
           <tbody className="bg-white divide-y ">
-               
+               {users.map((user, index) => <>
+                <tr key={index} className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
+                  <td className="px-4 py-3 text-sm">{user.im}</td>
+                  <td className="px-4 py-3 text-sm">{user.name}</td>
+                  <td className="px-4 py-3 text-sm">{user.email}</td>
+                  <td className="px-4 py-3 text-sm">{user.nom_dir}</td>
+                  <td className="px-4 py-3 text-sm">{user.nom_serv}</td>
+                  <td className="px-4 py-3 text-sm">{user.created_at}</td>
+                  <td className="px-4 py-3 text-sm">{user.updated_at}</td>
+                  <td className={`px-4 py-3 text-sm rounded-3xl text-white ${user.status=="active"?"bg-green-500":"bg-red-500"}`}>{user.status}</td>
+                  <td className="px-4 py-3 text-sm">{user.status}</td> 
+              
+            
+                </tr>
+               </> )}
           </tbody>)}
           </table>
           </div>
