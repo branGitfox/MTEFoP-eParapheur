@@ -71,7 +71,7 @@ function UsersList() {
         
           <tbody className="bg-white divide-y ">
                {users.map((user, index) => <>
-                <tr key={index} className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-gray-50 ">
+                <tr key={index} className="text-xs font-semibold tracking-wide text-left text-gray-500  border-b0 bg-gray-50 ">
                   <td className="px-4 py-3 text-sm">{user.im}</td>
                   <td className="px-4 py-3 text-sm">{user.name}</td>
                   <td className="px-4 py-3 text-sm">{user.email}</td>
