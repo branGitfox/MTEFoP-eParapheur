@@ -74,11 +74,8 @@ console.log(data);
                 <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
        
                     {date.reverse().map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
-{/*                       
-                      <option value="">2022</option>
-                      <option value="">2023</option>
-                      <option value="">2024</option> */}
-                        <option value="">2022</option>
+                     
+
                 </select>
         </div>
    
@@ -92,7 +89,7 @@ console.log(data);
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Dossiers</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{doc.filter(dc => dc?.created_at?.substring(0, 7) == currentDate).length} <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{doc.filter(dc => dc?.created_at?.substring(0, 7) == currentDate?currentDate:doc.reverse()[0]).length} <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -107,7 +104,7 @@ console.log(data);
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total En Attente</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == currentDate).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == currentDate?currentDate:doc.reverse()[0]).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -122,7 +119,7 @@ console.log(data);
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Livre</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{livred.filter(lv => lv?.created_at?.substring(0, 7) == currentDate).length} <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{livred.filter(lv => lv?.created_at?.substring(0, 7) == currentDate?currentDate:doc.reverse()[0]).length} <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
