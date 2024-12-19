@@ -104,8 +104,7 @@ function Home() {
               <ul className="text-gray-600 mb-2 list-disc">
                   <li>Traçage de courries rapide et efficace </li>
                   <li>Archivage sécurisé</li>
-                  <li>Directions et services  synchrone</li>
-          
+                  <li>Directions et services  synchrone</li>      
               </ul>
             </div>
             
@@ -122,12 +121,19 @@ function Home() {
           </div>
           <div className="flex flex-wrap">
             <div className="w-5/6 sm:w-1/2 p-6">
-              <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
-                DRFP
+              <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3 flex items-center ">
+                Direction Général de la FOnction Publique <img src="/dgfop.JPG" className=" mx-3 inline w-20 h-20 rounded-full" alt="" />
               </h3>
               <p className="text-gray-600 mb-2">
-                Direction de la Reforme de la Fonction Publique, dont l'activité
-                principale est la Digitalisation des fonctions publiques.
+               Monsieur le Directeur Général, 
+              </p>
+            </div>
+            <div className="w-5/6 sm:w-1/2 p-6">
+              <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3 flex items-center ">
+                Direction Général de la FOnction Publique <img src="/dgfop.JPG" className=" mx-3 inline w-20 h-20 rounded-full" alt="" />
+              </h3>
+              <p className="text-gray-600 mb-2">
+               Monsieur le Directeur Général, 
               </p>
             </div>
           </div>
