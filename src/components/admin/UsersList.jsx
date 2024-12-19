@@ -33,7 +33,16 @@ const [search, setSearch] = useState("")
       if(u?.name?.toLowerCase()?.includes(search.toLowerCase())){
         return true
       }
+      
       if(u?.email?.toLowerCase()?.includes(search.toLowerCase())){
+        return true
+      }
+
+      if(u?.nom_serv?.toLowerCase()?.includes(search.toLowerCase())){
+        return true
+      }
+
+      if(u?.nom_dir?.toLowerCase()?.includes(search.toLowerCase())){
         return true
       }
    })
