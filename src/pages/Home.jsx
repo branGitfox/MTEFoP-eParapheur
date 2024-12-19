@@ -1,4 +1,5 @@
 import React from "react";
+import { MdOutlineDangerous } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 function Home() {
@@ -19,7 +20,7 @@ function Home() {
             </h1>
             <p className="leading-normal text-2xl  lg:m-auto  mb-8 text-left animate__animated animate__fadeInLeft">
               Application Web de suivi de Courriers dédié au Service Central de
-              courriers au sein du Ministere afin de simplifier le tracage de
+              courriers au sein du Ministere afin de simplifier le traçage de
               courriers.
             </p>
             <Link
@@ -85,11 +86,14 @@ function Home() {
           <div className="flex flex-wrap">
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
-                
+                  Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10"/>
               </h3>
-              <p className="text-gray-600 mb-2">
-               HANITRA RAZAKABOANA
-              </p>
+              <ul className="text-gray-600 mb-2 list-disc">
+                  <li>Courrier diffice à tracer</li>
+                  <li>Archivage </li>
+                  <li></li>
+                  <li></li>
+              </ul>
             </div>
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
