@@ -25,6 +25,7 @@ import OneDoc2 from "./pages/OneDoc2.jsx";
 import ListTrans from "./pages/ListTrans.jsx";
 import ListTrans2 from "./pages/ListTrans2.jsx";
 import MyDoc from "./pages/MyDoc.jsx";
+import UsersList from "./components/admin/UsersList.jsx";
 const router = createBrowserRouter(
   [
     {
@@ -89,6 +90,10 @@ const router = createBrowserRouter(
         {
           path: '/admin/userregister',
           element: <UserRegister />,
+        },
+        {
+          path: '/admin/usersList',
+          element: <UsersList />,
         },
         {
           path:'/admin/sccservdirdg',

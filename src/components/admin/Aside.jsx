@@ -1,8 +1,9 @@
 import { FaChartLine, FaFlag, FaMailBulk, FaUserPlus } from "react-icons/fa";
 import { FaHouseLaptop } from "react-icons/fa6";
 import { Link, useLocation } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaUsers } from "react-icons/fa";
 import { BeatLoader } from "react-spinners";
+
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -77,6 +78,22 @@ function Aside() {
             Ajout Utilisateur
           </Link>
           <Link
+            to="/admin/usersList"
+            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
+          >
+            {
+              locations.pathname === "/admin/usersList" ? (
+                <span
+                  class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                  aria-hidden="true"
+                ></span>
+              ) : (
+                ""
+              )
+            }<FaUsers className="mr-4" />
+            Liste Utilisateurs
+          </Link>
+          <Link
             to="/admin/sccservdirdg"
             className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
           >
@@ -100,7 +117,6 @@ function Aside() {
             Visiter Service-CC
           </Link>
         </nav>
-      
         <div className="px-6 my-6 absolute bottom-0">
             <button
             onClick={logout}
