@@ -69,9 +69,9 @@ console.log(data);
 
   return (
     <>    
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
                <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
-                <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1 rounded-xl bg-yellow-600 focus:outline-none'>
+                <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
        
                     {date.reverse().map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
 {/*                       
