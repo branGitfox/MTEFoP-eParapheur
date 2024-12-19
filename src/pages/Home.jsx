@@ -1,4 +1,5 @@
 import React from "react";
+import { FaTools } from "react-icons/fa";
 import { MdOutlineDangerous } from "react-icons/md";
 import { Link } from "react-router-dom";
 
@@ -86,23 +87,25 @@ function Home() {
           <div className="flex flex-wrap">
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
-                  Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10"/>
+                  Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10 mx-3"/>
               </h3>
               <ul className="text-gray-600 mb-2 list-disc">
                   <li>Courrier diffice à tracer</li>
-                  <li>Archivage </li>
-                  <li></li>
-                  <li></li>
+                  <li>Archivage non garantie</li>
+                  <li>Directions et services   asynchrone</li>
+             
               </ul>
             </div>
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-3xl text-gray-800 font-bold leading-none mb-3">
-                DRFP
+                Après <FaTools className="inline text-green-500 w-7 mx-3 h-7"/>
               </h3>
-              <p className="text-gray-600 mb-2">
-                Direction de la Reforme de la Fonction Publique, dont l'activité
-                principale est la Digitalisation des fonctions publiques.
-              </p>
+              <ul className="text-gray-600 mb-2 list-disc">
+                  <li>Traçage de courries rapide et efficace </li>
+                  <li>Archivage sécurisé</li>
+                  <li>Directions et services  synchrone</li>
+          
+              </ul>
             </div>
           </div>
         </div>
