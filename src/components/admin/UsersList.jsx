@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import axiosRequest from '../../axiosClient/axiosClient'
+import { Oval } from 'react-loader-spinner'
 function UsersList() {
   const [users, setUsers] = useState([])
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
@@ -54,11 +55,23 @@ function UsersList() {
                   <th className="px-4 py-3 text-gray-800">Modifie le</th>
                   <th className="px-4 py-3 text-gray-800">Status</th>
                   <th className="px-4 py-3 text-gray-800">Actions</th>
-                  {/* <th className="px-4 py-3 text-gray-800">Porte</th>              
-                  <th className="px-4 py-3 text-gray-800">Actions</th>        
-                  <th className="px-4 py-3 text-gray-800">Infos</th> */}
                 </tr>
               </thead>
+              {isLoading ? (
+            <Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass="absolute left-[57%] z-50"
+            />
+          ) :(
+        
+          <tbody className="bg-white divide-y ">
+               
+          </tbody>)}
           </table>
           </div>
    </>
