@@ -17,7 +17,8 @@ function Nav() {
         <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2 -z-50">
           <div className="pl-4 flex items-center">
             <a
-              className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"
+      
+              className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl "
               href="#"
             >
               <img
