@@ -10,6 +10,8 @@ function UserRegister() {
   const [services, setServices] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   const [servLoading, setServLoading] = useState(false)
+  const [dirs, setDirs] = useState([]); //liste des directions
+  const [waiting, setWaiting] = useState(false); // looder pour la recuperation des directions
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
 
   
@@ -35,9 +37,30 @@ function UserRegister() {
       .finally(() => setServLoading(false))
   };
 
+    //recuperation de la liste de Direction
+    const getDir = async () => {
+      setWaiting(true);
+  
+      await axiosRequest
+        .get("/dir", {
+          headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
+        })
+        .then(({ data }) => setDirs(data))
+        .then(() => setWaiting(false))
+  
+        .catch((err) => console.log(err).finally(() => setWaiting(false)));
+    };
+
   useEffect(() => {
     getServices()    
+   
   }, [dir?.current?.value]);
+
+  useEffect(() => {
+    getDir()
+  }, [])
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -126,18 +149,33 @@ function UserRegister() {
               <label className="text-md block text-gray-900" htmlFor="dir">
                 Direction
               </label>
-              <select
-                onChange={handleChange}
-                value={formData?.id_dir}
-                name="id_dir"
-                id="dir"
-                ref={dir}
-                className="w-full p-3 text-gray-900 bg-gray-50 rounded-md border-gray-300 border-2 focus:outline-blue-900"
-              >
-                <option value="1">DRFP</option>
-                <option value="2">DRHE</option>
-                <option value="3">DMI</option>
-              </select>
+       
+              {waiting ? (
+            <Oval
+              visible={true}
+              height="20"
+              width="20"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          ) : (
+            <select
+              onChange={handleChange}
+              className="text-gray-900 w-full p-2 rounded"
+              name="id_dir"
+              id="dir"
+              ref={dir}
+            >
+              <option value="">- Selectionner ici -</option>
+              {dirs.map((d, index) => (
+                <option value={d.d_id} key={index}>
+                  {d.nom_dir}
+                </option>
+              ))}
+            </select>
+          )}
             </div>
             <div className="mt-2">
               <label className="text-md block text-gray-900" htmlFor="serv">
