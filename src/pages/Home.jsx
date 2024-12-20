@@ -85,8 +85,8 @@ function Home() {
           <div className="w-full mb-4">
             <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
           </div>
-          <div className="flex flex-wrap ">
-            <div className="w-5/6 sm:w-1/2 p-6">
+          <div className="flex flex-wrap pl-5 lg:pl-20">
+            <div className="w-5/6 sm:w-1/2 p-6 ">
               <h3 className="text-xl md:text-3xl text-gray-800 font-bold leading-none mb-3">
                   Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10 mx-3"/>
               </h3>
@@ -105,6 +105,7 @@ function Home() {
                   <li>Traçage de courries rapide et efficace </li>
                   <li>Archivage sécurisé</li>
                   <li>Directions et services  synchrone</li>      
+                  <li>Accessible à distance</li>      
               </ul>
             </div>
             
