@@ -113,6 +113,7 @@ const [search, setSearch] = useState("")
                   <td className="px-4 py-3 text-sm">{user.email}</td>
                   <td className="px-4 py-3 text-sm">{user.nom_dir}</td>
                   <td className="px-4 py-3 text-sm">{user.nom_serv}</td>
+                  <td className="px-4 py-3 text-sm">{user.role}</td>
                   <td className="px-4 py-3 text-sm">{user.created_at}</td>
                   <td className="px-4 py-3 text-sm">{user.updated_at}</td>
                   <td className='px-4 py-3 text-sm rounded-3xl text-white'><button className={`px-3 py-3 rounded-3xl cursor-default ${user.status=="active"?"bg-green-500":"bg-red-500"}`}>{user.status}</button></td>
