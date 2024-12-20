@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHandHoldingHeart, FaHandsHelping, FaTools } from "react-icons/fa";
+import { FaEye, FaHandHoldingHeart, FaHandsHelping, FaTools } from "react-icons/fa";
 import { MdOutlineDangerous } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { Link } from "react-router-dom";
@@ -94,8 +94,8 @@ function Home() {
                   <li>Courrier diffice à tracer</li>
                   <li>Archivage non garantie</li>
                   <li>Directions et services   asynchrone</li>
-             
               </ul>
+            
             </div>
             <div className="w-5/6 sm:w-1/2 p-6">
               <h3 className="text-xl md:text-3xl text-gray-800 font-bold leading-none mb-3">
@@ -110,6 +110,9 @@ function Home() {
             </div>
             
           </div>
+          <h3 className="text-gray-900 text-xl text-center  font-bold">Nombre de visiteurs <FaEye className="inline mx-3 text-blue-500 w-7 h-7"/></h3>
+          <div className="max-w-[100px] mx-auto mt-5 h-[50px] border-2 border-gray-600 text-gray-900 flex justify-center items-center rounded-md font-bold">50</div>
+
         </div>
       </section>
       <section className="bg-white border-b py-8">
@@ -138,7 +141,7 @@ function Home() {
               </p> 
         
             </div>
-         
+
           </div>
         </div>
       </section>
@@ -151,7 +154,6 @@ function Home() {
              <img src="/ispm.jpeg" className="  inline w-20 h-20 rounded-full mx-auto mt-5" alt="" />  
           </div>
              <h3 className="text-gray-900 text-xl text-center  font-bold">Institut Superieur Polytechnique de Madagascar</h3>
-       
           </div>
       </section>
 
