@@ -86,6 +86,7 @@ const [search, setSearch] = useState("")
                   <th className="px-4 py-3 text-gray-800">Email</th>
                   <th className="px-4 py-3 text-gray-800">Direction</th>
                   <th className="px-4 py-3 text-gray-800">Service</th>
+                  <th className="px-4 py-3 text-gray-800">Role</th>
                   <th className="px-4 py-3 text-gray-800">Cree le</th>
                   <th className="px-4 py-3 text-gray-800">Modifie le</th>
                   <th className="px-4 py-3 text-gray-800">Status</th>
