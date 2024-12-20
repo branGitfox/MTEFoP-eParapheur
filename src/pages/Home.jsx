@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaEye, FaHandHoldingHeart, FaHandsHelping, FaTools } from "react-icons/fa";
 import { MdOutlineDangerous } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import axiosRequest from "../axiosClient/axiosClient";
 
 function Home() {
+  const [visitors, setVisitors] = useState()
+  const getNbrVisitors = async () => {  
+    await axiosRequest.get('/visitors', {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+    .then(({data}) => setVisitors(data))
+    .catch((err) => console.log(''))
+  }
+
+  useEffect(() => {
+    getNbrVisitors()
+  }, [])
   return (
     <>
       <div className="pt-24 lg:pt-15">
@@ -111,7 +122,7 @@ function Home() {
             
           </div>
           <h3 className="text-gray-900 text-xl text-center  font-bold">Nombre de visiteurs <FaEye className="inline mx-3 text-blue-500 w-7 h-7"/></h3>
-          <div className="max-w-[100px] mx-auto mt-5 h-[50px] border-2 border-gray-600 text-gray-900 flex justify-center items-center rounded-md font-bold">50</div>
+          <div className="max-w-[100px] mx-auto mt-5 h-[50px] border-2 border-gray-600 text-gray-900 flex justify-center items-center rounded-md font-bold">{visitors}</div>
 
         </div>
       </section>
