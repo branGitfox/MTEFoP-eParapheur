@@ -4,6 +4,7 @@ import { Oval } from 'react-loader-spinner'
 import { useId } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
 import { CgDanger } from 'react-icons/cg'
+import { toast } from 'react-toastify'
 function MyDoc() {
     const [doc, setDoc] = useState({})
     const [search, setSearch] = useState({})
@@ -23,12 +24,17 @@ function MyDoc() {
         setDocLoading(true)
         setShow(false)
         e.preventDefault()
-        await axiosRequest.post('findDoc', search, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        try{
+               await axiosRequest.post('findDoc', search, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setDoc(data))
         .then(() => setDocLoading(false))
         .catch((err) => console.log("")
         .finally(() => setDocLoading(false))
         )
+        }catch(err){
+          toast.error("Verifiez votre connexion internet")
+        }
+ 
      
    }
 
