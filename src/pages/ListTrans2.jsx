@@ -60,6 +60,7 @@ function ListTrans2() {
       setSearch(e.target.value)
     };
   
+    
     //actualise les donnees
     const fresh = () => setReload(!reload);
     console.log(moveByDirection);

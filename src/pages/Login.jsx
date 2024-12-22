@@ -24,7 +24,8 @@ const checkeds = useRef(null)
 
   //recuperation de l'utilisateur connecte
   const getUser = async () => {
-    await axiosRequest
+    try{
+          await axiosRequest
       .get("/user", {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -61,6 +62,10 @@ const checkeds = useRef(null)
         }
       })
       .catch((err) => console.log(''))
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+
     
   };
 
@@ -120,13 +125,18 @@ const checkeds = useRef(null)
   const handleSubmit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
-    await axiosRequest
-      .post("/login", formData)
-      .then(({ data }) => setUserData(data))
-      .then(() => setIsLoading(false))
+    try{
+      await axiosRequest
+          .post("/login", formData)
+          .then(({ data }) => setUserData(data))
+          .then(() => setIsLoading(false))
 
-      .catch((err) => toast.error(err.response?.data?.message))
-      .finally(() => setIsLoading(false));
+          .catch((err) => toast.error(err.response?.data?.message))
+          .finally(() => setIsLoading(false));
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+  
   };
 
   return (
