@@ -57,7 +57,6 @@ function Register() {
             })
             .then(({ data }) => setDir(data))
             .then(() => setWaiting(false))
-
             .catch((err) => console.log(err).finally(() => setWaiting(false)));
     }catch(err){
       toast.error("Verifiez votre connexion internet")
