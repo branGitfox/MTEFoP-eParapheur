@@ -73,7 +73,7 @@ if(only.length !==0){
         
       let uv = doc.filter((d) => d.created_at.substring(0,7) == dc.created_at).length;
         let pv = doc.filter((d) => d.created_at == currentDate).length
-        let amt = doc.filter((d) => d.created_at == dc.created_at)
+        // let amt = doc.filter((d) => d.created_at == dc.created_at)
         data.push({name:'Courrier', courrier:uv , pv:pv, amt:dc.created_at})
         
     })
@@ -83,7 +83,7 @@ if(only.length !==0){
     
 }
 
-console.log(new Set(only));
+
 
 
   return (

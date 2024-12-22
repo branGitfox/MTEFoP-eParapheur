@@ -48,6 +48,7 @@ function Agent() {
     //fonction de deconnexion
     const logout = async () => {
       setIsLoading(true);
+      try{
       await axios
         .post(
           "http://127.0.0.1:8000/api/logout",
@@ -64,6 +65,10 @@ function Agent() {
         .then(() => setIsLoading(false))
         .then(() => location.reload())
         .catch((err) => toast.error(err.message));
+      }catch(err){
+        toast.error("Verifiez votre connexion internet")
+      }
+
     };
   
     useEffect(() => {

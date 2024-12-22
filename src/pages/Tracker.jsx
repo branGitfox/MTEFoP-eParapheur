@@ -5,6 +5,7 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
 import { userContext } from "../components/ContextWrapper";
 import { IoReloadOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
 function Tracker() {
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //recuperation de la cle d'access au serveur (access_token)
@@ -44,6 +45,7 @@ function Tracker() {
   const getDocs = async () => {
     try {
       setLoader(true);
+
       await axiosRequest
         .get("/docs", {
           headers: {
@@ -56,7 +58,7 @@ function Tracker() {
         .catch((err) => console.log(err))
         .finally(() => setLoader(false));
     } catch (err) {
-      console.log("Erreur de connexion");
+     toast.error('Verifiez votre connexion internet')
     }
   };
 
