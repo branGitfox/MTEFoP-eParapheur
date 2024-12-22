@@ -29,10 +29,7 @@ import UsersList from "./components/admin/UsersList.jsx";
 import Support from "./pages/Support.jsx";
 const router = createBrowserRouter(
   [
-    {
-      path:'*',
-      element:<App/>
-    },
+
     {
       path: "/",
       element: <App />,
