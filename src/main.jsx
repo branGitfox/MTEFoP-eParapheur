@@ -26,6 +26,7 @@ import ListTrans from "./pages/ListTrans.jsx";
 import ListTrans2 from "./pages/ListTrans2.jsx";
 import MyDoc from "./pages/MyDoc.jsx";
 import UsersList from "./components/admin/UsersList.jsx";
+import Support from "./pages/Support.jsx";
 const router = createBrowserRouter(
   [
     {
@@ -53,7 +54,7 @@ const router = createBrowserRouter(
 
         {
           path:'/support',
-          element:<MyDoc/>
+          element:<Support/>
         }
       ],
     },

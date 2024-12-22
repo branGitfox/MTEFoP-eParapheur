@@ -2,7 +2,10 @@ import React from 'react'
 
 function Support() {
   return (
-    <div>Support</div>
+    <div className='relative'>
+             <div className="w-[100%] h-screen bg-white relative overflow-y-scroll p-5">
+             </div>
+    </div>
   )
 }
 
