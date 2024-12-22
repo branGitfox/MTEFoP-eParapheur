@@ -13,6 +13,7 @@ import { Oval } from "react-loader-spinner";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
+import { CgDanger } from "react-icons/cg";
 function TdData({ data, doc_id, user, setFresh, fresh }) {
   const [showInfo, setShowInfo] = useState(false);
   const [infoLoader, setInfoLoader] = useState(false);
@@ -139,7 +140,7 @@ const History = ({ loader, history }) => {
             colSpan={12}
             className=" text-gray-800 flex-col justify-center m-auto"
           >
-            <ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-4">
+            {history.length>0?      <ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-4">
               {history.map((h, index) => (
                 <HistoryData
                   key={useId}
@@ -148,7 +149,8 @@ const History = ({ loader, history }) => {
                   history={h}
                 />
               ))}
-            </ul>
+            </ul>:(<p className="text-center text-red-500">Aucun transfert pour ce courrier <CgDanger className="text-red-500 inline w-5 h-5"/></p>)}
+      
           </td>
         </tr>
       )}
