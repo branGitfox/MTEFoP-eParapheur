@@ -32,7 +32,7 @@ function Agent() {
           .then(({ data }) => setUser(data))
           .catch((err) => console.log(""));
       } catch (err) {
-        console.log(err);
+        toast.error("Verifiez votre connexion internet")
       }
     };
   
@@ -48,22 +48,27 @@ function Agent() {
     //fonction de deconnexion
     const logout = async () => {
       setIsLoading(true);
-      await axios
-        .post(
-          "http://127.0.0.1:8000/api/logout",
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
-              "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
-            },
-          }
-        )
-        .then(({ data }) => console.log(data.message))
-        .then(() => localStorage.removeItem("ACCESS_TOKEN"))
-        .then(() => setIsLoading(false))
-        .then(() => location.reload())
-        .catch((err) => toast.error(err.message));
+      try{
+        await axios
+              .post(
+                "http://127.0.0.1:8000/api/logout",
+                {},
+                {
+                  headers: {
+                    Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
+                    "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
+                  },
+                }
+              )
+              .then(({ data }) => console.log(data.message))
+              .then(() => localStorage.removeItem("ACCESS_TOKEN"))
+              .then(() => setIsLoading(false))
+              .then(() => location.reload())
+              .catch((err) => console.log(""));
+      }catch(err) {
+        toast.error("Verifiez votre connexion internet")
+      }
+   
     };
   
     useEffect(() => {
