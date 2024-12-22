@@ -79,11 +79,15 @@ function OneDoc() {
            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
-        
-        await axiosRequest.post('/transDoc', data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
-        .then(({data}) => toast.success(data.message))
-        .then(() =>  navigate('/sp'))
-        .catch(({response}) => toast.error(response.data.message))
+        try{
+                    await axiosRequest.post('/transDoc', data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+          .then(({data}) => toast.success(data.message))
+          .then(() =>  navigate('/sp'))
+          .catch(({response}) => toast.error(response.data.message))
+        }catch(err){
+          toast.error("Verifiez votre connexion internet")
+        }
+
         
    
 

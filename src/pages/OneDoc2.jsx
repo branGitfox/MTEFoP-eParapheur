@@ -23,20 +23,30 @@ function OneDoc2() {
     
     const getServs = async () => {
         setServLoading(true)
-        await axiosRequest.get(`services/${user.id_dir}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
-        .then(({data}) => setServs(data))
-        .then(() => setServLoading(false))
-        .catch((err) => toast.error(err.response?.data?.message))
-        .finally(() => setServLoading(false))
+        try{
+          await axiosRequest.get(`services/${user.id_dir}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+          .then(({data}) => setServs(data))
+          .then(() => setServLoading(false))
+          .catch((err) => toast.error(err.response?.data?.message))
+          .finally(() => setServLoading(false))
+        }catch(err){
+          toast.error("Verifiez votre connexion internet")
+        }
+
     }
     //recupere un courrier par son :id
     const getOneDoc = async () => {
         setIsLoading(true)
-        await axiosRequest.get(`/docByService/${id_doc}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
-        .then(({data}) => setDoc(data))
-        .then(() => setIsLoading(false))
-        .catch(({response}) => toast.error(response.data?.message))
-        .finally(() => setIsLoading(false))
+        try{
+                   await axiosRequest.get(`/docByService/${id_doc}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+                  .then(({data}) => setDoc(data))
+                  .then(() => setIsLoading(false))
+                  .catch(({response}) => toast.error(response.data?.message))
+                  .finally(() => setIsLoading(false))
+        }catch(err){
+             toast.error("Verifiez votre connexion internet")
+        }
+
        
     }
 
@@ -70,11 +80,15 @@ function OneDoc2() {
            data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
-        
+        try{
         await axiosRequest.post(`/transDocMove/${id_doc}`, data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => toast.success(data.message))
         .then(() =>  navigate('/agent'))
         .catch(({response}) => toast.error(response.data.message))
+        }catch(err){
+          toast.error("Verifiez votre connexion internet")
+        }
+
         
    
 
