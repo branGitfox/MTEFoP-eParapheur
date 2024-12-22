@@ -150,7 +150,7 @@ const History = ({ loader, history }) => {
                     history={h}
                   />
                 ))}
-              </ul>:<p></p>}
+              </ul>:<p className="text-center text-red-500">Aucun transfert pour ce courrier <CgDanger className="text-red-500 inline w-5 h-5"/></p>}
               
             </td>
           </tr>
