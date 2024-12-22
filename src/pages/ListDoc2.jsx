@@ -20,11 +20,16 @@ function ListDoc2() {
   //recupere la liste des courrier par direction
   const fetchByDirection = async () => {
     setLoader(true)
-    await axiosRequest.get('/moveByService', {headers:{Authorization:`Bearer ${token}`}})
-    .then(({data}) => setDocsByDirection(data))
-    .then(() => setLoader(false))
-    .catch((err) => console.log(""))
-    .finally(() => setLoader(false))
+    try{
+      await axiosRequest.get('/moveByService', {headers:{Authorization:`Bearer ${token}`}})
+      .then(({data}) => setDocsByDirection(data))
+      .then(() => setLoader(false))
+      .catch((err) => console.log(""))
+      .finally(() => setLoader(false))
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+
   }
 
 
