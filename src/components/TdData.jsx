@@ -29,7 +29,8 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
 
   //Supprimer un courrier
   const deleteDoc = async (id_courrier) => {
-    await axiosRequest
+    try{
+          await axiosRequest
       .get(`/delDoc/${id_courrier}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -39,12 +40,17 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
       .then(({ data }) => toast.success(data.message))
       .then(() => setFresh(!fresh))
       .catch((err) => console.log(err));
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+
 
   };
 
   //recuperation de l'historique de mouvement
   const getHistory = async () => {
     setInfoLoader(true);
+    try{
     await axiosRequest
       .get(`/getDocsHistory/${doc_id}`, {
         headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
@@ -53,6 +59,10 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
       .then(() => setInfoLoader(false))
       .catch((err) => console.log(err))
       .finally(() => setInfoLoader(false));
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+
   };
 
   //Appel de la fonction de recuperation d'historique
