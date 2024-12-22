@@ -24,7 +24,8 @@ function UserRegister() {
   //recupere dynamiquement la liste de services par rapport a la direction
   const getServices = async () => {
     setServLoading(true)
-    await axiosRequest
+    try{
+   await axiosRequest
       .get(`/services/${formData?.id_dir}`, {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -35,12 +36,16 @@ function UserRegister() {
       .then(() => setServLoading(false))
       .catch((err) => console.log(err))
       .finally(() => setServLoading(false))
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+ 
   };
 
     //recuperation de la liste de Direction
     const getDir = async () => {
       setWaiting(true);
-  
+  try{
       await axiosRequest
         .get("/dir", {
           headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
@@ -49,6 +54,10 @@ function UserRegister() {
         .then(() => setWaiting(false))
   
         .catch((err) => console.log(err).finally(() => setWaiting(false)));
+  }catch(err){
+    toast.error("Verifiez votre connexion internet")
+  }
+
     };
 
   useEffect(() => {
@@ -86,7 +95,7 @@ function UserRegister() {
       .catch((err) => toast.error(err?.response?.data?.message))
       .finally(() => setIsLoading(false));
     }catch(err){
-      toast.error('Erreur de connexion au serveur')
+      toast.error('Verifiez votre connexion internet')
     }
     
   };
