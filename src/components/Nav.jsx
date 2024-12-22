@@ -113,19 +113,19 @@ function Nav() {
 
             <li className="list-none">
               <a
-                className="inline-block  no-underline text-gray-100 hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
+                className="inline-block  no-underline text-gray-100 hover:text-gray-200 hover:text-underline py-2 px-4"
+                href="#infos"
               >
                 Infos
               </a>
             </li>
             <li className="list-none">
-              <a
-                className="inline-block text-gray-100 no-underline hover:text-gray-800 hover:text-underline py-2 px-4"
-                href="#"
+              <Link
+                className="inline-block text-gray-100 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                to='/support'
               >
-                Contact
-              </a>
+                Support
+              </Link>
             </li>
             <Link
               id="navAction"
