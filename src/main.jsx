@@ -30,6 +30,10 @@ import Support from "./pages/Support.jsx";
 const router = createBrowserRouter(
   [
     {
+      path:'*',
+      element:<App/>
+    },
+    {
       path: "/",
       element: <App />,
       children: [
