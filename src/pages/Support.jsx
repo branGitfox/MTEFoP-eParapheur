@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
 import { BiSolidError} from "react-icons/bi";
-import { FaMailBulk , FaKey} from "react-icons/fa";
+import { FaMailBulk , FaKey, FaInfo} from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 import { Link
 
  } from "react-router-dom";
+import { Text } from "recharts";
 
 
 function Support() {
@@ -59,45 +61,48 @@ function Support() {
                   size={20}
                 />
               </div>
+              <div className="mb-7 w-[100%] relative">
+                <label
+                  htmlFor="email"
+                  className="block text-semibold text-black"
+                >
+                  Objet
+                </label>
+                <input
+                  onChange={handleChange}
+                  type="text"
+                  name="email"
+                  placeholder="objet du rapport"
+                  className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900 rounded-md"
+                />
+                <FaInfo
+                  className="text-gray-600 absolute right-3 top-[2.5rem] "
+                  size={20}
+                />
+              </div>
               <div className="mb-5 w-[100%] relative">
                 <label
                   htmlFor="email"
                   className="block text-semibold text-black"
                 >
-                  Mot de passe
+                  Message
                 </label>
-                <input
+                <textarea
                   onChange={handleChange}
                   type={showPassword ? "text" : "password"}
                   ref={checkeds}
                   name="password"
-                  placeholder="mot de passe"
+                  placeholder="Votre message ici"
                   className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900 rounded-md"
                 />
-                <FaKey
+                <FaMessage
                   className="text-gray-600 absolute right-3 top-[2.5rem]"
                   size={20}
                 />
               </div>
-              <div className="mb-5 w-[100%]">
-                <label htmlFor="ss" className="text-semibold text-black">
-                  Afficher le mot de passe
-                </label>
-                <input
-                  onChange={togglePassword}
-                  type="checkbox"
-                  id="ss"
-                  className="mx-3"
-                  checked={showPassword}
-                />
-                <Link to="/forgotPassword" className="underline text-blue-500">
-                  Mot de Passe oublie
-                </Link>
-              </div>
-
               <div className="mb-5  w-[100%]">
                 <button className="py-4 px-5 bg-[#191970] font-semibold text-white w-[100%] rounded">
-                  {isLoading ? <BeatLoader color="yellow" /> : "Se Connecter"}
+                  {isLoading ? <BeatLoader color="yellow" /> : "Envoyer"}
                 </button>
               </div>
             </form>
