@@ -23,21 +23,30 @@ function OneDoc() {
     
     const getServs = async () => {
         setServLoading(true)
-        await axiosRequest.get(`services/${user.id_dir}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        try{
+                  await axiosRequest.get(`services/${user.id_dir}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setServs(data))
         .then(() => setServLoading(false))
         .catch((err) => toast.error(err.response?.data?.message))
         .finally(() => setServLoading(false))
+
+        }catch(err){
+          toast.error("Verifiez votre connexion internet")
+        }
+
     }
     //recupere un courrier par son :id
     const getOneDoc = async () => {
         setIsLoading(true)
-        await axiosRequest.get(`/docByDirection/${id_doc}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
-        .then(({data}) => setDoc(data))
-        .then(() => setIsLoading(false))
-        .catch(({response}) => toast.error(response.data?.message))
-        .finally(() => setIsLoading(false))
-       
+        try{
+          await axiosRequest.get(`/docByDirection/${id_doc}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+            .then(({data}) => setDoc(data))
+            .then(() => setIsLoading(false))
+            .catch(({response}) => toast.error(response.data?.message))
+            .finally(() => setIsLoading(false))
+        }catch(err){
+          toast.error("Verifiez votre connexion internet connexion")
+        }    
     }
 
     
