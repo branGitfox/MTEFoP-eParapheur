@@ -5,16 +5,21 @@ import { TbWorld } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
+import { toast } from "react-toastify";
 function Home() {
   const [visitors, setVisitors] = useState()
   const [loading, setLoading] = useState(false)
   const getNbrVisitors = async () => {  
     setLoading(true)
-    await axiosRequest.get('/visitors', {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+    try{
+      await axiosRequest.get('/visitors', {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
       .then(({data}) => setVisitors(data))
       .then(() => setLoading(false))
       .catch((err) => console.log(''))
       .finally(() => setLoading(false))
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
   }
 
   useEffect(() => {
