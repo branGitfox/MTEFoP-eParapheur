@@ -141,7 +141,7 @@ const History = ({ loader, history }) => {
               colSpan={12}
               className=" text-gray-800 flex-col justify-center m-auto"
             >
-              <ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-3">
+              {history.length > 0?<ul class="lg:mx-auto px-5 py-5 grid max-w-md grid-cols-1 gap-10 sm:mt-10 lg:mt-5 lg:max-w-5xl lg:grid-cols-3">
                 {history.map((h, index) => (
                   <HistoryData
                     key={useId}
@@ -150,7 +150,8 @@ const History = ({ loader, history }) => {
                     history={h}
                   />
                 ))}
-              </ul>
+              </ul>:<p></p>}
+              
             </td>
           </tr>
         )}
