@@ -28,32 +28,41 @@ function Register() {
   const submit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
-    await axiosRequest
-      .post("/doc", formData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
-        },
-      })
-      .then(({ data }) => toast.success(data.message))
-      .then(() => setIsLoading(false))
+    try{
+        await axiosRequest
+          .post("/doc", formData, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+            },
+          })
+          .then(({ data }) => toast.success(data.message))
+          .then(() => setIsLoading(false))
 
-      .catch((err) => toast.error(err.response?.data?.message))
-      .finally(() => setIsLoading(false));
+          .catch((err) => toast.error(err.response?.data?.message))
+          .finally(() => setIsLoading(false));
+    }catch(err){
+        toast.error('Verifiez votre connexion internet')
+    }
+
   };
 
   //recuperation de la liste de Direction
   const getDir = async () => {
     setWaiting(true);
+    try{
+        await axiosRequest
+            .get("/dir", {
+              headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
+            })
+            .then(({ data }) => setDir(data))
+            .then(() => setWaiting(false))
 
-    await axiosRequest
-      .get("/dir", {
-        headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
-      })
-      .then(({ data }) => setDir(data))
-      .then(() => setWaiting(false))
-
-      .catch((err) => console.log(err).finally(() => setWaiting(false)));
+            .catch((err) => console.log(err).finally(() => setWaiting(false)));
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+ 
   };
 
   //appel a la fonction getDir dependant du chemin grace a (useLocation)
