@@ -49,6 +49,11 @@ const router = createBrowserRouter(
         {
           path:'/mydoc',
           element:<MyDoc/>
+        },
+
+        {
+          path:'/support',
+          element:<MyDoc/>
         }
       ],
     },
