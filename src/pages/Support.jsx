@@ -22,9 +22,7 @@ function Support() {
           Support technique <BiSolidError className="inline text-yellow-500" />
         </h1>
         <p className="relative top-[68px] text-gray-900 text-center mt-5">
-          Pour suivre votre dossier il suffit d'entrer la reference dans la
-          barre de recherche ci dessous.Puis appuyer sur le boutton
-          "rechercher".
+          Si vous avez besoin d'aide ou si vous rencontrez une erreur, n'hesitez pas à nous envoyer un message, nous vous repondrons à un court instant.
         </p>
         <div className="relative top-[68px] h-auto lg:h-2/3  lg:w-[1200px]  mx-auto w-full mt-7 flex flex-wrap justify-center">
           <div className=" w-full lg:w-1/2 h-full flex justify-center items-center">
