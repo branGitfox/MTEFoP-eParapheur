@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaArrowLeft, FaMailBulk } from 'react-icons/fa'
 import { useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import { BeatLoader } from 'react-spinners';
 import { Link } from 'react-router-dom';
 import axiosRequest from '../axiosClient/axiosClient';
@@ -19,12 +19,15 @@ function ForgotPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)
-        await axiosRequest.post('/forgotPassword', email, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000", Accept:'application/json'}})
-        .then(({data}) => toast.success(data.message))
-        .then(() => setIsLoading(true))
-        .catch((err) => toast.error(err?.response?.data?.message))
-        .finally(() => setIsLoading(false))
-        
+        try{
+            await axiosRequest.post('/forgotPassword', email, {headers:{"Access-Control-Allow-Origin":"http://127.0.0.1:8000", Accept:'application/json'}})
+            .then(({data}) => toast.success(data.message))
+            .then(() => setIsLoading(true))
+            .catch((err) => toast.error(err?.response?.data?.message))
+            .finally(() => setIsLoading(false))
+        }catch(err) {
+          toast.error("Verifiez votre connexion internet")
+        }
     }
 
   return (
