@@ -1,8 +1,18 @@
-import React from "react";
-import { BiSolidError } from "react-icons/bi";
+import React, { useRef, useState } from "react";
+import { BiSolidError} from "react-icons/bi";
+import { FaMailBulk , FaKey} from "react-icons/fa";
+import { Link
+
+ } from "react-router-dom";
 
 
 function Support() {
+    const handleSubmit = () => null
+    const handleChange = () => null
+    const [showPassword, setShowPassword] = useState()
+    const checkeds = useRef()
+    const togglePassword = null
+    const [isLoading, setIsLoading] = useState(false)
   return (
     <div className="relative">
       <div className="w-[100%] h-screen bg-white relative overflow-y-scroll p-5">
@@ -27,6 +37,9 @@ function Support() {
               onSubmit={handleSubmit}
               className="flex flex-col w-[100%] px-10  items-center"
             >
+                    <h1 className="text-4xl text-center  mt-[1.5rem] mb-10  text-blue-500">
+                Rapport
+          </h1>
               <div className="mb-7 w-[100%] relative">
                 <label
                   htmlFor="email"
