@@ -9,8 +9,14 @@ import { Text } from "recharts";
 
 
 function Support() {
+  const [formData, setFormData] = useState({})
     const handleSubmit = () => null
-    const handleChange = () => null
+
+    const handleChange = () => {
+      const [name, value] = e.target
+      setFormData((formData) => ({...formData, [name]:value}))
+    }
+    
     const [showPassword, setShowPassword] = useState()
     const checkeds = useRef()
     const togglePassword = null
