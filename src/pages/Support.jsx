@@ -16,7 +16,7 @@ function Support() {
       const [name, value] = e.target
       setFormData((formData) => ({...formData, [name]:value}))
     }
-    
+
     const [showPassword, setShowPassword] = useState()
     const checkeds = useRef()
     const togglePassword = null
@@ -67,7 +67,7 @@ function Support() {
               </div>
               <div className="mb-7 w-[100%] relative">
                 <label
-                  htmlFor="email"
+                  htmlFor="objet"
                   className="block text-semibold text-black"
                 >
                   Objet
@@ -75,7 +75,8 @@ function Support() {
                 <input
                   onChange={handleChange}
                   type="text"
-                  name="email"
+                  name="objet"
+                  id="objet"
                   placeholder="objet du rapport"
                   className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900 rounded-md"
                 />
@@ -86,7 +87,7 @@ function Support() {
               </div>
               <div className="mb-5 w-[100%] relative">
                 <label
-                  htmlFor="email"
+                  htmlFor="message"
                   className="block text-semibold text-black"
                 >
                   Message
@@ -95,7 +96,8 @@ function Support() {
                   onChange={handleChange}
                   type={showPassword ? "text" : "password"}
                   ref={checkeds}
-                  name="password"
+                  id="message"
+                  name="message"
                   placeholder="Votre message ici"
                   className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900 rounded-md"
                 />
