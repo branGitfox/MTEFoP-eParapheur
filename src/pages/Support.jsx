@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { BiSolidError} from "react-icons/bi";
 import { FaMailBulk , FaKey, FaInfo} from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
-
+import { BeatLoader } from "react-spinners";
 
 
 function Support() {
@@ -19,7 +19,7 @@ function Support() {
       setFormData((formData) => ({...formData, [name]:value}))
     }
 
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
   return (
     <div className="relative">
       <div className="w-[100%] h-screen bg-white relative overflow-y-scroll p-5">
