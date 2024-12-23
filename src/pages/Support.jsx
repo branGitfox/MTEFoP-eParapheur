@@ -2,24 +2,23 @@ import React, { useRef, useState } from "react";
 import { BiSolidError} from "react-icons/bi";
 import { FaMailBulk , FaKey, FaInfo} from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
-import { Link
 
- } from "react-router-dom";
-import { Text } from "recharts";
 
 
 function Support() {
   const [formData, setFormData] = useState({})
-    const handleSubmit = () => null
 
-    const handleChange = () => {
-      const [name, value] = e.target
+    const handleSubmit =async (e) => {
+      e.preventDefault()
+      console.log(formData);
+      
+    }
+
+    const handleChange = (e) => {
+      const {name, value} = e.target
       setFormData((formData) => ({...formData, [name]:value}))
     }
 
-    const [showPassword, setShowPassword] = useState()
-    const checkeds = useRef()
-    const togglePassword = null
     const [isLoading, setIsLoading] = useState(false)
   return (
     <div className="relative">
@@ -56,6 +55,7 @@ function Support() {
                 <input
                   onChange={handleChange}
                   type="text"
+                  value={formData?.email}
                   name="email"
                   placeholder="email"
                   className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900 rounded-md"
@@ -77,6 +77,7 @@ function Support() {
                   type="text"
                   name="objet"
                   id="objet"
+                  value={formData.objet}
                   placeholder="objet du rapport"
                   className="py-3 px-3 border w-[100%] text-gray-900  focus:outline-blue-900 rounded-md"
                 />
@@ -94,10 +95,11 @@ function Support() {
                 </label>
                 <textarea
                   onChange={handleChange}
-                  type={showPassword ? "text" : "password"}
-                  ref={checkeds}
+                  type="text"
+                 
                   id="message"
                   name="message"
+                  value={formData?.message}
                   placeholder="Votre message ici"
                   className="py-3 px-3 border w-[100%] text-gray-900 focus:outline-blue-900 rounded-md"
                 />
