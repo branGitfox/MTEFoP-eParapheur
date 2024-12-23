@@ -25,7 +25,7 @@ function Support() {
           Si vous avez besoin d'aide ou si vous rencontrez une erreur, n'hesitez pas à nous envoyer un message, nous vous repondrons à un court instant.
         </p>
         <div className="relative top-[68px] h-auto lg:h-2/3  lg:w-[1200px]  mx-auto w-full mt-7 flex flex-wrap justify-center">
-          <div className=" w-full lg:w-1/2 h-full flex justify-center items-center">
+          <div className=" w-full lg:w-1/2 h-full flex justify-center items-baseline">
             <img
               src="/support.avif"
               className="w-3/5 md:w-3/5 lg:w-auto h-auto"
