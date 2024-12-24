@@ -1,17 +1,20 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { BiSolidError} from "react-icons/bi";
 import { FaMailBulk , FaKey, FaInfo} from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { BeatLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import axiosRequest from "../axiosClient/axiosClient";
+import { redirect, useNavigate } from "react-router-dom";
 
 
 function Support() {
   const [formData, setFormData] = useState({}) //donnee a envoyee
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //token d'access
   const [isLoading, setIsLoading] = useState(false) //etat du loader
-
+const navigate = useNavigate()
+  // const [changeLocation, setChangeLocation] = useState(false) //au cas ou la redirection ne marche pas
+const redirect = (link) => navigate(link)
 
     const handleSubmit =async (e) => {
       e.preventDefault()
@@ -20,12 +23,18 @@ function Support() {
         await axiosRequest.post('/support', formData, {headers:{Authorization:`Bearer ${token}, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"`}})
         .then(({data}) => toast.success(data.message))
         .then(() => setIsLoading(false))
+        .then(() => redirect('/support'))
+        // .then(() => setFormData({}))
         .catch(({response}) => toast.error(response.data.message))
         .finally(() =>setIsLoading(false))
+      
+    
       }catch(err){
         toast.error("Verifiez votre connexion internet")
       } 
     }
+
+
 
     const handleChange = (e) => {
       const {name, value} = e.target
