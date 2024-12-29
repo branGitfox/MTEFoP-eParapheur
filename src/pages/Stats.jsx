@@ -12,7 +12,8 @@ function Stats() {
     const [livred, setLivred] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
     const [currentDate, setCurrentDate] = useState("")
-    // const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, {name: 'Page A', uv: 100, pv: 2400, amt: 2400}, {name: 'Page A', uv: 200, pv: 200, amt: 2200}];
+    
+    //donnees filtree
     const data = []
     //recuperation des courriers
     const getDoc = async () => {
