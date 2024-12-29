@@ -129,7 +129,7 @@ function OneDoc() {
           <input
             type="text"
             disabled
-            placeholder={doc?.propr}
+            placeholder={doc?.proprietaire}
             id="Proprietaire"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />

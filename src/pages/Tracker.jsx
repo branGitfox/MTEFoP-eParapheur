@@ -23,7 +23,7 @@ function Tracker() {
 
   //filtrage des recherches
   const filtered = docs.filter((doc) => {
-      if (doc.propr?.toLowerCase().includes(search?.toLowerCase())) {
+      if (doc.proprietaire?.toLowerCase().includes(search?.toLowerCase())) {
         return true;
       }
 
