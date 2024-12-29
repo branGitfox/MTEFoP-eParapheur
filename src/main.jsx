@@ -27,6 +27,7 @@ import ListTrans2 from "./pages/ListTrans2.jsx";
 import MyDoc from "./pages/MyDoc.jsx";
 import UsersList from "./components/admin/UsersList.jsx";
 import Support from "./pages/Support.jsx";
+import Message from "./components/admin/Message.jsx";
 const router = createBrowserRouter(
   [
 
@@ -105,6 +106,11 @@ const router = createBrowserRouter(
         {
           path:'/admin/sccservdirdg',
           element:<SccDirServDg/>
+        },
+
+        {
+          path:'/admin/messages',
+          element:<Message/>
         }
       ],
     },
