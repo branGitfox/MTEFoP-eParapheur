@@ -3,6 +3,7 @@ import { FaReadme } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axiosRequest from '../../axiosClient/axiosClient'
+import { Oval } from 'react-loader-spinner'
 function Message() {
   const [messages, setMessages] = useState([])
   const   [loading, setIsLoading] = useState(false)
@@ -27,7 +28,17 @@ function Message() {
     <div className='w-[95%]  bg-white mx-auto mt-4 flex-grow overflow-y-scroll'>
         <h1 className='text-xl text-gray-900 font-semibold bg-white p-5'>Messages</h1>
         <hr className='text-gray-200 w-full border-2'/>
-        {loading?'loading...':(messages.map((mess, index) =>         <div className="w-full py-10 grid grid-cols-12 border-gray-200 border-b border-t ">
+        {loading?(
+            <Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass="absolute left-[57%] z-50"
+            />
+          ):(messages.map((mess, index) =>         <div className="w-full py-10 grid grid-cols-12 border-gray-200 border-b border-t ">
             <div className="col-span-6 text-gray-900 px-2 w-full flex flex-col items-start ">
               <h3><strong>De: </strong>{mess.email}</h3>
               <h4><strong>Objet: </strong>{mess.objet}</h4>
