@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaReadme } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import axiosRequest from '../../axiosClient/axiosClient'
 function Message() {
+  const [messages, setMessages] = useState([])
+  const   [loading, setIsLoading] = useState(false)
+  const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //token d'acces
+  const getMessages = async () => {
+    setIsLoading(true)
+    try{
+        axiosRequest.get("/getMessages", {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setMessages(data))
+        .then(() => setIsLoading(false))
+        .catch(({response}) => console.log(response.data.message))
+        .finally(() => setIsLoading(false))
+    }catch(err){
+      toast.error("Verifiez votre connexion internet")
+    }
+  }
+
+  useEffect(() => {
+    getMessages()
+  }, [])
   return (
     <div className='w-[95%]  bg-white mx-auto mt-4 flex-grow overflow-y-scroll'>
         <h1 className='text-xl text-gray-900 font-semibold bg-white p-5'>Messages</h1>
