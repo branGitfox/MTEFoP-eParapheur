@@ -8,6 +8,8 @@ function Message() {
   const [messages, setMessages] = useState([])
   const   [loading, setIsLoading] = useState(false)
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //token d'acces
+
+  //recuperation de la liste de messages 
   const getMessages = async () => {
     setIsLoading(true)
     try{
