@@ -26,6 +26,7 @@ function Message() {
   useEffect(() => {
     getMessages()
   }, [])
+  
   return (
     <div className='w-[95%]  bg-white mx-auto mt-4 flex-grow overflow-y-scroll'>
         <h1 className='text-xl text-gray-900 font-semibold bg-white p-5'>Messages</h1>
