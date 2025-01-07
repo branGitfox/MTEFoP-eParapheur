@@ -12,8 +12,8 @@ function Stats() {
     const [livred, setLivred] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
     const [currentDate, setCurrentDate] = useState("")
-    console.log(date);
-    
+
+
 
     
     //donnees filtree
@@ -97,8 +97,6 @@ if(only.length !==0){
        
                     {date?.reverse()?.map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
                      
-                    <option value={"2023-12"}>{'2023-12'}</option>
-                    <option value={"2023-12"}>{'2023-12'}</option>
                 </select>
         </div>
    
