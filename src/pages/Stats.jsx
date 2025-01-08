@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {FaThumbsUp } from 'react-icons/fa';
 import { SiPaperswithcode, SiPinboard } from 'react-icons/si';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar , ResponsiveContainer} from 'recharts'
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar , ResponsiveContainer, RadialBarChart, RadialBar} from 'recharts'
 import axiosRequest from '../axiosClient/axiosClient';
 
 
@@ -13,7 +13,13 @@ function Stats() {
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
     const [currentDate, setCurrentDate] = useState("")
 
-
+    const style = {
+        top: '50%',
+        right: 0,
+        transform: 'translate(0, -50%)',
+        lineHeight: '24px',
+      };
+      
 
     
     //donnees filtree
@@ -185,6 +191,18 @@ if(only.length !==0){
           <Line type="monotone" dataKey="courrier" stroke="#8884d8" activeDot={{ r: 8 }} />
           <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
         </LineChart>
+      </ResponsiveContainer>
+      <ResponsiveContainer width="100%" height="100%">
+        <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
+          <RadialBar
+            minAngle={15}
+            label={{ position: 'insideStart', fill: '#fff' }}
+            background
+            clockWise
+            dataKey="courrier"
+          />
+          <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
+        </RadialBarChart>
       </ResponsiveContainer>
     
     </>
