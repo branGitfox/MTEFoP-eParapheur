@@ -171,7 +171,8 @@ if(only.length !==0){
             </BarChart>
         </div>
 
-            <ResponsiveContainer width="100%" height="100%" >
+    {/*ligne statistique  */}
+        <ResponsiveContainer width="100%" height="100%" >
         <LineChart
           width={500}
           height={300}
@@ -183,6 +184,8 @@ if(only.length !==0){
             bottom: 5,
           }}
         >
+
+
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="" />
           <YAxis />
@@ -192,6 +195,7 @@ if(only.length !==0){
           <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
+      {/* radial statistique */}
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
           <RadialBar
