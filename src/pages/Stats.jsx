@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {FaThumbsUp } from 'react-icons/fa';
 import { SiPaperswithcode, SiPinboard } from 'react-icons/si';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar } from 'recharts'
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, BarChart, Tooltip, Legend, Bar , ResponsiveContainer} from 'recharts'
 import axiosRequest from '../axiosClient/axiosClient';
 
 
@@ -152,7 +152,7 @@ if(only.length !==0){
               <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
               <Line type="monotone" dataKey="pv" stroke="green" />
               <CartesianGrid stroke="#ccc" />
-              <XAxis  dataKey="uv" />
+              <XAxis  dataKey="" />
               <YAxis />
               </LineChart>
               <BarChart width={500} height={300} data={data}>
@@ -164,6 +164,28 @@ if(only.length !==0){
               <Bar dataKey="courrier" fill="#8884d8" barSize={50} />
             </BarChart>
         </div>
+
+            <ResponsiveContainer width="100%" height="100%" >
+        <LineChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="courrier" stroke="#8884d8" activeDot={{ r: 8 }} />
+          <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
+        </LineChart>
+      </ResponsiveContainer>
     
     </>
 
