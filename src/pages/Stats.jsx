@@ -170,9 +170,9 @@ if(only.length !==0){
               <Bar dataKey="courrier" fill="#8884d8" barSize={50} />
             </BarChart>
         </div>
-
-    {/*ligne statistique  */}
-        <ResponsiveContainer width="100%" height="100%" >
+    {/* <div className="flex flex-wrap w-["> */}
+            {/*ligne statistique  */}
+        <ResponsiveContainer width={'100%'} height={500}>
         <LineChart
           width={500}
           height={300}
@@ -196,7 +196,7 @@ if(only.length !==0){
         </LineChart>
       </ResponsiveContainer>
       {/* radial statistique */}
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width={'100%'}  height={600}>
         <RadialBarChart cx="50%" cy="50%" innerRadius="10%" outerRadius="80%" barSize={10} data={data}>
           <RadialBar
             minAngle={15}
@@ -208,6 +208,8 @@ if(only.length !==0){
           <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
         </RadialBarChart>
       </ResponsiveContainer>
+    {/* </div>   */}
+
     
     </>
 
