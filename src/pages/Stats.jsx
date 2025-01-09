@@ -83,10 +83,12 @@ if(doc.length !==0){
 //ajout des donnees filtree
 if(only.length !==0){
  new Set(only).forEach((dc) => {
+     const color = ['red', 'orange', 'green', 'purple']
+    let random = Math.floor(Math.random() * color.length)
       let uv = doc.filter((d) => d.created_at.substring(0,7) == dc.created_at).length;
         let pv = doc.filter((d) => d.created_at.substring(0,7) == currentDate).length
         // let amt = doc.filter((d) => d.created_at == dc.created_at)
-        data.push({name:'Courrier', courrier:uv , pv:pv, amt:dc.created_at})     
+        data.push({name:'Courrier', courrier:uv , pv:pv, amt:dc.created_at, fill:color[random]})     
     })
 }
  
