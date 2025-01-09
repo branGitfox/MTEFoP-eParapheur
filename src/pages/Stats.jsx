@@ -12,7 +12,7 @@ function Stats() {
     const [livred, setLivred] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
     const [currentDate, setCurrentDate] = useState("")
-
+    //couleur de la graphique radial
     const style = {
         top: '50%',
         right: 0,
