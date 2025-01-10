@@ -89,12 +89,13 @@ if(only.length !==0){
         let pv = doc.filter((d) => d.created_at.substring(0,7) == currentDate).length
         // let amt = doc.filter((d) => d.created_at == dc.created_at)
         data.push({name:'Courrier', courrier:uv , pv:pv, amt:dc.created_at, fill:color[random]})     
+       
     })
 }
  
 
-console.log(doc?.reverse()[0]?.created_at?.substring(0,7));
-
+  
+  
 
 
 
@@ -104,7 +105,7 @@ console.log(doc?.reverse()[0]?.created_at?.substring(0,7));
         <div className="flex gap-4 items-center">
                <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
                 <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
-       
+  
                     {date?.reverse()?.map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
                      
                 </select>
