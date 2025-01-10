@@ -94,8 +94,7 @@ if(only.length !==0){
 }
  
 
-  
-  
+
 
 
 
@@ -106,8 +105,8 @@ if(only.length !==0){
                <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
                 <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
 
-                    {date?.reverse().map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
-                     
+                    {date?.map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
+                     {date.reverse()}
                 </select>
         </div>
    
@@ -180,10 +179,10 @@ if(only.length !==0){
             <hr  className='mt-5 mb-5'/>
 
             <div className="flex gap-4 items-center">
-               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
+               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Approfondie</h3> 
                 <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
 
-                    {date?.reverse().map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
+                    {date?.map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
                      
                 </select>
         </div>
