@@ -103,10 +103,10 @@ if(only.length !==0){
   return (
     <>    
         <div className="flex gap-4 items-center">
-               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Mensuel Global</h3> 
+               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
                 <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
-  
-                    {date?.reverse()?.map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
+
+                    {date?.reverse().map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
                      
                 </select>
         </div>
@@ -155,8 +155,39 @@ if(only.length !==0){
                 </div>     
             </div>
             <hr  className='mt-5 mb-5'/>
-            <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistique Approfondie</h3> 
-            <div className="flex flex-wrap mt-5">
+            <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Graphiques</h3> 
+            
+        <div className="flex flex-wrap justify-evenly w-[100%] items-center gap-y-4 p-3 mt-10">
+
+              <LineChart width={500} height={300} data={data}>
+              <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
+              <Line type="monotone" dataKey="pv" stroke="green" />
+              <CartesianGrid stroke="#ccc" />
+              <XAxis  dataKey="" />
+              <YAxis />
+              </LineChart>
+              <BarChart width={500} height={300} data={data}>
+              <XAxis dataKey="amt" stroke="#8884d8" />
+              <YAxis />
+              <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+              <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
+              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+              <Bar dataKey="courrier" fill="#8884d8" barSize={50} />
+            </BarChart>
+        </div>
+    {/* <div className="flex flex-wrap w-["> */}
+            {/*ligne statistique  */}
+            <hr  className='mt-5 mb-5'/>
+
+            <div className="flex gap-4 items-center">
+               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Annuel</h3> 
+                <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
+
+                    {date?.reverse().map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
+                     
+                </select>
+        </div>
+        <div className="flex flex-wrap mt-5">
                 <div className="w-full md:w-1/2 xl:w-1/3 p-3">
                    
                     <div className="bg-white border rounded shadow p-2">
@@ -200,26 +231,6 @@ if(only.length !==0){
                 </div>     
             </div>
             <hr  className='mt-5 mb-5'/>
-        <div className="flex flex-wrap justify-evenly w-[100%] items-center gap-y-4 p-3 mt-10">
-
-              <LineChart width={500} height={300} data={data}>
-              <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
-              <Line type="monotone" dataKey="pv" stroke="green" />
-              <CartesianGrid stroke="#ccc" />
-              <XAxis  dataKey="" />
-              <YAxis />
-              </LineChart>
-              <BarChart width={500} height={300} data={data}>
-              <XAxis dataKey="amt" stroke="#8884d8" />
-              <YAxis />
-              <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-              <Legend width={100} wrapperStyle={{ top: 40, right: 20, backgroundColor: '#f5f5f5', border: '1px solid #d5d5d5', borderRadius: 3, lineHeight: '40px' }} />
-              <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-              <Bar dataKey="courrier" fill="#8884d8" barSize={50} />
-            </BarChart>
-        </div>
-    {/* <div className="flex flex-wrap w-["> */}
-            {/*ligne statistique  */}
         <ResponsiveContainer width={'100%'} height={500}>
         <LineChart
           width={500}
@@ -230,7 +241,7 @@ if(only.length !==0){
             right: 30,
             left: 20,
             bottom: 5,
-          }}
+        }}
         >
 
 
