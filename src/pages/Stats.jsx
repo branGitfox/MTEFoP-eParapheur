@@ -83,7 +83,7 @@ if(doc.length !==0){
 //ajout des donnees filtree
 if(only.length !==0){
  new Set(only).forEach((dc) => {
-     const color = ['red', 'orange', 'green', 'purple']
+     const color = ['red', 'orange', 'green', 'purple', 'blue']
     let random = Math.floor(Math.random() * color.length)
       let uv = doc.filter((d) => d.created_at.substring(0,7) == dc.created_at).length;
         let pv = doc.filter((d) => d.created_at.substring(0,7) == currentDate).length
@@ -92,6 +92,8 @@ if(only.length !==0){
     })
 }
  
+
+console.log(doc?.reverse()[0]?.created_at?.substring(0,7));
 
 
 
@@ -118,7 +120,7 @@ if(only.length !==0){
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Dossiers</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{doc.filter(dc => dc?.created_at?.substring(0, 7) == (currentDate?currentDate:doc.reverse()[0])).length} <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{doc.filter(dc => dc?.created_at?.substring(0, 7) == (currentDate?currentDate:doc?.reverse()[0]?.created_at?.substring(0,7))).length} <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -132,7 +134,7 @@ if(only.length !==0){
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total En Attente</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == (currentDate?currentDate:doc.reverse()[0])).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == (currentDate?currentDate:doc?.reverse()[0]?.created_at?.substring(0,7))).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>       
@@ -145,7 +147,7 @@ if(only.length !==0){
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Livre</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{livred.filter(lv => lv?.created_at?.substring(0, 7) == (currentDate?currentDate:doc.reverse()[0])).length} <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{livred.filter(lv => lv?.created_at?.substring(0, 7) == (currentDate?currentDate:doc?.reverse()[0]?.created_at?.substring(0,7))).length} <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
