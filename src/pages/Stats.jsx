@@ -292,7 +292,7 @@ let index = 0
           <XAxis dataKey="" />
           <YAxis />
         </LineChart>
-        <BarChart width={500} height={300} data={data}>
+        <BarChart width={500} height={300} data={uniqueAMT}>
           <XAxis dataKey="amt" stroke="#8884d8" />
           <YAxis />
           <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
