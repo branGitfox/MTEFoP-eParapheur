@@ -122,7 +122,6 @@ function Stats() {
       let pv = doc.filter(
         (d) => d.created_at.substring(0, 7) == currentDate
       ).length;
-      // let amt = doc.filter((d) => d.created_at == dc.created_at)
       data.push({
         name: "Courrier",
         courrier: uv,
