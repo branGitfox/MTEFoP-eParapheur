@@ -143,19 +143,22 @@ function Stats() {
 
   //liste de dates filtrees
 const uniqueAMT = []
-uniqueAMT.push({amt: AMT[0]?.amt})
+uniqueAMT.push({amt: AMT[0]?.amt, courrier: 0})
 let index = 0
  for(let i=0; i< AMT.length; i++) {
 
     if(uniqueAMT[index].amt != AMT[i].amt){
-        uniqueAMT.push({amt: AMT[i].amt})
+        uniqueAMT.push({amt: AMT[i].amt, courrier: 0})
         index++
     }
  }
 
- 
- 
-  
+ //Calcul de nombre de courriers par uniqueAMT
+ for(let i=0; i< uniqueAMT.length; i++) {
+    doc.forEach(dc => {
+        if(dc.created_at.substring(0, 7 == )
+    })
+ }
   return (
     <>
       <div className="flex gap-4 items-center">
