@@ -95,8 +95,6 @@ if(only.length !==0){
  
 
 
-console.log(doc);
-
 
 
 
@@ -175,7 +173,7 @@ console.log(doc);
               <Bar dataKey="courrier" fill="#8884d8" barSize={50} />
             </BarChart>
         </div>
-    {/* <div className="flex flex-wrap w-["> */}
+
             {/*ligne statistique  */}
             <hr  className='mt-5 mb-5'/>
 
@@ -267,8 +265,6 @@ console.log(doc);
           <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} />
         </RadialBarChart>
       </ResponsiveContainer>
-    {/* </div>   */}
-
     
     </>
 
