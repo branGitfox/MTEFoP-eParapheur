@@ -137,7 +137,7 @@ function Stats() {
     <>
       <div className="flex gap-4 items-center">
         <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
-          Statistiques Annuel
+          Statistiques Mensuel
         </h3>
         <select
           name="date"
