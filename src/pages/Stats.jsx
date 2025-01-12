@@ -120,10 +120,10 @@ function Stats() {
         (d) => d.created_at.substring(0, 7) == dc.created_at
       ).length;
       let pv = doc.filter(
-        (d) => d.created_at.substring(0, 7) == currentDate
+        (d) => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))
       ).length;
       data.push({
-        name: "Courrier",
+        name: "courrier",
         courrier: uv,
         pv: pv,
         amt: dc.created_at,
@@ -132,6 +132,21 @@ function Stats() {
     });
   }
 
+  //nombre de courriers par mois 
+  const AMT = []
+
+  doc.filter(dc => {
+    AMT.push({amt:dc.created_at?.substring(0, 7)})
+  })
+
+  const uniqueAMT = []
+  uniqueAMT.push({amt: AMT[0]?.amt})
+
+ for(let i=0; i< AMT.length; i++) {
+
+ }
+ 
+  
   return (
     <>
       <div className="flex gap-4 items-center">
