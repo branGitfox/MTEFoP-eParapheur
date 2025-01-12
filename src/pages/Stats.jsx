@@ -68,7 +68,7 @@ const handleChangeDate = (e) => {
         
     }, [])
 
-const only = [{created_at:2023-11}]
+const only = []
 if(doc.length !==0){
      doc.forEach((d) => {    
         let data
@@ -95,6 +95,7 @@ if(only.length !==0){
  
 
 
+console.log(doc);
 
 
 
@@ -120,7 +121,7 @@ if(only.length !==0){
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Dossiers</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{doc.filter(dc => dc?.created_at?.substring(0, 7) == (currentDate?currentDate:doc?.reverse()[0]?.created_at?.substring(0,7))).length} <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{doc.filter(dc => dc?.created_at?.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))).length} <span className="text-blue-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -134,7 +135,7 @@ if(only.length !==0){
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total En Attente</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == (currentDate?currentDate:doc?.reverse()[0]?.created_at?.substring(0,7))).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{notLivred.filter(nt => nt?.created_at?.substring(0, 7) == (currentDate?currentDate:nt?.created_at?.substring(0,7))).length}<span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>       
@@ -147,7 +148,7 @@ if(only.length !==0){
                             </div>
                             <div className="flex-1 text-right md:text-center">
                                 <h5 className="font-bold uppercase text-gray-500">Total Livre</h5>
-                                <h3 className="font-bold text-3xl text-gray-900">{livred.filter(lv => lv?.created_at?.substring(0, 7) == (currentDate?currentDate:doc?.reverse()[0]?.created_at?.substring(0,7))).length} <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
+                                <h3 className="font-bold text-3xl text-gray-900">{livred.filter(lv => lv?.created_at?.substring(0, 7) == (currentDate?currentDate:livred?.created_at?.substring(0,7))).length} <span className="text-green-500"><i className="fas fa-caret-up"></i></span></h3>
                             </div>
                         </div>
                     </div>
@@ -179,7 +180,7 @@ if(only.length !==0){
             <hr  className='mt-5 mb-5'/>
 
             <div className="flex gap-4 items-center">
-               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Approfondie</h3> 
+               <h3 className='text-gray-900 text-xl text-left ml-2.5 font-semibold'>Statistiques Periodique</h3> 
                 <select name="date"  onChange={handleChangeDate} id="" className='text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none'>
 
                     {date?.map((dt, index) => <option key={index} value={dt}>{dt}</option>)}
