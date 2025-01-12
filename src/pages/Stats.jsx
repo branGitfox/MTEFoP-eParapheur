@@ -156,9 +156,14 @@ let index = 0
  //Calcul de nombre de courriers par uniqueAMT
  for(let i=0; i< uniqueAMT.length; i++) {
     doc.forEach(dc => {
-        if(dc.created_at.substring(0, 7 == )
+        if(dc.created_at?.substring(0, 7) == uniqueAMT[i].amt){
+            uniqueAMT[i].courrier+=1 
+        }
     })
  }
+
+ console.log(uniqueAMT);
+ 
   return (
     <>
       <div className="flex gap-4 items-center">
