@@ -133,18 +133,27 @@ function Stats() {
   }
 
   //nombre de courriers par mois 
+
+  //liste des dates non filtree
   const AMT = []
 
   doc.filter(dc => {
     AMT.push({amt:dc.created_at?.substring(0, 7)})
   })
 
-  const uniqueAMT = []
-  uniqueAMT.push({amt: AMT[0]?.amt})
-
+  //liste de dates filtrees
+const uniqueAMT = []
+uniqueAMT.push({amt: AMT[0]?.amt})
+let index = 0
  for(let i=0; i< AMT.length; i++) {
 
+    if(uniqueAMT[index].amt != AMT[i].amt){
+        uniqueAMT.push({amt: AMT[i].amt})
+        index++
+    }
  }
+
+ 
  
   
   return (
