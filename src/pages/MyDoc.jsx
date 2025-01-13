@@ -59,6 +59,8 @@ function MyDoc() {
   return (
     <div className='relative'>
         <div className="w-[100%] h-screen bg-white relative overflow-y-scroll p-5">
+          {/* {history.length > 0?(<div className=" text-gray-800 flex-col justify-center m-auto w-full bg-red-500">
+            <History history={history} loader={historyLoader} all={false} /></div>):""} */}
             <h1 className=' relative top-[68px] text-blue-500 mt-10 text-center text-3xl font-bold'>Suivre mon dossier</h1>
             <p className='relative top-[68px] text-gray-900 text-center mt-5'>Pour suivre votre dossier il suffit d'entrer la reference dans la barre de recherche ci dessous.Puis appuyer sur le boutton "rechercher".</p>
             <form onSubmit={submit} className="lg:w-[50%] mx-auto h-12  relative top-[68px] mt-5 px-3 flex gap-x-2 justify-evenly">
@@ -107,7 +109,7 @@ function MyDoc() {
                 </td>
             </tr>}
          
-            {show&&  <History history={history} loader={historyLoader} />}
+            {show&&  <History history={history} loader={historyLoader} all={true}/>}
           
           </tbody>
                 
@@ -122,7 +124,7 @@ function MyDoc() {
   )
 }
 
-const History = ({ loader, history }) => {
+const History = ({ loader, history, all }) => {
     return (
       <>
         {loader ? (
@@ -148,6 +150,7 @@ const History = ({ loader, history }) => {
                     index={index}
                     length={history.length}
                     history={h}
+                    all={all}
                   />
                 ))}
               </ul>:<p className="text-center text-red-500">Aucun transfert pour ce courrier <CgDanger className="text-red-500 inline w-5 h-5"/></p>}
@@ -159,7 +162,7 @@ const History = ({ loader, history }) => {
     );
   };
 
-  const HistoryData = ({ history, index, length }) => {
+  const HistoryData = ({ history, index, length, all }) => {
     return (
       <>
         <li key={index} class="flex-start group relative flex lg:flex-col">
@@ -174,7 +177,7 @@ const History = ({ loader, history }) => {
           >
             {index + 1}
           </div>
-          <div class="ml-6 lg:ml-0 lg:mt-10">
+          {all && (<div class="ml-6 lg:ml-0 lg:mt-10">
             <h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500 capitalize">
               {history.type + " - " + history.created_at}
             </h3>
@@ -201,7 +204,8 @@ const History = ({ loader, history }) => {
             <span className="underline">Declenchee Par</span>: {history.name}
           </li>
           <h4 class="mt-2 text-base text-gray-700"> {history.description}</h4>
-          </div>
+          </div>)}
+          
         </li>
       </>
     );
