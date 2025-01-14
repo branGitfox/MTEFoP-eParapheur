@@ -27,7 +27,8 @@ function Nav() {
           "
                 alt="logo de MTEFoP"
               />
-              e-Parapheur
+              <span className="hidden md:inline">e-Parapheur</span>
+            
             </a>
 
           </div>
