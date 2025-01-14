@@ -126,7 +126,7 @@ function Stats() {
       data.push({
         name: "courrier",
         courrier: uv,
-        pv: pv,
+        mensuel: pv,
         amt: dc.created_at,
         fill: color[random],
       });
@@ -428,7 +428,7 @@ let index = 0
       <div className="flex flex-wrap justify-evenly w-[100%] items-center gap-y-4 p-3 mt-10">
         <LineChart width={500} height={300} data={data}>
           <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
-          <Line type="monotone" dataKey="pv" stroke="green" />
+          <Line type="monotone" dataKey="mensuel" stroke="green" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="" />
           <YAxis />
@@ -589,7 +589,7 @@ let index = 0
             stroke="#8884d8"
             activeDot={{ r: 8 }}
           />
-          <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="mensuel" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
       {/* radial statistique */}
