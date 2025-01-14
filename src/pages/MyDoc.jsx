@@ -61,12 +61,12 @@ function MyDoc() {
        
 
         {/* tailwind stepper  */}
-          {history.length > 0?(   <ul class="relative flex flex-wrap gap-4 top-[68px] "> 
+          {history.length > 0?(   <ul class="animate__animated animate__fadeInDown relative flex flex-wrap gap-4 top-[68px] "> 
             {history.map((h, index) => (<li class="flex items-center gap-x-2 shrink basis-0 flex-1 group">
             <div class="min-w-7 min-h-7 inline-flex justify-center items-center text-xs align-middle">
-              <span class={`size-7 flex justify-center items-center shrink-0 ${history.length == index + 1? "bg-blue-600":"bg-gray-100 text-gray-800"} font-medium text-gray-100 rounded-full`}>
+              <a href={history.length == index + 1?"#current":""} class={`size-7 flex justify-center items-center shrink-0 ${history.length == index + 1? "bg-blue-600":"bg-gray-100 text-gray-800"} font-medium text-gray-100 rounded-full`}>
                 {index + 1}
-              </span>
+              </a>
               <span class="ms-2 block text-sm font-medium text-gray-800 ">
                 {h.nom_serv}
               </span>
@@ -272,7 +272,7 @@ const HistoryData = ({ history, index, length, all }) => {
             <li>
               <span className="underline">Declenchee Par</span>: {history.name}
             </li>
-            <h4 class="mt-2 text-base text-gray-700"> {history.description}</h4>
+            <h4 id={length  == index + 1?"current":""} class="mt-2 text-base text-gray-700"> {history.description}</h4>
           </div>
         )}
       </li>
