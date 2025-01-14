@@ -62,7 +62,7 @@ function MyDoc() {
           {/* {history.length > 0?(<div className=" text-gray-800 flex-col justify-center m-auto w-full bg-red-500">
             <History history={history} loader={historyLoader} all={false} /></div>):""} */}
 
-
+            {/* tailwind stepper  */}
 <ol class="flex items-center w-full relative top-[68px] justify-center bg-red-500">
     <li class="flex w-full items-center text-blue-600 dark:text-blue-500 after:content-[''] after:w-full after:h-1 after:border-b after:border-blue-100 after:border-4 after:inline-block dark:after:border-blue-800">
         <span class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full lg:h-12 lg:w-12 dark:bg-blue-800 shrink-0">
@@ -86,6 +86,8 @@ function MyDoc() {
         </span>
     </li>
 </ol>
+
+{/* fin tailwind stepper */}
 
             <h1 className=' relative top-[68px] text-blue-500 mt-10 text-center text-3xl font-bold'>Suivre mon dossier</h1>
             <p className='relative top-[68px] text-gray-900 text-center mt-5'>Pour suivre votre dossier il suffit d'entrer la reference dans la barre de recherche ci dessous.Puis appuyer sur le boutton "rechercher".</p>
