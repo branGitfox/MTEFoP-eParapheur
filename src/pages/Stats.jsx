@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FaDirections, FaThumbsUp } from "react-icons/fa";
-import { SiPaperswithcode, SiPinboard } from "react-icons/si";
+import { SiExpertsexchange, SiFlux, SiPaperswithcode, SiPinboard } from "react-icons/si";
 import {
   LineChart,
   Line,
@@ -187,6 +187,30 @@ let index = 0
       </div>
 
       <div className="flex flex-wrap mt-5">
+      <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+          <div className="bg-white border rounded shadow p-2">
+            <div className="flex flex-row items-center">
+              <div className="flex-shrink pr-4">
+                <div className="rounded p-3 bg-yellow-800">
+                  <SiFlux />
+                </div>
+              </div>
+              <div className="flex-1 text-right md:text-center">
+                <h5 className="font-bold uppercase text-gray-500">
+                  Tous les courriers 
+                </h5>
+                <h3 className="font-bold text-3xl text-gray-900">
+                  {
+                    doc.length
+                  }{" "}
+                  <span className="text-blue-500">
+                    <i className="fas fa-caret-up"></i>
+                  </span>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
@@ -197,7 +221,7 @@ let index = 0
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  Total Dossiers
+                  courriers mensuel
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -433,7 +457,6 @@ let index = 0
           <XAxis dataKey="" />
           <YAxis />
           <Legend />
-
         </LineChart>
         <BarChart width={500} height={300} data={uniqueAMT}>
           <XAxis dataKey="amt" stroke="#8884d8" />
