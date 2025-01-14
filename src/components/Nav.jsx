@@ -12,7 +12,7 @@ function Nav() {
     <>
       <nav
         id="header"
-        className="fixed top-0 w-full z-50 left-0 right-0  text-white bg-[#191970]"
+        className="fixed top-0 w-full z-50   text-white bg-[#191970]"
       >
         <div className="w-full  mx-auto flex flex-wrap items-center justify-between mt-0 py-2 ">
           <div className="pl-4 flex items-center">
@@ -27,8 +27,7 @@ function Nav() {
           "
                 alt="logo de MTEFoP"
               />
-              <span className="hidden md:inline">e-Parapheur</span>
-            
+              e-Parapheur
             </a>
 
           </div>
