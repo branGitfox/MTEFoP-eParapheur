@@ -481,22 +481,20 @@ let index = 0
       {/*Graphique pour le statistique periodique  */}
       <hr className="mt-5 mb-5" />
 
-      <div className="flex gap-4 items-center">
+      <div className="flex flex-wrap  gap-4 items-center">
         <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
           Statistiques Periodique
         </h3>
-        <select
-          name="date"
-          onChange={handleChangeDate}
-          id=""
-          className="text-gray-200 border p-1  rounded-xl bg-yellow-600 focus:outline-none"
-        >
-          {date?.map((dt, index) => (
-            <option key={index} value={dt}>
-              {dt}
-            </option>
-          ))}
-        </select>
+            <div className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
+              <div >
+              <label htmlFor="" className="text-gray-800" >Debut</label>
+                <input className="text-gray-900 p-2 rounded-sm w-full"  type="date" name="" id="" />
+              </div>
+              <div >
+              <label htmlFor="" className="text-gray-800">Fin</label>
+              <input  className="text-gray-800 p-2 rounded-sm w-full" type="date" name="" id="" />
+              </div>
+            </div>
       </div>
       <div className="flex flex-wrap mt-5">
         <div className="w-full md:w-1/2 xl:w-1/3 p-3">
