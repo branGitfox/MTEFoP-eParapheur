@@ -23,6 +23,7 @@ function Message() {
     }
   }
 
+  
   useEffect(() => {
     getMessages()
   }, [])
