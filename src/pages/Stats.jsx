@@ -487,12 +487,12 @@ let index = 0
         </h3>
             <div className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
-              <label htmlFor="" className="text-gray-800" >Debut</label>
-                <input className="text-gray-900 p-2 rounded-sm w-full"  type="date" name="" id="" />
+              <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
+                <input className="text-gray-900 p-2 rounded-md w-full"  type="date" name="" id="" />
               </div>
               <div >
-              <label htmlFor="" className="text-gray-800">Fin</label>
-              <input  className="text-gray-800 p-2 rounded-sm w-full" type="date" name="" id="" />
+              <label htmlFor="" className="text-gray-800 font-medium">Fin</label>
+              <input  className="text-gray-800 p-2 rounded-md w-full" type="date" name="" id="" />
               </div>
             </div>
       </div>
