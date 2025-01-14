@@ -61,7 +61,7 @@ function MyDoc() {
        
 
         {/* tailwind stepper  */}
-          {history.length > 0?(   <ul class="relative flex flex-row gap-x-2 top-[68px] "> 
+          {history.length > 0?(   <ul class="relative flex flex-wrap gap-4 top-[68px] "> 
             {history.map((h, index) => (<li class="flex items-center gap-x-2 shrink basis-0 flex-1 group">
             <div class="min-w-7 min-h-7 inline-flex justify-center items-center text-xs align-middle">
               <span class="size-7 flex justify-center items-center shrink-0 bg-blue-600 font-medium text-gray-100 rounded-full ">
