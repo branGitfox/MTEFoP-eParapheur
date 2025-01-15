@@ -128,6 +128,12 @@ function Stats() {
     });
   }
 
+   //filtrer les courriers par direction par date
+const docByDirectionByDate = docByDirection.map((docs) => {
+  return [docs[0],docs[1].filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7)))]
+  
+})
+
   //ajout des donnees filtree
   if (only.length !== 0) {
     new Set(only).forEach((dc) => {
@@ -145,9 +151,12 @@ function Stats() {
         mensuel: pv,
         amt: dc.created_at,
         fill: color[random],
+        test:docByDirectionByDate[0][1].length
       });
     });
   }
+
+  
 
   //nombre de courriers par mois 
 
@@ -179,13 +188,9 @@ let index = 0
     })
  }
 
- //filtrer les courriers par direction par date
-const docByDirectionByDate = docByDirection.map((docs) => {
-    return [docs[0],docs[1].filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7)))]
-    
-})
 
-console.log(docByDirectionByDate);
+
+// console.log(docByDirectionByDate);
 
  
   return (
@@ -371,7 +376,7 @@ console.log(docByDirectionByDate);
         <LineChart width={500} height={300} data={data}>
           <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
           <Line type="monotone" dataKey="mensuel" stroke="green" />
-          <Line type="monotone" dataKey="1" stroke="red" />
+          <Line type="monotone" dataKey="test" stroke="red" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="" />
           <YAxis />
