@@ -378,7 +378,7 @@ let index = 0
           <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
           <Line type="monotone" dataKey="mensuel" stroke="green" />
           <Line type="monotone" dataKey="Ministre" stroke="red" />
-          <Line type="monotone" dataKey="FOP" stroke="yellow" />
+          <Line type="monotone" dataKey="FOP" stroke="blue" />a
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="" />
           <YAxis />
