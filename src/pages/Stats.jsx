@@ -180,7 +180,7 @@ let index = 0
  }
 
 const docByDirectionByDate = docByDirection.map((docs) => {
-    return docs[1].filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]))
+    return [docs[0],docs[1].filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7)))]
     
 })
 
@@ -341,7 +341,7 @@ console.log(docByDirectionByDate);
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
       
-                  {doc[1]}
+                  {doc[1].length}
                   <span className="text-green-500">
                     <i className="fas fa-caret-up"></i>
                   </span>
