@@ -179,6 +179,7 @@ let index = 0
     })
  }
 
+ //filtrer les courriers par direction par date
 const docByDirectionByDate = docByDirection.map((docs) => {
     return [docs[0],docs[1].filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7)))]
     
