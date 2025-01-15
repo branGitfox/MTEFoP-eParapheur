@@ -179,9 +179,12 @@ let index = 0
     })
  }
 
+const docByDirectionByDate = docByDirection.map((docs) => {
+    return docs[1].filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]))
+    
+})
 
-
-console.log(docByDirection);
+console.log(docByDirectionByDate);
 
  
   return (
@@ -324,7 +327,7 @@ console.log(docByDirection);
               
         </div>
               {/* par direction */}
-              {docByDirection.map((doc, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+              {docByDirectionByDate.map((doc, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
@@ -367,6 +370,7 @@ console.log(docByDirection);
         <LineChart width={500} height={300} data={data}>
           <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
           <Line type="monotone" dataKey="mensuel" stroke="green" />
+          <Line type="monotone" dataKey="1" stroke="red" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="" />
           <YAxis />
