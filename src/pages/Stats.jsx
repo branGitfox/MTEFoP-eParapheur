@@ -139,7 +139,7 @@ const docByDirectionByDate = docByDirection?.map((docs) => {
     
   })
   
-
+//access du nombre de courriers par direction par index statique
 let fop = docByDirection.length > 0? docByDirection[1][1].length: 0
 let ministre = docByDirection.length > 0? docByDirection[0][1].length: 0
 
