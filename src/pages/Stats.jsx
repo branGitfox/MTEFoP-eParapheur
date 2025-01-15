@@ -290,7 +290,7 @@ let index = 0
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  Total En Attente
+                  Courriers En Attente
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -320,7 +320,7 @@ let index = 0
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  Total Livre
+                  courriers Livre
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
