@@ -106,7 +106,6 @@ function Stats() {
   const handleChangeDate = (e) => {
     setCurrentDate(e.target.value);
   };
-
   //recperation des donnees pour le statistique
   useEffect(() => {
     getDoc();
@@ -116,7 +115,7 @@ function Stats() {
     //recuperation du nombre de courriers pour chaque direction existant
     getDocByDirection()
   }, []);
-
+  
   const only = [];
   if (doc.length !== 0) {
     doc.forEach((d) => {
@@ -128,11 +127,21 @@ function Stats() {
     });
   }
 
-   //filtrer les courriers par direction par date
-const docByDirectionByDate = docByDirection.map((docs) => {
-  return [docs[0],docs[1].filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7)))]
+
   
-})
+
+   //filtrer les courriers par direction par date
+const docByDirectionByDate = docByDirection?.map((docs) => {
+ 
+
+    return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7)))]
+  
+    
+  })
+  
+
+let fop = docByDirection.length > 0? docByDirection[1][1].length: 0
+let ministre = docByDirection.length > 0? docByDirection[0][1].length: 0
 
   //ajout des donnees filtree
   if (only.length !== 0) {
@@ -145,14 +154,15 @@ const docByDirectionByDate = docByDirection.map((docs) => {
       let pv = doc.filter(
         (d) => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))
       ).length;
+
       data.push({
         name: "courrier",
         courrier: uv,
         mensuel: pv,
         amt: dc.created_at,
         fill: color[random],
-        Ministre:docByDirectionByDate[0][1].length,
-        FOP:docByDirectionByDate[1][1].length
+        Ministre:ministre,
+        FOP:fop
       });
     });
   }
