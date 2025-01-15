@@ -23,6 +23,7 @@ function Stats() {
   const [date, setDate] = useState([]);
   const [notLivred, setNotLivred] = useState([]);
   const [livred, setLivred] = useState([]);
+  const [docByDirection, setDocByDirection] = useState([]);
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
   const [currentDate, setCurrentDate] = useState("");
   //couleur de la graphique radial
@@ -75,6 +76,19 @@ function Stats() {
       .catch((err) => console.log(err));
   };
 
+   //recuperation de la liste de courrier non livre
+   const getDocByDirection = async () => {
+    await axiosRequest
+      .get("/stats/countByDirection", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+        },
+      })
+      .then(({ data }) => setDocByDirection(data))
+      .catch((err) => console.log(err));
+  };
+
   //recuperation de la liste de courrier non livre
   const getLivred = async () => {
     await axiosRequest
@@ -99,6 +113,8 @@ function Stats() {
     getDate();
     getNotLivred();
     getLivred();
+    //recuperation du nombre de courriers pour chaque direction existant
+    getDocByDirection()
   }, []);
 
   const only = [];
@@ -162,6 +178,8 @@ let index = 0
         }
     })
  }
+
+
 
 
  
