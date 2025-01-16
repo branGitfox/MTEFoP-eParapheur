@@ -26,7 +26,7 @@ function Stats() {
   const [docByDirection, setDocByDirection] = useState([]);
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
   const [currentDate, setCurrentDate] = useState("");
-  const [period, setPeriod] = useState({}) //state pour contenir la date de debut et la date de fin pour le filtrage de la statistique periodique.
+  const [period, setPeriod] = useState({start:"", end:""}) //state pour contenir la date de debut et la date de fin pour le filtrage de la statistique periodique.
   //couleur de la graphique radial
   const style = {
     top: "50%",
@@ -207,9 +207,9 @@ let index = 0
 const handlePeriod = (e) => {
   const {name, value} = e.target
   setPeriod((period) => ({...period, [name]:value}))
-
 }
 
+//  console.log(period);
  
   return (
     <>
@@ -432,11 +432,11 @@ const handlePeriod = (e) => {
             <div className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
-                <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handleStartDate} type="date"  />
+                <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
               </div>
               <div >
               <label htmlFor="" className="text-gray-800 font-medium">Fin</label>
-              <input  className="text-gray-800 p-2 rounded-md w-full" onChange={hand} type="date"  />
+              <input  className="text-gray-800 p-2 rounded-md w-full" onChange={handlePeriod} name="end"  type="date"  />
               </div>
             </div>
       </div>
