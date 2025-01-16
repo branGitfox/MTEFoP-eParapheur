@@ -127,8 +127,17 @@ function Stats() {
     });
   }
 
+  //gere le changement de la date de debut
+  const handleStartDate = (e) => {
+    console.log('start');
+    
+  }
 
-  
+  //gere le changement de la date de fin
+  const handleEndDate = (e) => {  
+    console.log('end')
+    
+  }
 
    //filtrer les courriers par direction par date
 const docByDirectionByDate = docByDirection?.map((docs) => {
