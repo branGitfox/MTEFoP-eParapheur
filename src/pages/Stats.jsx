@@ -27,6 +27,7 @@ function Stats() {
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
   const [currentDate, setCurrentDate] = useState("");
   const [period, setPeriod] = useState({start:"", end:""}) //state pour contenir la date de debut et la date de fin pour le filtrage de la statistique periodique.
+  const [docByPeriod, setDocByPeriod] = useState([]) //state pour contenir les courriers par periode debut et fin
   //couleur de la graphique radial
   const style = {
     top: "50%",
@@ -107,21 +108,36 @@ function Stats() {
   const handleChangeDate = (e) => {
     setCurrentDate(e.target.value);
   };
+
+  //recuperation des courriers par period
+  const getDocByPeriod = async () => {
+    try{
+      await axiosRequest.post('/stats/period', period, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+      .then(({data}) => setDocByPeriod(data))
+      .catch(err => console.log(err))
+    }catch(err) {
+      console.log('Erreur:', err.message);
+      
+    }
+  }
   //recperation des donnees pour le statistique
   useEffect(() => {
+
     getDoc();
     getDate();
     getNotLivred();
     getLivred();
     //recuperation du nombre de courriers pour chaque direction existant
     getDocByDirection()
+    //recupertion des courriers par periode debut et fin
+    getDocByPeriod()
   }, []);
   
   const only = [];
   if (doc.length !== 0) {
     doc.forEach((d) => {
       let data;
-      if (d?.created_at) {
+      if (d?.created_at) {    
         data = { created_at: d?.created_at.substring(0, 7) };
         only.push(data);
       }
