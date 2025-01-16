@@ -26,6 +26,7 @@ function Stats() {
   const [docByDirection, setDocByDirection] = useState([]);
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
   const [currentDate, setCurrentDate] = useState("");
+  const [period, setPeriod] = useState({}) //state pour contenir la date de debut et la date de fin pour le filtrage de la statistique periodique.
   //couleur de la graphique radial
   const style = {
     top: "50%",
