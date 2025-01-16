@@ -203,6 +203,13 @@ let index = 0
 
 // console.log(docByDirectionByDate);
 
+//gere le changement des dates periodiques
+const handlePeriod = (e) => {
+  const {name, value} = e.target
+  setPeriod((period) => ({...period, [name]:value}))
+
+}
+
  
   return (
     <>
