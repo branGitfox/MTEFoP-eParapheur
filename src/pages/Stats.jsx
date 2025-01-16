@@ -132,7 +132,10 @@ function Stats() {
     //recupertion des courriers par periode debut et fin
     getDocByPeriod()
   }, []);
-  
+  const handleSubmitPeriod = (e) => {
+    e.preventDefault()
+    getDocByPeriod()
+  }
   const only = [];
   if (doc.length !== 0) {
     doc.forEach((d) => {
@@ -445,7 +448,7 @@ const handlePeriod = (e) => {
         <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
           Statistiques Periodique
         </h3>
-            <form onSubmit={getDocByDirection} className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
+            <form onSubmit={handleSubmitPeriod} className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
