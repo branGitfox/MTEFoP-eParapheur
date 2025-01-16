@@ -16,7 +16,7 @@ import {
   RadialBar,
 } from "recharts";
 import axiosRequest from "../axiosClient/axiosClient";
-import { FaHouseChimney, FaHouseChimneyCrack, FaHouseChimneyUser, FaHouseChimneyWindow, FaHouseFlag } from "react-icons/fa6";
+import {  FaHouseFlag } from "react-icons/fa6";
 
 function Stats() {
   const [doc, setDoc] = useState([]);
