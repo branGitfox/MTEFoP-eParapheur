@@ -225,7 +225,7 @@ const handlePeriod = (e) => {
   setPeriod((period) => ({...period, [name]:value}))
 }
 
-//  console.log(period);
+ console.log(docByPeriod);
  
   return (
     <>
@@ -445,7 +445,7 @@ const handlePeriod = (e) => {
         <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
           Statistiques Periodique
         </h3>
-            <div className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
+            <form onSubmit={getDocByDirection} className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
@@ -454,7 +454,8 @@ const handlePeriod = (e) => {
               <label htmlFor="" className="text-gray-800 font-medium">Fin</label>
               <input  className="text-gray-800 p-2 rounded-md w-full" onChange={handlePeriod} name="end"  type="date"  />
               </div>
-            </div>
+              <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
+            </form>
       </div>
       <div className="flex flex-wrap mt-5">
         <div className="w-full md:w-1/2 xl:w-1/3 p-3">
