@@ -127,17 +127,7 @@ function Stats() {
     });
   }
 
-  //gere le changement de la date de debut
-  const handleStartDate = (e) => {
-    console.log('start');
-    
-  }
 
-  //gere le changement de la date de fin
-  const handleEndDate = (e) => {  
-    console.log('end')
-    
-  }
 
    //filtrer les courriers par direction par date
 const docByDirectionByDate = docByDirection?.map((docs) => {
@@ -434,11 +424,11 @@ let index = 0
             <div className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
-                <input className="text-gray-900 p-2 rounded-md w-full"  type="date" name="" id="" />
+                <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handleStartDate} type="date"  />
               </div>
               <div >
               <label htmlFor="" className="text-gray-800 font-medium">Fin</label>
-              <input  className="text-gray-800 p-2 rounded-md w-full" type="date" name="" id="" />
+              <input  className="text-gray-800 p-2 rounded-md w-full" onChange={hand} type="date"  />
               </div>
             </div>
       </div>
