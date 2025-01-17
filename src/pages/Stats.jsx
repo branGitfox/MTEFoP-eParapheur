@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
-import { FaDirections, FaThumbsUp } from "react-icons/fa";
-import { SiExpertsexchange, SiFlux, SiPaperswithcode, SiPinboard } from "react-icons/si";
+import React, { useEffect, useState } from "react";
+import {FaThumbsUp } from "react-icons/fa";
+import { SiFlux, SiPaperswithcode, SiPinboard } from "react-icons/si";
 import {
   LineChart,
   Line,
@@ -24,7 +24,7 @@ function Stats() {
   const [notLivred, setNotLivred] = useState([]);
   const [livred, setLivred] = useState([]);
   const [docByDirection, setDocByDirection] = useState([]);
-  const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
+  const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //token d'access pour l'API
   const [currentDate, setCurrentDate] = useState("");
   const [period, setPeriod] = useState({start:"", end:""}) //state pour contenir la date de debut et la date de fin pour le filtrage de la statistique periodique.
   const [docByPeriod, setDocByPeriod] = useState([]) //state pour contenir les courriers par periode debut et fin
