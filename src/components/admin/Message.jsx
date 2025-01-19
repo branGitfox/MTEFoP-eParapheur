@@ -48,7 +48,11 @@ function Message() {
 }
 
 const ShowMessage = ({mess}) =>  {
+  const [show, setShow] = useState(false)
 
+  const toggle = () =>  {
+    setShow(!show)
+  }
   return (
     <>
       <div className="w-full py-10 grid grid-cols-12 border-gray-200 border-b border-t ">
@@ -58,8 +62,13 @@ const ShowMessage = ({mess}) =>  {
               <h5><strong>Date d'envoie: </strong>{mess.created_at}</h5>
             </div>
             <div className="col-span-6  w-full flex flex-col items-end px-2 justify-center">
-               <Link className='text-gray-900 underline'>Lire<FaReadme size={25} className='text-gray-500 inline ml-2'/></Link>
+               <Link onClick={toggle} className='text-gray-900 underline'>Lire<FaReadme size={25} className='text-gray-500 inline ml-2'/></Link>
             </div>
+            {show&& <div className="col-span-12 p-4 text-center font-normal text-gray-800">
+           <hr className='text-gray-200 w-full border-2 mb-10'/>
+                {mess.message}
+            </div>}
+           
         </div>
     </>
   )
