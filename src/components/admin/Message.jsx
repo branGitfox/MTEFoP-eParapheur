@@ -42,7 +42,16 @@ function Message() {
               wrapperStyle={{}}
               wrapperClass="absolute left-[57%] z-50"
             />
-          ):(messages.map((mess, index) =>         <div className="w-full py-10 grid grid-cols-12 border-gray-200 border-b border-t ">
+          ):(messages.map((mess, index) =>   <ShowMessage mess={mess}/>))}
+    </div>
+  )
+}
+
+const ShowMessage = ({mess}) =>  {
+
+  return (
+    <>
+      <div className="w-full py-10 grid grid-cols-12 border-gray-200 border-b border-t ">
             <div className="col-span-6 text-gray-900 px-2 w-full flex flex-col items-start ">
               <h3><strong>De: </strong>{mess.email}</h3>
               <h4><strong>Objet: </strong>{mess.objet}</h4>
@@ -51,8 +60,8 @@ function Message() {
             <div className="col-span-6  w-full flex flex-col items-end px-2 justify-center">
                <Link className='text-gray-900 underline'>Lire<FaReadme size={25} className='text-gray-500 inline ml-2'/></Link>
             </div>
-        </div>))}
-    </div>
+        </div>
+    </>
   )
 }
  
