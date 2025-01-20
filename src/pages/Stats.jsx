@@ -424,6 +424,8 @@ const handlePeriod = (e) => {
           <Line type="monotone" dataKey="mensuel" stroke="green" />
           <Line type="monotone" dataKey="Ministre" stroke="red" />
           <Line type="monotone" dataKey="FOP" stroke="blue" />
+          <Tooltip />
+
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="" />
           <YAxis />
