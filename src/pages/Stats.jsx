@@ -132,6 +132,7 @@ function Stats() {
     //recupertion des courriers par periode debut et fin
     getDocByPeriod()
   }, []);
+
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
     getDocByPeriod()
@@ -229,7 +230,13 @@ const handlePeriod = (e) => {
 }
 
  console.log(docByPeriod);
- 
+ const dataPeriod = []
+ dataPeriod.push({
+  name: "courrier",
+  mensuel: docByPeriod.length,
+  courrier: doc.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length,
+});
+
   return (
     <>
       <div className="flex gap-4 items-center">
@@ -415,7 +422,7 @@ const handlePeriod = (e) => {
           <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
           <Line type="monotone" dataKey="mensuel" stroke="green" />
           <Line type="monotone" dataKey="Ministre" stroke="red" />
-          <Line type="monotone" dataKey="FOP" stroke="blue" />a
+          <Line type="monotone" dataKey="FOP" stroke="blue" />
           <CartesianGrid stroke="#ccc" />
           <XAxis dataKey="" />
           <YAxis />
@@ -558,7 +565,7 @@ const handlePeriod = (e) => {
         <LineChart
           width={500}
           height={300}
-          data={data}
+          data={dataPeriod}
           margin={{
             top: 5,
             right: 30,
