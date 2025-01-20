@@ -441,6 +441,7 @@ const handlePeriod = (e) => {
         </BarChart>
       </div>
 
+{/* ******************************************************************************************************************************* */}
       {/*Graphique pour le statistique periodique  */}
       <hr className="mt-5 mb-5" />
 
