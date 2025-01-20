@@ -160,8 +160,9 @@ const docByDirectionByDate = docByDirection?.map((docs) => {
   })
   
 //access du nombre de courriers par direction par index statique
-let fop = docByDirection.length > 0? docByDirection[1][1].length: 0
-let ministre = docByDirection.length > 0? docByDirection[0][1].length: 0
+let fop = docByDirection.length > 0? docByDirection[1][1].filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length: 0
+let ministre = docByDirection.length > 0? docByDirection[0][1].filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length: 0
+console.log(docByDirection);
 
   //ajout des donnees filtree
   if (only.length !== 0) {
@@ -378,7 +379,7 @@ const handlePeriod = (e) => {
               
         </div>
               {/* par direction */}
-              {docByDirectionByDate.map((doc, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+              {docByDirectionByDate.map((d, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
@@ -388,11 +389,11 @@ const handlePeriod = (e) => {
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                    {doc[0]}
+                    {d[0]}
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
       
-                  {doc[1].length}
+                  {d[1].length}
                   <span className="text-green-500">
                     <i className="fas fa-caret-up"></i>
                   </span>
