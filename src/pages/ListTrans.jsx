@@ -136,7 +136,7 @@ function ListTrans() {
 const DocByDirection = ({docsByDirection}) => {
     return (
         <>
-         {docsByDirection.map((doc, index) => <DocItems key={index}  doc={doc} ind={index} />)}
+         {docsByDirection.reverse().map((doc, index) => <DocItems key={index}  doc={doc} ind={index} />)}
         </>
     )
 }
