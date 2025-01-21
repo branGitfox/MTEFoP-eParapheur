@@ -154,6 +154,10 @@ const  changeLivreStatus= async (id_doc) => {
     .finally(() => setLivreLoader(false))
 }
     return (
+      <>
+      
+
+      {doc.type!="recuperation" && (
         <tr key={ind} className="text-gray-700">
         <td className="px-4 py-3">
           <div className="flex items-center text-sm">
@@ -170,6 +174,7 @@ const  changeLivreStatus= async (id_doc) => {
         <td className="px-4 py-3 text-sm">{doc.name}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
+       
           <button onClick={() =>changeLivreStatus(doc.m_id)} disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
             {livreLoader?(     <Oval
               visible={true}
@@ -184,6 +189,7 @@ const  changeLivreStatus= async (id_doc) => {
           </button>
         </td>
         <td className="px-8 py-3 text-sm">
+ 
           <button disabled={doc.transfere =='non'?false:true} onClick={() =>showDocByOne(doc.m_id)
           }  className={`${doc.transfere =='non'?'':'bg-gray-600'} px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl`}>
     
@@ -191,7 +197,8 @@ const  changeLivreStatus= async (id_doc) => {
            
           </button>
         </td>
-      </tr>
+      </tr>)}
+      </>
     )
 }
 
