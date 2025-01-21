@@ -125,7 +125,7 @@ function ListTrans2() {
           ) :(
         
           <tbody className="bg-white divide-y ">
-                <DocByDirection token={token} docsByDirection={filtered}  />
+                <DocByDirection token={token} docsByDirection={filtered}/>
           </tbody>)}
         </table>
       </div>
