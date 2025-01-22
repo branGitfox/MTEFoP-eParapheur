@@ -26,6 +26,7 @@ function Stats() {
   const [livred, setLivred] = useState([]);
   const [livredByPeriod, setLivredByPeriod] = useState([]);
   const [docByDirection, setDocByDirection] = useState([]);
+  const [docByDirectionByPeriod, setDocByDirectionByPeriod] = useState([]);
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //token d'access pour l'API
   const [currentDate, setCurrentDate] = useState("");
   const [period, setPeriod] = useState({start:"", end:""}) //state pour contenir la date de debut et la date de fin pour le filtrage de la statistique periodique.
@@ -106,6 +107,19 @@ function Stats() {
       .catch((err) => console.log(err));
   };
 
+     //recuperation de la liste de courrier non livre par periode
+     const getDocByDirectionByPeriod = async () => {
+      await axiosRequest
+        .post("/stats/countByDirectionByPeriod", period, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+          },
+        })
+        .then(({ data }) => setDocByDirectionByPeriod(data))
+        .catch((err) => console.log(err));
+    };
+
   //recuperation de la liste de courrier non livre
   const getLivred = async () => {
     await axiosRequest
@@ -161,6 +175,7 @@ function Stats() {
     getDocByPeriod()
     getNotLivredByPeriod()
     getLivredByPeriod()
+    getDocByDirectionByPeriod()
 
 
   }, []);
@@ -170,6 +185,7 @@ function Stats() {
     getDocByPeriod()
     getNotLivredByPeriod()
     getLivredByPeriod()
+    getDocByDirectionByPeriod()
  
     
   }
@@ -194,6 +210,15 @@ const docByDirectionByDate = docByDirection?.map((docs) => {
   
     
   })
+
+     //filtrer les courriers par direction par date par periode
+const docByDirectionByDateByPeriod = docByDirectionByPeriod?.map((docs) => {
+ 
+
+  return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7)))]
+
+  
+})
   
 //access du nombre de courriers par direction par index statique
 let fop = docByDirection.length > 0? docByDirection[1][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0, 7))).length: 0
@@ -274,7 +299,7 @@ const handlePeriod = (e) => {
   courrier: doc.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length,
 });
 
-console.log('Livred', livredByPeriod);
+console.log('Livred', docByDirectionByDateByPeriod);
 
 
   return (
@@ -599,36 +624,34 @@ console.log('Livred', livredByPeriod);
           </div>
               
         </div>
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+        {docByDirectionByDateByPeriod.map((d, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-blue-800">
-                  <SiPaperswithcode />
+                <div className="rounded p-3 bg-red-600">
+                  <FaHouseFlag />
                 </div>
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers mensuel
+                    {d[0]}
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
-                  {
-                    doc.filter(
-                      (dc) =>
-                        dc?.created_at?.substring(0, 7) ==
-                        (currentDate
-                          ? currentDate
-                          : doc[doc.length - 1]?.created_at?.substring(0, 7))
-                    ).length
-                  }{" "}
-                  <span className="text-blue-500">
+      
+                  {d[1].length}
+                  <span className="text-green-500">
                     <i className="fas fa-caret-up"></i>
                   </span>
                 </h3>
               </div>
+              
             </div>
+              
           </div>
-        </div>
+          
+              
+              
+        </div>))}
       </div>
       <hr className="mt-5 mb-5" />
       <ResponsiveContainer width={"100%"} height={500}>
