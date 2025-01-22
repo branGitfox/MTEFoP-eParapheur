@@ -24,6 +24,7 @@ function Stats() {
   const [notLivred, setNotLivred] = useState([]);
   const [notLivredByPeriod, setNotLivredByPeriod] = useState([]);
   const [livred, setLivred] = useState([]);
+  const [livredByPeriod, setLivredByPeriod] = useState([]);
   const [docByDirection, setDocByDirection] = useState([]);
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //token d'access pour l'API
   const [currentDate, setCurrentDate] = useState("");
@@ -82,7 +83,7 @@ function Stats() {
    //recuperation de la liste de courrier non livre par periode
    const getNotLivredByPeriod = async () => {
     await axiosRequest
-      .post("/stats/notLivredByPeriod",{period}, {
+      .post("/stats/notLivredByPeriod",period, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
@@ -118,6 +119,19 @@ function Stats() {
       .catch((err) => console.log(err));
   };
 
+   //recuperation de la liste de courrier non livre
+   const getLivredByPeriod = async () => {
+    await axiosRequest
+      .post("/stats/livredByPeriod", period,  {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+        },
+      })
+      .then(({ data }) => setLivredByPeriod(data))
+      .catch((err) => console.log(err));
+  };
+
   //gere le changement de la date
   const handleChangeDate = (e) => {
     setCurrentDate(e.target.value);
@@ -146,12 +160,18 @@ function Stats() {
     //recupertion des courriers par periode debut et fin
     getDocByPeriod()
     getNotLivredByPeriod()
+    getLivredByPeriod()
+
+
   }, []);
 
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
     getDocByPeriod()
     getNotLivredByPeriod()
+    getLivredByPeriod()
+ 
+    
   }
   const only = [];
   if (doc.length !== 0) {
@@ -254,7 +274,7 @@ const handlePeriod = (e) => {
   courrier: doc.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length,
 });
 
-console.log(notLivredByPeriod);
+console.log('Livred', livredByPeriod);
 
 
   return (
@@ -383,7 +403,7 @@ console.log(notLivredByPeriod);
                         lv?.created_at?.substring(0, 7) ==
                         (currentDate
                           ? currentDate
-                          : livred?.created_at?.substring(0, 7))
+                          : lv?.created_at?.substring(0, 7))
                     ).length
                   }{" "}
                   <span className="text-green-500">
@@ -525,25 +545,19 @@ console.log(notLivredByPeriod);
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-blue-800">
-                  <SiPaperswithcode />
+                <div className="rounded p-3 bg-orange-600">
+                  <SiPinboard />
                 </div>
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers mensuel
+                  Courriers En Attente
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
-                    doc.filter(
-                      (dc) =>
-                        dc?.created_at?.substring(0, 7) ==
-                        (currentDate
-                          ? currentDate
-                          : doc[doc.length - 1]?.created_at?.substring(0, 7))
-                    ).length
-                  }{" "}
-                  <span className="text-blue-500">
+                    notLivredByPeriod.length
+                  }
+                  <span className="text-green-500">
                     <i className="fas fa-caret-up"></i>
                   </span>
                 </h3>
