@@ -569,31 +569,35 @@ console.log('Livred', livredByPeriod);
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-blue-800">
-                  <SiPaperswithcode />
+                <div className="rounded p-3 bg-green-600">
+                  <FaThumbsUp />
                 </div>
               </div>
+              {/* Livre */}
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers mensuel
+                  courriers Livre
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
-                    doc.filter(
-                      (dc) =>
-                        dc?.created_at?.substring(0, 7) ==
+                    livredByPeriod.filter(
+                      (lv) =>
+                        lv?.created_at?.substring(0, 7) ==
                         (currentDate
                           ? currentDate
-                          : doc[doc.length - 1]?.created_at?.substring(0, 7))
+                          : lv?.created_at?.substring(0, 7))
                     ).length
                   }{" "}
-                  <span className="text-blue-500">
+                  <span className="text-green-500">
                     <i className="fas fa-caret-up"></i>
                   </span>
                 </h3>
               </div>
+              
             </div>
+              
           </div>
+              
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
