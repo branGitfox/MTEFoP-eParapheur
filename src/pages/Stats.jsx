@@ -22,6 +22,7 @@ function Stats() {
   const [doc, setDoc] = useState([]);
   const [date, setDate] = useState([]);
   const [notLivred, setNotLivred] = useState([]);
+  const [notLivredByPeriod, setNotLivredByPeriod] = useState([]);
   const [livred, setLivred] = useState([]);
   const [docByDirection, setDocByDirection] = useState([]);
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //token d'access pour l'API
@@ -78,6 +79,19 @@ function Stats() {
       .catch((err) => console.log(err));
   };
 
+   //recuperation de la liste de courrier non livre par periode
+   const getNotLivredByPeriod = async () => {
+    await axiosRequest
+      .post("/stats/notLivredByPeriod",{period}, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+        },
+      })
+      .then(({ data }) => setNotLivredByPeriod(data))
+      .catch((err) => console.log(err));
+  };
+
    //recuperation de la liste de courrier non livre
    const getDocByDirection = async () => {
     await axiosRequest
@@ -131,11 +145,13 @@ function Stats() {
     getDocByDirection()
     //recupertion des courriers par periode debut et fin
     getDocByPeriod()
+    getNotLivredByPeriod()
   }, []);
 
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
     getDocByPeriod()
+    getNotLivredByPeriod()
   }
   const only = [];
   if (doc.length !== 0) {
@@ -237,6 +253,9 @@ const handlePeriod = (e) => {
   mensuel: docByPeriod.length,
   courrier: doc.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length,
 });
+
+console.log(notLivredByPeriod);
+
 
   return (
     <>
