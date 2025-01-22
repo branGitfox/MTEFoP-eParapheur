@@ -160,8 +160,8 @@ const docByDirectionByDate = docByDirection?.map((docs) => {
   })
   
 //access du nombre de courriers par direction par index statique
-let fop = docByDirection.length > 0? docByDirection[1][1].filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length: 0
-let ministre = docByDirection.length > 0? docByDirection[0][1].filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length: 0
+let fop = docByDirection.length > 0? docByDirection[1][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length: 0
+let ministre = docByDirection.length > 0? docByDirection[0][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length: 0
 console.log(docByDirection);
 
   //ajout des donnees filtree
