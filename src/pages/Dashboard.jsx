@@ -111,7 +111,7 @@ function Dashboard() {
       </div>
       <hr className="text-gray-900" />
       <div className="w-full lg:w-2/5 flex flex-wrap  justify-between items-center">
-         <h2 className="mt-3 ml-2 font-bold text-gray-900 text-xl">Trafics de visite <FaEye className="inline ml-1 text-blue-800" size={25}/></h2>  
+         <h2 className="mt-3 ml-2 font-bold text-gray-900 text-xl">Trafics de visite <FaEye className="inline ml-1 text-blue-800" size={25}/></h2>    
          <form onSubmit={null} className="w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
@@ -124,6 +124,7 @@ function Dashboard() {
               <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
             </form>
       </div>
+      <div className="w-1/2 mx-auto h-50 flex justify-center items-center mt-10 text-violet-900 font-bold text-4xl border-2 p-5 border-gray-400">50 visiteurs</div>
     </>
   );
 }
