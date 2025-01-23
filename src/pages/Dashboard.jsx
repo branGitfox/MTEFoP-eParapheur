@@ -157,7 +157,7 @@ console.log(view);
               <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
             </form>
       </div>
-      <div className="w-1/2 mx-auto h-50 flex justify-center items-center mt-10 text-violet-900 font-bold text-4xl border-2 p-5 border-gray-400">{view} visiteur(s)</div>
+      <div className="w-1/2 mx-auto h-50 flex justify-center items-center mt-10 text-violet-900 font-bold text-4xl border-2 p-5 border-gray-400">{view} <span className="text-xl ml-2">visiteur(s)</span></div>
     </>
   );
 }
