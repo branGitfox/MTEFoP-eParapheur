@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {  FaEye, FaHandPointDown,FaWallet } from "react-icons/fa";
 import { FaHandBackFist} from "react-icons/fa6";
+import axiosRequest from "../axiosClient/axiosClient";
 
 function Dashboard() {
+  
   const [period, setPeriod] = useState({start:"", end:""})
+  const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
+  const [view, setView] = useState()
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
-
+    getNumberOfView()
   }
 
   //gere le changement des dates periodiques
@@ -14,6 +18,24 @@ const handlePeriod = (e) => {
   const {name, value} = e.target
   setPeriod((period) => ({...period, [name]:value}))
 }
+
+//recuperation du nombre de vues
+const getNumberOfView = async () =>  {
+  try{
+    await axiosRequest.post('/visitors/period', period, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin": "http://127.0.0.1:8000"}})
+    .then(({data}) => setView(data))
+    .catch(err => console.log(err))
+  }catch(err){
+    console.log(err)
+  }
+}
+
+useEffect(() => {
+  getNumberOfView()
+},[])
+
+console.log(view);
+
   return (
     <>
       <div className="flex  flex-wrap w-full justify-center  p-3">
@@ -135,7 +157,7 @@ const handlePeriod = (e) => {
               <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
             </form>
       </div>
-      <div className="w-1/2 mx-auto h-50 flex justify-center items-center mt-10 text-violet-900 font-bold text-4xl border-2 p-5 border-gray-400">50 visiteurs</div>
+      <div className="w-1/2 mx-auto h-50 flex justify-center items-center mt-10 text-violet-900 font-bold text-4xl border-2 p-5 border-gray-400">{view} visiteur(s)</div>
     </>
   );
 }
