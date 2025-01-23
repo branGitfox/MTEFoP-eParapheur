@@ -546,7 +546,7 @@ console.log('Livred', docByDirectionByDateByPeriod);
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers mensuel
+                  courriers Par Periode
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
