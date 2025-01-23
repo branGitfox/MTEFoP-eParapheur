@@ -1,8 +1,19 @@
-import React from "react";
-import { FaChartBar, FaDirections, FaEye, FaHandPointDown, FaHandScissors, FaMicroblog, FaTradeFederation, FaUser, FaWallet } from "react-icons/fa";
-import { FaHandBackFist, FaHouse } from "react-icons/fa6";
+import React, { useState } from "react";
+import {  FaEye, FaHandPointDown,FaWallet } from "react-icons/fa";
+import { FaHandBackFist} from "react-icons/fa6";
 
 function Dashboard() {
+  const [period, setPeriod] = useState({start:"", end:""})
+  const handleSubmitPeriod = (e) => {
+    e.preventDefault()
+
+  }
+
+  //gere le changement des dates periodiques
+const handlePeriod = (e) => {
+  const {name, value} = e.target
+  setPeriod((period) => ({...period, [name]:value}))
+}
   return (
     <>
       <div className="flex  flex-wrap w-full justify-center  p-3">
@@ -112,14 +123,14 @@ function Dashboard() {
       <hr className="text-gray-900" />
       <div className="w-full lg:w-2/5 flex flex-wrap  justify-between items-center">
          <h2 className="mt-3 ml-2 font-bold text-gray-900 text-xl">Trafics de visite <FaEye className="inline ml-1 text-blue-800" size={25}/></h2>    
-         <form onSubmit={null} className="w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
+         <form onSubmit={handleSubmitPeriod} className="w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
-                <input className="text-gray-900 p-2 rounded-md w-full"  onChange={null} name="start" type="date"  />
+                <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
               </div>
               <div >
               <label htmlFor="" className="text-gray-800 font-medium">Fin</label>
-              <input  className="text-gray-800 p-2 rounded-md w-full" onChange={null} name="end"  type="date"  />
+              <input  className="text-gray-800 p-2 rounded-md w-full" onChange={handlePeriod} name="end"  type="date"  />
               </div>
               <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
             </form>
