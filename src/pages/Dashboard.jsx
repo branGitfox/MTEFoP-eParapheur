@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {  FaEye, FaHandPointDown,FaWallet } from "react-icons/fa";
-import { FaHandBackFist} from "react-icons/fa6";
+import { FaHandBackFist, FaHouseFire} from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
 import { ResponsiveContainer, LineChart , Line} from "recharts";
 
@@ -92,6 +92,7 @@ const getNumberOfViewChart = async () =>  {
   }
 }
 
+const colors = ["blue", "purple", "pink"]
    //recuperation de la liste de courrier non livre
    const getDocByDirection = async () => {
     await axiosRequest
@@ -170,13 +171,13 @@ console.log(docByDirection);
             </div>
           </div>
         </div>{" "}
-        {docByDirection.map((doc, d) => (
+        {docByDirection.map((doc, index) => (
           <div className="w-[300px]">
           <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
             <div className="flex flex-col items-center justify-center">
               <div className="flex-shrink">
                 <div className="rounded-full p-3 bg-gray-300 ">
-                  <FaWallet className="text-amber-500 text-center" />
+                  <FaHouseFire className={`text-${colors[index]}-500 text-center`} />
                 </div>
               </div>
               <div className="flex-1">
