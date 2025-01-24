@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {  FaEye, FaHandPointDown,FaWallet } from "react-icons/fa";
-import { FaHandBackFist, FaHouseFire} from "react-icons/fa6";
+import { FaHandBackFist, FaHouseFire, FaUserGroup} from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
 import { ResponsiveContainer, LineChart , Line} from "recharts";
 
@@ -13,6 +13,7 @@ function Dashboard() {
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
   const [view, setView] = useState()
   const [chartDataView, setChartDataView] = useState([])
+  const [staff, setStaff] = useState(0)
 
   const [allDoc, setAllDoc] = useState([])
   const [allDocGotByOwner, setAllDocGotByOwner] = useState([])
@@ -106,6 +107,16 @@ const colors = ["blue", "purple", "pink"]
       .catch((err) => console.log(err));
   };
 
+  const getUserCount = async () => {
+    try{
+        await axiosRequest.get('/userCount', {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+        .then(({data}) => setStaff(data))
+        .catch((err) => console.log(err))
+    }catch(err){
+      console.log(err);
+      
+    }
+  }
 useEffect(() => {
   getNumberOfView()
   getNumberOfViewChart()
@@ -113,6 +124,7 @@ useEffect(() => {
   getDocGotByOwner()
   getDocNotGotByOwner()
   getDocByDirection()
+  getUserCount()
 },[])
 
 console.log(docByDirection);
@@ -190,6 +202,23 @@ console.log(docByDirection);
           </div>
         </div>
         ))}
+                  <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
+                  <FaUserGroup className={`text-blue-500 text-center`} />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
+                  {staff}
+                </h3>
+                <h5 className="font-bold text-gray-500">Staff(s)</h5>
+              </div>
+            </div>
+          </div>
+        </div>
         </div>
       <hr className="text-gray-900" />
       <div className="w-full lg:w-2/5 flex flex-wrap  justify-between items-center">
