@@ -17,6 +17,7 @@ function Dashboard() {
   const [allDoc, setAllDoc] = useState([])
   const [allDocGotByOwner, setAllDocGotByOwner] = useState([])
   const [allDocNotGotByOwner, setAllDocNotGotByOwner] = useState([])
+  const [docByDirection, setDocByDirection] = useState([])
 
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
@@ -91,15 +92,29 @@ const getNumberOfViewChart = async () =>  {
   }
 }
 
+   //recuperation de la liste de courrier non livre
+   const getDocByDirection = async () => {
+    await axiosRequest
+      .get("/stats/countByDirection", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+        },
+      })
+      .then(({ data }) => setDocByDirection(data))
+      .catch((err) => console.log(err));
+  };
+
 useEffect(() => {
   getNumberOfView()
   getNumberOfViewChart()
   getDoc()
   getDocGotByOwner()
   getDocNotGotByOwner()
+  getDocByDirection()
 },[])
 
-console.log(allDocGotByOwner);
+console.log(docByDirection);
 
   return (
     <>
@@ -155,7 +170,8 @@ console.log(allDocGotByOwner);
             </div>
           </div>
         </div>{" "}
-        <div className="w-[300px]">
+        {docByDirection.map((doc, d) => (
+          <div className="w-[300px]">
           <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
             <div className="flex flex-col items-center justify-center">
               <div className="flex-shrink">
@@ -165,48 +181,15 @@ console.log(allDocGotByOwner);
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-3xl text-gray-900 text-center">
-                  3249
+                  {doc[1].length}
                 </h3>
-                <h5 className="font-bold text-gray-500"></h5>
-              </div>
-            </div>
-          </div>
-        </div>{" "}
-        <div className="w-[300px]">
-          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div className="flex flex-col items-center justify-center">
-              <div className="flex-shrink">
-                <div className="rounded-full p-3 bg-gray-300 ">
-                  <FaWallet className="text-amber-500 text-center" />
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-3xl text-gray-900 text-center">
-                  3249
-                </h3>
-                <h5 className="font-bold text-gray-500">Total Document</h5>
-              </div>
-            </div>
-          </div>
-        </div>{" "}
-        <div className="w-[300px]">
-          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
-            <div className="flex flex-col items-center justify-center">
-              <div className="flex-shrink">
-                <div className="rounded-full p-3 bg-gray-300 ">
-                  <FaWallet className="text-amber-500 text-center" />
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-3xl text-gray-900 text-center">
-                  3249
-                </h3>
-                <h5 className="font-bold text-gray-500">Total Document</h5>
+                <h5 className="font-bold text-gray-500">{doc[0]}</h5>
               </div>
             </div>
           </div>
         </div>
-      </div>
+        ))}
+        </div>
       <hr className="text-gray-900" />
       <div className="w-full lg:w-2/5 flex flex-wrap  justify-between items-center">
          <h2 className="mt-3 ml-2 font-bold text-gray-900 text-xl">Trafics de visite <FaEye className="inline ml-1 text-blue-800" size={25}/></h2>    
