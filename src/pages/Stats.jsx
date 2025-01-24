@@ -133,7 +133,7 @@ function Stats() {
       .catch((err) => console.log(err));
   };
 
-   //recuperation de la liste de courrier non livre
+   //recuperation de la liste de courrier non livre par periode
    const getLivredByPeriod = async () => {
     await axiosRequest
       .post("/stats/livredByPeriod", period,  {

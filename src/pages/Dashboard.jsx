@@ -13,10 +13,55 @@ function Dashboard() {
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
   const [view, setView] = useState()
   const [chartDataView, setChartDataView] = useState([])
+
+  const [allDoc, setAllDoc] = useState([])
+  const [allDocGotByOwner, setAllDocGotByOwner] = useState([])
+  const [allDocNotGotByOwner, setAllDocNotGotByOwner] = useState([])
+
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
     getNumberOfView()
   }
+
+    //recuperation des courriers
+    const getDoc = async () => {
+      await axiosRequest
+        .get("/stats/count", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+          },
+        })
+        .then(({ data }) => setAllDoc(data))
+        .catch((err) => console.log(err));
+    };
+
+
+    //recuperation des courriers recuperer par son proprietaire
+    const getDocGotByOwner = async () => {
+      await axiosRequest
+        .get("/stats/gotByOwnerCount", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+          },
+        })
+        .then(({ data }) => setAllDocGotByOwner(data))
+        .catch((err) => console.log(err));
+    };
+
+        //recuperation des courriers recuperer par son proprietaire
+        const getDocNotGotByOwner = async () => {
+          await axiosRequest
+            .get("/stats/notGotByOwnerCount", {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+              },
+            })
+            .then(({ data }) => setAllDocNotGotByOwner(data))
+            .catch((err) => console.log(err));
+        };
 
   //gere le changement des dates periodiques
 const handlePeriod = (e) => {
@@ -49,9 +94,12 @@ const getNumberOfViewChart = async () =>  {
 useEffect(() => {
   getNumberOfView()
   getNumberOfViewChart()
+  getDoc()
+  getDocGotByOwner()
+  getDocNotGotByOwner()
 },[])
 
-console.log(chartDataView);
+console.log(allDocGotByOwner);
 
   return (
     <>
@@ -66,7 +114,7 @@ console.log(chartDataView);
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-3xl text-gray-900 text-center">
-                  3249
+                {allDoc.length}
                 </h3>
                 <h5 className="font-bold text-gray-500">Total Courriers</h5>
               </div>
@@ -83,7 +131,7 @@ console.log(chartDataView);
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-3xl text-gray-900 text-center">
-                  3249
+                  {allDocGotByOwner}
                 </h3>
                 <h5 className="font-bold text-gray-500">Decharger</h5>
               </div>
@@ -100,7 +148,7 @@ console.log(chartDataView);
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-3xl text-gray-900 text-center">
-                  3249
+                {allDocNotGotByOwner}
                 </h3>
                 <h5 className="font-bold text-gray-500">Non Decharger</h5>
               </div>
