@@ -2,6 +2,53 @@ import React, { useEffect, useState } from "react";
 import {  FaEye, FaHandPointDown,FaWallet } from "react-icons/fa";
 import { FaHandBackFist} from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
+import { ResponsiveContainer, LineChart , Line} from "recharts";
+
+
+const data = [
+  {
+    name: 'Page A',
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: 'Page B',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Page C',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Page D',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Page E',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Page F',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Page G',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+];
 
 function Dashboard() {
   
@@ -158,6 +205,14 @@ console.log(view);
             </form>
       </div>
       <div className="w-1/2 mx-auto h-50 flex justify-center items-center mt-10 text-violet-900 font-bold text-4xl border-2 p-5 border-gray-400">{view} <span className="text-xl ml-2">visiteur(s)</span></div>
+    
+    <ResponsiveContainer width="80%" height="100%" className="mt-10 w-full flex justify-center bg-blue-200 mx-auto mb-10">
+      <LineChart width={300} height={500} data={data}>
+        <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
+        {/* <Line type="monotone" dataKey="uv" stroke="red" strokeWidth={2} /> */}
+      </LineChart>
+    </ResponsiveContainer>
+    
     </>
   );
 }
