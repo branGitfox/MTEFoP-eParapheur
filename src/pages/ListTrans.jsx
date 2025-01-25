@@ -63,7 +63,7 @@ function ListTrans() {
     //actualise les donnees
     const fresh = () => setReload(!reload);
     console.log(moveByDirection);
-
+    
   return (
     <>
               <div className=" w-[100%]  justify-evenly flex p-3 mb-5 relative text-black">
@@ -136,7 +136,8 @@ function ListTrans() {
 const DocByDirection = ({docsByDirection}) => {
     return (
         <>
-         {docsByDirection.reverse().map((doc, index) => <DocItems key={index}  doc={doc} ind={index} />)}
+       
+         {docsByDirection.map((doc, index) => <DocItems key={index}  doc={doc} ind={index} />)}
         </>
     )
 }
