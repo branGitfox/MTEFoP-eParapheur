@@ -68,6 +68,10 @@ function Register() {
   useEffect(() => {
     getDir()
   }, [location.pathname])
+
+  //log
+  console.log(formData);
+  
   return (
     <>
       <h3 className="text-gray-900 text-2xl ml-2.5 font-semibold ">
@@ -206,6 +210,38 @@ function Register() {
               ))}
             </select>
           )}
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="cin"
+            className="block mb-2 text-sm font-medium text-gray-900 "
+          >
+            CIN
+          </label>
+          <input
+            type="text"
+            id="cin"
+            onChange={handleChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            placeholder="Votre CIN"
+            name="cin"
+          />
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="cin"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Tel
+          </label>
+          <input
+            type="text"
+            id="tel"
+            onChange={handleChange}
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            placeholder="Votre tel"
+            name="tel"
+          />
         </div>
         <button
           type="submit"

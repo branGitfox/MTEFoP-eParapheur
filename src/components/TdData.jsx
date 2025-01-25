@@ -84,6 +84,8 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
         <td className="px-4 py-3 text-sm">{data.provenance}</td>
         <td className="px-4 py-3 text-sm">{data.ref}</td>
         <td className="px-4 py-3 text-sm">{data.proprietaire}</td>
+        <td className="px-4 py-3 text-sm">{data.cin}</td>
+        <td className="px-4 py-3 text-sm">{data.tel}</td>
         <td className="px-4 py-3 text-sm">{data.motif}</td>
         <td className={`px-4 py-3 text-sm ${data.caracteristique =='plis ferme'?'underline decoration-red-500':'decoration-green-300'}`}>{data.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{data.nom_dir}</td>
