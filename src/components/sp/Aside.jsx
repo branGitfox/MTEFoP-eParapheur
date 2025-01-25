@@ -73,14 +73,14 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             </li>
             <li className="relative px-6 py-3">
             {
-                    location.pathname ==='/scc/stats'?(   <span
+                    location.pathname ==='/sp/stats'?(   <span
                 className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
                 }
               <Link
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
-                to='/scc/stats'
+                to='/sp/stats'
             
 
               >

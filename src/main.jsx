@@ -28,6 +28,7 @@ import MyDoc from "./pages/MyDoc.jsx";
 import UsersList from "./components/admin/UsersList.jsx";
 import Support from "./pages/Support.jsx";
 import Message from "./components/admin/Message.jsx";
+import SpStats from "./components/sp/SpStats.jsx";
 const router = createBrowserRouter(
   [
 
@@ -131,6 +132,10 @@ const router = createBrowserRouter(
         {
           path:'/sp/ListTrans',
           element:<ListTrans/>
+        },
+        {
+          path:'/sp/stats',
+          element:<SpStats/>
         }
       ]
 

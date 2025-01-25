@@ -12,6 +12,7 @@ function Register() {
     status: "non reçu",
     transfere:"non",
     user_id: user.id,
+    
   }); //donnee du formulaire
   const [isLoading, setIsLoading] = useState(false); //etat du loader
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //le token d'acces
