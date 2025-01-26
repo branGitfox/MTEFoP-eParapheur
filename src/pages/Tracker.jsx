@@ -34,6 +34,9 @@ function Tracker() {
       if (doc.ref?.toLowerCase().includes(search?.toLowerCase())) {
         return true;
       }
+      if (doc.created_at?.toLowerCase().includes(search?.toLowerCase())) {
+        return true;
+      }
   });
 
 
