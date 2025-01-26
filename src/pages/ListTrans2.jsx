@@ -100,7 +100,8 @@ function ListTrans2() {
               <th className="px-4 py-3 text-gray-800">Ref</th>
               <th className="px-4 py-3 text-gray-800">Type</th>
               <th className="px-4 py-3 text-gray-800">Proprietaire</th>
-              <th className="px-4 py-3 text-gray-800">Motif</th>
+              <th className="px-4 py-3 text-gray-800">cin</th>
+              <th className="px-4 py-3 text-gray-800">tel</th>
               <th className="px-4 py-3 text-gray-800">Caracteristique</th>
               <th className="px-4 py-3 text-gray-800">Agent</th>
               <th className="px-4 py-3 text-gray-800">Date</th>
@@ -157,6 +158,8 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
         <td className="px-4 py-3 text-sm">{doc.type}</td>
         <td className="px-4 py-3 text-sm">{doc.propr??doc.proprietaire}</td>
+        <td className="px-4 py-3 text-sm">{doc.cin}</td>
+        <td className="px-4 py-3 text-sm">{doc.tel}</td>
         <td className="px-4 py-3 text-sm">{doc.description}</td>
         <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{doc.name}</td>
