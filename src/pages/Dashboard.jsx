@@ -20,6 +20,7 @@ function Dashboard() {
   const [allDocGotByOwner, setAllDocGotByOwner] = useState([])
   const [allDocNotGotByOwner, setAllDocNotGotByOwner] = useState([])
   const [docByDirection, setDocByDirection] = useState([])
+  const [docNumberByServiceNoFilter, setDocNumberByServiceNoFilter] = useState([])
 
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
@@ -31,7 +32,7 @@ function Dashboard() {
     getDocByDirection()
     getDocGotByOwner()
     getDocNotGotByOwner()
-    
+    getDocNumberByServiceNoFilter()
   }
 
     //recuperation des courriers
@@ -60,6 +61,19 @@ function Dashboard() {
         .then(({ data }) => setAllDocGotByOwner(data))
         .catch((err) => console.log(err));
     };
+
+        //recuperation des courriers recuperer par son proprietaire
+        const getDocNumberByServiceNoFilter = async () => {
+          await axiosRequest
+            .post("/stats/countByServiceNoFilter", period2, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+              },
+            })
+            .then(({ data }) => setDocNumberByServiceNoFilter(data))
+            .catch((err) => console.log(err));
+        };
 
         //recuperation des courriers recuperer par son proprietaire
         const getDocNotGotByOwner = async () => {
@@ -108,7 +122,7 @@ const getNumberOfViewChart = async () =>  {
   }
 }
 
-const colors = ["blue", "purple", "pink"]
+const colors = ["blue", "purple", "pink", "red", "green", "yellow"]
    //recuperation de la liste de courrier non livre
    const getDocByDirection = async () => {
     await axiosRequest
@@ -142,6 +156,7 @@ useEffect(() => {
   getDocNotGotByOwner()
   getDocByDirection()
   getUserCount()
+  getDocNumberByServiceNoFilter()
 },[])
 
 console.log(docByDirection);
@@ -217,6 +232,25 @@ console.log(docByDirection);
           </div>
         </div>{" "}
         {docByDirection.map((doc, index) => (
+          <div className="w-[300px]">
+          <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+            <div className="flex flex-col items-center justify-center">
+              <div className="flex-shrink">
+                <div className="rounded-full p-3 bg-gray-300 ">
+                  <FaHouseFire className={`text-${colors[index]}-500 text-center`} />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h3 className="font-bold text-3xl text-gray-900 text-center">
+                  {doc[1].length}
+                </h3>
+                <h5 className="font-bold text-gray-500">{doc[0]}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        ))}
+               {docNumberByServiceNoFilter.map((doc, index) => (
           <div className="w-[300px]">
           <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
             <div className="flex flex-col items-center justify-center">
