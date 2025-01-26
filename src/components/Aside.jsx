@@ -28,7 +28,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             <li className="relative px-6 py-3 ">
                 {
                     location.pathname ==='/scc'?(   <span
-                className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                className="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
                 }
@@ -57,7 +57,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             <li className="relative px-6 py-3">
             {
                     location.pathname ==='/scc/register'?(   <span
-                className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                className="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
                 }
@@ -86,7 +86,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             <li className="relative px-6 py-3">
             {
                     location.pathname ==='/scc/stats'?(   <span
-                className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                className="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
                 }
@@ -159,7 +159,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             <li className="relative px-6 py-3 ">
                 {
                     location.pathname ==='/scc'?(   <span
-                className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                className="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
                 }
@@ -189,7 +189,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             <li className="relative px-6 py-3">
             {
                     location.pathname ==='/scc/register'?(   <span
-                className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                className="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
                 }
@@ -219,7 +219,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             <li className="relative px-6 py-3">
             {
                     location.pathname ==='/scc/stats'?(   <span
-                className="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                className="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                 aria-hidden="true"
               ></span>):''
                 }
