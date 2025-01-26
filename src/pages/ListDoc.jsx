@@ -157,6 +157,7 @@ const  changeLivreStatus= async (id_doc) => {
     .finally(() => setLivreLoader(false))
 }
     return (
+        
         <tr key={ind} className="text-gray-700">
         <td className="px-4 py-3">
           <div className="flex items-center text-sm">
