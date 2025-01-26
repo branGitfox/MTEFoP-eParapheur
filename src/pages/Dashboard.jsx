@@ -29,6 +29,9 @@ function Dashboard() {
   const handleSubmitPeriod2 = (e) => {
     e.preventDefault()
     getDocByDirection()
+    getDocGotByOwner()
+    getDocNotGotByOwner()
+    
   }
 
     //recuperation des courriers
@@ -48,7 +51,7 @@ function Dashboard() {
     //recuperation des courriers recuperer par son proprietaire
     const getDocGotByOwner = async () => {
       await axiosRequest
-        .get("/stats/gotByOwnerCount", {
+        .post("/stats/gotByOwnerCount", period2, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
@@ -61,7 +64,7 @@ function Dashboard() {
         //recuperation des courriers recuperer par son proprietaire
         const getDocNotGotByOwner = async () => {
           await axiosRequest
-            .get("/stats/notGotByOwnerCount", {
+            .post("/stats/notGotByOwnerCount",period2, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
