@@ -101,6 +101,8 @@ function ListDoc() {
               <th className="px-4 py-3 text-gray-800">Provenance</th>
               <th className="px-4 py-3 text-gray-800">Ref</th>
               <th className="px-4 py-3 text-gray-800">Proprietaire</th>
+              <th className="px-4 py-3 text-gray-800">Cin</th>
+              <th className="px-4 py-3 text-gray-800">Tel</th>
               <th className="px-4 py-3 text-gray-800">Motif</th>
               <th className="px-4 py-3 text-gray-800">Caracteristique</th>
               <th className="px-4 py-3 text-gray-800">Agent</th>
@@ -166,6 +168,8 @@ const  changeLivreStatus= async (id_doc) => {
         <td className="px-4 py-3 text-sm">{doc.provenance}</td>
         <td className="px-4 py-3 text-sm">{doc.ref}</td>
         <td className="px-4 py-3 text-sm">{doc.proprietaire}</td>
+        <td className="px-4 py-3 text-sm">{doc.cin}</td>
+        <td className="px-4 py-3 text-sm">{doc.tel}</td>
         <td className="px-4 py-3 text-sm">{doc.motif}</td>
         <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{doc.name}</td>
