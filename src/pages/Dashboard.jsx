@@ -126,7 +126,7 @@ const colors = ["blue", "purple", "pink", "red", "green", "yellow"]
    //recuperation de la liste de courrier non livre
    const getDocByDirection = async () => {
     await axiosRequest
-      .post("/stats/countByDirection", period2,{
+      .post("/stats/countByDirectionAdmin", period2,{
         headers: {
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
