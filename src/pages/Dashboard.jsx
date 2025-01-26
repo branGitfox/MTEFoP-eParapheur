@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {  FaEye, FaHandPointDown,FaWallet } from "react-icons/fa";
+import {  FaEye, FaFilter, FaHandPointDown,FaWallet } from "react-icons/fa";
 import { FaHandBackFist, FaHouseFire, FaUserGroup} from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
 import { ResponsiveContainer, LineChart , Line} from "recharts";
@@ -134,8 +134,8 @@ console.log(docByDirection);
   return (
     <>
     <div className="flex w-full flex-wrap md:w-[400px]  justify-between p-4 ">
-      <h2 className="text-gray-800 ">
-          Fitres
+      <h2 className="text-gray-800 font-bold">
+         <FaFilter className="inline mr-1 text-blue-500 "/> Fitres
       </h2>
       <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
@@ -239,9 +239,9 @@ console.log(docByDirection);
         </div>
         </div>
       <hr className="text-gray-900" />
-      <div className="w-full lg:w-2/5 flex flex-wrap  justify-between items-center">
-         <h2 className="mt-3 ml-2 font-bold text-gray-900 text-xl">Trafics de visite <FaEye className="inline ml-1 text-blue-800" size={25}/></h2>    
-         <form onSubmit={handleSubmitPeriod} className="w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
+      <div className="w-full md:w-[400px] flex flex-wrap  justify-between items-center">
+         <h2 className="mt-3 ml-2 font-bold text-gray-900 text-xl"> <FaEye className="inline ml-1 text-blue-800 mr-1"  size={25}/>Trafics</h2>    
+         <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 p-4 md:p-0">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
