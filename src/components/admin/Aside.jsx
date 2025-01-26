@@ -52,7 +52,7 @@ function Aside() {
                {
               locations.pathname === "/admin" ? (
                 <span
-                  class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                  class="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
               ) : (
@@ -68,7 +68,7 @@ function Aside() {
             {
               locations.pathname === "/admin/userregister" ? (
                 <span
-                  class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                  class="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
               ) : (
@@ -84,7 +84,7 @@ function Aside() {
             {
               locations.pathname === "/admin/usersList" ? (
                 <span
-                  class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                  class="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
               ) : (
@@ -100,7 +100,7 @@ function Aside() {
                {
               locations.pathname === "/admin/sccservdirdg" ? (
                 <span
-                  class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                  class="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
               ) : (
@@ -116,7 +116,7 @@ function Aside() {
                {
               locations.pathname === "/admin/messages" ? (
                 <span
-                  class="absolute inset-y-0 left-0 w-1 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
+                  class="absolute inset-y-0 left-0 w-2 bg-[#C1AB48] rounded-tr-lg rounded-br-lg"
                   aria-hidden="true"
                 ></span>
               ) : (

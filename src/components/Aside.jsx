@@ -247,6 +247,16 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
                 <span className="ml-4">Statistiques</span>
               </Link>
             </li>
+            {user.role=='admin'? (            <li className="relative px-6 py-3">
+
+<Link
+  className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-300 "
+  to='/admin'
+>
+  <FaUnlockKeyhole/>
+  <span className="ml-4">Administrateur</span>
+</Link>
+</li>):''}
              </ul>
         </div>
           <div className="px-6 my-6 absolute bottom-0">
