@@ -9,7 +9,8 @@ import { ResponsiveContainer, LineChart , Line} from "recharts";
 
 function Dashboard() {
   
-  const [period, setPeriod] = useState({start:"", end:""})
+  const [period, setPeriod] = useState({start:"", end:""})    //pour le trafics
+  const [period2, setPeriod2] = useState({start:"", end:""})  //pour les donnees globaux
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
   const [view, setView] = useState()
   const [chartDataView, setChartDataView] = useState([])
@@ -23,6 +24,11 @@ function Dashboard() {
   const handleSubmitPeriod = (e) => {
     e.preventDefault()
     getNumberOfView()
+  }
+
+  const handleSubmitPeriod2 = (e) => {
+    // e.preventDefault()
+    // getNumberOfView()
   }
 
     //recuperation des courriers
@@ -65,11 +71,17 @@ function Dashboard() {
             .catch((err) => console.log(err));
         };
 
-  //gere le changement des dates periodiques
+  //gere le changement des dates periodiques trafics
 const handlePeriod = (e) => {
   const {name, value} = e.target
   setPeriod((period) => ({...period, [name]:value}))
 }
+
+  //gere le changement des dates periodiques  globaux
+  const handlePeriod2 = (e) => {
+    const {name, value} = e.target
+    setPeriod2((period2) => ({...period2, [name]:value}))
+  }
 
 //recuperation du nombre de vues
 const getNumberOfView = async () =>  {
@@ -140,11 +152,11 @@ console.log(docByDirection);
       <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
-                <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
+                <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod2} name="start" type="date"  />
               </div>
               <div >
               <label htmlFor="" className="text-gray-800 font-medium">Fin</label>
-              <input  className="text-gray-800 p-2 rounded-md w-full" onChange={handlePeriod} name="end"  type="date"  />
+              <input  className="text-gray-800 p-2 rounded-md w-full" onChange={handlePeriod2} name="end"  type="date"  />
               </div>
               <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
             </form>
