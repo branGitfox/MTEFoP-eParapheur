@@ -27,8 +27,8 @@ function Dashboard() {
   }
 
   const handleSubmitPeriod2 = (e) => {
-    // e.preventDefault()
-    // getNumberOfView()
+    e.preventDefault()
+    getDocByDirection()
   }
 
     //recuperation des courriers
@@ -109,7 +109,7 @@ const colors = ["blue", "purple", "pink"]
    //recuperation de la liste de courrier non livre
    const getDocByDirection = async () => {
     await axiosRequest
-      .get("/stats/countByDirection", {
+      .post("/stats/countByDirection", period2,{
         headers: {
           Authorization: `Bearer ${token}`,
           "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
@@ -149,7 +149,7 @@ console.log(docByDirection);
       <h2 className="text-gray-800 font-bold">
          <FaFilter className="inline mr-1 text-blue-500 "/> Fitres
       </h2>
-      <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
+      <form onSubmit={handleSubmitPeriod2} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod2} name="start" type="date"  />
