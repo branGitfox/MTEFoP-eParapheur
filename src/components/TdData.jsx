@@ -89,6 +89,7 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
         <td className="px-4 py-3 text-sm">{data.motif}</td>
         <td className={`px-4 py-3 text-sm ${data.caracteristique =='plis ferme'?'underline decoration-red-500':'decoration-green-300'}`}>{data.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{data.nom_dir}</td>
+          <td className="px-4 py-3 text-sm">{data.porte_dir}</td>
         <td className="px-4 py-3 text-sm">{data.created_at}</td>{" "}
         <td className="px-4 py-3 text-xs">
           {data.status === "reçu" ? (
@@ -97,7 +98,6 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
             <FaExclamationCircle className="text-red-500 text-xl" />
           )}
         </td>
-        <td className="px-4 py-3 text-sm">{data.porte_dir}</td>
         {user.role == "admin" && (
           <td className="px-9 py-3 text-sm">
             <FaTrashAlt
