@@ -98,15 +98,7 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
             <FaExclamationCircle className="text-red-500 text-xl" />
           )}
         </td>
-        {user.role == "admin" && (
-          <td className="px-9 py-3 text-sm">
-            <FaTrashAlt
-              onClick={() => deleteDoc(data.c_id)}
-              cursor={"pointer"}
-              color="red"
-            />
-          </td>
-        )}
+
         <td className="px-4 py-3 text-xs">
           {showInfo === true ? (
             <IoIosArrowUp onClick={toggleShow} className="text-blue-500 text-xl" />
@@ -116,7 +108,15 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
               className="text-blue-500 text-xl"
             />
           )}
-        </td>
+        </td>        {user.role == "admin" && (
+          <td className="px-9 py-3 text-sm">
+            <FaTrashAlt
+              onClick={() => deleteDoc(data.c_id)}
+              cursor={"pointer"}
+              color="red"
+            />
+          </td>
+        )}
       </tr>
       {showInfo && <History history={history} loader={infoLoader} />}
     </>

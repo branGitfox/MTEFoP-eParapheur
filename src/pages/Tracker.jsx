@@ -104,10 +104,10 @@ function Tracker() {
               <th className="px-4 py-3 text-gray-800">Porte</th>
               <th className="px-4 py-3 text-gray-800">Date</th>
               <th className="px-4 py-3 text-gray-800">Livre</th>
+              <th className="px-4 py-3 text-gray-800">Infos</th>
               {
                 user.role =='admin' && <th className="px-4 py-3 text-gray-800">Actions</th>
               }
-              <th className="px-4 py-3 text-gray-800">Infos</th>
               
             </tr>
           </thead>
