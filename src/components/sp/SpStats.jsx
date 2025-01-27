@@ -4,10 +4,21 @@ import { FaHouseFire, FaFilter } from 'react-icons/fa6';
 function SpStats() {
     const [docByService, setDocByService] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //token d'access
+    const [period, setPeriod] = useState({start:"", end:""})
+
+    const handlePeriod = (e) => {
+      const {name, value} = e.target
+      setPeriod((period) => ({...period, [name]:value}))
+    }
+
+    const handleSubmitPeriod =  (e) => {
+      e.preventDefault()
+      getDocByService()
+    }
          //recuperation de la liste de courrier non livre
          const getDocByService = async () => {
             await axiosRequest
-              .get("/stats/countByService", {
+              .post("/stats/countByService", period,{
                 headers: {
                   Authorization: `Bearer ${token}`,
                   "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
@@ -26,14 +37,14 @@ function SpStats() {
           <h2 className="text-gray-800 font-bold">
              <FaFilter className="inline mr-1 text-blue-500 "/> Fitres
           </h2>
-          <form onSubmit={null} className=" w-full md:w-[200px] flex mt-2  lg:mt-0 justify-evenly gap-x-5 ">
+          <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px] flex mt-2  lg:mt-0 justify-evenly gap-x-5 ">
                   <div >
                   <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
-                    <input className="text-gray-900 p-2 rounded-md w-full"  onChange={null} name="start" type="date"  />
+                    <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
                   </div>
                   <div >
                   <label htmlFor="" className="text-gray-800 font-medium">Fin</label>
-                  <input  className="text-gray-800 p-2 rounded-md w-full" onChange={null} name="end"  type="date"  />
+                  <input  className="text-gray-800 p-2 rounded-md w-full" onChange={handlePeriod} name="end"  type="date"  />
                   </div>
                   <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
                 </form>
