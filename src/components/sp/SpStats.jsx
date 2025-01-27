@@ -3,50 +3,7 @@ import axiosRequest from '../../axiosClient/axiosClient';
 import { FaHouseFire, FaFilter } from 'react-icons/fa6';
 import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line, LineChart , ResponsiveContainer, BarChart, Bar, Rectangle} from 'recharts';
 import { FaChartLine,  } from 'react-icons/fa';
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+
 function SpStats() {
     const [docByService, setDocByService] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //token d'access
@@ -77,6 +34,10 @@ function SpStats() {
           useEffect(() => {
                 getDocByService()
           }, [])
+          const data = []
+        docByService.forEach((doc, index) => {
+          data.push({name:doc[0],Courriers:doc[1].length})
+        } )
   return (
     <>
         <div className="flex w-full flex-wrap md:w-[400px] justify-between px-1 ">
@@ -122,7 +83,8 @@ function SpStats() {
              <FaChartLine className="inline mr-1 text-blue-500 "/> Representation Graphique
       </h2>
 <div className="w-full flex justify-center h-[300px] mt-10">
-<ResponsiveContainer width='100%' height='100%'>
+
+      <ResponsiveContainer width="70%" height="100%">
         <BarChart
           width={500}
           height={300}
@@ -133,16 +95,17 @@ function SpStats() {
             left: 20,
             bottom: 5,
           }}
+          barSize={20}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
+          <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="pv" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
-          <Bar dataKey="uv" fill="#82ca9d" activeBar={<Rectangle fill="gold" stroke="purple" />} />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Bar dataKey="Courriers" fill="blue" background={{ fill: '#eee' }} />
         </BarChart>
       </ResponsiveContainer>
+
 </div>
     </>
   )
