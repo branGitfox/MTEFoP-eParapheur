@@ -300,7 +300,10 @@ const handlePeriod = (e) => {
 });
 
 console.log('Livred', docByDirectionByDateByPeriod);
-
+const dataDir = []
+docByDirectionByDateByPeriod.forEach((doc, index) => {
+  dataDir.push({name:doc[0],Courriers:doc[1].length})
+} )
 
   return (
     <>
@@ -654,32 +657,31 @@ console.log('Livred', docByDirectionByDateByPeriod);
         </div>))}
       </div>
       <hr className="mt-5 mb-5" />
-      <ResponsiveContainer width={"100%"} height={500}>
-        <LineChart
+<div className="w-full flex justify-center h-[300px] mt-10">
+
+      <ResponsiveContainer width="70%" height="100%">
+        <BarChart
           width={500}
           height={300}
-          data={dataPeriod}
+          data={dataDir}
           margin={{
             top: 5,
             right: 30,
             left: 20,
             bottom: 5,
           }}
+          barSize={20}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="" />
+          <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line
-            type="monotone"
-            dataKey="courrier"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
-          />
-          <Line type="monotone" dataKey="mensuel" stroke="#82ca9d" />
-        </LineChart>
+          <CartesianGrid strokeDasharray="3 3" />
+          <Bar dataKey="Courriers" fill="blue" background={{ fill: '#eee' }} />
+        </BarChart>
       </ResponsiveContainer>
+
+</div>
       {/* radial statistique */}
       <ResponsiveContainer width={"100%"} height={600}>
         <RadialBarChart
