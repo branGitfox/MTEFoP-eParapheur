@@ -29,6 +29,8 @@ import UsersList from "./components/admin/UsersList.jsx";
 import Support from "./pages/Support.jsx";
 import Message from "./components/admin/Message.jsx";
 import SpStats from "./components/sp/SpStats.jsx";
+import ProfilSp from "./pages/ProfilSp.jsx";
+import ProfilAgent from "./pages/ProfilAgent.jsx";
 const router = createBrowserRouter(
   [
 
@@ -136,6 +138,11 @@ const router = createBrowserRouter(
         {
           path:'/sp/stats',
           element:<SpStats/>
+        },
+
+        {
+          path:'/sp/profil',
+          element:<ProfilSp/>
         }
       ]
 
@@ -157,6 +164,11 @@ const router = createBrowserRouter(
         {
           path:'/agent/ListTrans',
           element:<ListTrans2/>
+        },
+
+        {
+          path:'/agent/profil',
+          element:<ProfilAgent/>
         }
       ]
     },

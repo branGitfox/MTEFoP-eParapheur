@@ -99,7 +99,7 @@ function Agent() {
             SCC
           </h2>
           <Link
-            to="/scc/profil"
+            to="/agent/profil"
             className="font-semibold text-gray-700 cursor-pointer"
           >
             {user.name} <FaUser className="inline ml-2" />

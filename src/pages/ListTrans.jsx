@@ -66,7 +66,8 @@ function ListTrans() {
     //actualise les donnees
     const fresh = () => setReload(!reload);
     console.log(moveByDirection);
-    
+  
+    filtered.reverse()
   return (
     <>
               <div className=" w-[100%]  justify-evenly flex p-3 mb-5 relative text-black">
@@ -103,6 +104,8 @@ function ListTrans() {
               <th className="px-4 py-3 text-gray-800">Ref</th>
               <th className="px-4 py-3 text-gray-800">Type</th>
               <th className="px-4 py-3 text-gray-800">Proprietaire</th>
+              <th className="px-4 py-3 text-gray-800">Cin</th>
+              <th className="px-4 py-3 text-gray-800">Tel</th>
               <th className="px-4 py-3 text-gray-800">Motif</th>
               <th className="px-4 py-3 text-gray-800">Caracteristique</th>
               <th className="px-4 py-3 text-gray-800">Agent</th>
@@ -137,6 +140,7 @@ function ListTrans() {
 }
 
 const DocByDirection = ({docsByDirection}) => {
+
     return (
         <>
        
@@ -162,6 +166,8 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
         <td className="px-4 py-3 text-sm">{doc.type}</td>
         <td className="px-4 py-3 text-sm">{doc.propr??doc.proprietaire}</td>
+        <td className="px-4 py-3 text-sm">{doc.cin}</td>
+        <td className="px-4 py-3 text-sm">{doc.tel}</td>
         <td className="px-4 py-3 text-sm">{doc.description}</td>
         <td className="px-4 py-3 text-sm">{doc.caracteristique}</td>
         <td className="px-4 py-3 text-sm">{doc.name}</td>

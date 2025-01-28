@@ -52,6 +52,10 @@ function ListDoc2() {
     if (doc.ref?.toLowerCase().includes(search?.toLowerCase())) {
       return true;
     }
+
+    if (doc.created_at?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
 })
 
 //prend la valeur de la barre de recherche
@@ -67,6 +71,7 @@ function ListDoc2() {
     navigate(`/agent/doc/${id_doc}`)
   }
 
+  filtered.reverse()
   return (
     <>
       <div className=" w-[100%]  justify-evenly flex p-3 mb-5 relative text-black">

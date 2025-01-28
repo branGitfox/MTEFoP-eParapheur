@@ -71,6 +71,7 @@ function ListDoc() {
     navigate(`/sp/doc/${id_doc}`)
   }
 
+  docsByDirection.reverse()
   return (
     <>
       <div className=" w-[100%]  justify-evenly flex p-3 mb-5 relative text-black">
@@ -142,7 +143,8 @@ function ListDoc() {
 const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre, showDocByOne}) => {
     return (
         <>
-         {docsByDirection.reverse().map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} showDocByOne={showDocByOne} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
+         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} showDocByOne={showDocByOne} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
+     
         </>
     )
 }

@@ -3,11 +3,14 @@ import axiosRequest from '../../axiosClient/axiosClient';
 import { FaHouseFire, FaFilter } from 'react-icons/fa6';
 import { CartesianGrid, XAxis, YAxis, Tooltip, Legend, Line, LineChart , ResponsiveContainer, BarChart, Bar, Rectangle} from 'recharts';
 import { FaChartLine,  } from 'react-icons/fa';
+import { FcCallTransfer } from 'react-icons/fc';
+import { BiTransfer } from 'react-icons/bi';
 
 function SpStats() {
     const [docByService, setDocByService] = useState([])
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //token d'access
     const [period, setPeriod] = useState({start:"", end:""})
+    const [countByDirection, setCountByDirection]= useState(0)
 
     const handlePeriod = (e) => {
       const {name, value} = e.target
@@ -17,7 +20,9 @@ function SpStats() {
     const handleSubmitPeriod =  (e) => {
       e.preventDefault()
       getDocByService()
+      getcountDocByDirection()
     }
+
          //recuperation de la liste de courrier non livre
          const getDocByService = async () => {
             await axiosRequest
@@ -30,9 +35,24 @@ function SpStats() {
               .then(({ data }) => setDocByService(data))
               .catch((err) => console.log(err));
           };
+
+          //nombre de courrier dans la direction actuel
+          const getcountDocByDirection = async () => {
+            await axiosRequest
+              .post("/stats/countDocByDirection", period,{
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                  "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+                },
+              })
+              .then(({ data }) => setCountByDirection(data))
+              .catch((err) => console.log(err));
+          };
+
           const colors  = ["red", "blue", "green", "purple"]
           useEffect(() => {
                 getDocByService()
+                getcountDocByDirection()
           }, [])
           const data = []
         docByService.forEach((doc, index) => {
@@ -60,8 +80,26 @@ function SpStats() {
                   <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
                 </form>
         </div>
-        <div className="w-full flex justify-center h-[300px] mt-10">
+        
+        <div className="w-full flex flex-wrap justify-center h-[300px] mt-10 ">
 
+        <div className="w-full md:w-[300px]">
+                  <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="flex-shrink">
+                        <div className="rounded-full p-3 bg-gray-300 ">
+                          <FaHouseFire className='text-blue-500 text-center' />
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-bold text-3xl text-gray-900 text-center">
+                          {countByDirection}
+                        </h3>
+                        <h5 className="font-bold text-gray-500 text-center"> Courriers Enregistrees</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
       <ResponsiveContainer width="70%" height="100%">
         <BarChart
           width={500}
@@ -85,6 +123,7 @@ function SpStats() {
       </ResponsiveContainer>
 
 </div>
+<h2 className='md:mt-10 mt-[200px]  text-gray-900 font-bold'><BiTransfer className='text-blue-500 inline mr-1' size={20}/>Courriers Transferes</h2>
       <div className="flex  flex-wrap w-full justify-center  p-3">
 
      

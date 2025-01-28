@@ -15,7 +15,9 @@ function Dashboard() {
   const [view, setView] = useState()
   const [chartDataView, setChartDataView] = useState([])
   const [staff, setStaff] = useState(0)
-
+  const [docByDirectionByPeriod, setDocByDirectionByPeriod] = useState([]);
+    const [currentDate, setCurrentDate] = useState("");
+  
   const [allDoc, setAllDoc] = useState([])
   const [allDocGotByOwner, setAllDocGotByOwner] = useState([])
   const [allDocNotGotByOwner, setAllDocNotGotByOwner] = useState([])
@@ -33,6 +35,7 @@ function Dashboard() {
     getDocGotByOwner()
     getDocNotGotByOwner()
     getDocNumberByServiceNoFilter()
+    getDocByDirectionByPeriod()
   }
 
     //recuperation des courriers
@@ -148,6 +151,19 @@ const colors = ["blue", "purple", "pink", "red", "green", "yellow"]
       
     }
   }
+
+       //recuperation de la liste de courrier non livre par periode
+       const getDocByDirectionByPeriod = async () => {
+        await axiosRequest
+          .post("/stats/countByDirectionByPeriod", period2, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Access-Control-Allow-Origin": "http://127.0.0.1:8000",
+            },
+          })
+          .then(({ data }) => setDocByDirectionByPeriod(data))
+          .catch((err) => console.log(err));
+      };
 useEffect(() => {
   getNumberOfView()
   getNumberOfViewChart()
@@ -157,10 +173,16 @@ useEffect(() => {
   getDocByDirection()
   getUserCount()
   getDocNumberByServiceNoFilter()
+  getDocByDirectionByPeriod()
 },[])
 
 console.log(docByDirection);
-
+const allOfDocByPeriod =  [...docByDirectionByPeriod]
+let number = 0
+allOfDocByPeriod.map((doc , index)=> doc[1].find(f =>f.created_at.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7))))
+allOfDocByPeriod.forEach(dc => {
+  number+= dc[1].length
+})
   return (
     <>
     <div className="flex w-full flex-wrap md:w-[400px]  justify-between p-4 ">
@@ -190,7 +212,7 @@ console.log(docByDirection);
               </div>
               <div className="flex-1">
                 <h3 className="font-bold text-3xl text-gray-900 text-center">
-                {allDoc.length}
+                {number}
                 </h3>
                 <h5 className="font-bold text-gray-500">Total Courriers</h5>
               </div>

@@ -206,7 +206,7 @@ function Stats() {
 const docByDirectionByDate = docByDirection?.map((docs) => {
  
 
-    return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7)))]
+    return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))), docs[2]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))), docs[3]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7)))]
   
     
   })
@@ -215,7 +215,7 @@ const docByDirectionByDate = docByDirection?.map((docs) => {
 const docByDirectionByDateByPeriod = docByDirectionByPeriod?.map((docs) => {
  
 
-  return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7)))]
+  return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))), docs[2]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))), docs[3]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7)))]
 
   
 })
@@ -314,6 +314,9 @@ allOfDocByPeriod.forEach(dc => {
 })
 
 
+
+
+
   return (
     <>
       <div className="flex gap-4 items-center">
@@ -400,7 +403,7 @@ allOfDocByPeriod.forEach(dc => {
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  Courriers En Attente
+                  Courriers non dispatche
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -431,7 +434,7 @@ allOfDocByPeriod.forEach(dc => {
               {/* Livre */}
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers Livre
+                  courriers dispatche
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -447,6 +450,7 @@ allOfDocByPeriod.forEach(dc => {
                     <i className="fas fa-caret-up"></i>
                   </span>
                 </h3>
+           
               </div>
               
             </div>
@@ -475,9 +479,12 @@ allOfDocByPeriod.forEach(dc => {
                   </span>
                 </h3>
               </div>
-              
+          
             </div>
-              
+                  <ul>
+                  <li className="text-green-800 font-bold ">Dechargee: {d[2].length}</li>
+                  <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li>
+                </ul>
           </div>
           
               
@@ -643,7 +650,10 @@ allOfDocByPeriod.forEach(dc => {
               </div>
               
             </div>
-              
+            <ul>
+                  <li className="text-green-800 font-bold ">Dechargee: {d[2].length}</li>
+                  <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li>
+                </ul>
           </div>
           
               

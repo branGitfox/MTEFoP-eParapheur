@@ -99,7 +99,7 @@ function Agent() {
             {user.nom_dir}
           </h2>
           <Link
-            to="/scc/profil"
+            to="/sp/profil"
             className="font-semibold text-gray-700 cursor-pointer"
           >
             {user.name} <FaUser className="inline ml-2" />
