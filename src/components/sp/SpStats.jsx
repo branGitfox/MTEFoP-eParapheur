@@ -36,15 +36,19 @@ function SpStats() {
           }, [])
           const data = []
         docByService.forEach((doc, index) => {
-          data.push({name:doc[0],Courriers:doc[1].length})
+          data.push({name:doc[0],Courriers:doc[1].length, fill:colors[index]})
         } )
   return (
     <>
-        <div className="flex w-full flex-wrap md:w-[400px] justify-between px-1 ">
+  
+        <h2 className="text-gray-800 font-bold ml-1 mb-7 text-xl">
+             <FaChartLine className="inline mr-1 text-blue-500 "/> Representation Graphique de donnees transferees
+      </h2>
+      <div className="flex w-full flex-wrap md:w-[400px] justify-between px-1 ">
           <h2 className="text-gray-800 font-bold">
              <FaFilter className="inline mr-1 text-blue-500 "/> Fitres
           </h2>
-          <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px] flex mt-2  lg:mt-0 justify-evenly gap-x-5 ">
+          <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px]  flex mt-2 p-2 md:p-0 lg:mt-0 justify-evenly gap-x-2 ">
                   <div >
                   <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
                     <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
@@ -56,6 +60,31 @@ function SpStats() {
                   <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
                 </form>
         </div>
+        <div className="w-full flex justify-center h-[300px] mt-10">
+
+      <ResponsiveContainer width="70%" height="100%">
+        <BarChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+          barSize={20}
+        >
+          <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <CartesianGrid strokeDasharray="3 3" />
+          <Bar dataKey="Courriers"  background={{ fill: '#eee' }} />
+        </BarChart>
+      </ResponsiveContainer>
+
+</div>
       <div className="flex  flex-wrap w-full justify-center  p-3">
 
      
@@ -79,34 +108,7 @@ function SpStats() {
                 </div>
                 ))}
     </div>
-    <h2 className="text-gray-800 font-bold ml-1">
-             <FaChartLine className="inline mr-1 text-blue-500 "/> Representation Graphique
-      </h2>
-<div className="w-full flex justify-center h-[300px] mt-10">
 
-      <ResponsiveContainer width="70%" height="100%">
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="Courriers" fill="blue" background={{ fill: '#eee' }} />
-        </BarChart>
-      </ResponsiveContainer>
-
-</div>
     </>
   )
 }

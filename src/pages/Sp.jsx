@@ -88,7 +88,7 @@ function Agent() {
       />
       <div className="w-full md:overflow-y-scroll  shadow-xs">
         <div className=" w-[100%] justify-between flex p-3 bg-white mb-5">
-          <h2 className="font-semibold hidden md:block text-gray-700">{user.nom_serv}</h2>
+          <h2 className="font-semibold text-xl hidden md:block text-gray-700">{user.nom_dir}</h2>
           <BiMenu
             className="text-gray-900 md:hidden"
             onClick={toggleMenu}
@@ -96,7 +96,7 @@ function Agent() {
             cursor={"pointer"}
           />
           <h2 className="font-semibold absolute left-[46%]  md:hidden text-gray-700">
-            SCC
+            {user.nom_dir}
           </h2>
           <Link
             to="/scc/profil"

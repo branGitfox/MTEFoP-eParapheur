@@ -53,6 +53,9 @@ function ListDoc() {
     if (doc.ref?.toLowerCase().includes(search?.toLowerCase())) {
       return true;
     }
+    if (doc.created_at?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
 })
 
 //prend la valeur de la barre de recherche
@@ -157,7 +160,7 @@ const  changeLivreStatus= async (id_doc) => {
     .finally(() => setLivreLoader(false))
 }
     return (
-        
+
         <tr key={ind} className="text-gray-700">
         <td className="px-4 py-3">
           <div className="flex items-center text-sm">

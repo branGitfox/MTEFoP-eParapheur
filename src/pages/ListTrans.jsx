@@ -53,6 +53,9 @@ function ListTrans() {
       if (doc.ref_initial?.toLowerCase().includes(search?.toLowerCase())) {
         return true;
       }
+      if (doc.created_at?.toLowerCase().includes(search?.toLowerCase())) {
+        return true;
+      }
   })
   
   //prend la valeur de la barre de recherche

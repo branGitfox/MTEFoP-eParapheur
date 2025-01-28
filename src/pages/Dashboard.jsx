@@ -245,6 +245,10 @@ console.log(docByDirection);
                   {doc[1].length}
                 </h3>
                 <h5 className="font-bold text-gray-500">{doc[0]}</h5>
+                <ul>
+                  <li className="text-green-800 font-bold ">Dechargee: {doc[2]}</li>
+                  <li className="text-red-800 font-bold ">Non Dechargee: {doc[3]}</li>
+                </ul>
               </div>
             </div>
           </div>

@@ -243,8 +243,8 @@ console.log(docByDirection);
         mensuel: pv,
         amt: dc.created_at,
         fill: color[random],
-        Ministre:ministre,
-        FOP:fop
+        DRFP:ministre,
+        DUGT:fop
       });
     });
   }
@@ -304,6 +304,15 @@ const dataDir = []
 docByDirectionByDateByPeriod.forEach((doc, index) => {
   dataDir.push({name:doc[0],Courriers:doc[1].length})
 } )
+
+
+const allOfDocByPeriod =  [...docByDirectionByPeriod]
+let number = 0
+allOfDocByPeriod.map((doc , index)=> doc[1].find(f =>f.created_at.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7))))
+allOfDocByPeriod.forEach(dc => {
+  number+= dc[1].length
+})
+
 
   return (
     <>
@@ -482,23 +491,13 @@ docByDirectionByDateByPeriod.forEach((doc, index) => {
 
       {/* Ici commence les deux  premiers graphiques */}
       <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
-        Graphiques
+        Representation graphiques du courriers enregistrer
       </h3>
 
-      <div className="flex flex-wrap justify-evenly w-[100%] items-center gap-y-4 p-3 mt-10">
-        <LineChart width={500} height={300} data={data}>
-          <Line type="monotone" dataKey="courrier" stroke="#8884d8" />
-          <Line type="monotone" dataKey="mensuel" stroke="green" />
-          <Line type="monotone" dataKey="Ministre" stroke="red" />
-          <Line type="monotone" dataKey="FOP" stroke="blue" />
-          <Tooltip />
-
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="" />
-          <YAxis />
-          <Legend />
-        </LineChart>
-        <BarChart width={500} height={300} data={uniqueAMT}>
+      <div className="flex justify-evenly w-[100%] h-[400px] items-center gap-y-4 p-3 mt-10">
+      <ResponsiveContainer width="100%" height="100%">
+                
+        <BarChart width='100%' height='100%' data={uniqueAMT}>
           <XAxis dataKey="amt" stroke="#8884d8" />
           <YAxis />
           <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
@@ -514,8 +513,9 @@ docByDirectionByDateByPeriod.forEach((doc, index) => {
             }}
           />
           <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-          <Bar dataKey="courrier" fill="#8884d8" barSize={50} />
+          <Bar dataKey="courrier" fill="blue" barSize={50} />
         </BarChart>
+        </ResponsiveContainer>
       </div>
 
 {/* ********************************************************************************************************* */}
@@ -549,17 +549,11 @@ docByDirectionByDateByPeriod.forEach((doc, index) => {
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers Par Periode
+                  courriers Enregistrer
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
-                    doc.filter(
-                      (dc) =>
-                        dc?.created_at?.substring(0, 7) ==
-                        (currentDate
-                          ? currentDate
-                          : doc[doc.length - 1]?.created_at?.substring(0, 7))
-                    ).length
+                    number
                   }{" "}
                   <span className="text-blue-500">
                     <i className="fas fa-caret-up"></i>
