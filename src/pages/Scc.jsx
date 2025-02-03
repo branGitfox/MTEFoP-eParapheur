@@ -75,6 +75,7 @@ function Scc() {
     }
   }, [user.role]);
 
+console.log(user.role);
 
   
   return (
@@ -89,7 +90,7 @@ function Scc() {
         />
         <div className="w-full md:overflow-y-scroll  shadow-xs">
           <div className=" w-[100%] justify-between flex p-3 bg-white mb-5">
-            <h2 className="font-semibold hidden md:block text-gray-700">{user.nom_serv}</h2>
+            <h2 className="font-semibold hidden md:block text-gray-700">{user.role=='scc'?'SCC':user.nom_serv}</h2>
             <BiMenu
               className="text-gray-900 md:hidden"
               onClick={toggleMenu}

@@ -221,8 +221,8 @@ const docByDirectionByDateByPeriod = docByDirectionByPeriod?.map((docs) => {
 })
   
 //access du nombre de courriers par direction par index statique
-let fop = docByDirection.length > 0? docByDirection[1][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0, 7))).length: 0
-let ministre = docByDirection.length > 0? docByDirection[0][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0, 7))).length: 0
+// let fop = docByDirection.length > 0? docByDirection[1][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0, 7))).length: 0
+// let ministre = docByDirection.length > 0? docByDirection[0][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0, 7))).length: 0
 console.log(docByDirection);
 
   //ajout des donnees filtree
@@ -243,8 +243,8 @@ console.log(docByDirection);
         mensuel: pv,
         amt: dc.created_at,
         fill: color[random],
-        DRFP:ministre,
-        DUGT:fop
+        // DRFP:ministre,
+        // DUGT:fop
       });
     });
   }
@@ -308,7 +308,7 @@ docByDirectionByDateByPeriod.forEach((doc, index) => {
 
 const allOfDocByPeriod =  [...docByDirectionByPeriod]
 let number = 0
-allOfDocByPeriod.map((doc , index)=> doc[1].find(f =>f.created_at.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7))))
+allOfDocByPeriod.map((doc , index)=> doc[1].find(f =>f.created_at.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))))
 allOfDocByPeriod.forEach(dc => {
   number+= dc[1].length
 })
@@ -652,7 +652,7 @@ allOfDocByPeriod.forEach(dc => {
             </div>
             <ul>
                   <li className="text-green-800 font-bold ">Dechargee: {d[2].length}</li>
-                  <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li>
+                  {/* <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li> */}
                 </ul>
           </div>
           

@@ -186,11 +186,11 @@ allOfDocByPeriod.forEach(dc => {
   return (
     <>
     <div className="flex w-full flex-wrap md:w-[400px]  justify-between p-4 ">
-      <h2 className="text-gray-800 font-bold">
+      <h2 className="text-gray-800 font-bold mr-5">
          <FaFilter className="inline mr-1 text-blue-500 "/> Fitres
       </h2>
       <form onSubmit={handleSubmitPeriod2} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
-              <div >
+              <div>
               <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod2} name="start" type="date"  />
               </div>
@@ -269,7 +269,7 @@ allOfDocByPeriod.forEach(dc => {
                 <h5 className="font-bold text-gray-500">{doc[0]}</h5>
                 <ul>
                   <li className="text-green-800 font-bold ">Dechargee: {doc[2]}</li>
-                  <li className="text-red-800 font-bold ">Non Dechargee: {doc[3]}</li>
+                  {/* <li className="text-red-800 font-bold ">Non Dechargee: {doc[3]}</li> */}
                 </ul>
               </div>
             </div>

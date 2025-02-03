@@ -177,6 +177,7 @@ function Register() {
           >
             <option value="">- Selectionner ici -</option>
             <option value="plis ferme">Plis Ferme</option>
+            <option value="normale">Normale</option>
           </select>
         </div>
         <div className="mb-5">

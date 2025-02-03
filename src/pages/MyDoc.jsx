@@ -124,8 +124,8 @@ function MyDoc() {
                     <th className="px-4 py-3 text-gray-800">Provenance</th>
                     <th className="px-4 py-3 text-gray-800">Ref</th>
                     <th className="px-4 py-3 text-gray-800">Proprietaire</th>
-                    <th className="px-4 py-3 text-gray-800">CIN</th>
-                    <th className="px-4 py-3 text-gray-800">Tel</th>
+                    {/* <th className="px-4 py-3 text-gray-800">CIN</th>
+                    <th className="px-4 py-3 text-gray-800">Tel</th> */}
                     <th className="px-4 py-3 text-gray-800">Motif</th>
                     <th className="px-4 py-3 text-gray-800">Caracteristique</th>
                     <th className="px-4 py-3 text-gray-800">Direction</th>
@@ -142,11 +142,11 @@ function MyDoc() {
                         <td className="px-4 py-3 text-sm">
                           {doc?.proprietaire}
                         </td>
-                        <td className="px-4 py-3 text-sm">
+                        {/* <td className="px-4 py-3 text-sm">
                           {doc?.cin}
                         </td>     <td className="px-4 py-3 text-sm">
                           {doc?.tel}
-                        </td>
+                        </td> */}
                         <td className="px-4 py-3 text-sm">{doc?.motif}</td>
                         <td className="px-4 py-3 text-sm">
                           {doc?.caracteristique}

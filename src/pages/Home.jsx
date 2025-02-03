@@ -111,7 +111,7 @@ function Home() {
                   Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10 mx-3"/>
               </h3>
               <ul className="text-gray-600 mb-2 list-disc">
-                  <li>Courrier diffice à tracer</li>
+                  <li>Courrier difficile à tracer</li>
                   <li>Archivage non garantie</li>
                   <li>Directions et services   asynchrone</li>
               </ul>
@@ -130,7 +130,7 @@ function Home() {
             </div>
             
           </div>
-          <h3 className="text-gray-900 text-xl text-center  font-bold">Nombre de visiteurs <FaEye className="inline mx-3 text-blue-500 w-7 h-7"/></h3>
+          <h3 className="text-gray-900 text-xl text-center  font-bold">Nombre de visites <FaEye className="inline mx-3 text-blue-500 w-7 h-7"/></h3>
           <div className="max-w-[100px] mx-auto mt-5 h-[50px] border-2 border-gray-600 text-gray-900 flex justify-center items-center rounded-md font-bold">{loading ? (
           <Oval
             visible={true}
