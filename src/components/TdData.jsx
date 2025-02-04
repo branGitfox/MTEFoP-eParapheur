@@ -101,11 +101,11 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
 
         <td className="px-4 py-3 text-xs">
           {showInfo === true ? (
-            <IoIosArrowUp onClick={toggleShow} className="text-blue-500 text-xl" />
+            <IoIosArrowUp onClick={toggleShow} className="text-blue-500 text-xl cursor-pointer" />
           ) : (
             <IoIosArrowDown
               onClick={toggleShow}
-              className="text-blue-500 text-xl"
+              className="text-blue-500 text-xl cursor-pointer"
             />
           )}
         </td>        {user.role == "admin" && (
