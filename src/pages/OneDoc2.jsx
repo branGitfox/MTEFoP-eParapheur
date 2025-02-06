@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axiosRequest from '../axiosClient/axiosClient'
-import { Navigate, redirect, useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { Oval } from 'react-loader-spinner'
 import { userContext } from '../components/ContextWrapper'
