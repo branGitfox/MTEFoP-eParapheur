@@ -19,7 +19,7 @@ function Register() {
   const [dir, setDir] = useState([]); //liste des directions
   const [waiting, setWaiting] = useState(false); // looder pour la recuperation des directions
   const location = useLocation()
-  //gere le changement du formuulaire
+  //gere le changement du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((formData) => ({ ...formData, [name]: value }));

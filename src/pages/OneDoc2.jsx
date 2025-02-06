@@ -7,9 +7,9 @@ import { userContext } from '../components/ContextWrapper'
 
 
 function OneDoc2() {
+  const [radio, setRadio] = useState("service")
     const [formData, setFormData] =useState({})
     const {user}= useContext(userContext)
-    const [radio, setRadio] = useState("service")
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'access
     const {id_doc} = useParams() //id du courrier dans le parametre du lien
     const [isLoading, setIsLoading] = useState(false)
@@ -17,11 +17,30 @@ function OneDoc2() {
     const [servLoading, setServLoading] = useState(false)
     const [servs, setServs] = useState([])
     const [propr, setPropr] = useState({})
+    const [dir, setDir] = useState([])
+    const [waiting, setWaiting] = useState(false)
 
     const navigate = useNavigate()
 
-        
+
+    const getDir = async () => {
+      setWaiting(true);
+      try{
+          await axiosRequest
+              .get("/dir", {
+                headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
+              })
+              .then(({ data }) => setDir(data))
+              .then(() => setWaiting(false))
+              .catch((err) => console.log(err).finally(() => setWaiting(false)));
+      }catch(err){
+        toast.error("Verifiez votre connexion internet")
+      }
+   
+    };
+
     
+    //recuperation de la liste de service specifique a la direction de l'agent
     const getServs = async () => {
         setServLoading(true)
         try{
@@ -62,10 +81,17 @@ function OneDoc2() {
     //appel de getServs
     useEffect(() => {
         getServs()
+        getDir()
     }, [user])
     const handleChange = (e) => {
         const {name, value} = e.target
         setFormData((formData) => ({...formData, [name]:value}))
+        if(radio=='service'){
+          setFormData((formData) => ({...formData, ['id_dg']:"none"}))
+        }else{
+          setFormData((formData) => ({...formData, ['serv_id']:"none"}))
+
+        }
     }
 
     const handleChangePropr = (e) => {
@@ -75,9 +101,13 @@ function OneDoc2() {
     const submit =async (e) => {
         e.preventDefault()
         let data
-        if(formData.type == 'transfert'){
+        if(formData?.type == 'transfert'){
+      
             data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu",current_trans_id:user.id_serv ,description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+
+          
         }else{
+
            data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
@@ -197,6 +227,24 @@ function OneDoc2() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />
         </div>
+        <div className="mb-5">
+          <label
+            htmlFor="type"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Type de Mouvements
+          </label>
+       <select
+            onChange={handleChange}
+            className="text-gray-900 w-full p-2 rounded"
+            name="type"
+            id="type"
+          >
+            <option value="">- Selectionner ici -</option>
+            <option value="transfert">Transfert</option>
+            <option value="recuperation">Recuperation</option>
+          </select> 
+        </div>
         {/* DEBUT RADIO */}
         <div className="mb-5">
           <label
@@ -255,26 +303,33 @@ function OneDoc2() {
             <option value="">- Selectionner ici -</option>
             {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
           </select>)}  
-        </div>):'null'}
-
-        <div className="mb-5">
+        </div>):(<div className="mb-5">
           <label
-            htmlFor="type"
+            htmlFor="dg"
             className="block mb-2 text-sm font-medium text-gray-900"
           >
-            Type de Mouvements
+            Transferer vers ({radio})
           </label>
-       <select
+          {waiting?(<Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />):(  <select
             onChange={handleChange}
             className="text-gray-900 w-full p-2 rounded"
-            name="type"
-            id="type"
+            name="id_dg"
+            id="dg"
           >
             <option value="">- Selectionner ici -</option>
-            <option value="transfert">Transfert</option>
-            <option value="recuperation">Recuperation</option>
-          </select> 
-        </div>
+            {dir.map((d, index)=><option key={index} value={d.d_id}>{d.nom_dir}</option>)}
+          </select>)}  
+        </div>)}
+
+        
         {formData.type =="recuperation" && <div className="mb-5">
           <label
             htmlFor="par"
