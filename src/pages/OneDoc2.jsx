@@ -9,6 +9,7 @@ import { userContext } from '../components/ContextWrapper'
 function OneDoc2() {
     const [formData, setFormData] =useState({})
     const {user}= useContext(userContext)
+    const [radio, setRadio] = useState("service")
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'access
     const {id_doc} = useParams() //id du courrier dans le parametre du lien
     const [isLoading, setIsLoading] = useState(false)
@@ -196,12 +197,46 @@ function OneDoc2() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />
         </div>
+        {/* DEBUT RADIO */}
         <div className="mb-5">
           <label
             htmlFor="services"
             className="block mb-2 text-sm font-medium text-gray-900"
           >
-            Transferer vers (Service)
+            Transferer vers (Service ou Direction)
+          </label>
+          {/* {servLoading?(<Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />):(  <select
+            onChange={handleChange}
+            className="text-gray-900 w-full p-2 rounded"
+            name="serv_id"
+            id="services"
+          >
+            <option value="">- Selectionner ici -</option>
+            {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
+          </select>)}   */}
+          <div className="flex gap-x-5">
+                      <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="service">Service</label>
+          <input type="radio" name="cible" id="service" checked={radio=='service'?true:false} value={'service'} onChange={(e) => setRadio(e.target.value)}/>
+          <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="direction">Direction</label>
+          <input type="radio" name="cible" id="direction" checked={radio=='direction'?true:false} value={'direction'} onChange={(e) => setRadio(e.target.value)}/>
+          </div>
+
+        </div>
+        {/* FIN RADIO */}
+        {radio =='service'?(<div className="mb-5">
+          <label
+            htmlFor="services"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Transferer vers ({radio})
           </label>
           {servLoading?(<Oval
               visible={true}
@@ -220,7 +255,8 @@ function OneDoc2() {
             <option value="">- Selectionner ici -</option>
             {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
           </select>)}  
-        </div>
+        </div>):'null'}
+
         <div className="mb-5">
           <label
             htmlFor="type"
