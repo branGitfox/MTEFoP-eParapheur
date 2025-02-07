@@ -181,11 +181,11 @@ const HistoryData = ({ history, index, length }) => {
           </h3>
           <li>
             <span className="underline">Vers</span>:{" "}
-            {history.nom_serv}
+            {history.nom_serv??history.nom_dir+"(Direction)"}
           </li>
           <li>
             <span className="underline">Porte</span>:{" "}
-            {history.porte_serv}
+            {history.porte_serv??history.porte_dir}
           </li>
           <li>
             <span className="underline">Reference Initial</span>:{" "}
