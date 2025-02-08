@@ -31,6 +31,7 @@ import Message from "./components/admin/Message.jsx";
 import SpStats from "./components/sp/SpStats.jsx";
 import ProfilSp from "./pages/ProfilSp.jsx";
 import ProfilAgent from "./pages/ProfilAgent.jsx";
+import UpDoc from "./pages/UpDoc.jsx";
 const router = createBrowserRouter(
   [
 
@@ -86,6 +87,11 @@ const router = createBrowserRouter(
         {
           path:"/scc/profil",
           element:<Profil/>
+        },
+
+        {
+          path:"/scc/upDoc/:id_doc",
+          element:<UpDoc/>
         }
       ],
     },

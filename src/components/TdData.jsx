@@ -1,9 +1,8 @@
 import React, { useEffect, useId, useState } from "react";
-
-import { BiDotsHorizontal } from "react-icons/bi";
 import {
-  FaArrowUp,
+  
   FaCheckCircle,
+  FaEdit,
   FaExclamationCircle,
 
   FaTrashAlt,
@@ -14,6 +13,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { CgDanger } from "react-icons/cg";
+import { Link } from "react-router-dom";
 function TdData({ data, doc_id, user, setFresh, fresh }) {
   const [showInfo, setShowInfo] = useState(false);
   const [infoLoader, setInfoLoader] = useState(false);
@@ -44,8 +44,6 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
     }catch(err){
       toast.error("Verifiez votre connexion internet")
     }
-
-
   };
 
   //recuperation de l'historique de mouvement
@@ -108,7 +106,17 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
               className="text-blue-500 text-xl cursor-pointer"
             />
           )}
-        </td>        {user.role == "admin" && (
+        </td> 
+              <td className="px-9 py-3 text-sm">
+                <Link to={`/scc/upDoc/${data.c_id}`}>
+                    <FaEdit
+              cursor={"pointer"}
+              color="green"
+            />
+                </Link>
+        
+          </td>     
+            {user.role == "admin" && (
           <td className="px-9 py-3 text-sm">
             <FaTrashAlt
               onClick={() => deleteDoc(data.c_id)}

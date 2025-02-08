@@ -88,7 +88,7 @@ function Agent() {
       />
       <div className="w-full md:overflow-y-scroll  shadow-xs">
         <div className=" w-[100%] justify-between flex p-3 bg-white mb-5">
-          <h2 className="font-semibold hidden md:block text-gray-700">{user.nom_serv}</h2>
+          <h2 className="font-semibold hidden md:block text-gray-700">{user?.nom_serv}</h2>
           <BiMenu
             className="text-gray-900 md:hidden"
             onClick={toggleMenu}
@@ -102,7 +102,7 @@ function Agent() {
             to="/agent/profil"
             className="font-semibold text-gray-700 cursor-pointer"
           >
-            {user.name} <FaUser className="inline ml-2" />
+            {user?.name} <FaUser className="inline ml-2" />
           </Link>
         </div>
         <Security>
