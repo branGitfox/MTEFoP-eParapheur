@@ -18,7 +18,7 @@ function UpDoc() {
         transfere:"non",
         user_id: user.id,})
 
-        const Navigate = useNavigate()
+      
           //recuperation de la liste de Direction
   const getDir = async () => {
     setWaiting(true);
@@ -54,7 +54,7 @@ function UpDoc() {
 
 
       }
-
+const Navigate = useNavigate()
 
     const handlechange = (e) => {
         const {name, value} = e.target
@@ -62,11 +62,12 @@ function UpDoc() {
     }
      console.log(formData);
      
-      const submit = async () => {
+      const submit = async (e) => {
+        e.preventDefault()
         try{
             await axiosRequest.post(`/upDoc/${id_doc}`, formData, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
             .then(({data}) => toast.success(data.message))
-            .then(() => Navigate('/'))
+            .then(() => Navigate('/scc/'))
             .catch((err) => toast.error(err.response?.data?.message))
         }catch(err){
             console.log("");
@@ -212,7 +213,7 @@ function UpDoc() {
           >
             <option value="">- Selectionner ici -</option>
             {dir.map((d, index) => (
-              <option value={d.d_id} selected={d.d_i == formData.d_id ?true:false} key={index}>
+              <option value={d.d_id} selected={d.d_id == formData.dir_id ?true:false} key={index}>
                 {d.nom_dir}
               </option>
             ))}
