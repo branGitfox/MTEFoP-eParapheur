@@ -54,7 +54,9 @@ function UpDoc() {
 
 
       }
-const Navigate = useNavigate()
+
+      //pour la redirection
+        const Navigate = useNavigate()
 
     const handlechange = (e) => {
         const {name, value} = e.target

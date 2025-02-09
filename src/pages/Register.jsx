@@ -4,16 +4,21 @@ import { userContext } from "../components/ContextWrapper";
 import axiosRequest from "../axiosClient/axiosClient";
 import { BeatLoader } from "react-spinners";
 import { Oval } from "react-loader-spinner";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Register() {
-  const { user } = useContext(userContext);
+  const { user } = useContext(userContext); 
+  //donnee du formulaire
   const [formData, setFormData] = useState({
     status: "non reçu",
     transfere:"non",
     user_id: user.id,
     
-  }); //donnee du formulaire
+  });
+  
+  //pour la redirection
+  // const navigate = useNavigate()
+
   const [isLoading, setIsLoading] = useState(false); //etat du loader
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //le token d'acces
   const [dir, setDir] = useState([]); //liste des directions
@@ -39,12 +44,12 @@ function Register() {
           })
           .then(({ data }) => toast.success(data.message))
           .then(() => setIsLoading(false))
-
           .catch((err) => toast.error(err.response?.data?.message))
           .finally(() => setIsLoading(false));
-    }catch(err){
-        toast.error('Verifiez votre connexion internet')
-    }
+        }catch(err){
+          toast.error('Verifiez votre connexion internet')
+        }
+        setFormData("")
 
   };
 
@@ -76,7 +81,7 @@ function Register() {
   return (
     <>
       <h3 className="text-gray-900 text-2xl ml-2.5 font-semibold ">
-        Enregistrement d'un Dossier
+        Enregistrement d'un Courriers
       </h3>
       <form
         onSubmit={submit}
