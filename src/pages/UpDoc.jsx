@@ -82,7 +82,7 @@ const Navigate = useNavigate()
     </h3>
     <form
       onSubmit={submit}
-      className="w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10"
+      className="w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10 "
     >
       <div className="mb-5">
         <label
@@ -95,7 +95,7 @@ const Navigate = useNavigate()
           type="text"
           onChange={handlechange}
           id="chrono"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg  focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           placeholder="reference du dossier"
           name="chrono"
           value={formData.chrono}
