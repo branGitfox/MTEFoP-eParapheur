@@ -694,14 +694,14 @@ allOfDocByPeriod.forEach(dc => {
           innerRadius="10%"
           outerRadius="80%"
           barSize={10}
-          data={data}
+          data={dataDir}
         >
           <RadialBar
             minAngle={15}
-            label={{ position: "insideStart", fill: "#fff" }}
+            label={{ position: "insideStart", fill:"blue" }}
             background
             clockWise
-            dataKey="courrier"
+            dataKey="Courriers"
           />
           <Legend
             iconSize={10}
