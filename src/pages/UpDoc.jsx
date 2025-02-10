@@ -65,12 +65,15 @@ function UpDoc() {
      console.log(formData);
      
       const submit = async (e) => {
+        setIsLoading(true)
         e.preventDefault()
         try{
             await axiosRequest.post(`/upDoc/${id_doc}`, formData, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
             .then(({data}) => toast.success(data.message))
+            .then(() => setIsLoading(false))
             .then(() => Navigate('/scc/'))
             .catch((err) => toast.error(err.response?.data?.message))
+            .finally(() => setIsLoading(false))
         }catch(err){
             console.log("");
             
@@ -261,7 +264,7 @@ function UpDoc() {
         className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-10"
       >
         {" "}
-        {isLoading ? <BeatLoader color="yellow" /> : "Enregistrer"}
+        {isLoading ? <BeatLoader color="yellow" /> : "Modifier"}
       </button>
     </form>
   </>
