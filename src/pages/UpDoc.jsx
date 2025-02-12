@@ -43,6 +43,7 @@ function UpDoc() {
         getDoc()
       }, [location.pathname])
 
+      //recuperation du document part 'id
       const getDoc = async () => {
         try{
             await axiosRequest.get(`/getDoc/${id_doc}`, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
