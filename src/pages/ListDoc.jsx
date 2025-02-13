@@ -9,7 +9,7 @@ import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 
 function ListDoc() {
-  const { user } = useContext(userContext);
+  const { user } = useContext(userContext); // donne de l'utilisateur connectee
   const [docsByDirection, setDocsByDirection] = useState([])
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
@@ -71,6 +71,8 @@ function ListDoc() {
     navigate(`/sp/doc/${id_doc}`)
   }
 
+  console.log(docsByDirection);
+  
   docsByDirection.reverse()
   return (
     <>
@@ -204,6 +206,7 @@ const  changeLivreStatus= async (id_doc) => {
             <BiTransfer />
            
           </button>
+           
         </td>
       </tr>
     )

@@ -22,10 +22,10 @@ function ListTrans() {
     const fetchByDirection = async () => {
       setLoader(true)
       try{
-              await axiosRequest.get('/moveTransferedByService', {headers:{Authorization:`Bearer ${token}`}})
+              await axiosRequest.get('/moveTransferedToService', {headers:{Authorization:`Bearer ${token}`}})
       .then(({data}) => setMoveByDirection(data))
       .then(() => setLoader(false))
-      .catch((err) => toast.error(err?.response?.data?.message))
+      .catch((err) => toast.error(err?.response?.data?.message))  
       .finally(() => setLoader(false))
       }catch(err){
         toast.error("Verifiez votre connexion internet")
