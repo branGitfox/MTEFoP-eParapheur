@@ -30,6 +30,7 @@ function ListTrans2() {
       }catch(err){
         toast.error("Verifiez votre connexion internet")
       }
+    
 
     }
   
@@ -63,7 +64,7 @@ function ListTrans2() {
     
     //actualise les donnees
     const fresh = () => setReload(!reload);
-    console.log(moveByDirection);
+
 
     filtered.reverse()
 
@@ -98,7 +99,7 @@ function ListTrans2() {
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-blue-100">
               <th className="px-4 py-3 text-gray-800">Chrono</th>
               <th className="px-4 py-3 text-gray-800">Provenance</th>
-              <th className="px-4 py-3 text-gray-800">Service</th>
+              <th className="px-4 py-3 text-gray-800">Service/Direction</th>
               <th className="px-4 py-3 text-gray-800">Ref</th>
               <th className="px-4 py-3 text-gray-800">Type</th>
               <th className="px-4 py-3 text-gray-800">Proprietaire</th>
@@ -157,7 +158,7 @@ const DocItems = ({doc, ind}) => {
           </div>
         </td>
         <td className="px-4 py-3 text-sm">{doc.provenance}</td>
-        <td className="px-4 py-3 text-sm">{doc.nom_serv}</td>
+        <td className="px-4 py-3 text-sm">{doc.nom_serv??doc.nom_dir}</td>
         <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
         <td className="px-4 py-3 text-sm">{doc.type}</td>
         <td className="px-4 py-3 text-sm">{doc.propr??doc.proprietaire}</td>
