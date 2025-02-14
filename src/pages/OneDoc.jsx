@@ -7,6 +7,7 @@ import { userContext } from '../components/ContextWrapper'
 
 
 function OneDoc() {
+    const [radio, setRadio] = useState("service")
     const [formData, setFormData] =useState({})
     const {user}= useContext(userContext)
     const [token] = useState(localStorage.getItem('ACCESS_TOKEN')) //le token d'access
@@ -64,6 +65,12 @@ function OneDoc() {
     const handleChange = (e) => {
         const {name, value} = e.target
         setFormData((formData) => ({...formData, [name]:value}))
+        if(radio=='service'){
+          setFormData((formData) => ({...formData, ['id_dg']:"none"}))
+        }else{
+          setFormData((formData) => ({...formData, ['serv_id']:"none"}))
+
+        }
     }
 
     const handleChangePropr = (e) => {
@@ -256,7 +263,40 @@ function OneDoc() {
           />
         </div>
 }
-      
+              {/* DEBUT RADIO */}
+              <div className="mb-5">
+          <label
+            htmlFor="services"
+            className="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Transferer vers (Service ou Direction)
+          </label>
+          {/* {servLoading?(<Oval
+              visible={true}
+              height="30"
+              width="30"
+              color="blue"
+              ariaLabel="oval-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />):(  <select
+            onChange={handleChange}
+            className="text-gray-900 w-full p-2 rounded"
+            name="serv_id"
+            id="services"
+          >
+            <option value="">- Selectionner ici -</option>
+            {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
+          </select>)}   */}
+          <div className="flex gap-x-5">
+                      <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="service">Service</label>
+          <input type="radio" name="cible" id="service" checked={radio=='service'?true:false} value={'service'} onChange={(e) => setRadio(e.target.value)}/>
+          <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="direction">Direction</label>
+          <input type="radio" name="cible" id="direction" checked={radio=='direction'?true:false} value={'direction'} onChange={(e) => setRadio(e.target.value)}/>
+          </div>
+
+        </div>
+        {/* FIN RADIO */}
         <div className="mb-5">
           <label
             htmlFor="Chrono"
