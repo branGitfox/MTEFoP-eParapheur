@@ -147,8 +147,7 @@ function OneDoc2() {
                      <h3 className="text-gray-900 text-2xl ml-2.5 font-semibold ">
                              Transfert D'un Courrier
                     </h3>
-            <form  const [radio, setRadio] = useState("service")
-
+            <form
                 onSubmit={submit}
                 className="w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10"
             >

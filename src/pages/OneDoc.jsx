@@ -14,14 +14,31 @@ function OneDoc() {
     const {id_doc} = useParams() //id du courrier dans le parametre du lien
     const [isLoading, setIsLoading] = useState(false)
     const [doc, setDoc] = useState({})
+        const [dir, setDir] = useState([])
+    
     const [servLoading, setServLoading] = useState(false)
     const [servs, setServs] = useState([])
     const [propr, setPropr] = useState({})
-
+  const [waiting, setWaiting] = useState(false)
     const navigate = useNavigate()
 
         
-    
+    const getDir = async () => {
+      setWaiting(true);
+      try{
+          await axiosRequest
+              .get("/dir", {
+                headers: { "Access-Control-Allow-Origin": "http://127.0.0.1:8000" },
+              })
+              .then(({ data }) => setDir(data))
+              .then(() => setWaiting(false))
+              .catch((err) => console.log(err).finally(() => setWaiting(false)));
+      }catch(err){
+        toast.error("Verifiez votre connexion internet")
+      }
+   
+    };
+
     const getServs = async () => {
         setServLoading(true)
         try{
@@ -61,6 +78,7 @@ function OneDoc() {
     //appel de getServs
     useEffect(() => {
         getServs()
+        getDir()
     }, [user])
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -81,9 +99,9 @@ function OneDoc() {
         e.preventDefault()
         let data
         if(formData.type == 'transfert'){
-            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu",current_trans_id:user.id_serv ,description:doc.motif, transfere:"non", current_trans_id_dir:user.id_dir, ref_initial:doc.chrono, id_dg:'none'}
+            data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu",current_trans_id:user.id_serv ,description:doc.motif, transfere:"non", current_trans_id_dir:user.id_dir, ref_initial:doc.chrono}
         }else{
-           data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", current_trans_id_dir:user.id_dir, ref_initial:doc.chrono, id_dg:'none'}
+           data = {...formData, courrier_id:id_doc, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, description:doc.motif, transfere:"non", current_trans_id_dir:user.id_dir, ref_initial:doc.chrono}
         }
 
         try{
@@ -202,7 +220,7 @@ function OneDoc() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
           />
         </div>
-        <div className="mb-5">
+        {/* <div className="mb-5">
           <label
             htmlFor="services"
             className="block mb-2 text-sm font-medium text-gray-900"
@@ -226,7 +244,7 @@ function OneDoc() {
             <option value="">- Selectionner ici -</option>
             {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
           </select>)}  
-        </div>
+        </div> */}
         <div className="mb-5">
           <label
             htmlFor="type"
@@ -297,6 +315,55 @@ function OneDoc() {
 
         </div>
         {/* FIN RADIO */}
+        {radio =='service'?(<div className="mb-5">
+                  <label
+                    htmlFor="services"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Transferer vers ({radio})
+                  </label>
+                  {servLoading?(<Oval
+                      visible={true}
+                      height="30"
+                      width="30"
+                      color="blue"
+                      ariaLabel="oval-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                    />):(  <select
+                    onChange={handleChange}
+                    className="text-gray-900 w-full p-2 rounded"
+                    name="serv_id"
+                    id="services"
+                  >
+                    <option value="">- Selectionner ici -</option>
+                    {servs.map((serv, index)=><option key={index} value={serv.s_id}>{serv.nom_serv}</option>)}
+                  </select>)}  
+                </div>):(<div className="mb-5">
+                  <label
+                    htmlFor="dg"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Transferer vers ({radio})
+                  </label>
+                  {waiting?(<Oval
+                      visible={true}
+                      height="30"
+                      width="30"
+                      color="blue"
+                      ariaLabel="oval-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                    />):(  <select
+                    onChange={handleChange}
+                    className="text-gray-900 w-full p-2 rounded"
+                    name="id_dg"
+                    id="dg"
+                  >
+                    <option value="">- Selectionner ici -</option>
+                    {dir.map((d, index)=><option key={index} value={d.d_id}>{d.nom_dir}</option>)}
+                  </select>)}  
+                </div>)}
         <div className="mb-5">
           <label
             htmlFor="Chrono"
