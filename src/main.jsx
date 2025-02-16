@@ -32,6 +32,8 @@ import SpStats from "./components/sp/SpStats.jsx";
 import ProfilSp from "./pages/ProfilSp.jsx";
 import ProfilAgent from "./pages/ProfilAgent.jsx";
 import UpDoc from "./pages/UpDoc.jsx";
+import ListTraite from "./pages/ListTraite.jsx";
+import OneDoc3 from "./pages/OneDoc3.jsx";
 const router = createBrowserRouter(
   [
 
@@ -138,8 +140,16 @@ const router = createBrowserRouter(
           element:<OneDoc/>
         },
         {
+          path:'/sp/move/:id_doc',
+          element:<OneDoc3/>
+        },
+        {
           path:'/sp/ListTrans',
           element:<ListTrans/>
+        },
+        {
+          path:'/sp/ListTraite',
+          element:<ListTraite/>
         },
         {
           path:'/sp/stats',
