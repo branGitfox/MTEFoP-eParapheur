@@ -107,7 +107,7 @@ function Aside() {
                 ""
               )
             } <FaHouseLaptop  className="mr-4" />
-            Ajout Dir/Serv
+            Ajout DG/Dir/Serv
           </Link>
           <Link
             to="/admin/messages"

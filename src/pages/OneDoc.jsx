@@ -309,7 +309,7 @@ function OneDoc() {
           <div className="flex gap-x-5">
                       <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="service">Service</label>
           <input type="radio" name="cible" id="service" checked={radio=='service'?true:false} value={'service'} onChange={(e) => setRadio(e.target.value)}/>
-          <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="direction">Direction</label>
+          <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="direction">Direction(SP)</label>
           <input type="radio" name="cible" id="direction" checked={radio=='direction'?true:false} value={'direction'} onChange={(e) => setRadio(e.target.value)}/>
           </div>
 
