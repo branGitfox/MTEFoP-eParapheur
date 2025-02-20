@@ -111,10 +111,11 @@ function OneDoc3() {
            data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, current_trans_id_dir:user.id_dir, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
+//gestion d'erreur
         try{
         await axiosRequest.post(`/transDocMove/${id_doc}`, data, {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => toast.success(data.message))
-        .then(() =>  navigate('/agent'))
+        .then(() =>  navigate('/sp/listTraite'))
         .catch(({response}) => toast.error(response.data.message))
         }catch(err){
           toast.error("Verifiez votre connexion internet")

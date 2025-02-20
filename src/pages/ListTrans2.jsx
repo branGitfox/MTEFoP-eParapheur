@@ -7,7 +7,7 @@ import { userContext } from "../components/ContextWrapper";
 import axiosRequest from "../axiosClient/axiosClient";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
-import { useNavigate } from "react-router-dom";
+
 
 
 function ListTrans2() {
@@ -153,13 +153,13 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3">
           <div className="flex items-center text-sm">
             <div>
-              <p className="font-semibold">{doc.ref_propre}</p>
+              <p className="font-semibold">{doc.ref_initial}</p>
             </div>
           </div>
         </td>
         <td className="px-4 py-3 text-sm">{doc.provenance}</td>
         <td className="px-4 py-3 text-sm">{doc.nom_serv??doc.nom_dir}</td>
-        <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
+        <td className="px-4 py-3 text-sm">{doc.ref_propre}</td>
         <td className="px-4 py-3 text-sm">{doc.type}</td>
         <td className="px-4 py-3 text-sm">{doc.propr??doc.proprietaire}</td>
         <td className="px-4 py-3 text-sm">{doc.cin}</td>
