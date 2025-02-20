@@ -258,10 +258,10 @@ const HistoryData = ({ history, index, length, all }) => {
               {history.type + " - " + history.created_at}
             </h3>
             <li>
-              <span className="underline">Vers</span>: {history.nom_serv}
+              <span className="underline">Vers</span>: {history.nom_serv??history.nom_dir}
             </li>
             <li>
-              <span className="underline">Porte</span>: {history.porte_serv}
+              <span className="underline">Porte</span>: {history.porte_serv??history.porte_dir}
             </li>
             <li>
               <span className="underline">Reference Initial</span>:{" "}
