@@ -162,7 +162,7 @@ const DocItems = ({doc, ind}) => {
         </td>
         <td className="px-4 py-3 text-sm">{doc.provenance}</td>
         <td className="px-4 py-3 text-sm">{doc.nom_serv??doc.nom_dir}</td>
-        <td className="px-4 py-3 text-sm">{doc.porte_serv}</td>
+        <td className="px-4 py-3 text-sm">{doc.porte_serv??doc.porte_dir}</td>
         <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
         <td className="px-4 py-3 text-sm">{doc.type}</td>
         <td className="px-4 py-3 text-sm">{doc.propr??doc.proprietaire}</td>

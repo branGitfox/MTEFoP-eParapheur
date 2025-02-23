@@ -103,12 +103,12 @@ function OneDoc3() {
         let data
         if(formData?.type == 'transfert'){
       
-            data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu",current_trans_id:user.id_serv, current_trans_id_dir:user.id_dir ,description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+            data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu",current_trans_id:0, current_trans_id_dir:user.id_dir ,description:doc.motif, transfere:"non", ref_initial:doc.chrono}
 
           
         }else{
 
-           data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu", ...propr, current_trans_id:user.id_serv, current_trans_id_dir:user.id_dir, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
+           data = {...formData, courrier_id:doc.c_id, user_id:user.id, status:"non reçu", ...propr, current_trans_id:0, current_trans_id_dir:user.id_dir, description:doc.motif, transfere:"non", ref_initial:doc.chrono}
         }
 
 //gestion d'erreur
