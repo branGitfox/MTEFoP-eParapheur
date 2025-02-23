@@ -63,9 +63,9 @@ const redirect = (link) => navigate(link)
               onSubmit={handleSubmit}
               className="flex flex-col w-[100%] px-10  items-center"
             >
-                    <h1 className="text-4xl text-center  mt-[1.5rem] mb-10  text-blue-500">
+                    {/* <h1 className="text-4xl text-center  mt-[1.5rem] mb-10  text-blue-500">
                 Rapport
-          </h1>
+          </h1> */}
               <div className="mb-7 w-[100%] relative">
                 <label
                   htmlFor="email"
@@ -107,7 +107,7 @@ const redirect = (link) => navigate(link)
                   size={20}
                 />
               </div>
-              <div className="mb-5 w-[100%] relative">
+              <div className="mb-3 w-[100%] relative">
                 <label
                   htmlFor="message"
                   className="block text-semibold text-black"
