@@ -7,11 +7,17 @@ import { BeatLoader } from "react-spinners";
 import axios from "axios";
 import { useState } from "react";
 import { toast } from "react-toastify";
-function Aside() {
+function Aside({setShow, show}) {
   const locations = useLocation();
   const [loading, setIsLoading] = useState(false);
-  const [show, setShow] = useState(false)
+  
 
+console.log(show);
+
+  const toggleShow = () => {
+    setShow(!show)
+  }
+  
   const logout = async () => {
     setIsLoading(true);
     await axios
@@ -159,7 +165,7 @@ function Aside() {
         <nav className="text-white text-normal font-semibold pt-3">
           <Link
             to="/admin"
-            className={`flex items-center relative rounded-sm  hover:bg-blue-900  text-white py-4 pl-6 nav-item`}
+            className={`flex items-center relative rounded-sm  hover:bg-blue-900  text-white py-4 pl-6 nav-item`} onClick={toggleShow}
           >
                {
               locations.pathname === "/admin" ? (
@@ -175,7 +181,7 @@ function Aside() {
           </Link>
           <Link
             to="/admin/userregister"
-            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
+            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`} onClick={toggleShow}
           >
             {
               locations.pathname === "/admin/userregister" ? (
@@ -191,7 +197,7 @@ function Aside() {
           </Link>
           <Link
             to="/admin/usersList"
-            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
+            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`} onClick={toggleShow}
           >
             {
               locations.pathname === "/admin/usersList" ? (
@@ -207,7 +213,7 @@ function Aside() {
           </Link>
           <Link
             to="/admin/sccservdirdg"
-            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
+            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`} onClick={toggleShow}
           >
                {
               locations.pathname === "/admin/sccservdirdg" ? (
@@ -223,7 +229,7 @@ function Aside() {
           </Link>
           <Link
             to="/admin/messages"
-            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`}
+            className={`flex relative items-center rounded-sm  text-white hover:bg-blue-900 py-4 pl-6 nav-item`} onClick={toggleShow}
           >
                {
               locations.pathname === "/admin/messages" ? (
@@ -239,7 +245,7 @@ function Aside() {
           </Link>
           <Link
             to="/scc"
-            className="flex items-center text-white rounded-sm hover:bg-blue-900 py-4 pl-6 nav-item"
+            className="flex items-center text-white rounded-sm hover:bg-blue-900 py-4 pl-6 nav-item" onClick={toggleShow}
           >
             <FaMailBulk  className="mr-4" />
             Visiter Service-CC

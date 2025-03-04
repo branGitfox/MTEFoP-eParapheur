@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Aside from "../components/admin/Aside";
 import Header from "../components/admin/Header";
@@ -6,18 +6,22 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminProtection from "../components/admin/AdminProtection";
 
+
 function Admin() {
-  return (
+  const [show, setShow] = useState(false)
+    return (
     <> 
       <div className="bg-gray-100 font-family-karla flex min-h-screen">
-        <Aside />
+        <Aside show={show} setShow={setShow}/>
         <div className="w-full flex flex-col h-screen overflow-y-scroll">
-          <Header />
+          <Header show={show} setShow={setShow}/>
 
           {/* protection de la page administrateur */}
+           
           <AdminProtection>
-              <Outlet />
+              <Outlet/>
           </AdminProtection>
+         
          
         </div>
       </div> 
