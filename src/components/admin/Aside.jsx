@@ -12,7 +12,7 @@ function Aside({setShow, show}) {
   const [loading, setIsLoading] = useState(false);
   
 
-console.log(show);
+
 
   const toggleShow = () => {
     setShow(!show)
