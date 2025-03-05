@@ -5,6 +5,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 function MatchRoleAgent({children}) {
     const {user} = useContext(userContext)
     const navigate = useNavigate()
+    
+    //protection parole
     useEffect(() => {
         if(user.role !== 'agent'){
             navigate('/login')

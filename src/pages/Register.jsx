@@ -4,7 +4,7 @@ import { userContext } from "../components/ContextWrapper";
 import axiosRequest from "../axiosClient/axiosClient";
 import { BeatLoader } from "react-spinners";
 import { Oval } from "react-loader-spinner";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Register() {
   const { user } = useContext(userContext); 

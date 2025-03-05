@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 function Home() {
   const [visitors, setVisitors] = useState()
   const [loading, setLoading] = useState(false)
+  
   const getNbrVisitors = async () => {  
     setLoading(true)
     try{

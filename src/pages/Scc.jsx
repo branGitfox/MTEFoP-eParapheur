@@ -17,7 +17,7 @@ function Scc() {
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
   const { user, setUser } = useContext(userContext);
 
-  //garantie pour l'information de l'utilisateur
+  //garantie pour l'information de l'utilisateur en cas d'actualisation
   const getUser = async () => {
     try {
       await axiosRequest
@@ -75,7 +75,7 @@ function Scc() {
     }
   }, [user.role]);
 
-console.log(user.role);
+
 
   
   return (

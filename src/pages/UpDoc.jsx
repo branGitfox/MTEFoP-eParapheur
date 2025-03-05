@@ -63,7 +63,7 @@ function UpDoc() {
         const {name, value} = e.target
         setFormData((formData) => ({...formData, [name]:value}))
     }
-     console.log(formData);
+     
      
       const submit = async (e) => {
         setIsLoading(true)

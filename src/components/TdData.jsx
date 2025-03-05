@@ -44,7 +44,7 @@ function TdData({ data, doc_id, user, setFresh, fresh }) {
     }catch(err){
       toast.error("Verifiez votre connexion internet")
     }
-  };
+  }
 
   //recuperation de l'historique de mouvement
   const getHistory = async () => {

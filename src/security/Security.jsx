@@ -5,7 +5,7 @@ function Security({children}) {
 const navigation = useNavigate()
 const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
 
-//securisation
+//securisation de l'application
 const protect = () => {
   if(localStorage.getItem('ACCESS_TOKEN') == null){  
     navigation('/login')

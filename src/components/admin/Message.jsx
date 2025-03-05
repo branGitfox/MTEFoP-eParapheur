@@ -65,7 +65,7 @@ const ShowMessage = ({mess}) =>  {
             <div className="col-span-6  w-full flex flex-col items-end px-2 justify-center">
                <Link onClick={toggle} className='text-gray-900 underline'>{show?"Lu":"Lire"}<FaReadme size={25} className='text-gray-500 inline ml-2'/></Link>
             </div>
-            {show&& <div className="col-span-12 p-4 text-center font-normal text-gray-800">
+            {show&& <div className="col-span-12 p-4 text-center font-normal text-gray-800"> 
            <hr className='text-gray-200 w-full border-2 mb-10'/>
                 {mess.message}
             </div>}
