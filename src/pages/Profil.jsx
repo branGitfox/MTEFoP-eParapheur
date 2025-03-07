@@ -34,7 +34,7 @@ function Profil() {
 
   //Envoie les donnees vers l'API
 
-  //pour nom et imatricule
+  //Modifier les informations d'un utilisateur
   const submit = async (e) => {
     try{
 

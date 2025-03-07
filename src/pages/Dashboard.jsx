@@ -176,7 +176,7 @@ useEffect(() => {
   getDocByDirectionByPeriod()
 },[])
 
-console.log(docByDirection);
+
 const allOfDocByPeriod =  [...docByDirectionByPeriod]
 let number = 0
 allOfDocByPeriod.map((doc , index)=> doc[1].find(f =>f.created_at.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0,7))))

@@ -89,7 +89,7 @@ const checkeds = useRef(null)
     }
   }, [userData]);
 
-  //redirection au page par rapport au role
+  //redirection vers une page par rapport au role de l'utilisateur
   useEffect(() => {
     if (localStorage.getItem("ACCESS_TOKEN") !== null) {
       if (user.role == "scc" ) {
