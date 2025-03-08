@@ -90,6 +90,7 @@ function UserRegister() {
         },
       })
       .then(({ data }) => toast.success(data.message))
+      .then(() => setFormData({status:"active", name:"", email:"", im:"", id_dir:"", id_serv:"", role:"", password:"", password_confirmation:""}))
       .then(() => toast.info("l'email a ete bien envoyee"))
       .then(() => setIsLoading(false))
       .catch((err) => toast.error(err?.response?.data?.message))
@@ -122,6 +123,7 @@ function UserRegister() {
                 required=""
                 placeholder="Le Nom Du Nouveau Utilisateur "
                 aria-label="Name"
+               
               />
             </div>
             <div className="mt-2">
