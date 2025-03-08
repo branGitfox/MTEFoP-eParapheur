@@ -23,12 +23,14 @@ function Register() {
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //le token d'acces
   const [dir, setDir] = useState([]); //liste des directions
   const [waiting, setWaiting] = useState(false); // looder pour la recuperation des directions
-  const location = useLocation()
+  const locations = useLocation()
+
   //gere le changement du formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((formData) => ({ ...formData, [name]: value }));
   };
+
 
   //gere la submission du formulaire
   const submit = async (e) => {
@@ -43,14 +45,15 @@ function Register() {
             },
           })
           .then(({ data }) => toast.success(data.message))
+          .then(() =>setFormData({status: "non reçu",
+            transfere:"non",
+            user_id: user.id,chrono:"", ref:"", provenance:"", proprietaire:"", dir_id:"", caracteristique:"", tel:"", cin:"", motif:""}))
           .then(() => setIsLoading(false))
-          .catch((err) => toast.error(err.response?.data?.message))
+          .catch((err) => toast.error(err.response?.data?.message))      
           .finally(() => setIsLoading(false));
         }catch(err){
           toast.error('Verifiez votre connexion internet')
-        }
-        setFormData("")
-
+        }  
   };
 
   //recuperation de la liste de Direction
@@ -73,7 +76,7 @@ function Register() {
   //appel a la fonction getDir dependant du chemin grace a (useLocation)
   useEffect(() => {
     getDir()
-  }, [location.pathname])
+  }, [locations.pathname])
 
   //log
   console.log(formData);
@@ -98,6 +101,7 @@ function Register() {
             type="text"
             onChange={handleChange}
             id="chrono"
+            value={formData?.chrono}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="reference du dossier"
             name="chrono"
@@ -117,6 +121,8 @@ function Register() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="chrono initial"
             name="ref"
+            value={formData?.ref}
+
           />
         </div>
         <div className="mb-5">
@@ -133,6 +139,8 @@ function Register() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="Provenance"
             name="provenance"
+            value={formData?.provenance}
+
           />
         </div>
         <div className="mb-5">
@@ -149,6 +157,8 @@ function Register() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="proprietaire du dossier"
             name="proprietaire"
+            value={formData?.proprietaire}
+
           />
         </div>
         <div className="mb-5">
@@ -165,6 +175,8 @@ function Register() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   "
             placeholder="objet du depot"
             name="motif"
+            value={formData?.motif}
+
           />
         </div>
         <div className="mb-5">
@@ -179,6 +191,8 @@ function Register() {
             className="text-gray-900 w-full p-2 rounded"
             name="caracteristique"
             id=""
+            value={formData?.caracteristique}
+           
           >
             <option value="">- Selectionner ici -</option>
             <option value="plis ferme">Plis Ferme</option>
@@ -207,6 +221,8 @@ function Register() {
               onChange={handleChange}
               className="text-gray-900 w-full p-2 rounded"
               name="dir_id"
+              value={formData?.dir_id}
+
               id=""
             >
               <option value="">- Selectionner ici -</option>
@@ -232,6 +248,8 @@ function Register() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="Votre CIN"
             name="cin"
+            value={formData?.cin}
+
           />
         </div>
         <div className="mb-5">
@@ -248,6 +266,8 @@ function Register() {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="Votre tel"
             name="tel"
+            value={formData?.tel}
+
           />
         </div>
         <button
