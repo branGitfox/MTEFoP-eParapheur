@@ -13,9 +13,9 @@ function Nav() {
     <>
       <nav
         id="header"
-        className="fixed  w-full z-50   text-white bg-[#191970]"
+        className="fixed  w-full z-50 top-0   text-white bg-[#191970]"
       >
-        <div className="w-full  mx-auto flex flex-wrap items-center justify-between  mt-0 py-2">
+        <div className="w-full container  mx-auto flex flex-wrap items-center justify-between  mt-0 py-2">
           <div className="pl-4 flex items-center">
             <a
       
