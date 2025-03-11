@@ -71,7 +71,9 @@ function Tracker() {
   }, [freshStatus]);
   return (
     <>
+
       <div className=" w-[100%]  justify-start gap-x-4  flex p-3 mb-5 relative text-black">
+
           {/* <div className="w-[80%] h-12 flex justify-center relative ">
                 <input
             onChange={handleChange}
@@ -86,7 +88,6 @@ function Tracker() {
           />
           </div> */}
 
-
           <div class="relative">
         <span class="absolute inset-y-0 left-0 justify-start flex items-center pl-3">
             <svg class="w-full h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
@@ -94,9 +95,10 @@ function Tracker() {
             </svg>
         </span>
 
+
         <input value={search}   onChange={handleChange} type="text" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border rounded-md focus:border-blue-400  focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" placeholder="Rechercher"/>
-    </div>
-      
+
+      </div>
           <button onClick={fresh} class="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
     <svg class="w-5 h-5 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
