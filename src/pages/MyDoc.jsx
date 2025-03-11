@@ -84,8 +84,8 @@ function MyDoc() {
           Suivre mon dossier
         </h1>
         <p className="relative top-[68px] text-gray-900 text-center mt-5">
-          Pour suivre votre dossier il suffit d'entrer la reference dans la
-          barre de recherche ci dessous.Puis appuyer sur le boutton
+          Pour suivre votre dossier il suffit d'entrer la reférence dans la
+          barre de recherche ci dessous.Puis appuyer sur le bouton
           "rechercher".
         </p>
         <form

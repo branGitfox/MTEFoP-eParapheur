@@ -52,7 +52,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
                     d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                   ></path>
                 </svg>
-                <span className="ml-4">Liste de Courriers</span>
+                <span className="ml-4">Liste  Courriers</span>
               </Link>
             </li>
             <li className="relative px-6 py-3">
@@ -68,7 +68,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
                 to='/agent/ListTrans'
               >
                 <BiTransferAlt size={20}/>
-                <span className="ml-4">Liste de Transferts</span>
+                <span className="ml-4">Liste  Transferts</span>
               </Link>
             </li>
             <li className="relative px-6 py-3">

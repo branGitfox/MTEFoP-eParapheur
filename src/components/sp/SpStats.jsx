@@ -62,7 +62,7 @@ function SpStats() {
     <>
   
         <h2 className="text-gray-800 font-bold ml-1 mb-7 text-xl">
-             <FaChartLine className="inline mr-1 text-blue-500 "/> Representation Graphique de donnees transferees
+             <FaChartLine className="inline mr-1 text-blue-500 "/> Représentation Graphique de donnees transferées
       </h2>
       <div className="flex w-full flex-wrap md:w-[400px] justify-between px-1 ">
           <h2 className="text-gray-800 font-bold">
@@ -70,7 +70,7 @@ function SpStats() {
           </h2>
           <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px]  flex mt-2 p-2 md:p-0 lg:mt-0 justify-evenly gap-x-2 ">
                   <div >
-                  <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
+                  <label htmlFor="" className="text-gray-800 font-medium" >Début</label>
                     <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
                   </div>
                   <div >
@@ -95,7 +95,7 @@ function SpStats() {
                         <h3 className="font-bold text-3xl text-gray-900 text-center">
                           {countByDirection}
                         </h3>
-                        <h5 className="font-bold text-gray-500 text-center"> Courriers Enregistrees</h5>
+                        <h5 className="font-bold text-gray-500 text-center"> Courriers Enregistrés</h5>
                       </div>
                     </div>
                   </div>
@@ -123,7 +123,7 @@ function SpStats() {
       </ResponsiveContainer>
 
 </div>
-<h2 className='md:mt-10 mt-[200px]  text-gray-900 font-bold'><BiTransfer className='text-blue-500 inline mr-1' size={20}/>Courriers Transferes</h2>
+<h2 className='md:mt-10 mt-[200px]  text-gray-900 font-bold'><BiTransfer className='text-blue-500 inline mr-1' size={20}/>Courriers Transferés</h2>
       <div className="flex  flex-wrap w-full justify-center  p-3">
 
      
