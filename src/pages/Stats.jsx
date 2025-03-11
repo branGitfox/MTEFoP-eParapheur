@@ -403,7 +403,7 @@ allOfDocByPeriod.forEach(dc => {
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  Courriers non dispatche
+                  Courriers non dispatchés
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -434,7 +434,7 @@ allOfDocByPeriod.forEach(dc => {
               {/* Livre */}
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers dispatche
+                  courriers dispatchés
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -482,8 +482,8 @@ allOfDocByPeriod.forEach(dc => {
           
             </div>
                   <ul>
-                  <li className="text-green-800 font-bold ">Dechargee: {d[2].length}</li>
-                  <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li>
+                  <li className="text-green-800 font-bold ">Dechargé(s): {d[2].length}</li>
+                  <li className="text-red-800 font-bold ">Non Dechargé(s): {d[3].length}</li>
                 </ul>
           </div>
           
@@ -498,7 +498,7 @@ allOfDocByPeriod.forEach(dc => {
 
       {/* Ici commence les deux  premiers graphiques */}
       <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
-        Representation graphiques du courriers enregistrer
+        Représentation graphiques de courriers enregistrés
       </h3>
 
       <div className="flex justify-evenly w-[100%] h-[400px] items-center gap-y-4 p-3 mt-10">
@@ -535,7 +535,7 @@ allOfDocByPeriod.forEach(dc => {
         </h3>
             <form onSubmit={handleSubmitPeriod} className="w-[200px] flex mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div >
-              <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
+              <label htmlFor="" className="text-gray-800 font-medium" >Début</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
               </div>
               <div >
@@ -556,7 +556,7 @@ allOfDocByPeriod.forEach(dc => {
               </div>
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers Enregistrer
+                  courriers Enregistrés
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -605,7 +605,7 @@ allOfDocByPeriod.forEach(dc => {
               {/* Livre */}
               <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
-                  courriers Livre
+                  courriers Livrés
                 </h5>
                 <h3 className="font-bold text-3xl text-gray-900">
                   {
@@ -651,7 +651,7 @@ allOfDocByPeriod.forEach(dc => {
               
             </div>
             <ul>
-                  <li className="text-green-800 font-bold ">Dechargee: {d[2].length}</li>
+                  <li className="text-green-800 font-bold ">Dechargé(s): {d[2].length}</li>
                   {/* <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li> */}
                 </ul>
           </div>

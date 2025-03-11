@@ -89,7 +89,7 @@ function Scc() {
           menu={showMenu}
         />
         <div className="w-full md:overflow-y-scroll  shadow-xs">
-          <div className=" w-[100%] justify-between flex p-3 bg-white mb-5">
+          <div className=" w-[100%] justify-between flex p-3 bg-white mb-5 items-center">
             <h2 className="font-semibold hidden md:block text-gray-700">{user.role=='scc'?'SCC':user.nom_serv}</h2>
             <BiMenu
               className="text-gray-900 md:hidden"
@@ -104,7 +104,7 @@ function Scc() {
               to="/scc/profil"
               className="font-semibold text-gray-700 cursor-pointer"
             >
-              {user.name} <FaUser className="inline ml-2" />
+              {user.name} <img class="object-cover w-8 h-8 rounded-full inline" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=100" alt=""/>
             </Link>
           </div>
           <Security>

@@ -191,7 +191,7 @@ allOfDocByPeriod.forEach(dc => {
       </h2>
       <form onSubmit={handleSubmitPeriod2} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 ">
               <div>
-              <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
+              <label htmlFor="" className="text-gray-800 font-medium" >Début</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod2} name="start" type="date"  />
               </div>
               <div >
@@ -231,7 +231,7 @@ allOfDocByPeriod.forEach(dc => {
                 <h3 className="font-bold text-3xl text-gray-900 text-center">
                   {allDocGotByOwner}
                 </h3>
-                <h5 className="font-bold text-gray-500">Decharger</h5>
+                <h5 className="font-bold text-gray-500">Dechargés</h5>
               </div>
             </div>
           </div>
@@ -248,7 +248,7 @@ allOfDocByPeriod.forEach(dc => {
                 <h3 className="font-bold text-3xl text-gray-900 text-center">
                 {allDocNotGotByOwner}
                 </h3>
-                <h5 className="font-bold text-gray-500">Non Decharger</h5>
+                <h5 className="font-bold text-gray-500">Non Dechargés</h5>
               </div>
             </div>
           </div>
@@ -268,7 +268,7 @@ allOfDocByPeriod.forEach(dc => {
                 </h3>
                 <h5 className="font-bold text-gray-500">{doc[0]}</h5>
                 <ul>
-                  <li className="text-green-800 font-bold ">Dechargee: {doc[2]}</li>
+                  <li className="text-green-800 font-bold ">Dechargé(s): {doc[2]}</li>
                   {/* <li className="text-red-800 font-bold ">Non Dechargee: {doc[3]}</li> */}
                 </ul>
               </div>
@@ -318,7 +318,7 @@ allOfDocByPeriod.forEach(dc => {
          <h2 className="mt-3 ml-2 font-bold text-gray-900 text-xl"> <FaEye className="inline ml-1 text-blue-800 mr-1"  size={25}/>Trafics</h2>    
          <form onSubmit={handleSubmitPeriod} className=" w-full md:w-[200px] flex    mt-2 lg:mt-0 justify-evenly gap-x-5 p-4 md:p-0">
               <div >
-              <label htmlFor="" className="text-gray-800 font-medium" >Debut</label>
+              <label htmlFor="" className="text-gray-800 font-medium" >Début</label>
                 <input className="text-gray-900 p-2 rounded-md w-full"  onChange={handlePeriod} name="start" type="date"  />
               </div>
               <div >
