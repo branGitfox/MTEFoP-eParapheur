@@ -106,6 +106,31 @@ function Tracker() {
 
     <span class="mx-1">Rafraichir</span>
 </button>
+<div class="flex items-center me-4">
+        <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500   focus:ring-2"/>
+        <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-è00 ">Afficher Tout</label>
+    </div>
+    <div class="flex">
+    <a href="#" class="flex items-center px-4 py-2 mx-1 text-gray-500 bg-white rounded-md cursor-not-allowed  ">
+        Précédent
+    </a>
+
+    <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex   hover:bg-blue-600  hover:text-white ">
+        1
+    </a>
+
+    <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex   hover:bg-blue-600  hover:text-white ">
+        2
+    </a>
+
+    <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex  hover:bg-blue-600  hover:text-white ">
+        3
+    </a>
+
+    <a href="#" class="flex items-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md   hover:bg-blue-600  hover:text-white ">
+          Suivant
+    </a>
+</div>
       </div>
       <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
         <table className="w-full whitespace-no-wrap ">
