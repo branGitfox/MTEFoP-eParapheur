@@ -83,17 +83,17 @@ function Register() {
   
   return (
     <>
-      <h3 className="text-gray-900 text-2xl ml-2.5 font-semibold ">
+      <h3 className="text-gray-700 text-2xl ml-2.5 font-semibold ">
         Enregistrement d'un Courriers
       </h3>
       <form
         onSubmit={submit}
-        className="w-[100%]  m-auto  p-10 bg-white rounded-md shadow mt-5 md:mt-10"
+        className="w-[99%]  m-auto  flex flex-wrap justify-between  p-8 gap-x-5 bg-white rounded-md shadow mt-5 md:mt-10"
       >
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="chrono"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             Chrono
           </label>
@@ -102,15 +102,15 @@ function Register() {
             onChange={handleChange}
             id="chrono"
             value={formData?.chrono}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="reference du dossier"
             name="chrono"
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="ref"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             Reference
           </label>
@@ -118,17 +118,17 @@ function Register() {
             type="text"
             id="ref"
             onChange={handleChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="chrono initial"
             name="ref"
             value={formData?.ref}
 
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="provenance"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             Provenance
           </label>
@@ -136,17 +136,17 @@ function Register() {
             type="text"
             onChange={handleChange}
             id="provenance"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="Provenance"
             name="provenance"
             value={formData?.provenance}
 
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="prop"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             Proprietaire
           </label>
@@ -154,17 +154,17 @@ function Register() {
             type="text"
             onChange={handleChange}
             id="prop"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
             placeholder="proprietaire du dossier"
             name="proprietaire"
             value={formData?.proprietaire}
 
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="motif"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             Motif
           </label>
@@ -172,23 +172,23 @@ function Register() {
             type="text"
             onChange={handleChange}
             id="motif"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   "
+            className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5   "
             placeholder="objet du depot"
             name="motif"
             value={formData?.motif}
 
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="website"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             Caracteristique
           </label>
           <select
             onChange={handleChange}
-            className="text-gray-900 w-full p-2 rounded"
+            className="text-gray-700 w-full p-2 rounded"
             name="caracteristique"
             id=""
             value={formData?.caracteristique}
@@ -199,10 +199,10 @@ function Register() {
             <option value="normale">Normale</option>
           </select>
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="website"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             Direction
           </label>
@@ -219,7 +219,7 @@ function Register() {
           ) : (
             <select
               onChange={handleChange}
-              className="text-gray-900 w-full p-2 rounded"
+              className="text-gray-700 w-full p-2 rounded"
               name="dir_id"
               value={formData?.dir_id}
 
@@ -234,10 +234,10 @@ function Register() {
             </select>
           )}
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="cin"
-            className="block mb-2 text-sm font-medium text-gray-900 "
+            className="block mb-2 text-sm font-medium text-gray-700 "
           >
             CIN
           </label>
@@ -245,17 +245,17 @@ function Register() {
             type="text"
             id="cin"
             onChange={handleChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
-            placeholder="Votre CIN"
+            className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            placeholder="CIN du proprietaire"
             name="cin"
             value={formData?.cin}
 
           />
         </div>
-        <div className="mb-5">
+        <div className="mb-5 w-[45%]">
           <label
             htmlFor="cin"
-            className="block mb-2 text-sm font-medium text-gray-900"
+            className="block mb-2 text-sm font-medium text-gray-700"
           >
             Tel
           </label>
@@ -263,20 +263,22 @@ function Register() {
             type="text"
             id="tel"
             onChange={handleChange}
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
-            placeholder="Votre tel"
+            className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:outline-blue-900  focus:border-blue-500 block w-full p-2.5  "
+            placeholder="téléphone du proprietaire"
             name="tel"
             value={formData?.tel}
 
           />
         </div>
+        <div className=" w-[45%]">
         <button
           type="submit"
-          className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-10"
+          className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-7"
         >
           {" "}
           {isLoading ? <BeatLoader color="yellow" /> : "Enregistrer"}
         </button>
+        </div>
       </form>
     </>
   );
