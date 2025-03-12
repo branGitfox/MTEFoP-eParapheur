@@ -65,7 +65,7 @@ function Scc() {
       .catch((err) => toast.error(err.message))
     }catch(err){
       toast.error("Verifiez connexion internet")
-    }
+      }
 ;
   };
 
@@ -104,7 +104,10 @@ function Scc() {
               to="/scc/profil"
               className="font-semibold text-gray-700 cursor-pointer"
             >
-              {user.name} <img class="object-cover w-8 h-8 rounded-full inline" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=100" alt=""/>
+            
+             {user.name}     <img class="object-cover w-8 h-8 rounded-full inline" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=100" alt=""/>
+
+
             </Link>
           </div>
           <Security>
