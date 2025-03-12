@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {FaThumbsUp } from "react-icons/fa";
+import {FaFilter, FaThumbsUp } from "react-icons/fa";
 import { SiEnterprisedb, SiFlux, SiPaperswithcode, SiPinboard, SiUpcloud } from "react-icons/si";
 import {
   LineChart,
@@ -17,12 +17,13 @@ import {
 } from "recharts";
 import axiosRequest from "../axiosClient/axiosClient";
 import {  FaHouseFlag } from "react-icons/fa6";
-import { BiUser } from "react-icons/bi";
+import { BiFilter, BiUser } from "react-icons/bi";
 import { ClockLoader } from "react-spinners";
 import { BsClock } from "react-icons/bs";
 import { GiCompanionCube } from "react-icons/gi";
 import { HiOfficeBuilding } from "react-icons/hi";
 import { color } from "chart.js/helpers";
+import { FiFilter } from "react-icons/fi";
 
 function Stats() {
   const [doc, setDoc] = useState([]);
@@ -350,17 +351,18 @@ allOfDocByPeriod.forEach(dc => {
           {date.reverse()}
         </select> */}
 
-        <form onSubmit={handleSubmitPeriod} className="w-1/3 gap-x-2 flex justify-evenly items-center text-gray-700 mr-3 ">
+        <form onSubmit={handleSubmitPeriod} className="w-200px  gap-x-2 flex justify-evenly items-center text-gray-700 mr-2 ">
               <label htmlFor="" className="text-gray-700 font-medium">Début</label>
               <input type="date"  onChange={handlePeriod} name="start" id="" className="py-2 px-3 rounded-md shadow"/>
               <label htmlFor="" className="text-gray-700 font-medium">Fin</label>
 
               <input type="date"  onChange={handlePeriod} name="end" id="" className="py-2 px-3 rounded-md shadow"/>
-              <input type="submit"  className="py-2 px-3  bg-blue-600 rounded-lg hover:bg-blue-500 text-white" value='Filtrer'/>
+           
+              <button type="submit"  className="py-2 px-3  bg-blue-600 rounded-lg hover:bg-blue-500 text-white"><FaFilter  className="mr-2 inline"/> Filtrer</button>
         </form>
       </div>
 
-      <div className="flex flex-wrap mt-5 px-2">
+      <div className="flex flex-wrap mt-5 px-2 justify-center">
       <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
  
     <a href="#"
@@ -427,8 +429,8 @@ allOfDocByPeriod.forEach(dc => {
 
 </div>
   </div>
-  <div className="mt-4 flex w-full justifyl-evenly gap-5 px-2">
-  <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10">
+  <div className="mt-4 flex  w-full justify-center gap-5 px-10">
+  <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
   <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
 
 <ResponsiveContainer width="100%" height="100%" >
@@ -454,7 +456,7 @@ allOfDocByPeriod.forEach(dc => {
 </ResponsiveContainer>
 
 </div>
-<div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10">
+<div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
       <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
   
       <ResponsiveContainer width="100%" height="100%">
@@ -488,7 +490,7 @@ allOfDocByPeriod.forEach(dc => {
 
 {/* ********************************************************************************************************* */}
       {/*Graphique pour le statistique periodique  */}
-      <hr className="mt-5 mb-5" />
+      {/* <hr className="mt-5 mb-5" />
 
       <div className="flex flex-wrap  gap-4 items-center">
         <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
@@ -505,10 +507,10 @@ allOfDocByPeriod.forEach(dc => {
               </div>
               <button className="bg-blue-600 px-3 h-10 relative top-6 rounded-md" type="submit">Valider</button>
             </form>
-      </div>
-      <div className="flex flex-wrap mt-5">
-                <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-white border rounded shadow p-2">
+      </div> */}
+      {/* <div className="flex flex-wrap mt-5">
+                <div className="w-full md:w-1/2 xl:w-1/3 p-3"> */}
+          {/* <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
                 <div className="rounded p-3 bg-blue-800">
@@ -530,8 +532,8 @@ allOfDocByPeriod.forEach(dc => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+        </div> */}
+        {/* <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
@@ -554,17 +556,17 @@ allOfDocByPeriod.forEach(dc => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+        </div> */}
+        {/* <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
                 <div className="rounded p-3 bg-green-600">
                   <FaThumbsUp />
                 </div>
-              </div>
+              </div> */}
               {/* Livre */}
-              <div className="flex-1 text-right md:text-center">
+              {/* <div className="flex-1 text-right md:text-center">
                 <h5 className="font-bold uppercase text-gray-500">
                   courriers Livrés
                 </h5>
@@ -582,14 +584,14 @@ allOfDocByPeriod.forEach(dc => {
                     <i className="fas fa-caret-up"></i>
                   </span>
                 </h3>
-              </div>
+              </div> */}
               
-            </div>
+            {/* </div>
               
-          </div>
+          </div> */}
               
-        </div>
-        {docByDirectionByDateByPeriod.map((d, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
+        {/* </div> */}
+        {/* {docByDirectionByDateByPeriod.map((d, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
           <div className="bg-white border rounded shadow p-2">
             <div className="flex flex-row items-center">
               <div className="flex-shrink pr-4">
@@ -619,12 +621,12 @@ allOfDocByPeriod.forEach(dc => {
           
               
               
-        </div>))}
-      </div>
-      <hr className="mt-5 mb-5" />
-<div className="w-full flex justify-center h-[300px] mt-10">
+        </div>))} */}
+      {/* </div> */}
+      {/* <hr className="mt-5 mb-5" /> */}
+{/* <div className="w-full flex justify-center h-[300px] mt-10"> */}
 
-      <ResponsiveContainer width="70%" height="100%">
+      {/* <ResponsiveContainer width="70%" height="100%">
         <BarChart
           width={500}
           height={300}
@@ -648,7 +650,7 @@ allOfDocByPeriod.forEach(dc => {
 
 </div>
       {/* radial statistique */}
-      <ResponsiveContainer width={"100%"} height={600}>
+      {/* <ResponsiveContainer width={"100%"} height={600}>
         <RadialBarChart
           cx="50%"
           cy="50%"
@@ -671,7 +673,7 @@ allOfDocByPeriod.forEach(dc => {
             wrapperStyle={style}
           />
         </RadialBarChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer>  */}
     </>
   );
 }

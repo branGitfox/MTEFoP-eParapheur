@@ -307,7 +307,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
                 <span class="mx-2 text-sm font-medium">Reporting</span>
             </Link>   
             {user.role=='admin'?
-             <Link class="flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg hover:bg-blue-100  hover:text-gray-700" href="#">
+             <Link class="flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg hover:bg-blue-100  hover:text-gray-700" to="/admin">
 
                 <RiShieldKeyholeLine size={20}/>
                 <span class="mx-2 text-sm font-medium">Administrateur</span>
