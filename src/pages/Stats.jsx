@@ -22,6 +22,7 @@ import { ClockLoader } from "react-spinners";
 import { BsClock } from "react-icons/bs";
 import { GiCompanionCube } from "react-icons/gi";
 import { HiOfficeBuilding } from "react-icons/hi";
+import { color } from "chart.js/helpers";
 
 function Stats() {
   const [doc, setDoc] = useState([]);
@@ -42,6 +43,9 @@ function Stats() {
     right: 0,
     transform: "translate(0, -50%)",
     lineHeight: "24px",
+    color:"blue",
+    
+    
   };
 
   //donnees filtree
@@ -309,7 +313,9 @@ const handlePeriod = (e) => {
 
 const dataDir = []
 docByDirectionByDateByPeriod.forEach((doc, index) => {
-  dataDir.push({name:doc[0],Courriers:doc[1].length})
+  const randomColor = ['blue', 'green', 'violet', 'maroon']
+  const indexColor = Math.floor(Math.random() * randomColor.length)
+  dataDir.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[indexColor]})
 } )
 
 
@@ -420,7 +426,65 @@ allOfDocByPeriod.forEach(dc => {
     }
 
 </div>
-      </div>
+  </div>
+  <div className="mt-4 flex w-full justifyl-evenly gap-5 px-2">
+  <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10">
+  <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
+
+<ResponsiveContainer width="100%" height="100%" >
+  <BarChart
+    width={500}
+    height={300}
+    data={dataDir}
+    margin={{
+      top: 5,
+      right: 30,
+      left: 20,
+      bottom: 5,
+    }}
+    barSize={20}
+  >
+    <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+    <YAxis />
+    <Tooltip />
+    <Legend />
+    <CartesianGrid strokeDasharray="3 3" />
+    <Bar dataKey="Courriers" fill="blue" radius={5} background={{ fill: '#eee' }} />
+  </BarChart>
+</ResponsiveContainer>
+
+</div>
+<div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10">
+      <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
+  
+      <ResponsiveContainer width="100%" height="100%">
+      <RadialBarChart
+          cx="50%"
+          cy="50%"
+          innerRadius="10%"
+          outerRadius="80%"
+          barSize={10}
+          data={dataDir}
+        >
+          <RadialBar
+            minAngle={15}
+            label={{ position: "insideStart", fill:"blue", }}
+            background
+            clockWise
+            dataKey="Courriers"
+          />
+          <Legend
+            iconSize={10}
+            layout="vertical"
+            verticalAlign="middle"
+            wrapperStyle={style}
+          />
+        </RadialBarChart>
+      </ResponsiveContainer>
+
+</div>
+  </div>
+      
 
 {/* ********************************************************************************************************* */}
       {/*Graphique pour le statistique periodique  */}
