@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {FaThumbsUp } from "react-icons/fa";
-import { SiFlux, SiPaperswithcode, SiPinboard } from "react-icons/si";
+import { SiEnterprisedb, SiFlux, SiPaperswithcode, SiPinboard, SiUpcloud } from "react-icons/si";
 import {
   LineChart,
   Line,
@@ -17,6 +17,11 @@ import {
 } from "recharts";
 import axiosRequest from "../axiosClient/axiosClient";
 import {  FaHouseFlag } from "react-icons/fa6";
+import { BiUser } from "react-icons/bi";
+import { ClockLoader } from "react-spinners";
+import { BsClock } from "react-icons/bs";
+import { GiCompanionCube } from "react-icons/gi";
+import { HiOfficeBuilding } from "react-icons/hi";
 
 function Stats() {
   const [doc, setDoc] = useState([]);
@@ -162,6 +167,8 @@ function Stats() {
       
     }
   }
+
+
   //recperation des donnees pour le statistique
   useEffect(() => {
 
@@ -299,7 +306,7 @@ const handlePeriod = (e) => {
   courrier: doc.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1].created_at?.substring(0, 7))).length,
 });
 
-console.log('Livred', docByDirectionByDateByPeriod);
+
 const dataDir = []
 docByDirectionByDateByPeriod.forEach((doc, index) => {
   dataDir.push({name:doc[0],Courriers:doc[1].length})
@@ -337,7 +344,7 @@ allOfDocByPeriod.forEach(dc => {
           {date.reverse()}
         </select> */}
 
-        <form onSubmit={handleSubmitPeriod} className="w-1/2 flex justify-evenly items-center text-gray-700 mr-3">
+        <form onSubmit={handleSubmitPeriod} className="w-1/3 gap-x-2 flex justify-evenly items-center text-gray-700 mr-3 ">
               <label htmlFor="" className="text-gray-700 font-medium">Début</label>
               <input type="date"  onChange={handlePeriod} name="start" id="" className="py-2 px-3 rounded-md shadow"/>
               <label htmlFor="" className="text-gray-700 font-medium">Fin</label>
@@ -347,191 +354,72 @@ allOfDocByPeriod.forEach(dc => {
         </form>
       </div>
 
-      <div className="flex flex-wrap mt-5">
-      <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-white border rounded shadow p-2">
-            <div className="flex flex-row items-center">
-              <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-yellow-800">
-                  <SiFlux />
-                </div>
-              </div>
-              <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-500">
-                  Tous les courriers 
-                </h5>
-                <h3 className="font-bold text-3xl text-gray-900">
-                  {
-                    doc.length
-                  }{" "}
-                  <span className="text-blue-500">
-                    <i className="fas fa-caret-up"></i>
-                  </span>
-                </h3>
-              </div>
-            </div>
-          </div>
+      <div className="flex flex-wrap mt-5 px-2">
+      <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
+ 
+    <a href="#"
+        class="flex h-20 w-40 flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div class="flex flex-row items-center justify-center">
+     <SiPaperswithcode className="mr-3 text-blue-600"/>
+
+            <span class="font-bold text-gray-600"> {doc.length} </span>
         </div>
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-white border rounded shadow p-2">
-            <div className="flex flex-row items-center">
-              <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-blue-800">
-                  <SiPaperswithcode />
-                </div>
-              </div>
-              <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-500">
-                  courriers mensuel
-                </h5>
-                <h3 className="font-bold text-3xl text-gray-900">
-                  {
-                    doc.filter(
-                      (dc) =>
-                        dc?.created_at?.substring(0, 7) ==
-                        (currentDate
-                          ? currentDate
-                          : doc[doc.length - 1]?.created_at?.substring(0, 7))
-                    ).length
-                  }{" "}
-                  <span className="text-blue-500">
-                    <i className="fas fa-caret-up"></i>
-                  </span>
-                </h3>
-              </div>
-            </div>
-          </div>
+
+        <div class="mt-2 text-sm text-gray-400">Total Courriers</div>
+    </a>
+
+ 
+    <a href="#"
+        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div class="flex flex-row items-center justify-center">
+            <SiUpcloud className="text-cyan-500 mr-3" size={24}/>
+
+            <span class="font-bold text-gray-600"> {number} </span>
         </div>
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-white border rounded shadow p-2">
-            <div className="flex flex-row items-center">
-              <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-orange-600">
-                  <SiPinboard />
-                </div>
-              </div>
-              <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-500">
-                  Courriers non dispatchés
-                </h5>
-                <h3 className="font-bold text-3xl text-gray-900">
-                  {
-                    notLivred.filter(
-                      (nt) =>
-                        nt?.created_at?.substring(0, 7) ==
-                        (currentDate
-                          ? currentDate
-                          : nt?.created_at?.substring(0, 7))
-                    ).length
-                  }
-                  <span className="text-green-500">
-                    <i className="fas fa-caret-up"></i>
-                  </span>
-                </h3>
-              </div>
-            </div>
-          </div>
+
+        <div class="mt-2 text-sm text-gray-400">Courriers Enregistrés</div>
+    </a>
+ 
+    <a href="#"
+        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div class="flex flex-row items-center justify-center">
+            <BsClock className="mr-3 text-orange-500"/>
+
+            <span class="font-bold text-gray-600"> {notLivredByPeriod.length} </span>
         </div>
-        <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-white border rounded shadow p-2">
-            <div className="flex flex-row items-center">
-              <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-green-600">
-                  <FaThumbsUp />
-                </div>
-              </div>
-              {/* Livre */}
-              <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-500">
-                  courriers dispatchés
-                </h5>
-                <h3 className="font-bold text-3xl text-gray-900">
-                  {
-                    livred.filter(
+
+        <div class="mt-2 text-sm text-gray-400">En attente</div>
+    </a>
+
+    <a href="#"
+        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div class="flex flex-row items-center justify-center">
+            <SiPinboard className="mr-3 text-green-500"/>
+
+            <span class="font-bold text-gray-600"> {    livredByPeriod.filter(
                       (lv) =>
                         lv?.created_at?.substring(0, 7) ==
                         (currentDate
                           ? currentDate
                           : lv?.created_at?.substring(0, 7))
-                    ).length
-                  }{" "}
-                  <span className="text-green-500">
-                    <i className="fas fa-caret-up"></i>
-                  </span>
-                </h3>
-           
-              </div>
-              
-            </div>
-              
-          </div>
-              
+                    ).length} </span>
         </div>
-              {/* par direction */}
-              {docByDirectionByDate.map((d, index) => (              <div className="w-full md:w-1/2 xl:w-1/3 p-3">
-          <div className="bg-white border rounded shadow p-2">
-            <div className="flex flex-row items-center">
-              <div className="flex-shrink pr-4">
-                <div className="rounded p-3 bg-red-600">
-                  <FaHouseFlag />
-                </div>
-              </div>
-              <div className="flex-1 text-right md:text-center">
-                <h5 className="font-bold uppercase text-gray-500">
-                    {d[0]}
-                </h5>
-                <h3 className="font-bold text-3xl text-gray-900">
-      
-                  {d[1].length}
-                  <span className="text-green-500">
-                    <i className="fas fa-caret-up"></i>
-                  </span>
-                </h3>
-              </div>
-          
-            </div>
-                  <ul>
-                  <li className="text-green-800 font-bold ">Dechargé(s): {d[2].length}</li>
-                  <li className="text-red-800 font-bold ">Non Dechargé(s): {d[3].length}</li>
-                </ul>
-          </div>
-          
-              
-              
-        </div>))}
 
+        <div class="mt-2 text-sm text-gray-400">Courriers Livrés</div>
+    </a>
+    {docByDirectionByDateByPeriod.map((d, index) =>(    <a href="#"
+        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div class="flex flex-row items-center justify-center">
+            <HiOfficeBuilding className={`mr-3 text-cyan-500`}/>
 
-      {/* FIN par Direcion */}
-      </div>
-      <hr className="mt-5 mb-5" />
+            <span class="font-bold text-gray-600"> {d[1].length}{'/'}<span className="text-green-500">{d[2].length}</span>{'/'}<span className="text-red-500">{d[3].length}</span></span>
+        </div>
 
-      {/* Ici commence les deux  premiers graphiques */}
-      <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
-        Représentation graphiques de courriers enregistrés
-      </h3>
+        <div class="mt-2 text-sm text-gray-400">Direction {d[0]}</div>
+    </a>))
+    }
 
-      <div className="flex justify-evenly w-[100%] h-[400px] items-center gap-y-4 p-3 mt-10">
-      <ResponsiveContainer width="100%" height="100%">
-                
-        <BarChart width='100%' height='100%' data={uniqueAMT}>
-          <XAxis dataKey="amt" stroke="#8884d8" />
-          <YAxis />
-          <Tooltip wrapperStyle={{ width: 100, backgroundColor: "#ccc" }} />
-          <Legend
-            width={100}
-            wrapperStyle={{
-              top: 40,
-              right: 20,
-              backgroundColor: "#f5f5f5",
-              border: "1px solid #d5d5d5",
-              borderRadius: 3,
-              lineHeight: "40px",
-            }}
-          />
-          <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-          <Bar dataKey="courrier" fill="blue" barSize={50} />
-        </BarChart>
-        </ResponsiveContainer>
+</div>
       </div>
 
 {/* ********************************************************************************************************* */}
@@ -661,7 +549,7 @@ allOfDocByPeriod.forEach(dc => {
             </div>
             <ul>
                   <li className="text-green-800 font-bold ">Dechargé(s): {d[2].length}</li>
-                  {/* <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li> */}
+                  <li className="text-red-800 font-bold ">Non Dechargee: {d[3].length}</li>
                 </ul>
           </div>
           
