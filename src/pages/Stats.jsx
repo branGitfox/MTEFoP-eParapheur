@@ -319,11 +319,11 @@ allOfDocByPeriod.forEach(dc => {
 
   return (
     <>
-      <div className="flex gap-4 items-center">
-        <h3 className="text-gray-900 text-xl text-left ml-2.5 font-semibold">
-          Statistiques Mensuel
+      <div className="flex w-full gap-4 items-center justify-between">
+        <h3 className="text-gray-700 text-xl text-left ml-2.5 font-semibold">
+          Reporting
         </h3>
-        <select
+        {/* <select
           name="date"
           onChange={handleChangeDate}
           id=""
@@ -335,7 +335,16 @@ allOfDocByPeriod.forEach(dc => {
             </option>
           ))}
           {date.reverse()}
-        </select>
+        </select> */}
+
+        <form onSubmit={handleSubmitPeriod} className="w-1/2 flex justify-evenly items-center text-gray-700 mr-3">
+              <label htmlFor="" className="text-gray-700 font-medium">Début</label>
+              <input type="date"  onChange={handlePeriod} name="start" id="" className="py-2 px-3 rounded-md shadow"/>
+              <label htmlFor="" className="text-gray-700 font-medium">Fin</label>
+
+              <input type="date"  onChange={handlePeriod} name="end" id="" className="py-2 px-3 rounded-md shadow"/>
+              <input type="submit"  className="py-2 px-3  bg-blue-600 rounded-lg hover:bg-blue-500 text-white" value='Filtrer'/>
+        </form>
       </div>
 
       <div className="flex flex-wrap mt-5">
