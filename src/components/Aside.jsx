@@ -279,7 +279,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
 <>
 
 
-<aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l ">
+<aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft">
   <div className="w-full flex gap-2 items-center">
       <a href="#">
         <img class="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
