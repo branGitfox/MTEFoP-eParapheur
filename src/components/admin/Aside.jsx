@@ -279,7 +279,7 @@ function Aside({setShow, show}) {
                               <span class="mx-2 text-sm font-medium">Tableau de Bord</span>
                           </Link>
               
-                          <Link class={`flex items-center px-3 py-2 transition-colors duration-300 transform  ${ location.pathname ==='/admin/userRegister'?'bg-blue-100 text-gray-600':'text-gray-200'} rounded-lg hover:bg-blue-100  hover:text-gray-700`} to="/admin/userregister">
+                          <Link class={`flex items-center px-3 py-2 transition-colors duration-300 transform  ${ location.pathname ==='/admin/userregister'?'bg-blue-100 text-gray-600':'text-gray-200'} rounded-lg hover:bg-blue-100  hover:text-gray-700`} to="/admin/userregister">
                             <RiUserAddLine size={20}/>
               
                               <span class="mx-2 text-sm font-medium">Ajout Utilisateur</span>
