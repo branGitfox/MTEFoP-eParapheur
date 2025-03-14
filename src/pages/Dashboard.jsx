@@ -349,10 +349,39 @@ function Dashboard() {
         </div>
   <div className="mt-4 flex  w-full justify-center gap-5 px-10">
        <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
-         <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
+         <h2 className="text-gray-700 mb-2 mt-2 flex justify-between"><p>Nombre Total de Visites</p>         
+         <form
+          onSubmit={handleSubmitPeriod}
+          className=" flex   mt-2 lg:mt-0 justify-evenly gap-x-5 p-4 md:p-0"
+        >
+          
+       
+            <input
+              className=" p-2 rounded-md shadow-lg"
+              onChange={handlePeriod}
+              name="start"
+              type="date"
+            />
+          
+       
+      
+            <input
+              className=" p-2 rounded-md shadow-lg "
+              onChange={handlePeriod}
+              name="end"
+              type="date"
+            />
+       
+          <button
+            className="bg-blue-900 text-white px-3 h-10 relative rounded-md"
+            type="submit"
+          >
+            Valider
+          </button>
+        </form></h2>
           <div className="w-full flex justify-center h-full border items-center border-gray-200 rounded-md">
-              <h2 className="text-gray-700 text-5xl">
-                  <AnimatedCounter includeCommas={false} includeDecimals={false}  value={view} fontSize="5rem"  digitStyles={{ color:'grey'}} />
+              <h2 >
+                  <AnimatedCounter includeCommas={false} includeDecimals={false}  value={view} fontSize="5rem"  digitStyles={{ color:'#7393B3'}} />
               </h2>
             
           
