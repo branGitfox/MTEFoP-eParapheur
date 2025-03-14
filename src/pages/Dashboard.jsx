@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { FaEye, FaFilter, FaHandPointDown, FaWallet } from "react-icons/fa";
 import { FaHandBackFist, FaHouseFire, FaUserGroup } from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
+import { AnimatedCounter } from  'react-animated-counter';
+
 // import { ResponsiveContainer, LineChart, Line } from "recharts";
 import {
   SiEnterprisedb,
@@ -348,28 +350,13 @@ function Dashboard() {
   <div className="mt-4 flex  w-full justify-center gap-5 px-10">
        <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
          <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
-       
-       <ResponsiveContainer width="100%" height="100%" >
-         <BarChart
-           width={500}
-           height={300}
-           data={null}
-           margin={{
-             top: 5,
-             right: 30,
-             left: 20,
-             bottom: 5,
-           }}
-           barSize={20}
-         >
-           <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
-           <YAxis />
-           <Tooltip />
-           <Legend />
-           <CartesianGrid strokeDasharray="3 3" />
-           <Bar dataKey="Courriers" fill="blue" radius={5} background={{ fill: '#eee' }} />
-         </BarChart>
-       </ResponsiveContainer>
+          <div className="w-full flex justify-center h-full border items-center border-gray-200 rounded-md">
+              <h2 className="text-gray-700 text-5xl">
+                  <AnimatedCounter includeCommas={false} includeDecimals={false}  value={view} fontSize="5rem"  digitStyles={{ color:'grey'}} />
+              </h2>
+            
+          
+          </div>
        
        </div>
        <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
