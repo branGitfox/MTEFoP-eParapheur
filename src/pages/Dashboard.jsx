@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FaEye, FaFilter, FaHandPointDown, FaWallet } from "react-icons/fa";
 import { FaHandBackFist, FaHouseFire, FaUserGroup } from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
-import { ResponsiveContainer, LineChart, Line } from "recharts";
+// import { ResponsiveContainer, LineChart, Line } from "recharts";
 import {
   SiEnterprisedb,
   SiFlux,
@@ -10,6 +10,20 @@ import {
   SiPinboard,
   SiUpcloud,
 } from "react-icons/si";
+import {
+  LineChart,
+  Line,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  BarChart,
+  Tooltip,
+  Legend,
+  Bar,
+  ResponsiveContainer,
+  RadialBarChart,
+  RadialBar,
+} from "recharts";
 
 function Dashboard() {
   const [period, setPeriod] = useState({ start: "", end: "" }); //pour le trafics
@@ -209,6 +223,10 @@ function Dashboard() {
   allOfDocByPeriod.forEach((dc) => {
     number += dc[1].length;
   });
+
+  const data = []
+
+  data.push({})
   return (
     <>
       <div className="flex w-full gap-4 items-center justify-between mt-3">
@@ -327,6 +345,55 @@ function Dashboard() {
        </a>
        ))}
         </div>
+  <div className="mt-4 flex  w-full justify-center gap-5 px-10">
+       <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
+         <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
+       
+       <ResponsiveContainer width="100%" height="100%" >
+         <BarChart
+           width={500}
+           height={300}
+           data={null}
+           margin={{
+             top: 5,
+             right: 30,
+             left: 20,
+             bottom: 5,
+           }}
+           barSize={20}
+         >
+           <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+           <YAxis />
+           <Tooltip />
+           <Legend />
+           <CartesianGrid strokeDasharray="3 3" />
+           <Bar dataKey="Courriers" fill="blue" radius={5} background={{ fill: '#eee' }} />
+         </BarChart>
+       </ResponsiveContainer>
+       
+       </div>
+       <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
+         <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
+       
+
+         <ResponsiveContainer
+        width="100%"
+        height="100%"
+        className=" w-full flex justify-center bg-blue-200 mx-auto rounded-md"
+      >
+        <LineChart width={300}  height={500} data={chartDataView}>
+          <Line
+            type="monotone"
+            dataKey="nbr"
+            stroke="#8884d8"
+            strokeWidth={2}
+          />
+          {/* <Line type="monotone" dataKey="uv" stroke="red" strokeWidth={2} /> */}
+        </LineChart>
+      </ResponsiveContainer>
+       
+       </div>
+  </div>
         <div className="w-[300px]">
           <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
             <div className="flex flex-col items-center justify-center">

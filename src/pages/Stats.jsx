@@ -14,6 +14,9 @@ import {
   ResponsiveContainer,
   RadialBarChart,
   RadialBar,
+  PieChart,
+  Pie,
+  Cell
 } from "recharts";
 import axiosRequest from "../axiosClient/axiosClient";
 import {  FaHouseFlag } from "react-icons/fa6";
@@ -38,6 +41,18 @@ function Stats() {
   const [currentDate, setCurrentDate] = useState("");
   const [period, setPeriod] = useState({start:"", end:""}) //state pour contenir la date de debut et la date de fin pour le filtrage de la statistique periodique.
   const [docByPeriod, setDocByPeriod] = useState([]) //state pour contenir les courriers par periode debut et fin
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+  
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
   //couleur de la graphique radial
   const style = {
     top: "50%",
@@ -219,7 +234,7 @@ const docByDirectionByDate = docByDirection?.map((docs) => {
  
 
     return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))), docs[2]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7))), docs[3]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0,7)))]
-  
+    Utilisateurs
     
   })
 
@@ -460,28 +475,29 @@ allOfDocByPeriod.forEach(dc => {
       <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
   
       <ResponsiveContainer width="100%" height="100%">
-      <RadialBarChart
-          cx="50%"
-          cy="50%"
-          innerRadius="10%"
-          outerRadius="80%"
-          barSize={10}
-          data={dataDir}
-        >
-          <RadialBar
-            minAngle={15}
-            label={{ position: "insideStart", fill:"blue", }}
-            background
-            clockWise
+        <PieChart width={400} height={400}>
+          <Pie
+            data={dataDir}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            label={renderCustomizedLabel}
+            outerRadius={80}
+            fill="#8884d8"
             dataKey="Courriers"
-          />
+            
+          >
+            {data.map((entry, index) => (
+              <Cell key={`cell-${index}`}  />
+            ))}
+          </Pie>
           <Legend
             iconSize={10}
             layout="vertical"
             verticalAlign="middle"
             wrapperStyle={style}
           />
-        </RadialBarChart>
+        </PieChart>
       </ResponsiveContainer>
 
 </div>
