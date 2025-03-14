@@ -9,10 +9,11 @@ import { toast } from "react-toastify";
 function Tracker() {
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem("ACCESS_TOKEN")); //recuperation de la cle d'access au serveur (access_token)
-  const [docs, setDocs] = useState([])
+  const [docs, setDocs] = useState()
   const [search, setSearch] = useState("")
   const [freshStatus, setFreshStatus] = useState(false)
   const {user} = useContext(userContext)
+  const [page, setPage] = useState(1)
   const fresh = () => {
     setFreshStatus(!freshStatus)
   }
@@ -22,22 +23,22 @@ function Tracker() {
   };
 
   //filtrage  de lq bqrre de recherches
-  const filtered = docs.filter((doc) => {
-      if (doc.proprietaire?.toLowerCase().includes(search?.toLowerCase())) {
-        return true;
-      }
+  const filtered = docs?.data?.filter((doc) => {
+    if (doc.proprietaire?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
 
-      if (doc.chrono?.toLowerCase().includes(search?.toLowerCase())) {
-        return true;
-      }
+    if (doc.chrono?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
 
-      if (doc.ref?.toLowerCase().includes(search?.toLowerCase())) {
-        return true;
-      }
-      if (doc.created_at?.toLowerCase().includes(search?.toLowerCase())) {
-        return true;
-      }
-  });
+    if (doc.ref?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
+    if (doc.created_at?.toLowerCase().includes(search?.toLowerCase())) {
+      return true;
+    }
+});
 
 
   
@@ -50,7 +51,7 @@ function Tracker() {
       setLoader(true);
 
       await axiosRequest
-        .get("/docs", {
+        .get(`/docs?page=${page}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
@@ -68,7 +69,28 @@ function Tracker() {
   //appel de la fonction de recuperation
   useEffect(() => {
     getDocs();
-  }, [freshStatus]);
+  }, [freshStatus, page]);
+
+  console.log(docs);
+
+  const nextPage = () => {
+    setPage((page) => page + 1)
+  }
+   
+  const previousPage = () => {
+    setPage((page) => page - 1)
+  }
+
+  const pageLinks = []
+
+  for(let i =1; i<= docs?.last_page;i++) {
+    pageLinks.push({number:i})
+  }
+
+  const gotoPage = (page) => {
+    setPage(page)
+  }
+  
   return (
     <>
 
@@ -111,25 +133,28 @@ function Tracker() {
         <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-è00 ">Afficher Tout</label>
     </div>
     <div class="flex">
-    <a href="#" class="flex items-center px-4 py-2 mx-1 text-gray-500 bg-white rounded-md cursor-not-allowed  ">
+    <button disabled={page==1?true:false} onClick={previousPage}  class={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
         Précédent
-    </a>
+    </button>
+          
+            {pageLinks.map((number, index) => (
+                  <button key={index}  onClick={() => gotoPage(number.number)} class={`items-center hidden px-4 py-2 mx-1 text-gray-700 ${page!==number.number?'bg-white text-gray-500':'bg-blue-600 text-white'} transition-colors duration-300 transform  rounded-md sm:flex`}>
+          {number.number}
+        </button>
+            ))}
 
-    <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex   hover:bg-blue-600  hover:text-white ">
-        1
-    </a>
 
-    <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex   hover:bg-blue-600  hover:text-white ">
+    {/* <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex   hover:bg-blue-600  hover:text-white ">
         2
     </a>
 
     <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex  hover:bg-blue-600  hover:text-white ">
         3
-    </a>
+    </a> */}
 
-    <a href="#" class="flex items-center px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md   hover:bg-blue-600  hover:text-white ">
+    <button disabled={page==docs?.last_page?true:false}  onClick={nextPage} class={`flex items-center px-4 py-2 mx-1  ${page<docs?.last_page?'bg-blue-600 text-white':'bg-gray-200 text-gray-700'} transition-colors duration-300 transform  rounded-md`}>
           Suivant
-    </a>
+    </button>
 </div>
       </div>
       <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
