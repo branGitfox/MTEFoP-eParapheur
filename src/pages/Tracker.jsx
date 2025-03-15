@@ -14,6 +14,8 @@ function Tracker() {
   const [freshStatus, setFreshStatus] = useState(false)
   const {user} = useContext(userContext)
   const [page, setPage] = useState(1)
+  const [lines, setLines] = useState('all')
+
   const fresh = () => {
     setFreshStatus(!freshStatus)
   }
@@ -43,7 +45,9 @@ function Tracker() {
 
   
 
-
+const changeLine = (e) => {
+  setLines(e.target.value)
+}
 
   //recuperation des courriers
   const getDocs = async () => {
@@ -51,7 +55,7 @@ function Tracker() {
       setLoader(true);
 
       await axiosRequest
-        .get(`/docs?page=${page}`, {
+        .get(`/docs?page=${page}&lines=${lines}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Access-Control-Allow-Origin": "http://127.0.0.1:8000/api",
@@ -69,7 +73,7 @@ function Tracker() {
   //appel de la fonction de recuperation
   useEffect(() => {
     getDocs();
-  }, [freshStatus, page]);
+  }, [freshStatus, page, lines]);
 
   console.log(docs);
 
@@ -129,8 +133,14 @@ function Tracker() {
     <span class="mx-1">Rafraichir</span>
 </button>
 <div class="flex items-center me-4">
-        <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500   focus:ring-2"/>
-        <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-è00 ">Afficher Tout</label>
+        {/* <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500   focus:ring-2"/> */}
+        <select onChange={changeLine} class="py-3 px-4 pe-9 block w-full bg-white shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+  <option value='all'>Afficher toutes les lignes</option>
+  <option value='15'>15 lignes</option>
+  <option value='50'>50 lignes</option>
+  <option value='100'>100 lignes</option>
+</select>
+        {/* <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-è00 ">Afficher Tout</label> */}
     </div>
     <div class="flex">
     <button disabled={page==1?true:false} onClick={previousPage}  class={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
