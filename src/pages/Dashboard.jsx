@@ -19,9 +19,11 @@ import {
   XAxis,
   YAxis,
   BarChart,
+  Cell,
   Tooltip,
   Legend,
   Bar,
+  Rectangle,
   ResponsiveContainer,
   RadialBarChart,
   RadialBar,
@@ -226,9 +228,78 @@ function Dashboard() {
     number += dc[1].length;
   });
 
+  const allOfDocByPeriodService = [...docNumberByServiceNoFilter];
+
+  allOfDocByPeriodService.map((doc, index) =>
+    doc[1].find(
+      (f) =>
+        f.created_at.substring(0, 7) ==
+        (currentDate
+          ? currentDate
+          : doc[doc.length - 1].created_at?.substring(0, 7))
+    )
+  );
+
+
   const data = []
 
   data.push({})
+
+  const getPath = (x, y, width, height) => {
+    return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
+    ${x + width / 2}, ${y}
+    C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
+    Z`;
+  };
+  const TriangleBar = (props) => {
+    const { fill, x, y, width, height } = props;
+  
+    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
+  };
+
+       //filtrer les courriers par direction par date par periode
+const docByDirectionByDateByPeriod = allOfDocByPeriod?.map((docs) => {
+ 
+
+  return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:allDoc[allDoc.length - 1]?.created_at?.substring(0,7))), docs[2]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:allDoc[allDoc.length - 1]?.created_at?.substring(0,7))), docs[3]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:allDoc[allDoc.length - 1]?.created_at?.substring(0,7)))]
+
+  
+})
+
+// const docByServiceByDateByPeriod = allOfDocByPeriodService?.map((docs) => {
+ 
+
+//   return [docs[0], docs[1]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:allDoc[allDoc.length - 1]?.created_at?.substring(0,7))), docs[2]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:allDoc[allDoc.length - 1]?.created_at?.substring(0,7))), docs[3]?.filter(dc => dc.created_at?.substring(0,7) == (currentDate?currentDate:allDoc[allDoc.length - 1]?.created_at?.substring(0,7)))]
+
+  
+// })
+  const dataDir = []
+docByDirectionByDateByPeriod.forEach((doc, index) => {
+  const randomColor = ['blue', 'green', 'violet', 'maroon']
+  const indexColor = Math.floor(Math.random() * randomColor.length)
+  dataDir.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[indexColor]})
+} )
+
+
+const dataServ = []
+allOfDocByPeriodService.forEach((doc, index) => {
+  const randomColor = ['blue', 'green', 'violet', 'maroon']
+  const indexColor = Math.floor(Math.random() * randomColor.length)
+  dataServ.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[indexColor]})
+} )
+
+
+  //couleur de la graphique radial
+  const style = {
+    top: "50%",
+    right: 0,
+    transform: "translate(0, -50%)",
+    lineHeight: "24px",
+    color:"blue",
+    
+    
+  };
+
   return (
     <>
       <div className="flex w-full gap-4 items-center justify-between mt-3">
@@ -347,7 +418,7 @@ function Dashboard() {
        </a>
        ))}
         </div>
-  <div className="mt-4 flex  w-full justify-center gap-5 px-10">
+  <div className="mt-0 flex  w-full justify-center gap-5 px-10">
        <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
          <h2 className="text-gray-700 mb-2 mt-2 flex justify-between"><p>Nombre Total de Visites</p>         
          <form
@@ -388,7 +459,7 @@ function Dashboard() {
           </div>
        
        </div>
-       <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
+       <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">  
          <h2 className="text-gray-700 mb-2 mt-2">Graphique de Trafic de Visites</h2>
        
 
@@ -409,6 +480,78 @@ function Dashboard() {
       </ResponsiveContainer>
        
        </div>
+  </div>
+  <div className=" flex  w-full justify-center gap-5 px-10">
+      <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-5 shadow-lg">
+      <h2 className="text-gray-700 mb-2 mt-2">Flux de courriers par Direction</h2>
+      <ResponsiveContainer width="100%" height="100%">
+      <BarChart
+      width={500}
+      height={300}
+      data={dataDir}
+      margin={{
+        top: 20,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+          {/* <Legend /> */}
+      
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Bar dataKey="Courriers" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+        {dataDir.map((entry, index) => (
+          <Cell key={`cell-${index}`} />
+        ))}
+      </Bar>
+               {/* <Legend
+                  iconSize={10}
+                  layout="vertical"
+                  verticalAlign="middle"
+                  wrapperStyle={style}
+                /> */}
+                
+                    {/* <Legend /> */}
+    </BarChart>
+      </ResponsiveContainer>
+      </div>
+      <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-5 shadow-lg">
+      <h2 className="text-gray-700 mb-2 mt-2">Flux de courriers par Service</h2>
+      <ResponsiveContainer width="100%" height="100%">
+      <BarChart
+      width={500}
+      height={300}
+      data={dataServ}
+      margin={{
+        top: 20,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+          {/* <Legend /> */}
+      
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Bar dataKey="Courriers" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+        {dataServ.map((entry, index) => (
+          <Cell key={`cell-${index}`} />
+        ))}
+      </Bar>
+               {/* <Legend
+                  iconSize={10}
+                  layout="vertical"
+                  verticalAlign="middle"
+                  wrapperStyle={style}
+                /> */}
+                
+                    {/* <Legend /> */}
+    </BarChart>
+      </ResponsiveContainer>
+      </div>
   </div>
         <div className="w-[300px]">
           <div className="border-2 border-gray-400 border-dashed hover:border-transparent hover:bg-white hover:shadow-xl rounded p-6 m-2 md:mx-10 md:my-6">
