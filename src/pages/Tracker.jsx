@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useId, useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaSearch } from "react-icons/fa";
 import TdData from "../components/TdData";
 import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
@@ -144,7 +144,7 @@ const changeLine = (e) => {
     </div>
     <div class="flex">
     <button disabled={page==1?true:false} onClick={previousPage}  class={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
-        Précédent
+       <FaArrowLeft className="mr-1"/> Précédent
     </button>
           
             {pageLinks.map((number, index) => (
@@ -163,7 +163,7 @@ const changeLine = (e) => {
     </a> */}
 
     <button disabled={page==docs?.last_page?true:false}  onClick={nextPage} class={`flex items-center px-4 py-2 mx-1  ${page<docs?.last_page?'bg-blue-600 text-white':'bg-gray-200 text-gray-700'} transition-colors duration-300 transform  rounded-md`}>
-          Suivant
+        Suivant<FaArrowRight className="ml-1"/> 
     </button>
 </div>
       </div>

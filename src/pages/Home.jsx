@@ -234,7 +234,6 @@ function Home() {
           Envoyer un mail
         </button>
       </section>
-
       <footer className="bg-white">
         <p className="text-black text-center">Copyright © MTEFoP 2024</p>
       </footer>
