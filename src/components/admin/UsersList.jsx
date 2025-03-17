@@ -251,15 +251,15 @@ const nextPage = () => {
         </div>
         <div class="mt-6 md:flex md:items-center md:justify-between">
           <div class="inline-flex overflow-hidden bg-white border divide-x rounded-lg :bg-gray-900 rtl:flex-row-reverse :border-gray-700 :divide-gray-700">
-            <button onClick={() => filter('all')} class={`px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 ${filters =='all'?'bg-gray-100':''}  sm:text-sm :text-gray-300`}>
+            <button onClick={() => filter('all')} class={`px-5 py-2 text-xs font-medium  transition-colors duration-200 ${filters =='all'?'bg-blue-500 text-gray-100':'text-gray-600'}  sm:text-sm :text-gray-300`}>
               Voir tout
             </button>
 
-            <button onClick={() => filter('active')} class={`px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm ${filters =='active'?'bg-gray-100':''}  :hover:bg-gray-800 :text-gray-300 hover:bg-gray-100`}>
+            <button onClick={() => filter('active')} class={`px-5 py-2 text-xs font-medium transition-colors duration-200 sm:text-sm ${filters =='active'?'bg-blue-500 text-gray-100':'text-gray-600'}  :hover:bg-gray-800 :text-gray-300 `}>
               Active
             </button>
 
-            <button onClick={() => filter('blocked')} class={`px-5 py-2 text-xs font-medium text-gray-600 transition-colors duration-200 sm:text-sm ${filters =='blocked'?'bg-gray-100':''} :hover:bg-gray-800 :text-gray-300 hover:bg-gray-100`}>
+            <button onClick={() => filter('blocked')} class={`px-5 py-2 text-xs font-medium  transition-colors duration-200 sm:text-sm ${filters =='blocked'?'bg-blue-500 text-gray-100':'text-gray-600'} :hover:bg-gray-800 :text-gray-300 `}>
               Desactivé
             </button>
           </div>
@@ -295,7 +295,7 @@ const nextPage = () => {
           <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block w-full py-2 align-middle md:px-6 lg:px-8">
               <div class="overflow-hidden border border-gray-200 :border-gray-700 md:rounded-lg">
-                <table class="min-w-full divide-y divide-gray-200 :divide-gray-700">
+                <table class="min-w-full divide-y divide-gray-200 :divide-gray-700 shadow-xl">
                   <thead class="bg-gray-50">
                     <tr>
                       <th
@@ -514,7 +514,7 @@ const nextPage = () => {
                 />
               </svg>
 
-              <span>previous</span>
+              <span>Précedent</span>
             </button>
 
             <button
@@ -522,7 +522,7 @@ const nextPage = () => {
               onClick={nextPage}
               class={` ${page == users?.last_page? 'bg-gray-100 text-gray-500':'bg-blue-500 text-white'} flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200  border rounded-md sm:w-auto gap-x-2 hover:bg-gray-100 :bg-gray-900 :text-gray-200 :border-gray-700 :hover:bg-gray-800`}
             >
-              <span>Next</span>
+              <span>Suivant</span>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
