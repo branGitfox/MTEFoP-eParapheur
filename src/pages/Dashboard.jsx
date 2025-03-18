@@ -548,7 +548,6 @@ allOfDocByPeriodService.forEach((doc, index) => {
                   wrapperStyle={style}
                 /> */}
                 
-                    {/* <Legend /> */}
     </BarChart>
       </ResponsiveContainer>
       </div>
