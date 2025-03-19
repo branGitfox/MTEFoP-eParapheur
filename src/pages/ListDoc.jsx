@@ -7,21 +7,26 @@ import axiosRequest from "../axiosClient/axiosClient";
 import { toast } from "react-toastify";
 import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
 
 function ListDoc() {
   const { user } = useContext(userContext); // donne de l'utilisateur connectee
-  const [docsByDirection, setDocsByDirection] = useState([])
+  const [docsByDirection, setDocsByDirection] = useState()
   const [loader, setLoader] = useState(false); //L'etat du loader
   const [token] = useState(localStorage.getItem('ACCESS_TOKEN'))
   const [reload, setReload] = useState(false)
   const [search, setSearch] = useState("")
+    const [page, setPage] = useState(1)
+
+const [lines, setLines] = useState("all")
     const [updateLivre, setUpdateLivre] = useState(false)
     const navigate = useNavigate()
   //recupere la liste des courrier par direction
   const fetchByDirection = async () => {
     setLoader(true)
     try{
-        await axiosRequest.get('/docsByDirection', {headers:{Authorization:`Bearer ${token}`}})
+        await axiosRequest.get(`/docsByDirection?page=${page}&lines=${lines}`, {headers:{Authorization:`Bearer ${token}`}})
     .then(({data}) => setDocsByDirection(data))
     .then(() => setLoader(false))
     .catch((err) => console.log("")
@@ -34,14 +39,34 @@ function ListDoc() {
   }
 
 
+const changeLine = (e) => {
+  setLines(e.target.value)
+}
 
+const nextPage = () => {
+  setPage((page) => page + 1)
+}
+ 
+const previousPage = () => {
+  setPage((page) => page - 1)
+}
+
+const pageLinks = []
+
+for(let i =1; i<= docsByDirection?.last_page;i++) {
+  pageLinks.push({number:i})
+}
+
+const gotoPage = (page) => {
+  setPage(page)
+}
   //appelle de fechByDirection
   useEffect(() => {
     fetchByDirection()
-  }, [reload, updateLivre])
+  }, [reload, updateLivre, lines, page])
 
   //filtre la barre de recherche
-  const filtered = docsByDirection.filter((doc) => {
+  const filtered = docsByDirection?.data?.filter((doc) => {
     if (doc.propr?.toLowerCase().includes(search?.toLowerCase())) {
       return true;
     }
@@ -73,7 +98,7 @@ function ListDoc() {
 
   console.log(docsByDirection);
   
-  docsByDirection.reverse()
+  // docsByDirection.reverse()
   return (
     <>
       <div className=" w-[100%]  justify-start gap-x-4  flex p-3 mb-5 relative text-black">
@@ -94,6 +119,40 @@ function ListDoc() {
 
     <span class="mx-1">Rafraichir</span>
 </button>
+<div class="flex items-center me-4">
+        {/* <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500   focus:ring-2"/> */}
+        <select onChange={changeLine} class="py-3 px-4 pe-9 block w-full bg-white shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+  <option value='all'>Afficher toutes les lignes</option>
+  <option value='15'>15 lignes</option>
+  <option value='50'>50 lignes</option>
+  <option value='100'>100 lignes</option>
+</select>
+        {/* <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-è00 ">Afficher Tout</label> */}
+    </div>
+        <div class="flex">
+        <button disabled={page==1?true:false} onClick={previousPage}  class={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
+           <FaArrowLeft className="mr-1"/> Précédent
+        </button>
+              
+                {pageLinks.map((number, index) => (
+                      <button key={index}  onClick={() => gotoPage(number.number)} class={`items-center hidden px-4 py-2 mx-1 text-gray-700 ${page!==number.number?'bg-white text-gray-500':'bg-blue-600 text-white'} transition-colors duration-300 transform  rounded-md sm:flex`}>
+              {number.number}
+            </button>
+                ))}
+    
+    
+        {/* <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex   hover:bg-blue-600  hover:text-white ">
+            2
+        </a>
+    
+        <a href="#" class="items-center hidden px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-white rounded-md sm:flex  hover:bg-blue-600  hover:text-white ">
+            3
+        </a> */}
+    
+        <button disabled={page==docsByDirection?.last_page?true:false}  onClick={nextPage} class={`flex items-center px-4 py-2 mx-1  ${page<docsByDirection?.last_page?'bg-blue-600 text-white':'bg-gray-200 text-gray-700'} transition-colors duration-300 transform  rounded-md`}>
+            Suivant<FaArrowRight className="ml-1"/> 
+        </button>
+    </div>
         {/* <div className="w-[80%] h-12 flex justify-center relative ">
           <input
             onChange={handleChange}
@@ -116,7 +175,7 @@ function ListDoc() {
           Actualiser
         </button> */}
       </div>
-      <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
+      <div className="mx-auto w-[98%] overflow-x-auto overflow-y-scroll max-h-[80%] rounded-md  ">
         <table className="w-full whitespace-no-wrap ">
           <thead>
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-blue-100">
@@ -162,7 +221,7 @@ function ListDoc() {
 const DocByDirection = ({docsByDirection, token, updateLivre, setUpdateLivre, showDocByOne}) => {
     return (
         <>
-         {docsByDirection.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} showDocByOne={showDocByOne} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
+         {docsByDirection?.map((doc, index) => <DocItems key={index} token={token} doc={doc} ind={index} showDocByOne={showDocByOne} setUpdateLivre={setUpdateLivre} updateLivre={updateLivre}/>)}
      
         </>
     )
@@ -200,7 +259,7 @@ const  changeLivreStatus= async (id_doc) => {
         <td className="px-4 py-3 text-sm">{doc.name}</td>
         <td className="px-4 py-3 text-sm">{doc.created_at}</td>
         <td className="px-4 py-3 text-sm">
-          <button onClick={() =>changeLivreStatus(doc.c_id)} disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-600'} px-3 py-2  text-gray-50 rounded-2xl`}>
+          <button onClick={() =>changeLivreStatus(doc.c_id)} disabled={doc.status =='non reçu'?false:true} className={` ${doc.status =='non reçu'?'bg-green-500':'bg-gray-300'} px-3 py-2  text-gray-50 rounded-2xl`}>
             {livreLoader?(     <Oval
               visible={true}
               height="15"
@@ -218,7 +277,7 @@ const  changeLivreStatus= async (id_doc) => {
      
           
           <button disabled={doc.transfere == 'oui' || doc.status =='non reçu'? true:false } onClick={() => showDocByOne(doc.c_id)
-          }  className={`${doc.transfere =='oui' || doc.status=='non reçu'?'bg-gray-600':''} px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl`}>
+          }  className={`${doc.transfere =='oui' || doc.status=='non reçu'?'bg-gray-300':''} px-3 py-2 bg-blue-500 text-gray-50 rounded-2xl`}>
     
             <BiTransfer />
            
