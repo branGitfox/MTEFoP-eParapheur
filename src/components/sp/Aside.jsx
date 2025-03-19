@@ -1,9 +1,15 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { BiTransferAlt, BiX } from 'react-icons/bi'
+import { BiTask, BiTransfer, BiTransferAlt, BiX } from 'react-icons/bi'
 import { BeatLoader } from 'react-spinners'
 import { FaArrowRight } from 'react-icons/fa'
 import {FaUnlockKeyhole } from 'react-icons/fa6'
+import { BiAddToQueue} from 'react-icons/bi'
+
+import {FaChartLine } from 'react-icons/fa6'
+import { GoTasklist } from 'react-icons/go'
+import { CgChart, CgGoogleTasks } from 'react-icons/cg'
+import { SiTransifex } from 'react-icons/si'
 
 
 
@@ -11,7 +17,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
     const location = useLocation() //hooks pour recuperer le path de la page actuel
   return (
     <>
-            <aside
+            {/* <aside
         className="z-20 hidden w-64 overflow-y-auto bg-[#191970] relative  md:block flex-shrink-0 rounded-r-xl shadow-xl"
       >
         <div className="py-4 text-white">
@@ -139,10 +145,10 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
             </button>
           </div>
         </div>
-      </aside>
+      </aside> */}
 
       {/* Side bar  pour mobile */}
-      {menu &&       <aside
+      {/* {menu &&       <aside
         className="z-20  w-64 overflow-y-auto absolute h-screen bg-[#191970]  md:block flex-shrink-0 rounded-r-xl"
       >
 
@@ -262,7 +268,51 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
              <FaArrowRight   className='ml-[4rem]'/>
             </button>
           </div>
-      </aside>}
+      </aside>} */}
+
+
+      <aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft">
+        <div className="w-full flex gap-2 items-center">
+            <a href="#">
+              <img class="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
+              
+          </a>
+          <h1 className='font-medium  text-gray-100'>e-Parapheur</h1>
+        </div>
+        
+      
+          <div class="flex flex-col justify-between flex-1 mt-6">
+              <nav class="-mx-3 space-y-3 ">
+                  <Link class={`flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg ${location.pathname ==='/sp'?'bg-blue-100 text-gray-600':'text-gray-200'} hover:bg-blue-100  hover:text-gray-700`} to="/sp">
+                      <BiTask size={20}/>
+      
+                      <span class="mx-2 text-sm font-medium">Courriers</span>
+                  </Link>
+      
+                  <Link class={`flex items-center px-3 py-2 transition-colors duration-300 transform  ${location.pathname ==='/sp/listTrans'?'bg-blue-100 text-gray-600':'text-gray-200'} rounded-lg hover:bg-blue-100  hover:text-gray-700`} to="/sp/listTrans">
+                    <BiTransfer size={20}/>
+      
+                      <span class="mx-2 text-sm font-medium">Transferts</span>
+                  </Link>    <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/sp/listTraite'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/sp/listTraite'>
+                      <SiTransifex size={20}/>
+      
+                      <span class="mx-2 text-sm font-medium">Retours</span>
+                  </Link>   
+                  <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/sp/stats'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/sp/stats'>
+                      <CgChart size={20}/>
+      
+                      <span class="mx-2 text-sm font-medium">Reporting</span>
+                  </Link>   
+                  {/* {user.role=='admin'?
+                   <Link class="flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg hover:bg-blue-100  hover:text-gray-700" to="/admin">
+      
+                      <RiShieldKeyholeLine size={20}/>
+                      <span class="mx-2 text-sm font-medium">Administrateur</span>
+                  </Link>:''} */}
+              </nav>
+      
+          </div>
+      </aside>
 
     </>
   )
