@@ -6,11 +6,9 @@ import { AnimatedCounter } from  'react-animated-counter';
 
 // import { ResponsiveContainer, LineChart, Line } from "recharts";
 import {
-  SiEnterprisedb,
-  SiFlux,
+
   SiPaperswithcode,
-  SiPinboard,
-  SiUpcloud,
+
 } from "react-icons/si";
 import {
   LineChart,
@@ -20,13 +18,11 @@ import {
   YAxis,
   BarChart,
   Cell,
-  Tooltip,
-  Legend,
+
   Bar,
-  Rectangle,
+
   ResponsiveContainer,
-  RadialBarChart,
-  RadialBar,
+
 } from "recharts";
 
 function Dashboard() {
