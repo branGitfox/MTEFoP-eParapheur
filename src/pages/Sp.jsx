@@ -18,7 +18,11 @@ function Agent() {
     const [isLoading, setIsLoading] = useState(false);
     const [token] = useState(localStorage.getItem("ACCESS_TOKEN"));
     const { user, setUser } = useContext(userContext);
+    const [dropMenu, setDropMenu] = useState(false)
   
+    const toggleDropMenu = () => {
+      setDropMenu(!dropMenu)
+    }
     //garantie pour l'information de l'utilisateur
     const getUser = async () => {
       try {
@@ -99,11 +103,46 @@ function Agent() {
             {user.nom_dir}
           </h2>
           <Link
-            to="/sp/profil"
-            className="font-semibold text-gray-700 cursor-pointer"
-          >
-            {user.name} <FaUser className="inline ml-2" />
-          </Link>
+                      onClick={toggleDropMenu}
+                      data-popover-target="menu"
+                        // to="/scc/profil"
+                        className="font-semibold text-gray-700 cursor-pointer"
+                      >
+                      
+                       {user.name}     <img class="object-cover w-8 h-8 rounded-full inline" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&h=764&q=100" alt=""/>
+          {/* <button 
+            
+            class="rounded-md inline bg-slate-800 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2" type="button">
+            <IoIosArrowDown/>
+          </button> */}
+          
+                      </Link>
+
+
+{dropMenu && <ul
+  role="menu"
+  data-popover="menu"
+  data-popover-placement="bottom"
+  class="absolute z-10 min-w-[180px] overflow-auto rounded-lg border border-slate-200 bg-white p-1.5 shadow-lg  focus:outline-none right-4 top-[2.8rem]"
+>  <Link to={'/sp/profil'}>
+  <li
+    role="menuitem"
+    class="cursor-pointer text-slate-800 flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-slate-100 focus:bg-slate-100 active:bg-slate-100"
+  >
+  
+        Compte
+  </li>
+    </Link>
+    
+  <li
+  onClick={logout}
+    role="menuitem"
+    class="cursor-pointer text-gray-500 flex w-full text-sm items-center rounded-md p-3 transition-all hover:bg-red-500 focus:bg-slate-100 active:bg-slate-100"
+  >
+      {isLoading?(<BeatLoader size={15} color='yellow'/>):'Se Deconnecter'}
+  </li>
+
+</ul>}
         </div>
         <Security>
           <MatchRoleSp>

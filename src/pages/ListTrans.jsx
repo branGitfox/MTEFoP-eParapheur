@@ -172,7 +172,7 @@ const gotoPage = (page) => {
           Actualiser
         </button> */}
       </div>
-      <div className="w-full overflow-x-auto overflow-y-scroll max-h-[83%] ">
+      <div className="mx-auto w-[98%] overflow-x-auto overflow-y-scroll max-h-[80%] rounded-md ">
         <table className="w-full whitespace-no-wrap ">
           <thead>
             <tr className="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b0 bg-blue-100">
