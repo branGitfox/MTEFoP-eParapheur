@@ -296,7 +296,7 @@ function Aside({toggleMenu,menu, logout, loading, user}) {
                   </Link>    <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/sp/listTraite'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/sp/listTraite'>
                       <SiTransifex size={20}/>
       
-                      <span class="mx-2 text-sm font-medium">Retours</span>
+                      <span class="mx-2 text-sm font-medium">Acheminements</span>
                   </Link>   
                   <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/sp/stats'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/sp/stats'>
                       <CgChart size={20}/>

@@ -6,6 +6,7 @@ import { FaChartLine,  } from 'react-icons/fa';
 import { BiTransfer } from 'react-icons/bi';
 import { SiPaperswithcode } from 'react-icons/si';
 import { HiOfficeBuilding } from 'react-icons/hi';
+import { BeatLoader } from 'react-spinners';
 
 function SpStats() {
     const [docByService, setDocByService] = useState([])

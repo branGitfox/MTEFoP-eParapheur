@@ -11,6 +11,7 @@ import axios from "axios";
 import Security from "../security/Security";
 import axiosRequest from "../axiosClient/axiosClient";
 import MatchRoleSp from "../security/MatchRoleSp";
+import { BeatLoader } from "react-spinners";
 
 function Agent() {
 
@@ -102,7 +103,7 @@ function Agent() {
           <h2 className="font-semibold absolute left-[46%]  md:hidden text-gray-700">
             {user.nom_dir}
           </h2>
-          <Link
+          <button
                       onClick={toggleDropMenu}
                       data-popover-target="menu"
                         // to="/scc/profil"
@@ -116,7 +117,7 @@ function Agent() {
             <IoIosArrowDown/>
           </button> */}
           
-                      </Link>
+                      </button>
 
 
 {dropMenu && <ul
