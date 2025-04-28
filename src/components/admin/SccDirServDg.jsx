@@ -25,9 +25,10 @@ function SccDirServDg() {
     await axiosRequest.post('/dg', formDataDg, {headers:{Accept:'application/json', "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"}})
     .then(({data}) => toast.success(data.message))
     .then(() => setIsLoadingDg(false))
+        .then(() => setFormDataDg({nom_dg:""}))
     .catch((err) => toast.error(err?.response?.data?.message))
     .finally(() => setIsLoadingDg(false))
-    
+
   }
 
   //creation d'une nouvelle Direction
@@ -37,8 +38,10 @@ function SccDirServDg() {
     await axiosRequest.post('/dir', formDataDir, {headers:{Accept:'application/json', "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"}})
     .then(({data}) => toast.success(data.message))
     .then(() => setIsLoadingDir(false))
+        .then(() => setFormDataDir({nom_dir:"", dg_id:"", porte_dir:""}))
     .catch((err) => toast.error(err?.response?.data?.message))
     .finally(() => setIsLoadingDir(false))
+
   }
 
   //creation d'une nouveau Service
@@ -48,8 +51,10 @@ function SccDirServDg() {
     await axiosRequest.post('/serv', formDataServ, {headers:{Accept:'application/json', "Access-Control-Allow-Origin":"http://127.0.0.1:8000/api"}})
     .then(({data}) => toast.success(data.message))
     .then(() => setIsLoadingServ(false))
+        .then(() => setFormDataDir({nom_serv:"", dir_id:"", porte_serv:""}))
     .catch((err) => toast.error(err?.response?.data?.message))
     .finally(() => setIsLoadingServ(false))
+    setFormDataServ({})
   }
 
 
