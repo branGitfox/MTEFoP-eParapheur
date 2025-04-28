@@ -186,22 +186,22 @@ const nextPage = () => {
           )}
         </table>
       </div> */}
-      <section class="w-full px-4 max-h-[83%] overflow-y-scroll mx-auto overflow-x-hidden mt-3">
-        <div class="sm:flex sm:items-center sm:justify-between w-full overflow-x-hidden ">
+      <section className="w-full px-4 max-h-[83%] overflow-y-scroll mx-auto overflow-x-hidden mt-3">
+        <div className="sm:flex sm:items-center sm:justify-between w-full overflow-x-hidden ">
           <div>
-            <div class="flex items-center gap-x-3">
-              <h2 class="text-lg font-medium text-gray-800 ">Liste Utilisateurs</h2>
+            <div className="flex items-center gap-x-3">
+              <h2 className="text-lg font-medium text-gray-800 ">Liste Utilisateurs</h2>
 
-              <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full">
+              <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full">
                 {users?.data?.length} utilisateurs
               </span>
             </div>
 
-            <p class="mt-1 text-sm text-gray-500 :text-gray-300">
+            <p className="mt-1 text-sm text-gray-500 :text-gray-300">
               Voici la liste de compte ayant l'accès au platefome
             </p>
           </div>
-          <div class="flex items-center mt-4 gap-x-3">
+          <div className="flex items-center mt-4 gap-x-3">
             {/* <button class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto :hover:bg-gray-800 :bg-gray-900 hover:bg-gray-100 :text-gray-200 :border-gray-700">
               <svg
                 width="20"
