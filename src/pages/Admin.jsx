@@ -19,9 +19,7 @@ const toggleShow = () => {
         <Aside show={show} setShow={toggleShow}/>
         <div className="w-full flex flex-col h-screen overflow-y-scroll">
           <Header show={show} setShow={setShow}/>
-
           {/* protection de la page administrateur */}
-           
           <AdminProtection>
               <Outlet/>
           </AdminProtection>

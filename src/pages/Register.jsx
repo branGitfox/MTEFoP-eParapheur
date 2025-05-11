@@ -90,7 +90,7 @@ function Register() {
         onSubmit={submit}
         className="w-[99%]  m-auto  flex flex-wrap justify-between  p-8 gap-x-5 bg-white rounded-md shadow mt-5 md:mt-10"
       >
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%]  w-full ">
           <label
             htmlFor="chrono"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -107,7 +107,7 @@ function Register() {
             name="chrono"
           />
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="ref"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -125,7 +125,7 @@ function Register() {
 
           />
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="provenance"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -143,7 +143,7 @@ function Register() {
 
           />
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="prop"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -161,7 +161,7 @@ function Register() {
 
           />
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="motif"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -179,7 +179,7 @@ function Register() {
 
           />
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="website"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -199,7 +199,7 @@ function Register() {
             <option value="normale">Normale</option>
           </select>
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="website"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -234,7 +234,7 @@ function Register() {
             </select>
           )}
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="cin"
             className="block mb-2 text-sm font-medium text-gray-700 "
@@ -252,7 +252,7 @@ function Register() {
 
           />
         </div>
-        <div className="mb-5 w-[45%]">
+        <div className="mb-5 lg:w-[45%] w-full ">
           <label
             htmlFor="cin"
             className="block mb-2 text-sm font-medium text-gray-700"
@@ -270,7 +270,7 @@ function Register() {
 
           />
         </div>
-        <div className=" w-[45%]">
+        <div className=" lg:w-[45%] w-full ">
         <button
           type="submit"
           className="text-white bg-blue-700  hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mt-7"

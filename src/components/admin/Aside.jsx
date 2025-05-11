@@ -261,7 +261,7 @@ function Aside({setShow, show}) {
              <FaArrowRight   className='ml-[3rem]'/>
             </button>
           </div> */}
-      <aside className=" hidden z-50 lg:flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
+      <aside className=" hidden  lg:flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
               <div className="w-full flex gap-2 items-center">
                     <a href="#">
                       <img className="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
@@ -317,7 +317,7 @@ function Aside({setShow, show}) {
       </aside>
 
         {show && (<aside
-            className="flex absolute lg:hidden flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
+            className="flex z-50 absolute lg:hidden flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
             <div className="w-full flex gap-2 items-center">
                 <a href="#">
                     <img className="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
