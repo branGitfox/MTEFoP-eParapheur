@@ -444,7 +444,7 @@ allOfDocByPeriod.forEach(dc => {
 
 </div>
   </div>
-  <div className="mt-4  flex flex-wrap  w-full justify-center gap-5 px-10">
+  <div className="mt-4  flex  flex-wrap lg:flex-nowrap w-full justify-center gap-5 px-10">
   <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
   <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
 
