@@ -261,48 +261,48 @@ function Aside({setShow, show}) {
              <FaArrowRight   className='ml-[3rem]'/>
             </button>
           </div> */}
-      <aside className="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
+      <aside className=" hidden lg:flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
               <div className="w-full flex gap-2 items-center">
                     <a href="#">
-                      <img class="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
+                      <img className="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
                       
                   </a>
                   <h1 className='font-medium  text-gray-100'>e-Parapheur</h1>
                 </div>
                 
               
-                  <div class="flex flex-col justify-between flex-1 mt-6">
-                      <nav class="-mx-3 space-y-3 ">
+                  <div className="flex flex-col justify-between flex-1 mt-6">
+                      <nav className="-mx-3 space-y-3 ">
                           <Link class={`flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg ${ location.pathname ==='/admin'?'bg-blue-100 text-gray-600':'text-gray-200'} hover:bg-blue-100  hover:text-gray-700`} to="/admin">
                               <RiLineChartLine size={20}/>
               
-                              <span class="mx-2 text-sm font-medium">Tableau de Bord</span>
+                              <span className="mx-2 text-sm font-medium">Tableau de Bord</span>
                           </Link>
               
                           <Link class={`flex items-center px-3 py-2 transition-colors duration-300 transform  ${ location.pathname ==='/admin/userregister'?'bg-blue-100 text-gray-600':'text-gray-200'} rounded-lg hover:bg-blue-100  hover:text-gray-700`} to="/admin/userregister">
                             <RiUserAddLine size={20}/>
               
-                              <span class="mx-2 text-sm font-medium">Ajout Utilisateur</span>
+                              <span className="mx-2 text-sm font-medium">Ajout Utilisateur</span>
                           </Link>    
                           <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/admin/usersList'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/admin/usersList'>
                               <AiOutlineUsergroupDelete  size={20}/>
               
-                              <span class="mx-2 text-sm font-medium">Liste Utilisateurs</span>
+                              <span className="mx-2 text-sm font-medium">Liste Utilisateurs</span>
                           </Link>   
                           <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/admin/sccservdirdg'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/admin/sccservdirdg'>
                               <RiHomeOfficeLine size={20} />
               
-                              <span class="mx-2 text-sm font-medium">Ajout Departements</span>
+                              <span className="mx-2 text-sm font-medium">Ajout Departements</span>
                           </Link>  
                           <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/admin/messages'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/admin/messages'>
                               <RiMailSettingsLine size={20} />
               
-                              <span class="mx-2 text-sm font-medium">Messages Support</span>
+                              <span className="mx-2 text-sm font-medium">Messages Support</span>
                           </Link>  
                           <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/scc'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/scc'>
                               <RiNewspaperLine size={20} />
               
-                              <span class="mx-2 text-sm font-medium">Service Central</span>
+                              <span className="mx-2 text-sm font-medium">Service Central</span>
                           </Link>  
                           
                           {/* {user.role=='admin'?
@@ -315,6 +315,74 @@ function Aside({setShow, show}) {
               
                   </div>
       </aside>
+
+        {show && (<aside
+            className="flex absolute lg:hidden flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
+            <div className="w-full flex gap-2 items-center">
+                <a href="#">
+                    <img className="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
+
+                </a>
+                <h1 className='font-medium  text-gray-100'>e-Parapheur</h1>
+            </div>
+
+
+            <div className="flex flex-col justify-between flex-1 mt-6">
+                <nav className="-mx-3 space-y-3 ">
+                    <Link
+                        class={`flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg ${location.pathname === '/admin' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} hover:bg-blue-100  hover:text-gray-700`}
+                        to="/admin">
+                        <RiLineChartLine size={20}/>
+
+                        <span className="mx-2 text-sm font-medium">Tableau de Bord</span>
+                    </Link>
+
+                    <Link
+                        class={`flex items-center px-3 py-2 transition-colors duration-300 transform  ${location.pathname === '/admin/userregister' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} rounded-lg hover:bg-blue-100  hover:text-gray-700`}
+                        to="/admin/userregister">
+                        <RiUserAddLine size={20}/>
+
+                        <span className="mx-2 text-sm font-medium">Ajout Utilisateur</span>
+                    </Link>
+                    <Link
+                        class={`flex items-center px-3 py-2  transition-colors duration-300  ${location.pathname === '/admin/usersList' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`}
+                        to='/admin/usersList'>
+                        <AiOutlineUsergroupDelete size={20}/>
+
+                        <span className="mx-2 text-sm font-medium">Liste Utilisateurs</span>
+                    </Link>
+                    <Link
+                        class={`flex items-center px-3 py-2  transition-colors duration-300  ${location.pathname === '/admin/sccservdirdg' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`}
+                        to='/admin/sccservdirdg'>
+                        <RiHomeOfficeLine size={20}/>
+
+                        <span className="mx-2 text-sm font-medium">Ajout Departements</span>
+                    </Link>
+                    <Link
+                        class={`flex items-center px-3 py-2  transition-colors duration-300  ${location.pathname === '/admin/messages' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`}
+                        to='/admin/messages'>
+                        <RiMailSettingsLine size={20}/>
+
+                        <span className="mx-2 text-sm font-medium">Messages Support</span>
+                    </Link>
+                    <Link
+                        class={`flex items-center px-3 py-2  transition-colors duration-300  ${location.pathname === '/scc' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`}
+                        to='/scc'>
+                        <RiNewspaperLine size={20}/>
+
+                        <span className="mx-2 text-sm font-medium">Service Central</span>
+                    </Link>
+
+                    {/* {user.role=='admin'?
+                           <Link class="flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg hover:bg-blue-100  hover:text-gray-700" to="/admin">
+
+                              <RiShieldKeyholeLine size={20}/>
+                              <span class="mx-2 text-sm font-medium">Administrateur</span>
+                          </Link>:''} */}
+                </nav>
+
+            </div>
+        </aside>)}
     </>
   );
 }
