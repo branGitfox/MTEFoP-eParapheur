@@ -26,6 +26,17 @@ function Message() {
     }
   }
 
+  const deleteAll = async  () =>  {
+      try {
+          await axiosRequest.delete('/messages/deleteAll', {headers: {Authorization: `Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
+              .then(({data}) => toast.success(data.message))
+              .then(() => setRefreshData(true))
+              .catch((err) => toast.error(err.response.data.message))
+      }catch(err){
+          console.log(err)
+      }
+  }
+
   
   useEffect(() => {
     getMessages()
@@ -35,7 +46,7 @@ function Message() {
     <div className='w-[95%]  bg-white mx-auto mt-4 flex-grow overflow-y-scroll rounded-md'>
         <div className="grid grid-cols-2">
             <h2 className="text-lg font-medium text-gray-800  p-5 rounded-md">Messages</h2>
-            <button  className="bg-red-400 rounded-md    h-10 w-40 self-center justify-self-end">Effacer Tout</button>
+            <button onClick={deleteAll} className="bg-red-400 rounded-md    h-10 w-40 self-center justify-self-end">Effacer Tout</button>
         </div>
 
 
@@ -69,7 +80,7 @@ const ShowMessage = ({mess, refresh}) =>  {
 
   const deleteMessage = async (id) => {
       try{
-          await axiosRequest.get(`/deleteMessages/${id}`, {headers:{Authorization:`Bearer ${token}`}})
+          await axiosRequest.delete(`/deleteMessages/${id}`, {headers:{Authorization:`Bearer ${token}`}})
               .then(() =>toast.success("Message supprime") )
               .then(() => refresh(true))
               .catch(() => toast.error("erreur de connexion"))
