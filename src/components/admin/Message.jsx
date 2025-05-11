@@ -18,7 +18,6 @@ function Message() {
        await axiosRequest.get("/getMessages", {headers:{Authorization:`Bearer ${token}`, "Access-Control-Allow-Origin":"http://127.0.0.1:8000"}})
         .then(({data}) => setMessages(data))
         .then(() => setIsLoading(false))
-
         .catch(({response}) => console.log(response.data.message))
         .finally(() => setIsLoading(false))
     }catch(err){
