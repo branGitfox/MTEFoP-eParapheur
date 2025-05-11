@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { toast } from 'react-toastify'
 import axiosRequest from '../../axiosClient/axiosClient'
 import { Oval } from 'react-loader-spinner'
+import {Link} from "react-router-dom";
 function Message() {
   const [messages, setMessages] = useState([])
   const   [loading, setIsLoading] = useState(false)
@@ -32,7 +33,11 @@ function Message() {
   
   return (
     <div className='w-[95%]  bg-white mx-auto mt-4 flex-grow overflow-y-scroll rounded-md'>
-        <h2 className="text-lg font-medium text-gray-800  p-5 rounded-md">Messages</h2>
+        <div className="grid grid-cols-2">
+            <h2 className="text-lg font-medium text-gray-800  p-5 rounded-md">Messages</h2>
+            <button  className="bg-red-400 rounded-md    h-10 w-40 self-center justify-self-end">Effacer Tout</button>
+        </div>
+
 
         <hr className='text-gray-200 w-full border-2'/>
         {loading?(
