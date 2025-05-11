@@ -378,48 +378,48 @@ allOfDocByPeriod.forEach(dc => {
       </div>
 
       <div className="flex flex-wrap mt-5 px-2 justify-center">
-      <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
+      <div className="mt-2 flex flex-wrap justify-center items-center gap-4">
  
     <a href="#"
-        class="flex h-20 w-40 flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
-        <div class="flex flex-row items-center justify-center">
+       className="flex h-20 w-40 flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div className="flex flex-row items-center justify-center">
      <SiPaperswithcode className="mr-3 text-blue-600"/>
 
-            <span class="font-bold text-gray-600"> {doc.length} </span>
+            <span className="font-bold text-gray-600"> {doc.length} </span>
         </div>
 
-        <div class="mt-2 text-sm text-gray-400">Total Courriers</div>
+        <div className="mt-2 text-sm text-gray-400">Total Courriers</div>
     </a>
 
  
     <a href="#"
-        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
-        <div class="flex flex-row items-center justify-center">
+       className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div className="flex flex-row items-center justify-center">
             <SiUpcloud className="text-cyan-500 mr-3" size={24}/>
 
-            <span class="font-bold text-gray-600"> {number} </span>
+            <span className="font-bold text-gray-600"> {number} </span>
         </div>
 
-        <div class="mt-2 text-sm text-gray-400">Courriers Enregistrés</div>
+        <div className="mt-2 text-sm text-gray-400">Courriers Enregistrés</div>
     </a>
  
     <a href="#"
-        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
-        <div class="flex flex-row items-center justify-center">
+       className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div className="flex flex-row items-center justify-center">
             <BsClock className="mr-3 text-orange-500"/>
 
-            <span class="font-bold text-gray-600"> {notLivredByPeriod.length} </span>
+            <span className="font-bold text-gray-600"> {notLivredByPeriod.length} </span>
         </div>
 
-        <div class="mt-2 text-sm text-gray-400">En attente</div>
+        <div className="mt-2 text-sm text-gray-400">En attente</div>
     </a>
 
     <a href="#"
-        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
-        <div class="flex flex-row items-center justify-center">
+       className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div className="flex flex-row items-center justify-center">
             <SiPinboard className="mr-3 text-green-500"/>
 
-            <span class="font-bold text-gray-600"> {    livredByPeriod.filter(
+            <span className="font-bold text-gray-600"> {    livredByPeriod.filter(
                       (lv) =>
                         lv?.created_at?.substring(0, 7) ==
                         (currentDate
@@ -428,23 +428,23 @@ allOfDocByPeriod.forEach(dc => {
                     ).length} </span>
         </div>
 
-        <div class="mt-2 text-sm text-gray-400">Courriers Livrés</div>
+        <div className="mt-2 text-sm text-gray-400">Courriers Livrés</div>
     </a>
     {docByDirectionByDateByPeriod.map((d, index) =>(    <a href="#"
-        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
-        <div class="flex flex-row items-center justify-center">
+                                                           className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+        <div className="flex flex-row items-center justify-center">
             <HiOfficeBuilding className={`mr-3 text-cyan-500`}/>
 
-            <span class="font-bold text-gray-600"> {d[1].length}{'/'}<span className="text-green-500">{d[2].length}</span>{'/'}<span className="text-red-500">{d[3].length}</span></span>
+            <span className="font-bold text-gray-600"> {d[1].length}{'/'}<span className="text-green-500">{d[2].length}</span>{'/'}<span className="text-red-500">{d[3].length}</span></span>
         </div>
 
-        <div class="mt-2 text-sm text-gray-400">Direction {d[0]}</div>
+        <div className="mt-2 text-sm text-gray-400">Direction {d[0]}</div>
     </a>))
     }
 
 </div>
   </div>
-  <div className="mt-4 flex  w-full justify-center gap-5 px-10">
+  <div className="mt-4  flex flex-wrap  w-full justify-center gap-5 px-10">
   <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
   <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
 
