@@ -261,7 +261,7 @@ function Aside({setShow, show}) {
              <FaArrowRight   className='ml-[3rem]'/>
             </button>
           </div> */}
-      <aside className=" hidden lg:flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
+      <aside className=" hidden z-50 lg:flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-[#191970] border-r rtl:border-r-0 rtl:border-l  animate__animated animate__fadeInLeft ">
               <div className="w-full flex gap-2 items-center">
                     <a href="#">
                       <img className="w-[3rem] h-[3rem] rounded-full" src="/mtefp_logo.jpeg" alt=""/>
@@ -271,8 +271,8 @@ function Aside({setShow, show}) {
                 </div>
                 
               
-                  <div className="flex flex-col justify-between flex-1 mt-6">
-                      <nav className="-mx-3 space-y-3 ">
+                  <div className="flex flex-col justify-between flex-1 mt-6" >
+                      <nav className="-mx-3 space-y-3 " >
                           <Link class={`flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg ${ location.pathname ==='/admin'?'bg-blue-100 text-gray-600':'text-gray-200'} hover:bg-blue-100  hover:text-gray-700`} to="/admin">
                               <RiLineChartLine size={20}/>
               
@@ -328,8 +328,9 @@ function Aside({setShow, show}) {
 
 
             <div className="flex flex-col justify-between flex-1 mt-6">
-                <nav className="-mx-3 space-y-3 ">
+                <nav className="-mx-3 space-y-3 "  >
                     <Link
+                        onClick={setShow}
                         class={`flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg ${location.pathname === '/admin' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} hover:bg-blue-100  hover:text-gray-700`}
                         to="/admin">
                         <RiLineChartLine size={20}/>
