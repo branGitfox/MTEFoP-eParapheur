@@ -1,16 +1,15 @@
-import React from 'react'
+
 import { Link, useLocation } from 'react-router-dom'
-import { BiAddToQueue, BiX } from 'react-icons/bi'
-import { BeatLoader } from 'react-spinners'
-import { FaArrowRight } from 'react-icons/fa'
-import {FaChartLine, FaUnlockKeyhole } from 'react-icons/fa6'
-import { GoReport, GoTasklist } from 'react-icons/go'
-import { SiAdminer } from 'react-icons/si'
-import { PiKeyhole, PiKeyholeDuotone } from 'react-icons/pi'
-import { RiShieldKeyholeFill, RiShieldKeyholeLine } from 'react-icons/ri'
+import { BiAddToQueue } from 'react-icons/bi'
+
+import {FaChartLine } from 'react-icons/fa6'
+import {  GoTasklist } from 'react-icons/go'
 
 
-function Aside({toggleMenu,menu, logout, loading, user}) {
+import {  RiShieldKeyholeLine } from 'react-icons/ri'
+
+
+function Aside({toggleMenu,menu, user}) {
     const location = useLocation() //hooks pour recuperer le path de la page actuel
   return (
 //     <>
