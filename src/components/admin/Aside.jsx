@@ -327,10 +327,10 @@ function Aside({setShow, show}) {
             </div>
 
 
-            <div className="flex flex-col justify-between flex-1 mt-6">
+            <div className="flex flex-col justify-between flex-1 mt-6" onClick={setShow}>
                 <nav className="-mx-3 space-y-3 "  >
                     <Link
-                        onClick={setShow}
+
                         class={`flex items-center px-3 py-2  transition-colors duration-300 transform rounded-lg ${location.pathname === '/admin' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} hover:bg-blue-100  hover:text-gray-700`}
                         to="/admin">
                         <RiLineChartLine size={20}/>

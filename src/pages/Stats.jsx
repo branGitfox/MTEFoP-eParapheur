@@ -430,7 +430,7 @@ allOfDocByPeriod.forEach(dc => {
 
         <div className="mt-2 text-sm text-gray-400">Courriers Livrés</div>
     </a>
-    {docByDirectionByDateByPeriod.map((d, index) =>(    <a href="#"
+    {docByDirectionByDateByPeriod.map((d, index) =>(<a href="#"
                                                            className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
         <div className="flex flex-row items-center justify-center">
             <HiOfficeBuilding className={`mr-3 text-cyan-500`}/>
