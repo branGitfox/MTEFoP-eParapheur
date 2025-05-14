@@ -1,9 +1,7 @@
-import React from 'react'
+
 import { Link, useLocation } from 'react-router-dom'
-import {BiTask, BiTransfer, BiTransferAlt, BiX} from 'react-icons/bi'
-import { BeatLoader } from 'react-spinners'
-import { FaArrowRight } from 'react-icons/fa'
-import {FaUnlockKeyhole } from 'react-icons/fa6'
+import {BiTask, BiTransfer} from 'react-icons/bi'
+
 import {SiTransifex} from "react-icons/si";
 import {CgChart} from "react-icons/cg";
 
