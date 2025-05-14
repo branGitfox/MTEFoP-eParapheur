@@ -1,7 +1,6 @@
 
-import React, { useContext, useEffect, useState } from "react";
-import { FaCheck, FaSearch, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { IoReloadOutline } from "react-icons/io5";
+import  { useContext, useEffect, useState } from "react";
+import { FaCheck,  FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { userContext } from "../components/ContextWrapper";
 import { BiTransfer } from "react-icons/bi";
 import axiosRequest from "../axiosClient/axiosClient";
@@ -107,8 +106,7 @@ const gotoPage = (page) => {
     navigate(`/sp/move/${id_doc}`)
   }
 
-  console.log(docsByDirection);
-  
+
 
   return (
     <>
@@ -126,11 +124,11 @@ const gotoPage = (page) => {
         <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
     </svg>
 
-    <span class="mx-1">Rafraichir</span>
+    <span className="mx-1">Rafraichir</span>
 </button>
-<div class="flex items-center me-4">
+<div className="flex items-center me-4">
         {/* <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500   focus:ring-2"/> */}
-        <select onChange={changeLine} class="py-3 px-4 pe-9 block w-full bg-white shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+        <select onChange={changeLine} className="py-3 px-4 pe-9 block w-full bg-white shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
   <option value='all'>Afficher toutes les lignes</option>
   <option value='15'>15 lignes</option>
   <option value='50'>50 lignes</option>
@@ -138,13 +136,13 @@ const gotoPage = (page) => {
 </select>
         {/* <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-è00 ">Afficher Tout</label> */}
     </div>
-        <div class="flex">
-        <button disabled={page==1?true:false} onClick={previousPage}  class={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
+        <div className="flex">
+        <button disabled={page==1?true:false} onClick={previousPage}  className={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
            <FaArrowLeft className="mr-1"/> Précédent
         </button>
               
                 {pageLinks.map((number, index) => (
-                      <button key={index}  onClick={() => gotoPage(number.number)} class={`items-center hidden px-4 py-2 mx-1 text-gray-700 ${page!==number.number?'bg-white text-gray-500':'bg-blue-600 text-white'} transition-colors duration-300 transform  rounded-md sm:flex`}>
+                      <button key={index}  onClick={() => gotoPage(number.number)} className={`items-center hidden px-4 py-2 mx-1 text-gray-700 ${page!==number.number?'bg-white text-gray-500':'bg-blue-600 text-white'} transition-colors duration-300 transform  rounded-md sm:flex`}>
               {number.number}
             </button>
                 ))}
@@ -158,7 +156,7 @@ const gotoPage = (page) => {
             3
         </a> */}
     
-        <button disabled={page==docsByDirection?.last_page?true:false}  onClick={nextPage} class={`flex items-center px-4 py-2 mx-1  ${page<docsByDirection?.last_page?'bg-blue-600 text-white':'bg-gray-200 text-gray-700'} transition-colors duration-300 transform  rounded-md`}>
+        <button disabled={page==docsByDirection?.last_page?true:false}  onClick={nextPage} className={`flex items-center px-4 py-2 mx-1  ${page<docsByDirection?.last_page?'bg-blue-600 text-white':'bg-gray-200 text-gray-700'} transition-colors duration-300 transform  rounded-md`}>
             Suivant<FaArrowRight className="ml-1"/> 
         </button>
     </div>

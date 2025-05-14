@@ -99,26 +99,26 @@ const gotoPage = (page) => {
   return (
     <>
               <div className=" w-[100%]  justify-start gap-x-4  flex p-3 mb-5 relative text-black">
-              <div class="relative">
-              <span class="absolute inset-y-0 left-0 justify-start flex items-center pl-3">
-            <svg class="w-full h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+              <div className="relative">
+              <span className="absolute inset-y-0 left-0 justify-start flex items-center pl-3">
+            <svg className="w-full h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
                 <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
         </span>
 
 
-        <input value={search}   onChange={handleChange} type="text" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border rounded-md focus:border-blue-400  focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" placeholder="Rechercher"/>
+        <input value={search}   onChange={handleChange} type="text" className="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border rounded-md focus:border-blue-400  focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" placeholder="Rechercher"/>
               </div>
-              <button onClick={fresh} class="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-    <svg class="w-5 h-5 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+              <button onClick={fresh} className="flex items-center px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+    <svg className="w-5 h-5 mx-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
         <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
     </svg>
 
-    <span class="mx-1">Rafraichir</span>
+    <span className="mx-1">Rafraichir</span>
 </button>
-<div class="flex items-center me-4">
+<div className="flex items-center me-4">
         {/* <input id="inline-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500   focus:ring-2"/> */}
-        <select onChange={changeLine} class="py-3 px-4 pe-9 block w-full bg-white shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
+        <select onChange={changeLine} className="py-3 px-4 pe-9 block w-full bg-white shadow-lg border-transparent rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none">
   <option value='all'>Afficher toutes les lignes</option>
   <option value='15'>15 lignes</option>
   <option value='50'>50 lignes</option>
@@ -126,13 +126,13 @@ const gotoPage = (page) => {
 </select>
         {/* <label for="inline-checkbox" class="ms-2 text-sm font-medium text-gray-è00 ">Afficher Tout</label> */}
     </div>
-        <div class="flex">
-        <button disabled={page==1?true:false} onClick={previousPage}  class={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
+        <div className="flex">
+        <button disabled={page==1?true:false} onClick={previousPage}  className={`flex items-center px-4 py-2 mx-1 text-gray-500  ${page==1?'bg-gray-200 text-gray-500':'bg-blue-600 text-white'} rounded-md cursor-not-allowed`}>
            <FaArrowLeft className="mr-1"/> Précédent
         </button>
               
                 {pageLinks.map((number, index) => (
-                      <button key={index}  onClick={() => gotoPage(number.number)} class={`items-center hidden px-4 py-2 mx-1 text-gray-700 ${page!==number.number?'bg-white text-gray-500':'bg-blue-600 text-white'} transition-colors duration-300 transform  rounded-md sm:flex`}>
+                      <button key={index}  onClick={() => gotoPage(number.number)} className={`items-center hidden px-4 py-2 mx-1 text-gray-700 ${page!==number.number?'bg-white text-gray-500':'bg-blue-600 text-white'} transition-colors duration-300 transform  rounded-md sm:flex`}>
               {number.number}
             </button>
                 ))}
@@ -146,7 +146,7 @@ const gotoPage = (page) => {
             3
         </a> */}
     
-        <button disabled={page==moveByDirection?.last_page?true:false}  onClick={nextPage} class={`flex items-center px-4 py-2 mx-1  ${page<moveByDirection?.last_page?'bg-blue-600 text-white':'bg-gray-200 text-gray-700'} transition-colors duration-300 transform  rounded-md`}>
+        <button disabled={page==moveByDirection?.last_page?true:false}  onClick={nextPage} className={`flex items-center px-4 py-2 mx-1  ${page<moveByDirection?.last_page?'bg-blue-600 text-white':'bg-gray-200 text-gray-700'} transition-colors duration-300 transform  rounded-md`}>
             Suivant<FaArrowRight className="ml-1"/> 
         </button>
     </div>

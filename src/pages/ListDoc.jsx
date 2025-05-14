@@ -66,7 +66,7 @@ const gotoPage = (page) => {
   }, [reload, updateLivre, lines, page])
 
   //filtre la barre de recherche
-  const filtered = docsByDirection?.filter((doc) => {
+  const filtered = docsByDirection?.data?.filter((doc) => {
     if (doc.proprietaire?.toLowerCase().includes(search?.toLowerCase())) {
       return true;
     }
