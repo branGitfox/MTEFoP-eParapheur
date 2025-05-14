@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import { FaCheck, FaSearch } from "react-icons/fa";
-import { IoReloadOutline } from "react-icons/io5";
+import { useContext, useEffect, useState } from "react";
+import { FaCheck } from "react-icons/fa";
+
 import { userContext } from "../components/ContextWrapper";
 import { BiTransfer } from "react-icons/bi";
 import axiosRequest from "../axiosClient/axiosClient";
@@ -96,7 +96,7 @@ const gotoPage = (page) => {
     navigate(`/sp/doc/${id_doc}`)
   }
 
-  console.log(docsByDirection);
+
   
   // docsByDirection.reverse()
   return (

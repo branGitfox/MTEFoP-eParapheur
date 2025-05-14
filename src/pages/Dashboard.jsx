@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { FaEye, FaFilter, FaHandPointDown, FaWallet } from "react-icons/fa";
+import{ useEffect, useState } from "react";
+import {  FaFilter, FaHandPointDown } from "react-icons/fa";
 import { FaHandBackFist, FaHouseFire, FaUserGroup } from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
 import { AnimatedCounter } from  'react-animated-counter';

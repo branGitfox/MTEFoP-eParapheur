@@ -1,7 +1,7 @@
 
-import React, { useContext, useEffect, useState } from "react";
-import {FaExclamationCircle, FaSearch, FaCheckCircle, FaArrowLeft, FaArrowRight} from "react-icons/fa";
-import { IoReloadOutline } from "react-icons/io5";
+import  { useContext, useEffect, useState } from "react";
+import {FaExclamationCircle, FaCheckCircle, FaArrowLeft, FaArrowRight} from "react-icons/fa";
+
 import { userContext } from "../components/ContextWrapper";
 
 import axiosRequest from "../axiosClient/axiosClient";

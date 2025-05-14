@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { userContext } from "../components/ContextWrapper";
 import axiosRequest from "../axiosClient/axiosClient";
@@ -78,8 +78,7 @@ function Register() {
     getDir()
   }, [locations.pathname])
 
-  //log
-  console.log(formData);
+
   
   return (
     <>

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import {FaFilter, FaThumbsUp } from "react-icons/fa";
-import { SiEnterprisedb, SiFlux, SiPaperswithcode, SiPinboard, SiUpcloud } from "react-icons/si";
+import { useEffect, useState } from "react";
+import {FaFilter } from "react-icons/fa";
+import { SiPaperswithcode, SiPinboard, SiUpcloud } from "react-icons/si";
 import {
-  LineChart,
-  Line,
+
+
   CartesianGrid,
   XAxis,
   YAxis,
@@ -12,21 +12,17 @@ import {
   Legend,
   Bar,
   ResponsiveContainer,
-  RadialBarChart,
-  RadialBar,
+
   PieChart,
   Pie,
   Cell
 } from "recharts";
 import axiosRequest from "../axiosClient/axiosClient";
-import {  FaHouseFlag } from "react-icons/fa6";
-import { BiFilter, BiUser } from "react-icons/bi";
-import { ClockLoader } from "react-spinners";
+
 import { BsClock } from "react-icons/bs";
-import { GiCompanionCube } from "react-icons/gi";
+
 import { HiOfficeBuilding } from "react-icons/hi";
-import { color } from "chart.js/helpers";
-import { FiFilter } from "react-icons/fi";
+
 
 function Stats() {
   const [doc, setDoc] = useState([]);

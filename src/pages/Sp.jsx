@@ -1,6 +1,6 @@
 
-import React, { useContext, useEffect, useState } from "react";
-import { FaUser } from "react-icons/fa";
+import  { useContext, useEffect, useState } from "react";
+
 import Aside from "../components/sp/Aside";
 import { Link, Outlet } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";

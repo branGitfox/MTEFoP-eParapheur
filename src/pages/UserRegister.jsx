@@ -1,6 +1,6 @@
 import axiosRequest from "../axiosClient/axiosClient";
 import { BeatLoader } from "react-spinners";
-import { useEffect, useRef, useState } from "react";
+import { useEffect,  useState } from "react";
 import { toast} from "react-toastify";
 import { Oval } from "react-loader-spinner";
 import "react-toastify/dist/ReactToastify.css";

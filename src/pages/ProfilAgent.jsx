@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { userContext } from "../components/ContextWrapper";
 import { toast } from "react-toastify";
 import axiosRequest from "../axiosClient/axiosClient";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 import { BeatLoader } from "react-spinners";
 
 function ProfilAgent() {

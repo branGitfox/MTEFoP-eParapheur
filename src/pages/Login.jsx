@@ -2,7 +2,7 @@ import { FaKey, FaMailBulk } from "react-icons/fa";
 import { userContext } from "../components/ContextWrapper";
 import { useContext, useEffect, useRef, useState } from "react";
 import axiosRequest from "../axiosClient/axiosClient";
-import { ToastContainer, toast } from "react-toastify"; 
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BeatLoader } from "react-spinners";
 import {useNavigate } from "react-router-dom";

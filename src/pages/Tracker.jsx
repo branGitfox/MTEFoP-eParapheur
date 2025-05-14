@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useId, useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaSearch } from "react-icons/fa";
+import  { useContext, useEffect, useId, useState } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import TdData from "../components/TdData";
 import axiosRequest from "../axiosClient/axiosClient";
 import { Oval } from "react-loader-spinner";
 import { userContext } from "../components/ContextWrapper";
-import { IoReloadOutline } from "react-icons/io5";
+
 import { toast } from "react-toastify";
 function Tracker() {
   const [loader, setLoader] = useState(false); //L'etat du loader
@@ -75,7 +75,7 @@ const changeLine = (e) => {
     getDocs();
   }, [freshStatus, page, lines]);
 
-  console.log(docs);
+
 
   const nextPage = () => {
     setPage((page) => page + 1)
