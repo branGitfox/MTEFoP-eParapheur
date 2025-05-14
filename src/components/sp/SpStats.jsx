@@ -117,17 +117,17 @@ function SpStats() {
                       </div>
                 
                       <div className="flex flex-wrap mt-5 px-2 justify-center">
-                      <div class="mt-2 flex flex-wrap justify-center items-center gap-4">
+                      <div className="mt-2 flex flex-wrap justify-center items-center gap-4">
                  
                     <a href="#"
-                        class="flex h-20 w-40 flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
-                        <div class="flex flex-row items-center justify-center">
+                       className="flex h-20 w-40 flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+                        <div className="flex flex-row items-center justify-center">
                      <SiPaperswithcode className="mr-3 text-blue-600"/>
                 
-                            <span class="font-bold text-gray-600"> {countByDirection} </span>
+                            <span className="font-bold text-gray-600"> {countByDirection} </span>
                         </div>
                 
-                        <div class="mt-2 text-sm text-gray-400">Total Courriers</div>
+                        <div className="mt-2 text-sm text-gray-400">Total Courriers</div>
                     </a>
                 
                  
@@ -170,20 +170,20 @@ function SpStats() {
                         <div class="mt-2 text-sm text-gray-400">Courriers Livrés</div>
                     </a> */}
                     {docByService.map((d, index) =>(    <a href="#"
-                        class="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
-                        <div class="flex flex-row items-center justify-center">
+                                                           className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
+                        <div className="flex flex-row items-center justify-center">
                             <HiOfficeBuilding className={`mr-3 text-cyan-500`}/>
                 
-                            <span class="font-bold text-gray-600"> {d[1].length}</span>
+                            <span className="font-bold text-gray-600"> {d[1].length}</span>
                         </div>
                 
-                        <div class="mt-2 text-sm text-gray-400">Direction {d[0]}</div>
+                        <div className="mt-2 text-sm text-gray-400">Direction {d[0]}</div>
                     </a>))
                     }
                 
                 </div>
                   </div>
-                  <div className="mt-4 flex  w-full justify-center gap-5 px-10">
+                  <div className="mt-4 flex flex-wrap lg:flex-nowrap  w-full justify-center gap-5 px-10">
                   <div className="w-full bg-white p-5 rounded-lg  py-2 flex flex-col justify-center h-[300px] mt-10 shadow-lg">
                   <h2 className="text-gray-700 mb-2 mt-2">Graphique Radial - Flux de Courriers par Direction</h2>
                 
