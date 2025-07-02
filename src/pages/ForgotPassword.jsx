@@ -15,7 +15,7 @@ function ForgotPassword() {
         setEmail((email) => ({...email, [name]:value}))
     }
 
-    //Creé un lien du recuperation de mot de passe oublié
+    // Créer un lien de récupération de mot de passe oublié
     const handleSubmit = async (e) => {
         e.preventDefault()
         setIsLoading(true)

@@ -24,7 +24,7 @@ function Tracker() {
     setSearch(e.target.value);
   };
 
-  //filtrage  de lq bqrre de recherches
+  //filtrage  de la barre de recherches
   const filtered = docs?.data?.filter((doc) => {
     if (doc.proprietaire?.toLowerCase().includes(search?.toLowerCase())) {
       return true;
