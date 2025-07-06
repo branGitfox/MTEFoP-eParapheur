@@ -9,6 +9,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { RiFileUserLine, RiHomeOfficeLine, RiLineChartLine, RiMailDownloadLine, RiMailOpenLine, RiMailSettingsLine, RiMessage3Line, RiNewspaperLine, RiUser6Line, RiUserAddLine } from "react-icons/ri";
 import { AiOutlineUsergroupDelete } from "react-icons/ai";
+import { BiFork, BiGitRepoForked, BiStrikethrough } from "react-icons/bi";
 function Aside({setShow, show}) {
   const locations = useLocation();
   const [loading, setIsLoading] = useState(false);
@@ -294,6 +295,11 @@ function Aside({setShow, show}) {
               
                               <span className="mx-2 text-sm font-medium">Ajout Departements</span>
                           </Link>  
+                              <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/admin/listDeparts'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/admin/listDeparts'>
+                              <BiGitRepoForked size={20} />
+              
+                              <span className="mx-2 text-sm font-medium">Liste Departements</span>
+                          </Link> 
                           <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/admin/messages'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/admin/messages'>
                               <RiMailSettingsLine size={20} />
               
@@ -359,6 +365,11 @@ function Aside({setShow, show}) {
 
                         <span className="mx-2 text-sm font-medium">Ajout Departements</span>
                     </Link>
+                        <Link class={`flex items-center px-3 py-2  transition-colors duration-300  ${ location.pathname ==='/admin/messages'?'bg-blue-100 text-gray-600':'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`} to='/admin/messages'>
+                              <BiGitRepoForked size={20} />
+              
+                              <span className="mx-2 text-sm font-medium">Messages Support</span>
+                          </Link> 
                     <Link
                         class={`flex items-center px-3 py-2  transition-colors duration-300  ${location.pathname === '/admin/messages' ? 'bg-blue-100 text-gray-600' : 'text-gray-200'} transform rounded-lg hover:bg-blue-100  hover:text-gray-700`}
                         to='/admin/messages'>

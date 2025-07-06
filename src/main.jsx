@@ -34,6 +34,7 @@ import ProfilAgent from "./pages/ProfilAgent.jsx";
 import UpDoc from "./pages/UpDoc.jsx";
 import ListTraite from "./pages/ListTraite.jsx";
 import OneDoc3 from "./pages/OneDoc3.jsx";
+import ListDeparts from "./components/admin/ListDeparts.jsx"  
 //react router pour gerer les route coté Front-end
 const router = createBrowserRouter(
   [
@@ -123,6 +124,11 @@ const router = createBrowserRouter(
         {
           path:'/admin/messages',
           element:<Message/>
+        },
+
+        {
+          path:'/admin/listdeparts',
+          element:<ListDeparts/>
         }
       ],
     },
