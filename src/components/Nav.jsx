@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BiX } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Nav() {
   const [showMenu, setShowMenu] = useState(false);
@@ -9,6 +9,7 @@ function Nav() {
     setShowMenu(!showMenu);
   };
   
+  const location = useLocation()
   return (
     <>
       <nav
@@ -68,7 +69,7 @@ function Nav() {
             <ul className="list-reset lg:flex justify-end flex-1 items-center">
               <li className="mr-3">
                 <Link
-                  className="inline-block py-2 px-4 text-gray-100 font-bold no-underline"
+                  className={`inline-block py-2 px-4 ${location.pathname == '/'?'text-gray-100  font-bold':'text-gray-100'}  no-underline`}
                   to="/"
                 >
                   Accueil
@@ -84,7 +85,7 @@ function Nav() {
               </li>
               <li className="mr-3">
                 <Link
-                  className="inline-block text-gray-100 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
+                  className={`inline-block  ${location.pathname == '/support'?'text-gray-100  font-bold':'text-gray-100'} no-underline hover:text-gray-200 hover:text-underline py-2 px-4`}
                   to="/support"
                 >
                   Support

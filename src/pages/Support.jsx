@@ -48,17 +48,17 @@ const redirect = (link) => navigate(link)
           Support technique <BiSolidError className="inline text-yellow-500" />
         </h1>
         <p className="relative top-[68px] text-gray-900 text-center mt-5">
-          Si vous avez besoin d'aide ou si vous rencontrez une erreur, n'hesitez pas à nous envoyer un message, nous vous repondrons à un court instant.
+          Si vous avez besoin d'aide ou si vous rencontrez une erreur, n'hésitez pas à nous envoyer un message. Nous vous répondrons dans les plus brefs délais
         </p>
-        <div className="relative top-[68px] h-auto lg:h-2/3  lg:w-[1200px]  mx-auto w-full mt-7 flex flex-wrap justify-center">
-          <div className=" w-full lg:w-1/2 h-full flex justify-center items-baseline">
+        <div className="relative  top-[68px] h-auto lg:h-2/3  lg:w-[1200px]  mx-auto w-full mt-7 flex flex-wrap justify-center">
+          <div className="animate__animated animate__fadeInLeft w-full lg:w-1/2 h-full flex justify-center items-baseline">
             <img
               src="/support.avif"
               className="w-3/5 md:w-3/5 lg:w-auto h-auto"
               alt=""
             />
           </div>
-          <div className=" w-full lg:w-1/2 h-full flex justify-center items-center">
+          <div className=" animate__animated animate__fadeInRight w-full lg:w-1/2 h-full flex justify-center items-center">
             <form
               onSubmit={handleSubmit}
               className="flex flex-col w-[100%] px-10  items-center"

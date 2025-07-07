@@ -42,9 +42,7 @@ function Home() {
               e-Parapheur
             </h1>
             <p className="leading-normal text-2xl  lg:m-auto  mb-8 text-left animate__animated animate__fadeInLeft">
-              Application Web de suivi de Courriers dédié au Service Central de
-              courriers au sein du Ministere afin de simplifier le traçage de
-              courriers.
+             Plateforme web de gestion et de suivi des courriers, dédiée au ministère afin de simplifier la gestion et le traçage des courriers.
             </p>
             <Link
               to="/login"
@@ -98,7 +96,7 @@ function Home() {
           </g>
         </svg>
       </div>
-      <section className="bg-white border-b py-8">
+      <section id="infos" className="bg-white border-b py-8">
         <div className="container max-w-5xl mx-auto m-8">
           <h2 className="w-full my-2 text-2xl md:text-5xl font-bold leading-tight text-center text-gray-800">
             A propos de ce Site Web <TbWorld className="inline text-blue-500 mx-3"/>
@@ -112,9 +110,10 @@ function Home() {
                   Avant <MdOutlineDangerous className="inline text-red-500 w-10 h-10 mx-3"/>
               </h3>
               <ul className="text-gray-600 mb-2 list-disc">
-                  <li>Courrier difficile à tracer</li>
-                  <li>Archivage non garantie</li>
-                  <li>Directions et services   asynchrone</li>
+                <li>Courriers difficiles à tracer</li>
+                <li>Archivage non garanti</li>
+                <li>Directions et services asynchrones</li>
+
               </ul>
             
             </div>
@@ -123,10 +122,11 @@ function Home() {
                 Après <FaTools className="inline text-green-500 w-7 mx-3 h-7"/>
               </h3>
               <ul className="text-gray-600 mb-2 list-disc">
-                  <li>Traçage de courries rapide et efficace </li>
-                  <li>Archivage sécurisé</li>
-                  <li>Directions et services  synchrone</li>      
-                  <li>Accessible à distance</li>      
+              <li>Traçage de courriers rapide et efficace</li>
+              <li>Archivage sécurisé</li>
+              <li>Directions et services synchrones</li>
+              <li>Accès à distance</li>
+   
               </ul>
             </div>
             

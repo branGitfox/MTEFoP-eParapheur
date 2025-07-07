@@ -35,6 +35,7 @@ import UpDoc from "./pages/UpDoc.jsx";
 import ListTraite from "./pages/ListTraite.jsx";
 import OneDoc3 from "./pages/OneDoc3.jsx";
 import ListDeparts from "./components/admin/ListDeparts.jsx"  
+import AdProfil from "./components/admin/AdProfil.jsx";
 //react router pour gerer les route coté Front-end
 const router = createBrowserRouter(
   [
@@ -129,6 +130,10 @@ const router = createBrowserRouter(
         {
           path:'/admin/listdeparts',
           element:<ListDeparts/>
+        },
+           {
+          path:'/admin/profil',
+          element:<AdProfil/>
         }
       ],
     },
