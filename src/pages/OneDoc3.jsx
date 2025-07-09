@@ -127,7 +127,7 @@ function OneDoc3() {
     }
 
   
-  
+  console.log(doc)
     
    
    

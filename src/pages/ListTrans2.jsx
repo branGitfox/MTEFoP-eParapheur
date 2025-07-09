@@ -44,7 +44,7 @@ function ListTrans2() {
     }, [reload, lines, page])
   
     //filtre la barre de recherche
-    const filtered = moveByDirection?.Data?.filter((doc) => {
+    const filtered = moveByDirection?.data?.filter((doc) => {
       if (doc.propr?.toLowerCase().includes(search?.toLowerCase())) {
         return true;
       }
@@ -87,6 +87,8 @@ function ListTrans2() {
         pageLinks.push({number:i})
     }
 
+   
+  
     filtered?.reverse()
 
   return (
@@ -204,13 +206,13 @@ const DocItems = ({doc, ind}) => {
         <td className="px-4 py-3">
           <div className="flex items-center text-sm">
             <div>
-              <p className="font-semibold">{doc.ref_initial}</p>
+              <p className="font-semibold">{doc.ref_propre}</p>
             </div>
           </div>
         </td>
         <td className="px-4 py-3 text-sm">{doc.provenance}</td>
         <td className="px-4 py-3 text-sm">{doc.nom_serv??doc.nom_dir}</td>
-        <td className="px-4 py-3 text-sm">{doc.ref_propre}</td>
+        <td className="px-4 py-3 text-sm">{doc.ref_initial}</td>
         <td className="px-4 py-3 text-sm">{doc.type}</td>
         <td className="px-4 py-3 text-sm">{doc.propr??doc.proprietaire}</td>
         <td className="px-4 py-3 text-sm">{doc.cin}</td>
