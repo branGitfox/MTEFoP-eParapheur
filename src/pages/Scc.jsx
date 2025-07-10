@@ -108,7 +108,7 @@ function Scc() {
             <h2 className="font-semibold absolute left-[46%]  md:hidden text-gray-700">
               SCC
             </h2>
-            <Link
+            <button
             onClick={toggleDropMenu}
             data-popover-target="menu"
               // to="/scc/profil"
@@ -122,7 +122,7 @@ function Scc() {
   <IoIosArrowDown/>
 </button> */}
 
-            </Link>
+            </button>
 
 
 

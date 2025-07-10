@@ -246,13 +246,13 @@ const docByDirectionByDateByPeriod = docByDirectionByPeriod?.map((docs) => {
 //access du nombre de courriers par direction par index statique
 // let fop = docByDirection.length > 0? docByDirection[1][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0, 7))).length: 0
 // let ministre = docByDirection.length > 0? docByDirection[0][1]?.filter(d => d.created_at.substring(0, 7) == (currentDate?currentDate:doc[doc.length - 1]?.created_at?.substring(0, 7))).length: 0
-
+const color = ['blue', 'green', 'violet', 'maroon', 'yellow', 'purple', 'red'];
 
   //ajout des donnees filtree
   if (only.length !== 0) {
-    new Set(only).forEach((dc) => {
-      const color = ["red", "orange", "green", "purple", "blue"];
-      let random = Math.floor(Math.random() * color.length);
+    new Set(only).forEach((dc, index) => {
+      const color = ['blue', 'green', 'violet', 'maroon', 'yellow', 'purple', 'red'];
+      // let random = Math.floor(Math.random() * color.length);
       let uv = doc.filter(
         (d) => d.created_at.substring(0, 7) == dc.created_at
       ).length;
@@ -265,7 +265,7 @@ const docByDirectionByDateByPeriod = docByDirectionByPeriod?.map((docs) => {
         courrier: uv,
         mensuel: pv,
         amt: dc.created_at,
-        fill: color[random],
+        fill: color[index],
         // DRFP:ministre,
         // DUGT:fop
       });
@@ -325,9 +325,9 @@ const handlePeriod = (e) => {
 
 const dataDir = []
 docByDirectionByDateByPeriod.forEach((doc, index) => {
-  const randomColor = ['blue', 'green', 'violet', 'maroon']
-  const indexColor = Math.floor(Math.random() * randomColor.length)
-  dataDir.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[indexColor]})
+  const randomColor = ['blue', 'green', 'violet', 'maroon', 'yellow', 'purple', 'red']
+  // const indexColor = Math.floor(Math.random() * randomColor.length)
+  dataDir.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[index]})
 } )
 
 
@@ -429,7 +429,7 @@ allOfDocByPeriod.forEach(dc => {
     {docByDirectionByDateByPeriod.map((d, index) =>(<a href="#"
                                                            className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
         <div className="flex flex-row items-center justify-center">
-            <HiOfficeBuilding className={`mr-3 text-cyan-500`}/>
+            <HiOfficeBuilding className={`mr-3 text-${color[index]}-500`}/>
 
             <span className="font-bold text-gray-600"> {d[1].length}{'/'}<span className="text-green-500">{d[2].length}</span>{'/'}<span className="text-red-500">{d[3].length}</span></span>
         </div>

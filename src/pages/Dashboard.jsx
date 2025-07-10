@@ -1,4 +1,4 @@
-import{ useEffect, useState } from "react";
+import{ useEffect, useId, useState } from "react";
 import {  FaFilter, FaHandPointDown } from "react-icons/fa";
 import { FaHandBackFist, FaHouseFire, FaUserGroup } from "react-icons/fa6";
 import axiosRequest from "../axiosClient/axiosClient";
@@ -271,17 +271,17 @@ const docByDirectionByDateByPeriod = allOfDocByPeriod?.map((docs) => {
 // })
   const dataDir = []
 docByDirectionByDateByPeriod.forEach((doc, index) => {
-  const randomColor = ['blue', 'green', 'violet', 'maroon']
-  const indexColor = Math.floor(Math.random() * randomColor.length)
-  dataDir.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[indexColor]})
+  const randomColor = ["blue", "purple", "pink", "red", "green", "yellow"]
+  // const indexColor = Math.floor(Math.random() * randomColor.length)
+  dataDir.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[index]})
 } )
 
 
 const dataServ = []
 allOfDocByPeriodService.forEach((doc, index) => {
-  const randomColor = ['blue', 'green', 'violet', 'maroon']
+  const randomColor = ["blue", "purple", "pink", "red", "green", "yellow"]
   const indexColor = Math.floor(Math.random() * randomColor.length)
-  dataServ.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[indexColor]})
+  dataServ.push({name:doc[0],Courriers:doc[1].length, fill:randomColor[index]})
 } )
 
 
@@ -295,6 +295,8 @@ allOfDocByPeriodService.forEach((doc, index) => {
     
     
   };
+
+  const id_color = useId()
 
   return (
     <>
@@ -372,7 +374,7 @@ allOfDocByPeriodService.forEach((doc, index) => {
 
             <div class="mt-2 text-sm text-gray-400">Total Courriers</div>
           </a>
-           
+{/*            
         <a href="#"
         class="flex h-20 w-40 flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
         <div class="flex flex-row items-center justify-center">
@@ -390,27 +392,27 @@ allOfDocByPeriodService.forEach((doc, index) => {
         </div>
 
         <div class="mt-2 text-sm text-gray-400">Courriers Non Dechargés</div>
-    </a>
+    </a> */}
     {docByDirection.map((doc, index) => (
           <a href="#"
           class="flex h-20 w-[12rem] flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
           <div class="flex flex-row items-center justify-center">
-          <FaHouseFire className="mr-3 text-cyan-600"/>
+          <FaHouseFire className={`mr-3 text-blue-500`}/>
               <span class="font-bold text-gray-600"> {doc[1].length} </span>
           </div>
   
-          <div class="mt-2 text-sm text-gray-400">{doc[0]}</div>
+          <div class="mt-2 text-sm text-gray-400">Direction-{doc[0]}</div>
       </a>
     ))}
        {docNumberByServiceNoFilter.map((doc, index) => (
            <a href="#"
            class="flex h-20 w-[12rem] flex-col items-center justify-center bg-white shadow-lg rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
            <div class="flex flex-row items-center justify-center">
-           <FaHouseFire className="mr-3 text-indigo-600"/>
+           <FaHouseFire className={`mr-3 text-indigo-600`}/>
                <span class="font-bold text-gray-600"> {doc[1].length} </span>
            </div>
    
-           <div class="mt-2 text-sm text-gray-400">{doc[0]}</div>
+           <div class="mt-2 text-sm text-gray-400">Service-{doc[0]}</div>
        </a>
        ))}
         </div>

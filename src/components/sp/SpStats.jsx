@@ -73,7 +73,7 @@ function SpStats() {
               .catch((err) => console.log(err));
           };
 
-          const colors  = ["red", "blue", "green", "purple"]
+          const colors  = ["blue", "green", "purple", "yellow", 'violet', '']
           useEffect(() => {
                 getDocByService()
                 getcountDocByDirection()
@@ -171,7 +171,7 @@ function SpStats() {
                     {docByService.map((d, index) =>(    <a href="#"
                                                            className="flex h-20 w-40 bg-white shadow-lg flex-col items-center justify-center rounded-md border border-dashed border-gray-200 transition-colors duration-100 ease-in-out hover:border-gray-400/80">
                         <div className="flex flex-row items-center justify-center">
-                            <HiOfficeBuilding className={`mr-3 text-cyan-500`}/>
+                            <HiOfficeBuilding className={`mr-3 text-${colors[index]}-500`}/>
                 
                             <span className="font-bold text-gray-600"> {d[1].length}</span>
                         </div>
